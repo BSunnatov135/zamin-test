@@ -15,12 +15,25 @@
   @media screen and (max-width:600px) {
     display: none;
   }
+  
   .list {
     width: 100%;
     display: flex;
     justify-content: space-between;
     column-gap: 75.25px;
-    
+    @media screen and (max-width:820px){
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+      // grid-template-rows: max-content;
+      // row-gap: 30px;
+      // align-items: baseline;;
+      flex-wrap: wrap;
+      column-gap: 0;
+      row-gap: 20px;
+      .box {
+        width: calc(50% - 24px);
+      }
+    }
     }
   }
 .box {

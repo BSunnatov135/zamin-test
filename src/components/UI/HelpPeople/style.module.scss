@@ -2,7 +2,7 @@
 
 .main {
   padding: 80px 0 44px;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width:820px) {
     padding-top: 140px;
     padding-bottom: 0;
   }
@@ -10,7 +10,7 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:820px) {
       flex-direction: column;
     }
     .rightElement {
@@ -18,14 +18,16 @@
       height: 561px;
       width: 763px;
       max-width: 100%;
-      @media screen and (max-width:600px) {
+      @media screen and (max-width:820px) {
         order: 1;
         height: auto;
         display: flex;
+        width: 100%;
       }
       img {
         max-width: 100%;
         object-fit: cover;
+        width: 100%;
       }
     }
     .leftElement {
@@ -35,9 +37,10 @@
       top: 0;
       left: 0;
       max-width: 100%;
-      @media screen and (max-width:600px) {
+      @media screen and (max-width:820px) {
         order: 2;
         position: static;
+        width: 100%;
       }
       h2 {
         font-weight: 600;
@@ -45,14 +48,16 @@
         line-height: 44px;
         letter-spacing: 0.326451px;
         margin: 0;
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:820px) {
           position: absolute;
           top: 0;
           transform: translateY(-100%);
           padding-bottom: 24px;
-          font-size: 24px;
           line-height: 32px;
           letter-spacing: 0.38px;
+          br {
+            display: none;
+          }
         }
       }
       .box {
@@ -60,7 +65,7 @@
         color: #fff;
         margin-top: 32px;
         padding: 32px;
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:820px) {
           margin-top: 0;
           display: flex;
           padding: 16px 12px;
@@ -72,12 +77,14 @@
           column-gap: 20px;
           padding-bottom: 16px;
           border-bottom: 1px solid #e8e9eb;
-          @media screen and (max-width:600px) {
+          @media screen and (max-width:820px) {
             display: flex;
             flex-direction: column;
             row-gap: 24px;
             margin-top: 12px;
             border-bottom: 0;
+            max-width: 50%;
+            flex:1;
           }
           p {
             display: flex;
@@ -90,7 +97,7 @@
             line-height: 16px;
             color: rgba(255, 255, 255, 0.6);
             cursor: pointer;
-            @media screen and (max-width:600px) {
+            @media screen and (max-width:820px) {
               flex-direction: row;
               column-gap: 12px;
               font-weight: 500;
@@ -116,16 +123,16 @@
         }
         .body {
           padding-top: 16px;
-          @media screen and (max-width:600px) {
+          @media screen and (max-width:820px) {
             padding-top: 0;
-            max-width: 50%;
+            max-width: 60%;
           }
           h3 {
             font-weight: 600;
             font-size: 24px;
             line-height: 33px;
             margin-bottom: 12px;
-            @media screen and (max-width:600px) {
+            @media screen and (max-width:820px) {
               font-weight: 500;
               font-size: 16px;
               line-height: 22px;
@@ -143,7 +150,7 @@
             line-height: 26px;
             font-family: 'Noto Sans';
             color: rgba(255, 255, 255, 0.7);
-            @media screen and (max-width:600px) {
+            @media screen and (max-width:820px) {
               margin-top: 16px;
               line-height: 22px;
             }
