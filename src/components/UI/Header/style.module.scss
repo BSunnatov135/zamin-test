@@ -41,6 +41,9 @@
       cursor: pointer;
     }
     .rightElement {
+      span {
+        width: 34px;
+      }
       @include align-items-center;
       column-gap: 40px;
       p {
