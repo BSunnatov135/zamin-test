@@ -13,8 +13,9 @@
     row-gap: 16px;
     .item {
       height: 264px;
+      max-width: 100%;
       @media screen and (max-width:600px) {
-        height: 140px;
+        height: auto;
       }
       img {
         width: 100%;

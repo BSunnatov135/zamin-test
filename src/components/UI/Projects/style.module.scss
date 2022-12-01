@@ -48,6 +48,7 @@
       
     }
     .responsiveLink {
+      line-height: 44px;
       @media screen and (min-width:600px) {
         display: none;
       }
@@ -90,7 +91,7 @@
 }
 .responsiveTitle {
   font-weight: 600;
-  font-size: 32px;
+  font-size: 25px;
   line-height: 44px;
   @media screen and (min-width:601px) {
     display: none;
