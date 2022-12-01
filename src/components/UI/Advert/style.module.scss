@@ -1,0 +1,66 @@
+@import 'styles/unit.scss';
+
+.main {
+  padding: 80px 0;
+  @media screen and (max-width:600px) {
+    padding-top: 0;
+  }
+  .list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    @media screen and (max-width:600px) {
+      grid-template-columns: repeat(6, 306px);
+      overflow-x: auto;
+    }
+    .item {
+      padding: 24px 16px;
+      background-color: #fff;
+      cursor: pointer;
+      p {
+        &:first-child {
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          padding-bottom: 12px;
+          border-bottom: 1px solid #c4c4c4;
+        }
+        &:nth-child(2) {
+          font-size: 16px;
+          line-height: 180%;
+          color: #2d2d2d;
+          font-family: 'Noto Sans';
+          margin: 12px 0 16px;
+        }
+      }
+      &:hover {
+        a {
+          color: #09999A;
+          svg {
+            transform: translateX(5px);
+            path {
+              stroke: #09999A;
+            }
+          }
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        font-family: 'Noto Sans';
+        color: #333333;
+        column-gap: 5px;
+
+        svg {
+          transition: all 0.3s ease-in-out;
+          path {
+            stroke: #333333;
+          }
+        }
+      }
+    }
+  }
+}

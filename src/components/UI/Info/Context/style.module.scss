@@ -1,0 +1,52 @@
+@import 'styles/unit.scss';
+
+.main {
+  padding: 94px 80px;
+  border-bottom: 1px solid #CFCFCF;
+  @media screen and (max-width:600px) {
+    padding: 32px 0;
+  }
+  .content {
+    &__title {
+        font-size: 20px;
+        color: #000000;
+        font-weight: 700;
+        margin-bottom: 10px;
+        @media screen and (max-width:600px) {
+          margin-bottom: 8px;
+          
+        }
+    }
+    &__text {
+        font-size: 20px;
+        font-weight: 400;
+        color: #000000;
+        margin-bottom: 30px;
+        @media screen and (max-width:600px) {
+          font-size: 16px;
+          line-height: 150.2%;
+          margin-bottom: 12px;
+          &:last-child {
+            margin-bottom: 24px;
+          }
+        }
+    }
+  }
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #09999A;
+    }
+    &:hover {
+      svg {
+        margin-left: 6px;
+        transition: 0.3s;
+      }
+    }
+  }
+}

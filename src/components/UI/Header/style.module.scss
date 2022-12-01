@@ -1,0 +1,69 @@
+@import 'styles/unit.scss';
+.header {
+  height: 80px;
+  @include align-items-center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 0.4s ease-in-out;
+  background: #f7f7f7;
+  border-bottom: 1px solid #cfcfcf;
+  &.active {
+    background: #fff;
+  }
+  @media screen and (max-width: 600px) {
+    height: 62px;
+  }
+  .box {
+    @include element-center;
+    justify-content: space-between;
+    .logo {
+      max-height: 100%;
+      display: flex;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: calc(50% - 55px);
+      @media screen and (max-width: 600px) {
+        left: 42px;
+        height: 48px;
+        align-items: center;
+        top: 8px;
+        img {
+          height: 100%;
+        }
+      }
+    }
+    .menu {
+      display: flex;
+      cursor: pointer;
+    }
+    .rightElement {
+      @include align-items-center;
+      column-gap: 40px;
+      p {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        @include align-items-center;
+        column-gap: 12px;
+        cursor: pointer;
+        &:last-child {
+          column-gap: 9px;
+          @media screen and (max-width: 530px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rectangle {
+  height: 80px;
+  @media screen and (max-width: 600px) {
+    height: 62px;
+  }
+}

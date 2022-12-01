@@ -1,0 +1,52 @@
+@import 'unit';
+@import url('../../public/fonts/font.css');
+
+:root {
+  --primary-color: #09999a;
+  --secondary-color: #fdc100;
+  --text-color: #696969;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Noto Serif', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #f7f7f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.uwaw-how-it-works {
+  display: none !important;
+}
+
+#userwayAccessibilityIcon {
+  display: none !important;
+  right: 154px !important;
+  left: auto !important;
+  top: 24px !important;
+  min-width: 24px !important;
+  min-height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  background: transparent !important;
+  img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}

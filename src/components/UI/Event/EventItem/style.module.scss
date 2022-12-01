@@ -1,0 +1,72 @@
+@import 'styles/unit.scss';
+
+.item {
+  cursor: pointer;
+  &:hover {
+    .img {
+      img {
+        transform: scale(1.1);
+      }
+    }
+    a {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+  }
+  .img {
+    height: 290px;
+    overflow: hidden;
+    img {
+      transition: all 0.4s ease-in-out;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .body {
+    padding: 16px 12px;
+    background-color: #fff;
+    p {
+      &:first-child {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 25px;
+        height: 56px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      &:nth-child(2) {
+        font-family: 'Noto Sans';
+        font-size: 16px;
+        line-height: 160%;
+        color: #2d2d2d;
+        opacity: 0.8;
+        height: 51px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin: 16px 0 31px;
+      }
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      font-size: 16px;
+      line-height: 22px;
+      font-family: 'Noto Sans';
+      color: #333333;
+      column-gap: 5px;
+      svg {
+        transition: all 0.3s ease-in-out;
+        path {
+          stroke: #333333;
+        }
+      }
+    }
+  }
+}

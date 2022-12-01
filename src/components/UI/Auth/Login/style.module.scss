@@ -1,0 +1,52 @@
+.box {
+    width: 418px;
+    background: #fff;
+    display: flex;
+    padding: 24px;
+    row-gap: 24px;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 0;
+    @media screen and (max-width:600px) {
+        width: 100%;
+    }
+    .closeIcon {
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-end;
+        svg {
+            fill: #9A9B9B;
+        }
+    }
+    .title {
+        h2 {
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 44px;
+        }
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+    }
+    .forgotPassword {
+        a {
+            color:#1B5BF7;
+        }
+    }
+    .register {
+        p{
+            text-align: center;
+            a {
+                color: #1B5BF7
+            }
+        }
+    }
+}
+.active {
+    display: block;
+}
+.closed {
+    display: none;
+}

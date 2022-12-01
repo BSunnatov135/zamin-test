@@ -1,0 +1,25 @@
+@import 'styles/unit.scss';
+
+.popover {
+  width: 198px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  list-style-type: none;
+  background: #f7f7f7;
+  .item {
+    padding: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    a {
+      @include align-items-center;
+      justify-content: space-between;
+    }
+    svg {
+      color: #09999a;
+    }
+  }
+}

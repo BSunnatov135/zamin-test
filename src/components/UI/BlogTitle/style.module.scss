@@ -1,0 +1,47 @@
+@import 'styles/unit.scss';
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  @media screen and (max-width:600px) {
+    margin-bottom: 24px;
+  }
+  .leftElement {
+    p {
+      &:first-child {
+        font-size: 16px;
+        line-height: 180%;
+        span {
+          display: flex;
+        }
+      }
+      &:last-child {
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 44px;
+      }
+    }
+  }
+  a {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Noto Sans';
+    @include align-items-center;
+    column-gap: 4px;
+    color: #000;
+    svg {
+      transition: all 0.3s ease-in-out;
+      path {
+        stroke: #000;
+      }
+    }
+    &:hover {
+      svg {
+        transform: translateX(5px);
+      }
+    }
+    
+  }
+}
