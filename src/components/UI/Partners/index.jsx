@@ -13,7 +13,7 @@ const items = [
 export default function Partners() {
   return (
     <Container>
-      <div className={styles.main}>
+      <div className={styles.wrapper}>
         <div className={styles.list}>
           {items.map((item, index) => (
             <div key={index + 'key'} className={styles.item}>

@@ -1,8 +1,9 @@
 @import 'styles/unit.scss';
 
-.main {
+.wrapper {
   overflow-x: auto;
   overflow-y: hidden;
+  
   .list {
     display: grid;
     grid-gap: 6px;
