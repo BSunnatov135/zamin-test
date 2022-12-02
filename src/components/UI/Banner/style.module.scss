@@ -3,7 +3,7 @@
 .banner {
   height: 740px;
   position: relative;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width:820px) {
     height: 478px;
   }
   video {
@@ -22,7 +22,7 @@
     position: absolute;
     cursor: pointer;
     z-index: 99;
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:820px) {
       right:16px;
       bottom: 19.5px;
     }
@@ -37,7 +37,7 @@
     padding-bottom: 120px;
     row-gap: 25px;
     height: 100%;
-    @media screen and (max-width:600px) {
+    @media screen and (max-width:820px) {
       padding-bottom: 24px;
     }
     h1 {
@@ -46,7 +46,7 @@
       line-height: 54px;
       width: 800px;
       max-width: 100%;
-      @media screen and (max-width:600px) {
+      @media screen and (max-width:820px) {
         font-weight: 600;
         font-size: 32px;
         line-height: 44px;
@@ -59,7 +59,7 @@
       font-family: 'Noto Sans';
       @include align-items-center;
       column-gap: 20px;
-      @media screen and (max-width:600px) {
+      @media screen and (max-width:820px) {
         column-gap: 12px;
         font-size: 16px;
         line-height: 22px;

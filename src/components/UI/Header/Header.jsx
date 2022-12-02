@@ -51,6 +51,11 @@ export default function Header() {
                 <img src='/logos/logo.svg' alt='logo' />
               </a>
             </Link>
+            <Link href='/'>
+              <a className={styles.resLogo}>
+              <img src='/logos/resLogo.svg' alt='logo' />
+              </a>
+              </Link>
             <div className={styles.rightElement}>
               <p
                 onClick={() => {
