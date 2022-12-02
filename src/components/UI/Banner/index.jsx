@@ -8,6 +8,7 @@ import useTransition from 'next-translate/useTranslation'
 import { useState } from 'react'
 import { useRef } from 'react'
 
+
 export default function Banner() {
   const { t } = useTransition('common')
   const [isPlay, setIsPlay] = useState(false)
@@ -26,7 +27,7 @@ export default function Banner() {
     <>
       <div className={styles.banner}>
         <video autoPlay muted loop playsInline ref
-        ={videoRef}>
+        ={videoRef} poster='/video/poster.jpeg'>
           <source src='/video/banner.mp4' type='video/mp4' />
         </video>
         <Container

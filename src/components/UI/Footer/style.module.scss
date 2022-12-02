@@ -21,6 +21,13 @@
     display: flex;
     justify-content: space-between;
     column-gap: 70px;
+    @media screen and (max-width:1020px) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      .box {
+        width: auto;
+      }
+    }
     @media screen and (max-width:960px){
       // display: grid;
       // grid-template-columns: repeat(2, 1fr);
@@ -33,13 +40,6 @@
       row-gap: 20px;
       .box {
         width: calc(50% - 24px);
-      }
-    }
-    @media screen and (max-width:1020px) {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      .box {
-        width: auto;
       }
     }
     }
