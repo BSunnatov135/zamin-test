@@ -5,7 +5,7 @@ export default function ProjectItem({ item }) {
   return (
     <div className={styles.item} key={item.img}>
       <Link href={`/info/${item.title}`}>
-        <a>
+        <a className={styles.item__content}>
           <div className={styles.img}>
             <img src={item.img} alt={item.title} />
           </div>

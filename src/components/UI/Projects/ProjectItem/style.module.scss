@@ -2,7 +2,15 @@
 
 .item {
   cursor: pointer;
-
+  display: flex;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .img {
+    flex:1
+  }
   &:hover {
     .img {
       img {
