@@ -8,6 +8,7 @@ import CheckIcon from '/src/assests/icons/checkIcon.svg'
 import LoginForm from '../Login';
 import { useEffect } from 'react';
 import CountDown from '../RegCountdown/countDown';
+import InputMaskCustom from 'components/UI/FormElements/InputMask'
 
 const statuses = ['initial', 'password', 'code', 'gender']
 
@@ -16,6 +17,9 @@ export default function RegisterForm({
     handleClose,
     openLogin
     }) {
+        const [phone, setPhone] = useState('');
+        const handleInput = ({ target: { value } }) => setPhone(value);
+        
         const [toggle, setToggle] = useState('m')
 
         const [status,setStatus]=useState(statuses[0])
@@ -44,7 +48,17 @@ export default function RegisterForm({
             <h2>Регистрация</h2>
         </div>
         <form className={cls.form}>
-            <ZInput fullWidth type='tel' label='Номер телефона' placeholder='Введите номер'/>
+            <InputMaskCustom 
+            label='Номер телефона'
+            mask="+\9\9\8 99 999 99 99"
+            maskchar={null}
+            alwaysShowMask
+            placeholder='Введите номер'
+            name='phoneNumber'
+            value={phone} 
+            autoFocus
+            onChange={handleInput}
+            />
             {status === 'password' && <>
                 <ZInput fullWidth type='password' label='Пароль' placeholder='Введите пароль'/>
                 <ZInput fullWidth type='password' label='Подтвердите пароль' placeholder='Введите пароль'/>

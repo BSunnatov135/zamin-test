@@ -8,12 +8,18 @@ import { borders } from '@mui/system';
 import RegisterForm from '../Register';
 import { useState } from 'react';
 import classNames from 'classnames';
+import InputMaskCustom from 'components/UI/FormElements/InputMask'
+
 
 
 export default function LoginForm({
   open,
   handleClose
 }) {
+
+  const [phone, setPhone] = useState('');
+  const handleInput = ({ target: { value } }) => setPhone(value);
+  
   const [openRegister,setOpenRegister]=useState(false)
 
   const [toggle, setToggle] = useState(false)
@@ -40,7 +46,18 @@ export default function LoginForm({
           <h2>Вход на сайт</h2>
         </div>
         <form className={cls.form}>
-          <ZInput fullWidth type='tel' label='Номер телефона' placeholder='Введите номер'/>
+          {/* <ZInput fullWidth type='tel' label='Номер телефона' placeholder='Введите номер'/> */}
+          <InputMaskCustom 
+          label='Номер телефона'
+          mask="+\9\9\8 99 999 99 99"
+          maskchar={null}
+          alwaysShowMask
+          placeholder='Введите номер'
+          name='phoneNumber'
+          value={phone} 
+          autoFocus
+          onChange={handleInput}
+          />
           {toggle && (<div>
             <ZInput fullWidth type='password' label='Пароль' placeholder='Введите пароль'/>
             <div className={cls.forgotPassword}>
