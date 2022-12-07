@@ -27,10 +27,18 @@
         height: 70px;
 
       }
-      img {
+      
+          svg {
+            &:hover {
+            path {
+              fill: #09999a;
+            }
+          }
+          }
+        cursor: pointer;
         height: 80px;
         object-fit: cover;
       }
     }
   }
-}
+

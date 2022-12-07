@@ -1,13 +1,14 @@
 import { Container } from '@mui/material'
 import styles from './style.module.scss'
+import { AcerIcon, AsusIcon, MiIcon, SonyIcon, VivoIcon } from '../svg'
 
 const items = [
-  '/logos/acer.svg',
-  '/logos/sony.svg',
-  '/logos/asus.svg',
-  '/logos/mi.svg',
-  '/logos/vivo.svg',
-  '/logos/vivo.svg'
+  <AcerIcon/>,
+  <SonyIcon/>,
+  <AsusIcon/>,
+  <MiIcon/>,
+  <VivoIcon/>,
+  <VivoIcon/>
 ]
 
 export default function Partners() {
@@ -15,11 +16,11 @@ export default function Partners() {
     <Container>
       <div className={styles.wrapper}>
         <div className={styles.list}>
-          {items.map((item, index) => (
+          {items.map((item, index) =>
             <div key={index + 'key'} className={styles.item}>
-              <img src={item} alt='asus logo' />
+              {item}
             </div>
-          ))}
+          )}
         </div>
       </div>
     </Container>
