@@ -51,11 +51,10 @@ export default function LoginForm({
           label='Номер телефона'
           mask="+\9\9\8 99 999 99 99"
           maskchar={null}
-          alwaysShowMask
+          alwaysShowMask={false}
           placeholder='Введите номер'
           name='phoneNumber'
           value={phone} 
-          autoFocus
           onChange={handleInput}
           />
           {toggle && (<div>

@@ -44,7 +44,7 @@ export default function Projects() {
           </Link>
           <Link href='/projects'>
             <a className={styles.link}>
-              Все проекти <ArrowRightIcon />
+              Все проекты <ArrowRightIcon />
             </a>
           </Link>
         </div>

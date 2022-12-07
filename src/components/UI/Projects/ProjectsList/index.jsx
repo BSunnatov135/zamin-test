@@ -40,7 +40,7 @@ export default function ProjectsPage() {
   return (
     <Container>
       <div className={styles.main}>
-        <h2 className={styles.sectionTitle}>Все проекти</h2>
+        <h2 className={styles.sectionTitle}>Все проекты</h2>
         <div className={styles.list}>
           {projects.map((item) => (
             <ProjectItem key={item.img} item={item} />

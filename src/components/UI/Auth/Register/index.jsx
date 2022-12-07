@@ -19,7 +19,7 @@ export default function RegisterForm({
     }) {
         const [phone, setPhone] = useState('');
         const handleInput = ({ target: { value } }) => setPhone(value);
-        
+
         const [toggle, setToggle] = useState('m')
 
         const [status,setStatus]=useState(statuses[0])
@@ -52,11 +52,10 @@ export default function RegisterForm({
             label='Номер телефона'
             mask="+\9\9\8 99 999 99 99"
             maskchar={null}
-            alwaysShowMask
+            alwaysShowMask={false}
             placeholder='Введите номер'
             name='phoneNumber'
             value={phone} 
-            autoFocus
             onChange={handleInput}
             />
             {status === 'password' && <>
