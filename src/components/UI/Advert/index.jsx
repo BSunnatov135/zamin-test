@@ -3,6 +3,8 @@ import Link from 'next/link'
 import BlogTitle from '../BlogTitle'
 import styles from './style.module.scss'
 import ArrowRight from 'assests/icons/narrowRight.svg'
+import useTransition from 'next-translate/useTranslation'
+
 
 const items = [
   {
@@ -32,10 +34,11 @@ const items = [
 ]
 
 export default function Advert() {
+  const { t } = useTransition('common')
   return (
     <Container>
       <div className={styles.main}>
-        <BlogTitle title='Объявления' />
+        <BlogTitle title={t('advert_title')} />
         <div className={styles.list}>
           {items.map((item, index) => (
             <div key={index + 'key'} className={styles.item}>

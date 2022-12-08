@@ -3,6 +3,7 @@ import Link from 'next/link'
 import styles from './style.module.scss'
 import ArrowRight from 'assests/icons/narrowRight.svg'
 import { Box } from '@mui/system'
+import useTransition from 'next-translate/useTranslation'
 
 const items = [
   {
@@ -29,6 +30,7 @@ const items = [
 ]
 
 export default function Achievements() {
+  const { t } = useTransition('common')
   return (
     <Box
       sx={{
@@ -37,7 +39,7 @@ export default function Achievements() {
     >
       <Container>
         <div className={styles.main}>
-          <h2>Наши достижения</h2>
+          <h2>{t('achievement_title')}</h2>
           <div className={styles.list}>
             {items.map((item, index) => (
               <div key={index + 'key'} className={styles.item}>

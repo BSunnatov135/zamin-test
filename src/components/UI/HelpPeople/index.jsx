@@ -1,4 +1,5 @@
 import { Container } from '@mui/material'
+import useTransition from 'next-translate/useTranslation'
 import styles from './style.module.scss'
 import MotarboardIcon from 'assests/icons/motarboard.svg'
 import EmergencyIcon from 'assests/icons/emergency.svg'
@@ -34,6 +35,7 @@ const items = [
 ]
 
 export default function HelpPeople() {
+  const { t } = useTransition('common')
   const [index, setIndex] = useState(0)
   return (
     <Container>
@@ -41,7 +43,7 @@ export default function HelpPeople() {
         <div className={styles.element}>
           <div className={styles.leftElement}>
             <h2>
-              В каких сферах мы <br /> помогаем людям
+            {t('helppeople_title')}
             </h2>
             <div className={styles.box}>
               <div className={styles.header}>

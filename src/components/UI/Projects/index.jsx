@@ -5,6 +5,7 @@ import HeartIcon from 'assests/icons/heart.svg'
 import ArrowRightIcon from 'assests/icons/arrowRight.svg'
 import ProjectItem from './ProjectItem'
 import { projects } from './mockData'
+import useTransition from 'next-translate/useTranslation'
 
 const items = [
   {
@@ -25,6 +26,7 @@ const items = [
 ]
 
 export default function Projects() {
+  const { t } = useTransition('common')
   return (
     <Container>
       <div className={styles.main}>
@@ -34,9 +36,9 @@ export default function Projects() {
               <span>
                 <HeartIcon />
               </span>
-              Помогаем людям стать лучше
+              {t('projects_motto')}
             </p>
-            <p className={styles.title}>Проекты, которыми гордимся </p>
+            <p className={styles.title}>{t('projects_title')}</p>
             <p className={styles.responsiveTitle}>Наши проекты</p>          
             </div>
           <Link href='/projects'>

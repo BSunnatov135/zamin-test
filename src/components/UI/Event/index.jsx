@@ -3,15 +3,17 @@ import { useRouter } from 'next/router'
 import BlogTitle from '../BlogTitle'
 import styles from './style.module.scss'
 import PlayLarge from '/src/assests/icons/playLarge.svg'
+import useTransition from 'next-translate/useTranslation'
 import PlaySmall from '/src/assests/icons/playSmall.svg'
 
 export default function Event() {
+  const { t } = useTransition('common')
   const router = useRouter()
   return (
     <Container>
       <div className={styles.main}>
         <BlogTitle
-          title='Мероприятие'
+          title={t('event_title')}
           link={{
             title: 'Все',
             path: '/event'
