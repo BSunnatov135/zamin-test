@@ -2,8 +2,9 @@ import React from "react";
 import InputMask from "react-input-mask";
 import { Typography } from "@mui/material";
 import styles from "./style.module.scss";
+import { Controller } from "react-hook-form";
 
-export default function InputMaskCustom(props) {
+export default function InputMaskCustom({control, ...props}) {
   return (
     <div className={styles.inputMaskWrapper}>
       {props.label && (
@@ -11,17 +12,23 @@ export default function InputMaskCustom(props) {
           <Typography variant="labelText">{props.label}</Typography>
         </label>
       )}
-      <InputMask
-        mask={props.mask}
-        placeholder={props.placeholder}
-        value={props.value}
-        maskChar={props.maskChar}
-        className={styles.input}
-        required
+      <Controller 
+        control={control}
         name={props.name}
-        style={props.error ? { borderColor: "red" } : {}}
-        {...props}
-      />
+        render={({field: { onChange, value }, fieldState: { error }}) => (
+          <InputMask
+            onChange={onChange}
+            mask={props.mask}
+            error={error}
+            placeholder={props.placeholder}
+            value={value}
+            maskChar={props.maskChar}
+            className={styles.input}
+            required
+            style={props.error ? { borderColor: "red" } : {}}
+            {...props}
+        />
+        )} />
     </div>
   );
 }

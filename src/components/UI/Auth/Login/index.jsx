@@ -9,8 +9,7 @@ import RegisterForm from '../Register';
 import { useState } from 'react';
 import classNames from 'classnames';
 import InputMaskCustom from 'components/UI/FormElements/InputMask'
-
-
+import { useForm } from 'react-hook-form';
 
 export default function LoginForm({
   open,
@@ -23,6 +22,14 @@ export default function LoginForm({
   const [openRegister,setOpenRegister]=useState(false)
 
   const [toggle, setToggle] = useState(false)
+
+  const { control, reset, hanldeSubmit, watch } = useForm({
+    defaultValues: {
+        phoneNumber: '998994912830'
+    }
+})
+
+console.log(watch('phoneNumber'));
 
   const handleRegister = (event) => {
     event && event.preventDefault()
@@ -45,9 +52,10 @@ export default function LoginForm({
         <div className={cls.title}>
           <h2>Вход на сайт</h2>
         </div>
-        <form className={cls.form}>
+        <form className={cls.form} >
           {/* <ZInput fullWidth type='tel' label='Номер телефона' placeholder='Введите номер'/> */}
           <InputMaskCustom 
+          control={control}
           label='Номер телефона'
           mask="+\9\9\8 99 999 99 99"
           maskchar={null}
