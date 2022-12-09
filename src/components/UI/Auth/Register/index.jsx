@@ -18,34 +18,32 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const [phone, setPhone] = useState("");
   const handleInput = ({ target: { value } }) => setPhone(value);
 
-  const [toggle, setToggle] = useState("m");
+  const [toggle, setToggle] = useState("male");
 
-    const [status, setStatus] = useState(statuses[0]);
+    const [status, setStatus] = useState(statuses[3]);
     
-  const stepChanger = ()=> {
-      if(status === 'initial') {
-          setStatus(statuses[1])
-      }
-      if(status === 'password') {
-          setStatus(statuses[2])
-      }
-      if(status === 'code') {
-          setStatus(statuses[3])
-      }
-  }
+  // const stepChanger = ()=> {
+  //     if(status === 'initial') {
+  //         setStatus(statuses[1])
+  //     }
+  //     if(status === 'password') {
+  //         setStatus(statuses[2])
+  //     }
+  //     if(status === 'code') {
+  //         setStatus(statuses[3])
+  //     }
+  // }
 
   const { control, register, handleSubmit, watch, formState: {errors} } = useForm({
-    defaultValues: {
-      phoneNumber: "998994912830",
-    },
+    
   });
     
     const {objectMutation} = useAuth({loginQueryProps: {}, table_slug: 'website_users'})
 
 console.log('errors ', errors)
-  console.log("WATCHER PHONE NUMBER", watch("phoneNumber"));
+  console.log("WATCHER PHONE NUMBER", watch("phone"));
 
-    const onSubmit = (data) => objectMutation.mutate({ ...data, gender: [toggle] })
+    const onSubmit = (data) => objectMutation.mutate({data:{ ...data, gender: [toggle] ,user_types_id:"8bc9ec1b-e619-4b49-a592-8a0d2379995d", birth_date: new Date(data.birth_date)}})
     
     console.log("gender ",status)
 
@@ -61,26 +59,24 @@ console.log('errors ', errors)
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             <InputMaskCustom
+              register={register}
+              name="phone"
               control={control}
               label="Номер телефона"
-              mask="+\9\9\8 (99) 999 99 99"
+              mask="(99) 999-99-99"
               maskchar={null}
               alwaysShowMask={false}
               placeholder="Введите номер"
-              name="phoneNumber"
             />
             {status === "password" && (
               <>
                 <ZInput
-                    register={register}
-                    name="birthdate"
                   fullWidth
                   type="password"
                   label="Пароль"
                   placeholder="Введите пароль"
                 />
-                <ZInput register={register}
-                                  name="birthdate"
+                <ZInput
                   fullWidth
                   type="password"
                   label="Подтвердите пароль"
@@ -90,9 +86,7 @@ console.log('errors ', errors)
             )}
             {status === "code" && (
               <>
-                              <ZInput
-                                  register={register}
-                                  name="birthdate"
+                  <ZInput
                   fullWidth
                   type="password"
                   label="Смс код"
@@ -103,27 +97,63 @@ console.log('errors ', errors)
             )}
             {status === "gender" && (
               <div>
-                              <ZInput
-                                  register={register}
-                                  name="birthdate"
-                                  fullWidth
+                <ZInput
+                  register={register}
+                  name="name"
+                  fullWidth
+                  type="text"
+                  label="Имя"
+                  placeholder="Введите ваше имя"
+                />
+                 <ZInput
+                  register={register}
+                  name="surname"
+                  fullWidth
+                  type="text"
+                  label="Фамилия"
+                  placeholder="Введите фамилию"
+                />
+                <ZInput
+                  register={register}
+                  name="second_name"
+                  fullWidth
+                  type="text"
+                  label="Отчество"
+                  placeholder="Введите отчество"
+                />
+                <ZInput
+                  register={register}
+                  name="email"
+                  fullWidth
+                  type="email"
+                  label="E-mail"
+                  placeholder="E-mail"
+                />
+                  <ZInput
+                  register={register}
+                  name="birth_date"
+                  fullWidth
                   type="date"
                   label="Дата рождение"
                   placeholder="Выберите дату"
                 />
                 <div className={cls.genderChooseLabel}>
                   <label>Выберите пол</label>
-                  <div className={cls.genderChoose}>
-                    <div className={cls.gender} onClick={() => setToggle("m")}>
-                      Мужчина {toggle === "m" && <CheckIcon />}
+                  <div className={cls.genderChoose} register={register}
+                  name="gender">
+                    <div className={cls.gender} onClick={() => setToggle("male")}>
+                      Мужчина {toggle === "male" && <CheckIcon />}
                     </div>
-                    <div className={cls.gender} onClick={() => setToggle("w")}>
-                      Женщина {toggle === "w" && <CheckIcon />}
+                    <div className={cls.gender} onClick={() => setToggle("female")}>
+                      Женщина {toggle === "female" && <CheckIcon />}
                     </div>
                   </div>
                 </div>
               </div>
-            )}<Button type={status === 'gender' ? "submit" : "button"} onClick={() => status === 'gender' ?  {} : stepChanger()}>Подвердить</Button>
+            )}
+            {/* <Button type={status === 'gender' ? "submit" : "button"} onClick={() => status === 'gender' ? {} : stepChanger()}>Подвердить</Button> */}
+            <Button type='submit'>Подвердить</Button>
+
           </form>
           <div className={cls.register}>
             <p>

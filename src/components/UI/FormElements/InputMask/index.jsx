@@ -8,7 +8,7 @@ export default function InputMaskCustom({control, ...props}) {
   return (
     <div className={styles.inputMaskWrapper}>
       {props.label && (
-        <label htmlFor="phoneNumber">
+        <label htmlFor="phone">
           <Typography variant="labelText">{props.label}</Typography>
         </label>
       )}

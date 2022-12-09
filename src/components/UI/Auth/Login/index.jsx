@@ -25,11 +25,11 @@ export default function LoginForm({
 
   const { control, reset, hanldeSubmit, watch } = useForm({
     defaultValues: {
-        phoneNumber: '998994912830'
+        phone: '998994912830'
     }
 })
 
-console.log(watch('phoneNumber'));
+console.log(watch('phone'));
 
   const handleRegister = (event) => {
     event && event.preventDefault()
@@ -61,7 +61,7 @@ console.log(watch('phoneNumber'));
           maskchar={null}
           alwaysShowMask={false}
           placeholder='Введите номер'
-          name='phoneNumber'
+          name='phone'
           value={phone} 
           onChange={handleInput}
           />
