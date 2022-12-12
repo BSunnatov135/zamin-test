@@ -77,11 +77,7 @@
     margin-top: 20px;
 }
 .borderRed {
-    border: 1px solid red;
-    input {
-        border: 1px solid red
-    }
-    .input{
-        input{
-            border: 1px solid red;
-} }}
+
+    input{
+            border: 1px solid red !important
+} }

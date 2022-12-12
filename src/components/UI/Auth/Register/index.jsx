@@ -76,7 +76,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
         }
       })
   }
-    
+  console.log(errors);
   return (
     <>
       <Dialog open={open} onClose={handleClose} sx={{ borderRadius: "0" }}>
@@ -127,6 +127,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   type="password"
                   label="Смс код"
                   placeholder="Введите Смс код"
+                  className= {errors.hasOwnProperty('otp') ? cls.borderRed : " "}
                 />
                 <CountDown seconds={59} />
               </>
@@ -143,6 +144,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   type="text"
                   label="Имя"
                   placeholder="Введите ваше имя"
+                  className= {errors.hasOwnProperty('name') ? cls.borderRed : " "}
                 />
                  <ZInput
                   register={register}
@@ -154,6 +156,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   type="text"
                   label="Фамилия"
                   placeholder="Введите фамилию"
+                  className= {errors.hasOwnProperty('surname') ? cls.borderRed : " "}
                 />
                 <ZInput
                   register={register}
@@ -165,6 +168,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   type="text"
                   label="Отчество"
                   placeholder="Введите отчество"
+                  className= {errors.hasOwnProperty('second_name') ? cls.borderRed : " "}
                 />
                 <ZInput
                   register={register}
@@ -179,7 +183,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   {...register("email", {
                     required: true
                   })}
-                  className= {errors.email ? cls.borderRed : " "} 
+                  className= {errors.hasOwnProperty('email') ? cls.borderRed : " "} 
                   />
  
                 <ZInput
@@ -194,6 +198,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   fullWidth
                   label="Дата рождения "
                   placeholder="Выберите дату"
+                  className= {errors.hasOwnProperty('birth_date') ? cls.borderRed : " "} 
                 />
                 <div className={cls.genderChooseLabel}>
                   <label>Выберите пол</label>
