@@ -19,7 +19,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const [state, setState] = useState({
     smsId: ''
   })
-  const { control, register, handleSubmit, watch, formState: {errors} } = useForm();
+  const { control, register, handleSubmit, watch, reset, formState: {errors} } = useForm();
   const [toggle, setToggle] = useState("male");
   const [status, setStatus] = useState(statuses[0]);
   const dispatch = useDispatch()
@@ -27,6 +27,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     signupQueryProps: {
       onSuccess: () => {
         handleClose()
+        setStatus(statuses[0])
+        reset();
       }
     },
     sendCodeQueryProps: {
@@ -69,7 +71,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
           user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d", birth_date: new Date(data.birth_date)
         }
       })
-    
   }
     
   return (
