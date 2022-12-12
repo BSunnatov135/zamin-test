@@ -12,7 +12,7 @@ export default createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          
+          borderRadius: 0,
           background: 'transparent',
           '@media (max-width: 600px)': {
             margin: 16,

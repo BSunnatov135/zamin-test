@@ -69,7 +69,7 @@ export default function LoginForm({
           alwaysShowMask={false}
           placeholder='Введите номер'
           />
-            <Button type='submit'>Войти</Button>
+            <Button type='submit' className={cls.button}>Войти</Button>
         </form>
         
         <div className={cls.register}>

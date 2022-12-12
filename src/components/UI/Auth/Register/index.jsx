@@ -3,11 +3,12 @@ import cls from "./style.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import ZInput from "components/UI/FormElements/ZInput";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CheckIcon from "/src/assests/icons/checkIcon.svg";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";
+import { ErrorMessage } from '@hookform/error-message'
 import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
@@ -19,16 +20,17 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const [state, setState] = useState({
     smsId: ''
   })
-  const { control, register, handleSubmit, watch, reset, formState: {errors} } = useForm();
+  const ref = useRef();
+  const { control, register, reset, handleSubmit, watch, formState: {errors} } = useForm();
   const [toggle, setToggle] = useState("male");
   const [status, setStatus] = useState(statuses[0]);
   const dispatch = useDispatch()
-  const { signUp, sendCode, verifyUser } = useAuth({
+  const { signUp, sendCode, verifyUser} = useAuth({
     signupQueryProps: {
       onSuccess: () => {
+        setStatus(statuses[0])
         handleClose()
         reset();
-        setStatus(statuses[0])
       }
     },
     sendCodeQueryProps: {
@@ -38,12 +40,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
           smsId: value.data.sms_id
         }))
         setStatus(statuses[1])
+        reset()
       }
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
         dispatch(setUser(value.data.client_platform))
         setStatus(statuses[2])
+        reset()
       }
     },
     verifyParams: {
@@ -77,13 +81,19 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     <>
       <Dialog open={open} onClose={handleClose} sx={{ borderRadius: "0" }}>
         <div className={cls.box}>
-          <div className={cls.closeIcon} onClick={handleClose}>
+          <div className={cls.closeIcon} onClick={(e) => {
+            handleClose(e);
+            reset()
+            setStatus(statuses[0])
+                }}>
             <CloseIcon />
           </div>
           <div className={cls.title}>
             <h2>Регистрация</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
+            {status === 'initial' &&
+            <>  
             <InputMaskCustom
               name="phone"
               control={control}
@@ -92,11 +102,26 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
               maskchar={null}
               alwaysShowMask={false}
               placeholder="Введите номер"
-            />
+              />
+             
+              </>
+            }
             {status === "code" && (
               <>
+                <InputMaskCustom
+              name="phone"
+              control={control}
+              label="Номер телефона"
+              mask="(99) 999-99-99"
+              maskchar={null}
+              alwaysShowMask={false}
+              placeholder="Введите номер"
+            />
                 <ZInput
                   register={register}
+                  {...register("otp", {
+                    required: true
+                  })}
                   name="otp"
                   fullWidth
                   type="password"
@@ -110,6 +135,9 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
               <div className={cls.inputWrapper}>
                 <ZInput
                   register={register}
+                  {...register("name", {
+                    required: true
+                  })}
                   name="name"
                   fullWidth
                   type="text"
@@ -118,6 +146,9 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 />
                  <ZInput
                   register={register}
+                  {...register("surname", {
+                    required: true
+                  })}
                   name="surname"
                   fullWidth
                   type="text"
@@ -126,6 +157,9 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 />
                 <ZInput
                   register={register}
+                  {...register("second_name", {
+                    required: true
+                  })}
                   name="second_name"
                   fullWidth
                   type="text"
@@ -134,18 +168,31 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 />
                 <ZInput
                   register={register}
+                  {...register("email", {
+                    required: true
+                  })}
                   name="email"
                   fullWidth
                   type="email"
                   label="E-mail"
                   placeholder="E-mail"
-                />
-                  <ZInput
+                  {...register("email", {
+                    required: true
+                  })}
+                  className= {errors.email ? cls.borderRed : " "} 
+                  />
+ 
+                <ZInput
                   register={register}
+                  {...register("birth_date", {
+                    required: true
+                  })}
+                  ref={ref}
+                  type='text'
+                  onFocus={(e) => (e.target.type = "date")}
                   name="birth_date"
                   fullWidth
-                  type="date"
-                  label="Дата рождение"
+                  label="Дата рождения "
                   placeholder="Выберите дату"
                 />
                 <div className={cls.genderChooseLabel}>
@@ -162,7 +209,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 </div>
               </div>
             )}
-            <Button type="submit" className={cls.button}>Подвердить</Button>
+            <Button type="submit" className={cls.button}>Подтвердить</Button>
 
           </form>
           <div className={cls.register}>

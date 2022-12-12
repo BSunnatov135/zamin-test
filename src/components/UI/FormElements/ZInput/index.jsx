@@ -14,7 +14,7 @@ export default function ZInput({fullWidth, size = 'medium',name,register, label,
         <div className={styles.input}>
             {label && <label>{label}</label>}
             <input type={type} placeholder={placeholder} {...restProps} className={classNames(styles[size], {
-                [styles.fullWidth]: fullWidth,
+                [styles.fullWidth]: fullWidth
             })} {...register(name)} />
         {/* {type==="password" && <div className={styles.icon}><ShowPasswordIcon /></div>} */}
         </div>

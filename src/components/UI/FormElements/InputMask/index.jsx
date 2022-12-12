@@ -16,7 +16,7 @@ export default function InputMaskCustom({control, ...props}) {
         control={control}
         name={props.name}
         render={({field: { onChange, value }, fieldState: { error }}) => (
-          <InputMask
+          <><InputMask
             onChange={onChange}
             mask={props.mask}
             error={error}
@@ -27,7 +27,8 @@ export default function InputMaskCustom({control, ...props}) {
             required
             style={props.error ? { borderColor: "red" } : {}}
             {...props}
-        />
+          />
+          </>
         )} />
     </div>
   );
