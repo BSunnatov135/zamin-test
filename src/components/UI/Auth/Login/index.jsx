@@ -64,18 +64,11 @@ export default function LoginForm({
           register={register}
           name="recipient"
           label='Номер телефона'
-          mask="+\9\9\8999999999"
+          mask="(99) 999-99-99"
           maskchar={null}
           alwaysShowMask={false}
           placeholder='Введите номер'
           />
-          {/* <div>
-            <ZInput fullWidth type='password' label='Пароль' placeholder='Введите пароль' register={register}
-              name="otp"/>
-            <div className={cls.forgotPassword}>
-            <a href='#'>Забыли пароль?</a>
-            </div>
-          </div> */}
             <Button type='submit'>Войти</Button>
         </form>
         

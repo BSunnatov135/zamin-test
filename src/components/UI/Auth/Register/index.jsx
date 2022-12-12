@@ -26,7 +26,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const { signUp, sendCode, verifyUser } = useAuth({
     signupQueryProps: {
       onSuccess: () => {
-        handleClose
+        handleClose()
       }
     },
     sendCodeQueryProps: {
