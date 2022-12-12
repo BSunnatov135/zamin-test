@@ -27,8 +27,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     signupQueryProps: {
       onSuccess: () => {
         handleClose()
-        setStatus(statuses[0])
         reset();
+        setStatus(statuses[0])
       }
     },
     sendCodeQueryProps: {
@@ -107,7 +107,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
               </>
             )}
             {status === "gender" && (
-              <div>
+              <div className={cls.inputWrapper}>
                 <ZInput
                   register={register}
                   name="name"
@@ -162,7 +162,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 </div>
               </div>
             )}
-            <Button type="submit">Подвердить</Button>
+            <Button type="submit" className={cls.button}>Подвердить</Button>
 
           </form>
           <div className={cls.register}>

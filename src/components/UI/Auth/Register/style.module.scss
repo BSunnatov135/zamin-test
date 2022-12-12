@@ -64,3 +64,11 @@
     justify-content: space-between;
     border: 1px solid #CFCFCF;
 }
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+.button {
+    margin-top: 20px;
+}
