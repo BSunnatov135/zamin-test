@@ -5,48 +5,73 @@ import Button from "@mui/material/Button";
 import ZInput from "components/UI/FormElements/ZInput";
 import { useState } from "react";
 import CheckIcon from "/src/assests/icons/checkIcon.svg";
-import LoginForm from "../Login";
-import { useEffect } from "react";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";
 import useAuth from "services/auth";
+import { otpCredentials } from "utils/authCredentials";
+import { setUser } from "store/authSlice/authSlice";
+import { useDispatch } from "react-redux";
 
-const statuses = ["initial", "password", "code", "gender"];
+const statuses = ["initial", "code", "gender"];
 
 export default function RegisterForm({ open, handleClose, openLogin }) {
-  const [phone, setPhone] = useState("");
-  const handleInput = ({ target: { value } }) => setPhone(value);
-
+  const [state, setState] = useState({
+    smsId: ''
+  })
+  const { control, register, handleSubmit, watch, formState: {errors} } = useForm();
   const [toggle, setToggle] = useState("male");
+  const [status, setStatus] = useState(statuses[0]);
+  const dispatch = useDispatch()
+  const { signUp, sendCode, verifyUser } = useAuth({
+    signupQueryProps: {
+      onSuccess: () => {
+        handleClose
+      }
+    },
+    sendCodeQueryProps: {
+      onSuccess: (value) => {
+        setState(prev=>({
+          ...prev,
+          smsId: value.data.sms_id
+        }))
+        setStatus(statuses[1])
+      }
+    },
+    verifyUserQueryProps: {
+      onSuccess: (value) => {
+        dispatch(setUser(value.data.client_platform))
+        setStatus(statuses[2])
+      }
+    },
+    verifyParams: {
+      otp: watch('otp'), smsId: state.smsId  }
+  })
 
-    const [status, setStatus] = useState(statuses[3]);
+  const onSubmit = (data) => {
+    if (status === 'initial') {
+      sendCode.mutate({
+        "client_type": "SITE_USER",
+        "recipient": `+998${data.phone.replace(/[- )(]/g, '')}`,
+        "text" : "Код подтверждения"
+      })
+      return
+    }
+    if (status === 'code') {
+      console.log('data===>', data)
+      verifyUser.mutate(otpCredentials)
+      return
+    }
+    signUp.mutate
+      ({
+        data: {
+          ...data, gender: [toggle],
+          user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d", birth_date: new Date(data.birth_date)
+        }
+      })
     
-  // const stepChanger = ()=> {
-  //     if(status === 'initial') {
-  //         setStatus(statuses[1])
-  //     }
-  //     if(status === 'password') {
-  //         setStatus(statuses[2])
-  //     }
-  //     if(status === 'code') {
-  //         setStatus(statuses[3])
-  //     }
-  // }
-
-  const { control, register, handleSubmit, watch, formState: {errors} } = useForm({
+  }
     
-  });
-    
-    const {objectMutation} = useAuth({loginQueryProps: {}, table_slug: 'website_users'})
-
-console.log('errors ', errors)
-  console.log("WATCHER PHONE NUMBER", watch("phone"));
-
-    const onSubmit = (data) => objectMutation.mutate({data:{ ...data, gender: [toggle] ,user_types_id:"8bc9ec1b-e619-4b49-a592-8a0d2379995d", birth_date: new Date(data.birth_date)}})
-    
-    console.log("gender ",status)
-
   return (
     <>
       <Dialog open={open} onClose={handleClose} sx={{ borderRadius: "0" }}>
@@ -59,7 +84,6 @@ console.log('errors ', errors)
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             <InputMaskCustom
-              register={register}
               name="phone"
               control={control}
               label="Номер телефона"
@@ -68,25 +92,11 @@ console.log('errors ', errors)
               alwaysShowMask={false}
               placeholder="Введите номер"
             />
-            {status === "password" && (
-              <>
-                <ZInput
-                  fullWidth
-                  type="password"
-                  label="Пароль"
-                  placeholder="Введите пароль"
-                />
-                <ZInput
-                  fullWidth
-                  type="password"
-                  label="Подтвердите пароль"
-                  placeholder="Введите пароль"
-                />
-              </>
-            )}
             {status === "code" && (
               <>
-                  <ZInput
+                <ZInput
+                  register={register}
+                  name="otp"
                   fullWidth
                   type="password"
                   label="Смс код"
@@ -151,8 +161,7 @@ console.log('errors ', errors)
                 </div>
               </div>
             )}
-            {/* <Button type={status === 'gender' ? "submit" : "button"} onClick={() => status === 'gender' ? {} : stepChanger()}>Подвердить</Button> */}
-            <Button type='submit'>Подвердить</Button>
+            <Button type="submit">Подвердить</Button>
 
           </form>
           <div className={cls.register}>

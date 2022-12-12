@@ -9,9 +9,10 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { useEffect } from 'react'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import { useRouter } from 'next/router'
+import { queryClient } from 'services/http-client'
 
 function MyApp({ Component, pageProps }) {
-  const [queryClient] = React.useState(() => new QueryClient())
+  // const [queryClient] = React.useState(() => new QueryClient())
 
   return (
     <Provider store={store}>

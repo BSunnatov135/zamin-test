@@ -10,6 +10,8 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import InputMaskCustom from 'components/UI/FormElements/InputMask'
 import { useForm } from 'react-hook-form';
+import useAuthLogin from "services/auth";
+
 
 export default function LoginForm({
   open,
@@ -23,14 +25,6 @@ export default function LoginForm({
 
   const [toggle, setToggle] = useState(false)
 
-  const { control, reset, hanldeSubmit, watch } = useForm({
-    defaultValues: {
-        phone: '998994912830'
-    }
-})
-
-console.log(watch('phone'));
-
   const handleRegister = (event) => {
     event && event.preventDefault()
     setOpenRegister(prev=>!prev);
@@ -40,6 +34,17 @@ console.log(watch('phone'));
   const handleCloseRegister = ()=>{
     setOpenRegister(prev=>!prev)
   }
+
+  const { control, register, handleSubmit,  formState: {errors} } = useForm();
+    
+  const {objectMutation} = useAuthLogin({loginQueryProps: {}, send_code: 'send-code'})
+
+  const onSubmit = (data) => objectMutation.mutate({ ...data, client_type: 'SITE_USER' })
+  
+
+
+  
+  
   return(
     <>
     <Dialog open={open} onClose={handleClose} 
@@ -52,27 +57,28 @@ console.log(watch('phone'));
         <div className={cls.title}>
           <h2>Вход на сайт</h2>
         </div>
-        <form className={cls.form} >
+        <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
           {/* <ZInput fullWidth type='tel' label='Номер телефона' placeholder='Введите номер'/> */}
-          <InputMaskCustom 
+            <InputMaskCustom 
           control={control}
+          register={register}
+          name="recipient"
           label='Номер телефона'
-          mask="+\9\9\8 99 999 99 99"
+          mask="+\9\9\8999999999"
           maskchar={null}
           alwaysShowMask={false}
           placeholder='Введите номер'
-          name='phone'
-          value={phone} 
-          onChange={handleInput}
           />
-          {toggle && (<div>
-            <ZInput fullWidth type='password' label='Пароль' placeholder='Введите пароль'/>
+          {/* <div>
+            <ZInput fullWidth type='password' label='Пароль' placeholder='Введите пароль' register={register}
+              name="otp"/>
             <div className={cls.forgotPassword}>
             <a href='#'>Забыли пароль?</a>
             </div>
-          </div>)}
+          </div> */}
+            <Button type='submit'>Войти</Button>
         </form>
-        <Button onClick={() => setToggle(!toggle)} >Войти</Button>
+        
         <div className={cls.register}>
         <p>Ещё не с нами? <a href='#' onClick={handleRegister} >Зарегистрироваться</a></p>
         </div>
