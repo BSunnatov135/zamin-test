@@ -8,7 +8,6 @@ import CheckIcon from "/src/assests/icons/checkIcon.svg";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";
-import { ErrorMessage } from '@hookform/error-message'
 import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
@@ -76,7 +75,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
         }
       })
   }
-  console.log(errors);
   return (
     <>
       <Dialog open={open} onClose={handleClose} sx={{ borderRadius: "0" }}>
@@ -93,7 +91,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             {status === 'initial' &&
-            <>  
             <InputMaskCustom
               name="phone"
               control={control}
@@ -103,8 +100,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
               alwaysShowMask={false}
               placeholder="Введите номер"
               />
-             
-              </>
             }
             {status === "code" && (
               <>
