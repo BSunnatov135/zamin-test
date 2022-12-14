@@ -1,66 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import "styles/unit.scss";
 .box {
-    width: 418px;
-    background: #fff;
+  width: 418px;
+  background: #fff;
+  display: flex;
+  padding: 24px;
+  row-gap: 24px;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: "Noto Sans";
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+  .closeIcon {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
     display: flex;
-    padding: 24px;
-    row-gap: 24px;
+    justify-content: flex-end;
+    svg {
+      fill: #9a9b9b;
+    }
+  }
+  .title {
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      font-family: "Noto Serif";
+    }
+  }
+  .form {
+    display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    border-radius: 0;
-    font-family: 'Noto Sans';
-    @media screen and (max-width:600px) {
-        width: 100%;
+    row-gap: 12px;
+    .codeError{
+        color: red !important;
+        margin-top: -12px;
     }
-    .closeIcon {
-        position: absolute;
-        right:20px;
-        cursor: pointer;
-        display: flex;
-        justify-content: flex-end;
-        svg {
-            fill: #9A9B9B;
-        }
+  }
+  .forgotPassword {
+    a {
+      color: #1b5bf7;
     }
-    .title {
-        h2 {
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 44px;
-            font-family: "Noto Serif", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        }
+  }
+  .register {
+    p {
+      color: #7f888f;
+      text-align: center;
+      a {
+        color: #1b5bf7;
+      }
     }
-    .form {
-        display: flex;
-        flex-direction: column;
-        row-gap: 12px;
-    }
-    .forgotPassword {
-        a {
-            color:#1B5BF7;
-        }
-    }
-    .register {
-        p{
-            color: #7F888F;
-            text-align: center;
-            a {
-                color: #1B5BF7
-            }
-        }
-    }
+  }
 }
 .active {
-    display: block;
+  display: block;
 }
 .closed {
-    display: none;
+  display: none;
 }
 .button {
-    margin-top: 20px !important;
+  margin-top: 20px !important;
 }
 .borderRed {
-
-    input{
-            border: 1px solid red !important
-} }
+  input {
+    border: 1px solid red !important;
+  }
+}
