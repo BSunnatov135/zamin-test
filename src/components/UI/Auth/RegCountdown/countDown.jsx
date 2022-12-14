@@ -3,13 +3,13 @@ import { useRef } from "react";
 import styles from './style.module.scss'
 import { useState } from "react"
 
-export default function countDown({seconds}) {
+export default function countDown({ seconds }) {
     const [countDown, setCountdown] = useState(seconds);
     const timerID = useRef()
-    useEffect(()=> {
-        timerID.current = setInterval(()=> {
+    useEffect(() => {
+        timerID.current = setInterval(() => {
             setCountdown(prev => prev - 1)
-        },1000)
+        }, 1000)
         return () => clearInterval(timerID.current)
     }, [])
     useEffect(() => {
@@ -18,5 +18,7 @@ export default function countDown({seconds}) {
         }
     }, [countDown])
     
-    return <div className={styles.countDown}><p>00:{countDown}</p></div>
+    return (
+        <div className = { styles.countDown }> <p>00:{countDown}</p> </div >
+    )
 }

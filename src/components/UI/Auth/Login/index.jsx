@@ -3,11 +3,9 @@ import Dialog from '@mui/material/Dialog';
 import Button from '@mui/material/Button';
 import cls from "./style.module.scss"
 import ZInput from 'components/UI/FormElements/ZInput';
-import { borders } from '@mui/system';
 import RegisterForm from '../Register';
 import { useState } from 'react';
 import CountDown from "../RegCountdown/countDown";
-import classNames from 'classnames';
 import InputMaskCustom from 'components/UI/FormElements/InputMask'
 import { useForm } from 'react-hook-form';
 import useAuth from "services/auth";
@@ -25,7 +23,6 @@ export default function LoginForm({
   const dispatch = useDispatch()
   const statuses = ["initial", "code"];
   const [openRegister,setOpenRegister]=useState(false)
-  const [toggle, setToggle] = useState(false)
   const { control, register, handleSubmit, reset, watch, formState: {errors} } = useForm();
   const [status, setStatus] = useState(statuses[0]);
   
@@ -78,10 +75,11 @@ export default function LoginForm({
     if (status === 'code') {
       console.log('data===>', data)
       verifyUser.mutate(otpCredentials)
+      console.log();
       return
     }
   }
-
+console.log('error=',verifyUser.status);
   return(
     <>
     <Dialog open={open} onClose={handleClose} 
@@ -124,15 +122,13 @@ export default function LoginForm({
             />
                 <ZInput
                   register={register}
-                  {...register("otp", {
-                    required: true
-                  })}
+                  
                   name="otp"
                   fullWidth
                   type="password"
                   label="Смс код"
                   placeholder="Введите Смс код"
-                  className= {errors.hasOwnProperty('otp') ? cls.borderRed : " "}
+                  className= {verifyUser.status == 'error' ? cls.borderRed : " "}
                 />
                 <CountDown seconds={59} />
               </>
