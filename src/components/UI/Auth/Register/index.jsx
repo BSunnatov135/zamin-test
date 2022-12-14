@@ -120,8 +120,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="otp"
                   fullWidth
                   type="password"
-                  label="Смс код"
-                  placeholder="Введите Смс код"
+                  label="Код подтверждения"
+                  placeholder="Введите код подтверждения"
                   className= {errors.hasOwnProperty('otp') ? cls.borderRed : " "}
                 />
                 <CountDown seconds={59} />

@@ -126,8 +126,8 @@ console.log('error=',verifyUser.status);
                   name="otp"
                   fullWidth
                   type="password"
-                  label="Смс код"
-                  placeholder="Введите Смс код"
+                  label="Код подтверждения"
+                  placeholder="Введите код подтверждения"
                   className= {verifyUser.status == 'error' ? cls.borderRed : " "}
                 />
                 <CountDown seconds={59} />
