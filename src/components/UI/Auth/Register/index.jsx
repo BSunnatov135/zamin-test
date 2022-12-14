@@ -53,6 +53,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
       otp: watch('otp'), smsId: state.smsId  }
   })
 
+  const resendCode = () => {
+    sendCode.mutate({
+      "client_type": "SITE_USER",
+      "recipient": `+998${watch('phone').replace(/[- )(]/g, '')}`,
+      "text": "Код подтверждения"
+    }
+   )
+  }
   const onSubmit = (data) => {
     if (status === 'initial') {
       sendCode.mutate({
@@ -124,7 +132,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   placeholder="Введите код подтверждения"
                   className= {errors.hasOwnProperty('otp') ? cls.borderRed : " "}
                 />
-                <CountDown seconds={59} />
+                <CountDown seconds={9} resendCode={resendCode}/>
               </>
             )}
             {status === "gender" && (

@@ -60,6 +60,16 @@ export default function LoginForm({
       otp: watch('otp'), smsId: state.smsId
     }
   })
+
+
+  const resendCode = () => {
+    sendCode.mutate({
+      "client_type": "SITE_USER",
+      "recipient": `+998${watch('recipient').replace(/[- )(]/g, '')}`,
+      "text": "Код подтверждения"
+    }
+   )
+  }
   const onSubmit = (data) => {
     console.log('data===>', data);
     if (status === 'initial') {
@@ -130,7 +140,7 @@ console.log('error=',verifyUser.status);
                   placeholder="Введите код подтверждения"
                   className= {verifyUser.status == 'error' ? cls.borderRed : " "}
                 />
-                <CountDown seconds={59} />
+                <CountDown seconds={9} resendCode={resendCode} />
               </>
             )}
             <Button type='submit' className={cls.button}>Войти</Button>
