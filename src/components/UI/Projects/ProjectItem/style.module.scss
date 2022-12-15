@@ -34,8 +34,7 @@
     @media screen and (max-width: 600px) {
       height: auto;
     }
-    p {
-      &:first-child {
+    .name {
         font-weight: 700;
         font-size: 20px;
         line-height: 28px;
@@ -46,18 +45,20 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         opacity: 0.8;
-      }
-      &:last-child {
-        font-family: 'Noto Sans';
-        font-size: 16px;
-        line-height: 180%;
-        color: #2d2d2d;
-        opacity: 0.8;
-        height: 116px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
+
+    }
+    .description {
+      p {
+      font-family: 'Noto Sans';
+      font-size: 16px;
+      line-height: 180%;
+      color: #2d2d2d;
+      opacity: 0.8;
+      height: 116px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
       }
     }
   }

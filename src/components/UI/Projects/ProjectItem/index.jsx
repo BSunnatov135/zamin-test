@@ -10,10 +10,11 @@ export default function ProjectItem({ item }) {
             <img src={item.photo} alt={item.name} />
           </div>
           <div className={styles.body}>
-            <p>{item.name}</p>
+            <p className={styles.name}>{item.name}</p>
             <p dangerouslySetInnerHTML={{
-              __html: item.description
-            }}></p>
+              __html: item?.description
+            }}
+            className={styles.description}></p>
           </div>
         </a>
       </Link>

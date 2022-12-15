@@ -36,6 +36,9 @@
         row-gap: 12px;
         .displayNone {
             display: none;
+            label {
+                display: none;
+            }
         }
     }
     .forgotPassword {

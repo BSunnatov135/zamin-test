@@ -7,13 +7,14 @@ export default function Banner({ contents, router, item }) {
     <Container>
       <div className={styles.main}>
         {contents.map((content) => (
-          <div key={item?.id} className={styles.content}>
+          <div key={content?.id} className={styles.content}>
             <h3 className={styles.content__title}>{item?.name}</h3>
-            {/* {content?.textList?.map((text) => (
-            //  <p dangerouslySetInnerHTML={{
-            //   __html: item.description
-            // }}></p>
-            ))} */}
+            {content?.textList?.map((text) => (
+              <p dangerouslySetInnerHTML={{
+                __html: item?.description
+              }}
+              className={styles.content__text}></p>
+            ))}
           </div>
         ))}
         {!router.query.key && (
