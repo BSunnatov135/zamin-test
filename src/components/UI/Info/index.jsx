@@ -1,67 +1,20 @@
-import Banner from './Banner'
-import Content from './Context'
-import Projects from 'components/UI/Projects'
-import { useRouter } from 'next/router'
-import useProjects from 'services/projects'
+import Banner from "./Banner";
+import Content from "./Context";
+import Projects from "components/UI/Projects";
+import { useRouter } from "next/router";
+import useProjects from "services/projects";
 
 export default function Info() {
-  const router = useRouter()
-  const contents = [
-    {
-      title: '',
-      textList: [
-        {
-          text: 'Показатели преждевременной смерти от загрязненного воздуха постоянно растут. К 2019 году он составил 8.8 миллионов человек, увеличившись вдвое за 7 лет.'
-        },
-        {
-          text: `Загрязнение воздуха в большой степени — результат жизнедеятельности человека: промышленные предприятия, транспорт, сельское хозяйство, бытовые отходы. Не последнюю роль играют природные особенности нашего региона.`
-        },
-        {
-          text: 'Для решения проблемы загрязнения воздуха необходимо проделать трудоёмкий путь. '
-        }
-      ]
-    },
-    {
-      title: 'Первые ключевые шаги:',
-      textList: [
-        {
-          text: `- контроль за качеством воздуха и его воздействием на здоровье людей;• определение источников и степени загрязнения;`
-        },
-        {
-          text: `- разработка и реализация плана действий на местном, региональном и национальном уровнях.`
-        },
-        {
-          text: `Основные загрязнители воздуха — оксид углерода, оксиды азота, диоксид серы, аммиак, пыль. Чтобы автоматизировать и ускорить процесс определения их количества при поддержке фонда Zamin и UNEP был начат проект Центра гидрометеорологической службы по автоматизации процесса мониторинга.`
-        }
-      ]
-    },
-    {
-      title: 'В рамках проекта:',
-      textList: [
-        {
-          text: `- все региональные лаборатории Узгидромет были объединены в единую систему;`
-        },
-        {
-          text: `- запущена онлайн платформа (веб-сайт monitoring.meteo.uz и мобильное приложение AirUz);`
-        },
-        {
-          text: `- гармонизированы международные стандарты.`
-        },
-        {
-          text: `В Ташкенте уже установлены две автоматические станции мониторинга воздуха японской компании «Horiba» и проведены соответствующие обучающие семинары для специалистов.В 2021 году проект продолжается. Планируется увеличение оснащенности Узгидромета. Автоматические станции мониторинга воздуха должны появиться в каждом регионе республики. Продолжается интеграция системы в локальные и международные информационные системы.`
-        }
-      ]
-    }
-  ]
+  const router = useRouter();
   const { project } = useProjects({
-    projectId: router.query.info
-  })
+    projectId: router.query.info,
+  });
 
   return (
     <>
-      <Banner item={project?.data?.response}/>
-      <Content item={project?.data?.response} router={router} contents={contents} />
+      <Banner item={project?.data?.response} />
+      <Content item={project?.data?.response} router={router} />
       {!router.query.key && <Projects />}
     </>
-  )
+  );
 }

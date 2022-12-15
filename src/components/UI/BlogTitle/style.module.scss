@@ -1,11 +1,11 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     margin-bottom: 24px;
   }
   .leftElement {
@@ -27,7 +27,7 @@
   a {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Noto Sans';
+    font-family: "Noto Sans";
     @include align-items-center;
     column-gap: 4px;
     color: #000;
@@ -42,6 +42,5 @@
         transform: translateX(5px);
       }
     }
-    
   }
 }

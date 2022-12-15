@@ -1,8 +1,8 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 
 .main {
   padding: 80px 0;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     padding: 24px 0;
   }
   .sectionTitle {
@@ -16,7 +16,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin-top: 32px;
-    @media screen and (max-width:600px) {
+    @media screen and (max-width: 600px) {
       grid-template-columns: 100%;
       margin-top: 24px;
     }

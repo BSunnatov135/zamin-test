@@ -1,6 +1,6 @@
-import Link from 'next/link'
-import styles from './style.module.scss'
-import ArrowRightIcon from 'assests/icons/arrowRight.svg'
+import Link from "next/link";
+import styles from "./style.module.scss";
+import ArrowRightIcon from "assests/icons/arrowRight.svg";
 
 export default function BlogTitle({ title, link }) {
   return (
@@ -9,7 +9,7 @@ export default function BlogTitle({ title, link }) {
         <p>{title}</p>
       </div>
       {link && (
-        <Link href={link.path || '/'}>
+        <Link href={link.path || "/"}>
           <a>
             {link.title}
             <ArrowRightIcon />
@@ -17,5 +17,5 @@ export default function BlogTitle({ title, link }) {
         </Link>
       )}
     </div>
-  )
+  );
 }

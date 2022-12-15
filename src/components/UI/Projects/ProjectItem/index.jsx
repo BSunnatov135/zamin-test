@@ -1,5 +1,5 @@
-import styles from './style.module.scss'
-import Link from 'next/link'
+import styles from "./style.module.scss";
+import Link from "next/link";
 
 export default function ProjectItem({ item }) {
   return (
@@ -11,13 +11,15 @@ export default function ProjectItem({ item }) {
           </div>
           <div className={styles.body}>
             <p className={styles.name}>{item.name}</p>
-            <p dangerouslySetInnerHTML={{
-              __html: item?.description
-            }}
-            className={styles.description}></p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: item?.description,
+              }}
+              className={styles.description}
+            ></p>
           </div>
         </a>
       </Link>
     </div>
-  )
+  );
 }

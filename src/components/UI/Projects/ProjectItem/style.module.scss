@@ -1,4 +1,4 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 
 .item {
   cursor: pointer;
@@ -10,7 +10,7 @@
     max-width: 100%;
   }
   .img {
-    flex:1
+    flex: 1;
   }
   &:hover {
     .img {
@@ -37,30 +37,29 @@
       height: auto;
     }
     .name {
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 28px;
-        margin-bottom: 8px;
-        height: 56px;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        opacity: 0.8;
-
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+      margin-bottom: 8px;
+      height: 56px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      opacity: 0.8;
     }
     .description {
       p {
-      font-family: 'Noto Sans';
-      font-size: 16px;
-      line-height: 180%;
-      color: #2d2d2d;
-      opacity: 0.8;
-      height: 116px;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
+        font-family: "Noto Sans";
+        font-size: 16px;
+        line-height: 180%;
+        color: #2d2d2d;
+        opacity: 0.8;
+        height: 116px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
       }
     }
   }

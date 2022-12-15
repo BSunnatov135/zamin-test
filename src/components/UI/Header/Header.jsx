@@ -1,35 +1,34 @@
-import { Container } from '@mui/material'
-import Link from 'next/link'
-import styles from './style.module.scss'
-import MenuIcon from 'assests/icons/menu.svg'
-import AccessIcon from 'assests/icons/access.svg'
-import CloseIcon from 'assests/icons/close.svg'
-import LanguageDropdown from './LanguageDropdown'
-import Menu from './Menu'
-import { useState } from 'react'
-import { useRef } from 'react'
-import useOnClickOutside from 'hooks/useOnClickOutside'
-import { PersonalVideoTwoTone } from '@mui/icons-material'
-import classNames from 'classnames'
-import MobileMenu from './MobileMenu'
-import LoginForm from '../Auth/Login'
+import { Container } from "@mui/material";
+import Link from "next/link";
+import styles from "./style.module.scss";
+import MenuIcon from "assests/icons/menu.svg";
+import AccessIcon from "assests/icons/access.svg";
+import CloseIcon from "assests/icons/close.svg";
+import LanguageDropdown from "./LanguageDropdown";
+import Menu from "./Menu";
+import { useState } from "react";
+import { useRef } from "react";
+import useOnClickOutside from "hooks/useOnClickOutside";
+import classNames from "classnames";
+import MobileMenu from "./MobileMenu";
+import LoginForm from "../Auth/Login";
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-  const [openLogin, setOpenLogin] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
 
   const handleLogin = (event) => {
-    event && event.preventDefault()
-    setOpenLogin((prev) => !prev)
-  }
-  const [mobileMenu, setMobileMenu] = useState(false)
-  const ref = useRef()
-  useOnClickOutside(ref, () => setOpen(false))
+    event && event.preventDefault();
+    setOpenLogin((prev) => !prev);
+  };
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const ref = useRef();
+  useOnClickOutside(ref, () => setOpen(false));
   return (
     <>
       <header
         className={classNames(styles.header, {
-          [styles.active]: open
+          [styles.active]: open,
         })}
       >
         <Container>
@@ -38,30 +37,30 @@ export default function Header() {
               className={styles.menu}
               onClick={() => {
                 if (window.innerWidth < 600) {
-                  setMobileMenu((prev) => !prev)
+                  setMobileMenu((prev) => !prev);
                 } else {
-                  setOpen((prev) => !prev)
+                  setOpen((prev) => !prev);
                 }
               }}
             >
               {open || mobileMenu ? <CloseIcon /> : <MenuIcon />}
             </div>
-            <Link href='/'>
+            <Link href="/">
               <a className={styles.logo}>
-                <img src='/logos/logo.svg' alt='logo' />
+                <img src="/logos/logo.svg" alt="logo" />
               </a>
             </Link>
-            <Link href='/'>
+            <Link href="/">
               <a className={styles.resLogo}>
-              <img src='/logos/resLogo.svg' alt='logo' />
+                <img src="/logos/resLogo.svg" alt="logo" />
               </a>
-              </Link>
+            </Link>
             <div className={styles.rightElement}>
               <p
                 onClick={() => {
                   console.log(
-                    document.getElementById('userwayAccessibilityIcon').click()
-                  )
+                    document.getElementById("userwayAccessibilityIcon").click()
+                  );
                 }}
               >
                 Доступность <AccessIcon />
@@ -78,8 +77,12 @@ export default function Header() {
         handleClose={() => setOpen((prev) => !prev)}
         handleLogin={handleLogin}
       />
-      <MobileMenu open={mobileMenu} handleClose={() => setMobileMenu((prev) => !prev)} handleLogin={handleLogin}/>
+      <MobileMenu
+        open={mobileMenu}
+        handleClose={() => setMobileMenu((prev) => !prev)}
+        handleLogin={handleLogin}
+      />
       <LoginForm open={openLogin} handleClose={handleLogin} />
     </>
-  )
+  );
 }

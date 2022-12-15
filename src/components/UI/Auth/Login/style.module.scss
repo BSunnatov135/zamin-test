@@ -34,9 +34,17 @@
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-    .codeError{
-        color: red !important;
-        margin-top: -12px;
+    .codeError {
+      color: red !important;
+      margin-top: -12px;
+    }
+    .button {
+      margin-top: 20px !important;
+    }
+    .borderRed {
+      input {
+        border: 1px solid red !important;
+      }
     }
   }
   .forgotPassword {
@@ -52,19 +60,5 @@
         color: #1b5bf7;
       }
     }
-  }
-}
-.active {
-  display: block;
-}
-.closed {
-  display: none;
-}
-.button {
-  margin-top: 20px !important;
-}
-.borderRed {
-  input {
-    border: 1px solid red !important;
   }
 }

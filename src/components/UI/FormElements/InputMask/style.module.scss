@@ -1,4 +1,4 @@
-@import 'styles/_unit.scss';
+@import "styles/_unit.scss";
 
 .inputMaskWrapper {
   display: flex;
@@ -6,9 +6,9 @@
   label {
     display: block;
     margin-bottom: 8px;
-}
+  }
   input {
-    border: 1px solid #CFCFCF;
+    border: 1px solid #cfcfcf;
   }
 }
 
@@ -21,22 +21,23 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  border: 1px solid #F5F5F5;
-  transition: all .25s ease-in-out;
+  border: 1px solid #f5f5f5;
+  transition: all 0.25s ease-in-out;
   overflow: hidden;
   padding: rem(15) rem(16);
-  &, &::placeholder{
+  &,
+  &::placeholder {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
-    }
-    &::placeholder{
-        color: #84919A;
-    }
-    &:focus{
-        outline: none;
-        border-color: var(--primary-color);
-    }
+  }
+  &::placeholder {
+    color: #84919a;
+  }
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
 
   input {
     width: 100%;

@@ -1,4 +1,4 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 
 .item {
   cursor: pointer;
@@ -39,7 +39,7 @@
         -webkit-box-orient: vertical;
       }
       &:nth-child(2) {
-        font-family: 'Noto Sans';
+        font-family: "Noto Sans";
         font-size: 16px;
         line-height: 160%;
         color: #2d2d2d;
@@ -58,7 +58,7 @@
       align-items: center;
       font-size: 16px;
       line-height: 22px;
-      font-family: 'Noto Sans';
+      font-family: "Noto Sans";
       color: #333333;
       column-gap: 5px;
       svg {

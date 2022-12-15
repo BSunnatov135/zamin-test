@@ -12,7 +12,7 @@ import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
-import { ErrorMessage } from '@hookform/error-message';
+import { ErrorMessage } from "@hookform/error-message";
 
 export default function LoginForm({ open, handleClose }) {
   const [state, setState] = useState({
@@ -109,7 +109,6 @@ export default function LoginForm({ open, handleClose }) {
             <h2>Вход на сайт</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
-            
             {status === "initial" && (
               <InputMaskCustom
                 control={control}
@@ -121,8 +120,7 @@ export default function LoginForm({ open, handleClose }) {
                 placeholder="Введите номер"
                 className={sendCode.status == "error" ? cls.borderRed : " "}
               />
-              
-              )}
+            )}
             {status === "code" && (
               <>
                 <InputMaskCustom
@@ -142,9 +140,13 @@ export default function LoginForm({ open, handleClose }) {
                   type="password"
                   label="Код подтверждения"
                   placeholder="Введите код подтверждения"
-                  style={{ borderColor: sendCode.status == 'error' ? "red" : "" }}
+                  style={{
+                    borderColor: sendCode.status == "error" ? "red" : "",
+                  }}
                 />
-                {verifyUser.status == 'error' && <p className={cls.codeError}>Код введён не правильно</p>}
+                {verifyUser.status == "error" && (
+                  <p className={cls.codeError}>Код введён не правильно</p>
+                )}
                 <CountDown seconds={59} resendCode={resendCode} />
               </>
             )}

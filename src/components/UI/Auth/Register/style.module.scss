@@ -1,94 +1,94 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 .box {
-    width: 418px;
-    background: #fff;
-    display: flex;
-    padding: 24px;
-    row-gap: 24px;
-    flex-direction: column;
-    box-sizing: border-box;
-    border-radius: 0;
-    font-family: 'Noto Sans';
-    @media screen and (max-width:600px) {
-        padding: 16px;
-        width: 100%;
-    }
-    .closeIcon {
-        position: absolute;
-        right:20px;
-        cursor: pointer;
-
-        svg {
-            fill: #9A9B9B;
-        }
-    }
-    .title {
-        h2 {
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 44px;
-            font-family: "Noto Serif"
-        }
-    }
-    .form {
-        display: flex;
-        flex-direction: column;
-        row-gap: 12px;
-        .displayNone {
-            display: none;
-            label {
-                display: none;
-            }
-        }
-    }
-    .forgotPassword {
-        a {
-            color:#1B5BF7;
-        }
-    }
-    .register {
-        p{
-            color: #7F888F;
-            text-align: center;
-            a {
-                color: #1B5BF7
-            }
-        }
-    }
-}
-.genderChoose {
-    display: flex;
-    margin-top: 4px;
-    column-gap: 8px;
+  width: 418px;
+  background: #fff;
+  display: flex;
+  padding: 24px;
+  row-gap: 24px;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: "Noto Sans";
+  @media screen and (max-width: 600px) {
+    padding: 16px;
     width: 100%;
-}
-.genderChooseLabel {
-    margin-top: 12px;
-}
-.gender {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    height: 48px;
-    padding-left: 12px;
-    padding-right: 12px;
-    justify-content: space-between;
-    border: 1px solid #CFCFCF;
-}
-.inputWrapper {
+  }
+  .closeIcon {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+    svg {
+      fill: #9a9b9b;
+    }
+  }
+  .title {
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      font-family: "Noto Serif";
+    }
+  }
+  .form {
     display: flex;
     flex-direction: column;
     row-gap: 12px;
-}
-.button {
-    margin-top: 20px !important;
-}
-.borderRed {
-
-    input{
-            border: 1px solid red !important
-} }
-.codeError {
-    color: red !important;
-    margin-top: -12px;
+    .displayNone {
+      display: none;
+      label {
+        display: none;
+      }
+    }
+    .button {
+      margin-top: 20px !important;
+    }
+    .borderRed {
+      input {
+        border: 1px solid red !important;
+      }
+    }
+    .codeError {
+      color: red !important;
+      margin-top: -12px;
+    }
+    .inputWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      .genderChooseLabel {
+        margin-top: 12px;
+        .genderChoose {
+          display: flex;
+          margin-top: 4px;
+          column-gap: 8px;
+          width: 100%;
+          .gender {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            height: 48px;
+            padding-left: 12px;
+            padding-right: 12px;
+            justify-content: space-between;
+            border: 1px solid #cfcfcf;
+          }
+        }
+      }
+    }
+  }
+  .forgotPassword {
+    a {
+      color: #1b5bf7;
+    }
+  }
+  .register {
+    p {
+      color: #7f888f;
+      text-align: center;
+      a {
+        color: #1b5bf7;
+      }
+    }
+  }
 }

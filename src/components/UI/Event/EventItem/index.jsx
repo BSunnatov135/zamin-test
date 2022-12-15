@@ -1,10 +1,10 @@
-import styles from './style.module.scss'
-import Link from 'next/link'
-import ArrowRight from 'assests/icons/narrowRight.svg'
+import styles from "./style.module.scss";
+import Link from "next/link";
+import ArrowRight from "assests/icons/narrowRight.svg";
 
 export default function EventItem({ item }) {
   return (
-    <Link href='/info/item?key=event'>
+    <Link href="/info/item?key=event">
       <a>
         <div className={styles.item} key={item.img}>
           <div className={styles.img}>
@@ -15,10 +15,10 @@ export default function EventItem({ item }) {
             <p
               className={styles.body__text}
               dangerouslySetInnerHTML={{
-                __html: item.desc || item.sub_desc
+                __html: item.desc || item.sub_desc,
               }}
             />
-            <Link href='/info/item?key=event' styles={styles.body__link}>
+            <Link href="/info/item?key=event" styles={styles.body__link}>
               <a>
                 Подробнее <ArrowRight />
               </a>
@@ -27,5 +27,5 @@ export default function EventItem({ item }) {
         </div>
       </a>
     </Link>
-  )
+  );
 }
