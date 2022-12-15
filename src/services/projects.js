@@ -14,7 +14,7 @@ const useProjects = ({
     const projects = useQuery(['GET_PROJECTS', projectParams], ()=>getProjectsFn(projectParams), {
         enabled: !!(projectParams)
     })
-    const project = useQuery(['GET_PROJECT',projectId], ()=>getProjectFn(projectId), {
+    const project = useQuery([`GET_PROJECT_${projectId}`,projectId], ()=>getProjectFn(projectId), {
         enabled: !!(projectId)
     })
    

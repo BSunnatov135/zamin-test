@@ -7,7 +7,7 @@ export default function ProjectsPage() {
   const { projects } = useProjects({
     projectParams: {
         "offset": 0,
-        "limit": 3,
+        "limit": 100,
     }
   })
   return (
