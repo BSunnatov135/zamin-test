@@ -12,6 +12,7 @@ import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
+import { display } from "@mui/system";
 
 const statuses = ["initial", "code", "gender"];
 
@@ -110,8 +111,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             <h2>Регистрация</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
-            {status === "initial" && (
-              <InputMaskCustom
+            <InputMaskCustom
+                className={status === 'gender' ? cls.displayNone : " "}
                 name="phone"
                 control={control}
                 label="Номер телефона"
@@ -120,18 +121,9 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 alwaysShowMask={false}
                 placeholder="Введите номер"
               />
-            )}
+
             {status === "code" && (
               <>
-                <InputMaskCustom
-                  name="phone"
-                  control={control}
-                  label="Номер телефона"
-                  mask="(99) 999-99-99"
-                  maskchar={null}
-                  alwaysShowMask={false}
-                  placeholder="Введите номер"
-                />
                 <ZInput
                   register={register}
                   {...register("otp", {

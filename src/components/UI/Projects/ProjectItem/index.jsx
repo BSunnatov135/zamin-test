@@ -4,14 +4,16 @@ import Link from 'next/link'
 export default function ProjectItem({ item }) {
   return (
     <div className={styles.item} key={item.img}>
-      <Link href={`/info/${item.title}`}>
+      <Link href={`/info/${item.guid}`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
-            <img src={item.img} alt={item.title} />
+            <img src={item.photo} alt={item.name} />
           </div>
           <div className={styles.body}>
-            <p>{item.title}</p>
-            <p>{item.desc || item.sub_desc}</p>
+            <p>{item.name}</p>
+            <p dangerouslySetInnerHTML={{
+              __html: item.description
+            }}></p>
           </div>
         </a>
       </Link>

@@ -28,7 +28,9 @@ const errorHandler = (error) => {
 //   }
 // )
 
-request.interceptors.response.use((response) => response.data, errorHandler)
+request.interceptors.response.use((response) => {
+  return response.data.data
+}, errorHandler)
 requestAuth.interceptors.response.use((response) => response.data, errorHandler)
 
 export const queryClient = new QueryClient({

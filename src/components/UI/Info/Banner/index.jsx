@@ -1,11 +1,11 @@
 import styles from './style.module.scss'
 
-export default function Banner() {
+export default function Banner({item}) {
   return (
     <>
-      <h2 className={styles.sectionTitle}>Автоматизация мониторинга загрязнения атмосферного воздуха</h2>
+      <h2 className={styles.sectionTitle}>{item?.name}</h2>
       <div className={styles.banner}>
-        <img className={styles.banner__main_img} src='/images/moon.png' alt='moon' />
+        <img className={styles.banner__main_img} src={item?.photo} alt={item?.name} />
       </div>
     </>
   )

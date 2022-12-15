@@ -61,7 +61,9 @@ export default createTheme({
       styleOverrides: {
         paper: {
           boxShadow: '-11px 11px 30px rgba(0, 0, 0, 0.12)',
-          borderRadius: 0
+          borderRadius: 0,
+          position: 'fixed',
+          top: 0
         }
       }
     },

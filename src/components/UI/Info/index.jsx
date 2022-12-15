@@ -2,6 +2,7 @@ import Banner from './Banner'
 import Content from './Context'
 import Projects from 'components/UI/Projects'
 import { useRouter } from 'next/router'
+import useProjects from 'services/projects'
 
 export default function Info() {
   const router = useRouter()
@@ -72,10 +73,14 @@ export default function Info() {
       ]
     }
   ]
+  const { project } = useProjects({
+    projectId: router.query.info
+  })
+
   return (
     <>
-      <Banner />
-      <Content router={router} contents={contents} />
+      <Banner item={project?.data?.response}/>
+      <Content item={project?.data?.response} router={router} contents={contents} />
       {!router.query.key && <Projects />}
     </>
   )

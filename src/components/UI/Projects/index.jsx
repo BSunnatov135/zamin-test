@@ -5,31 +5,24 @@ import HeartIcon from 'assests/icons/heart.svg'
 import ArrowRightIcon from 'assests/icons/arrowRight.svg'
 import ProjectItem from './ProjectItem'
 import { projects } from './mockData'
-import useTransition from 'next-translate/useTranslation'
+import useTransition from 'next-translate/useTranslation' 
+import useProjects from "services/projects";
 
-const items = [
-  {
-    title: 'Конкурс на обучение сурдопедагогов языку жестов',
-    desc: 'Международный общественный фонд Zamin объявляет конкурс на отбор поставщика для обучения навыкам жестового языка сурдопедагогов 18 специализированных...',
-    img: '/images/project1.jpg'
-  },
-  {
-    title: 'Автоматизация мониторинга загрязнения атмосферного...',
-    desc: 'При поддержке фонда Zamin и UNEP начат проект Центра гидрометеорологической службы по автоматизации процесса мониторинга атмосферного воздуха...',
-    img: '/images/project2.jpg'
-  },
-  {
-    title: 'Благотворительная акция "Sirdaryo, biz yoningdamiz!"',
-    desc: 'Частичная или полная потеря слуха лишает детей важного источника информации и ограничивает процесс интеллектуального развития...',
-    img: '/images/project3.jpg'
-  }
-]
+
 
 export default function Projects() {
   const { t } = useTransition('common')
+  const { projects } = useProjects({
+    projectParams: {
+        "offset": 0,
+        "limit": 3,
+    }
+  })
+
+
   return (
     <Container>
-      <div className={styles.main}>
+      <div className={styles.main} >
         <div className={styles.header}>
           <div className={styles.leftElement}>
             <p>
@@ -51,8 +44,8 @@ export default function Projects() {
           </Link>
         </div>
         <div className={styles.list}>
-          {projects.slice(0, 3).map((item) => (
-            <ProjectItem key={item.img} item={item} />
+          {projects?.data?.response?.map((item) => (
+            <ProjectItem key={item.guid} item={item} />
           ))}
         </div>
         {/* <div className={styles.button}>

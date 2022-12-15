@@ -15,7 +15,7 @@ export default function InputMaskCustom({
 }) {
   console.log("PROPS --> ", props);
   return (
-    <div className={styles.inputMaskWrapper}>
+    <div className={`${className} ${styles.inputMaskWrapper}`}>
       {props.label && (
         <label htmlFor="phone">
           <Typography variant="labelText">{props.label}</Typography>
@@ -35,7 +35,7 @@ export default function InputMaskCustom({
             placeholder={props.placeholder}
             value={value}
             maskChar={props.maskChar}
-            className={`${className} ${styles.input}`}
+            className={styles.input}
             style={{ borderColor: error ? "red" : "" }}
             {...props}
           />
