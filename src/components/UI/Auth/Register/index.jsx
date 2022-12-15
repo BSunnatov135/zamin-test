@@ -154,6 +154,16 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             )}
             {status === "gender" && (
               <div className={cls.inputWrapper}>
+                <InputMaskCustom
+                  className={cls.displayNone}
+                  name="phone"
+                  control={control}
+                  label="Номер телефона"
+                  mask="(99) 999-99-99"
+                  maskchar={null}
+                  alwaysShowMask={false}
+                  placeholder="Введите номер"
+                />
                 <ZInput
                   register={register}
                   {...register("name", {
