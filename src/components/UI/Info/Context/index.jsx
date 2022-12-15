@@ -6,7 +6,6 @@ export default function Banner({ contents, router, item }) {
   return (
     <Container>
       <div className={styles.main}>
-      <h3 className={styles.content__title}>{item?.name}</h3>
       <p dangerouslySetInnerHTML={{
                 __html: item?.description
               }}/>

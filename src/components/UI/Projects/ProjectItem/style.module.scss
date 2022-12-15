@@ -29,6 +29,8 @@
     }
   }
   .body {
+    max-height: 220px;
+    overflow: hidden;
     padding: 16px 12px 24px;
     background-color: #fff;
     @media screen and (max-width: 600px) {
