@@ -85,13 +85,16 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
       return;
     }
     signUp.mutate({
+  
       data: {
         ...data,
         gender: [toggle],
         user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         birth_date: new Date(data.birth_date),
       },
+      
     });
+    console.log('nomer:', data)
   };
   return (
     <>
@@ -111,19 +114,30 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             <h2>Регистрация</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
-            <InputMaskCustom
-                className={status === 'gender' ? cls.displayNone : " "}
-                name="phone"
+          {status === "initial" && (
+              <InputMaskCustom
                 control={control}
+                name="phone"
                 label="Номер телефона"
                 mask="(99) 999-99-99"
                 maskchar={null}
                 alwaysShowMask={false}
                 placeholder="Введите номер"
+                className={sendCode.status == "error" ? cls.borderRed : " "}
               />
-
+              )}
             {status === "code" && (
               <>
+                <InputMaskCustom
+                  name="phone"
+                  control={control}
+                  label="Номер телефона"
+                  mask="(99) 999-99-99"
+                  maskchar={null}
+                  alwaysShowMask={false}
+                  placeholder="Введите номер"
+                 
+                />
                 <ZInput
                   register={register}
                   {...register("otp", {
@@ -167,7 +181,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   label="Фамилия"
                   placeholder="Введите фамилию"
                   className={
-                    errors.hasOwnProperty("surname") ? cls.borderRed : " "
+                  errors.hasOwnProperty("surname") ? cls.borderRed : " "
                   }
                 />
                 <ZInput
@@ -181,7 +195,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   label="Отчество"
                   placeholder="Введите отчество"
                   className={
-                    errors.hasOwnProperty("second_name") ? cls.borderRed : " "
+                  errors.hasOwnProperty("second_name") ? cls.borderRed : " "
                   }
                 />
                 <ZInput
@@ -195,7 +209,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   label="E-mail"
                   placeholder="E-mail"
                   className={
-                    errors.hasOwnProperty("email") ? cls.borderRed : " "
+                  errors.hasOwnProperty("email") ? cls.borderRed : " "
                   }
                 />
 
@@ -212,7 +226,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   label="Дата рождения "
                   placeholder="Выберите дату"
                   className={
-                    errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
+                  errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
                   }
                 />
                 <div className={cls.genderChooseLabel}>

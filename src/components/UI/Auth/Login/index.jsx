@@ -133,7 +133,7 @@ export default function LoginForm({ open, handleClose }) {
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder="Введите номер"
-                 
+                  className={sendCode.status == "error" ? cls.borderRed : " "}
                 />
                 <ZInput
                   register={register}
