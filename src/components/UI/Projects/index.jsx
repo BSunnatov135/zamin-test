@@ -1,10 +1,9 @@
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import HeartIcon from "assests/icons/heart.svg";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import ProjectItem from "./ProjectItem";
-import { projects } from "./mockData";
 import useTransition from "next-translate/useTranslation";
 import useProjects from "services/projects";
 
@@ -16,7 +15,7 @@ export default function Projects() {
       limit: 3,
     },
   });
-
+  console.log(projects.data);
   return (
     <Container>
       <div className={styles.main}>

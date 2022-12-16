@@ -1,7 +1,7 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
 
 .menu {
-  position: fixed;
+  position: absolute;
   height: calc(100vh - 62px);
   background-color: #fff;
   width: 100%;

@@ -69,7 +69,7 @@ export default function LoginForm({ open, handleClose }) {
   const resendCode = () => {
     sendCode.mutate({
       client_type: "SITE_USER",
-      recipient: `+998${watch("recipient").replace(/[- )(]/g, "")}`,
+      recipient: `${watch("recipient").replace(/[- )(]/g, "")}`,
       text: "Код подтверждения",
     });
   };
@@ -78,7 +78,7 @@ export default function LoginForm({ open, handleClose }) {
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",
-        recipient: `+998${data.recipient.replace(/[- )(]/g, "")}`,
+        recipient: `${data.recipient.replace(/[- )(]/g, "")}`,
         text: "Код подтверждения",
       });
       return;
@@ -90,7 +90,6 @@ export default function LoginForm({ open, handleClose }) {
       return;
     }
   };
-  console.log("error=", sendCode.status);
   return (
     <>
       <Dialog open={open} onClose={handleClose} sx={{ borderRadius: "0" }}>
@@ -114,7 +113,7 @@ export default function LoginForm({ open, handleClose }) {
                 control={control}
                 name="recipient"
                 label="Номер телефона"
-                mask="(99) 999-99-99"
+                mask="+\9\9\8 99 999 99 99"
                 maskchar={null}
                 alwaysShowMask={false}
                 placeholder="Введите номер"
@@ -127,7 +126,7 @@ export default function LoginForm({ open, handleClose }) {
                   name="recipient"
                   control={control}
                   label="Номер телефона"
-                  mask="(99) 999-99-99"
+                  mask="+\9\9\8 99 999 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder="Введите номер"
@@ -137,7 +136,8 @@ export default function LoginForm({ open, handleClose }) {
                   register={register}
                   name="otp"
                   fullWidth
-                  type="password"
+                  type="text"
+                  maxlength="4"
                   label="Код подтверждения"
                   placeholder="Введите код подтверждения"
                   style={{

@@ -1,7 +1,5 @@
 import { Container } from "@mui/material";
-import Link from "next/link";
 import styles from "./style.module.scss";
-import ArrowRight from "assests/icons/narrowRight.svg";
 import { Box } from "@mui/system";
 import useTransition from "next-translate/useTranslation";
 

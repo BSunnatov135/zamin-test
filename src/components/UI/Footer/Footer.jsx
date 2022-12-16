@@ -3,11 +3,9 @@ import { Container } from "@mui/material";
 import Link from "next/link";
 import { Box } from "@mui/system";
 import GmailIcon from "assests/icons/gmail.svg";
-import LocaionIcon from "assests/icons/location.svg";
 import TelegramIcon from "assests/icons/telegram.svg";
 import InstagramIcon from "assests/icons/instagram.svg";
 import FacebookIcon from "assests/icons/facebook.svg";
-import { Face } from "@mui/icons-material";
 import DropIcon from "assests/icons/dropIcon.svg";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -15,8 +13,10 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Logo from "assests/icons/logo.svg";
+import useTransition from "next-translate/useTranslation";
 
 export default function Footer() {
+  const { t } = useTransition("common");
   return (
     <Box
       sx={{
@@ -31,32 +31,32 @@ export default function Footer() {
           <div className={styles.list}>
             <div className={styles.box}>
               <p className={styles.subtitle}>
-                О фонде
+                {t("about_fond")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
               <Link href="/">
-                <a className={styles.link}>О создании</a>
+                <a className={styles.link}>{t("creation")}</a>
               </Link>
               <Link href="/">
-                <a>Наша миссия</a>
+                <a>{t("mission")}</a>
               </Link>
               <Link href="/">
-                <a>Ключевые сферы деятельности</a>
+                <a>{t("activity")}</a>
               </Link>
               <Link href="/">
-                <a>Источники финансирование</a>
+                <a>{t("funding")}</a>
               </Link>
               <Link href="/">
-                <a>Попечительский совет</a>
+                <a>{t("trust")}</a>
               </Link>
             </div>
             <div className={styles.box}>
               <p className={styles.subtitle}>
-                Наши Проекты
+                {t("projects")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
               <Link href="/">
-                <a>Окружающая среда</a>
+                <a>{t("event_title")}</a>
               </Link>
               <Link href="/">
                 <a>Инновационные технологии в социальной сфере</a>

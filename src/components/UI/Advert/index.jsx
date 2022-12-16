@@ -4,7 +4,15 @@ import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import useTransition from "next-translate/useTranslation";
+import useAdverts from "services/advert";
 
+const { adverts } = useAdverts({
+  advertParams: {
+    offset: 0,
+    limit: 10,
+  },
+});
+console.log("data=", adverts.data);
 const items = [
   {
     title: "Междугородние трудовые поездки. Обмен опытом.",
@@ -39,7 +47,7 @@ export default function Advert() {
       <div className={styles.main}>
         <BlogTitle title={t("advert_title")} />
         <div className={styles.list}>
-          {items.map((item, index) => (
+          {adverts?.data?.response?.map((item, index) => (
             <div key={index + "key"} className={styles.item}>
               <p>{item.title}</p>
               <p>{item.desc}</p>
