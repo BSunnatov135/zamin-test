@@ -26,11 +26,7 @@ export default function Header() {
   useOnClickOutside(ref, () => setOpen(false));
   return (
     <>
-      <header
-        className={classNames(styles.header, {
-          [styles.active]: open,
-        })}
-      >
+      <header className={classNames(styles.header, { [styles.active]: open })}>
         <Container>
           <div className={styles.box}>
             <div

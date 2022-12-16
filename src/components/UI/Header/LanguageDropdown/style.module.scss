@@ -1,7 +1,6 @@
 @import "styles/unit.scss";
 
 .popover {
-  position: static !important;
   width: 198px;
   padding: 16px;
   display: flex;
@@ -20,7 +19,7 @@
       justify-content: space-between;
     }
     svg {
-      color: #09999a;
+      color: var(--primary-color);
     }
   }
 }
