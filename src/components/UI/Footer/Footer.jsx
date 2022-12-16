@@ -56,38 +56,38 @@ export default function Footer() {
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
               <Link href="/">
+                <a>{t("environment")}</a>
+              </Link>
+              <Link href="/">
+                <a>{t("innovation")}</a>
+              </Link>
+              <Link href="/">
+                <a>{t("program")}</a>
+              </Link>
+            </div>
+            <div className={styles.box}>
+              <p className={styles.subtitle}>
+                {t("advert_title")}
+                <DropIcon />
+              </p>
+              <Link href="/">
+                <a>{t("advert_title")}</a>
+              </Link>
+            </div>
+            <div className={styles.box}>
+              <p className={styles.subtitle}>
+                {t("media")}
+                <DropIcon />
+              </p>
+              <Link href="/">
                 <a>{t("event_title")}</a>
               </Link>
               <Link href="/">
-                <a>Инновационные технологии в социальной сфере</a>
-              </Link>
-              <Link href="/">
-                <a>Программа развития образования детей с нарушением слуха</a>
+                <a>{t("gallery")}</a>
               </Link>
             </div>
             <div className={styles.box}>
-              <p className={styles.subtitle}>
-                Объявления
-                <DropIcon />
-              </p>
-              <Link href="/">
-                <a>Объявления</a>
-              </Link>
-            </div>
-            <div className={styles.box}>
-              <p className={styles.subtitle}>
-                Медиа
-                <DropIcon />
-              </p>
-              <Link href="/">
-                <a>Мероприятия</a>
-              </Link>
-              <Link href="/">
-                <a>Галерея</a>
-              </Link>
-            </div>
-            <div className={styles.box}>
-              <p className={styles.subtitle}>Контакты для предложений:</p>
+              <p className={styles.subtitle}>{t("contact")}</p>
               <Link href="/">
                 <a>
                   <GmailIcon />
@@ -116,15 +116,15 @@ export default function Footer() {
                 }}
               >
                 <Typography className={styles.summaryContent}>
-                  О фонде
+                  {t("about_fond")}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>О создании </Typography>
-                <Typography>Наша миссия</Typography>
-                <Typography>Ключевые сферы деятельности</Typography>
-                <Typography>Источники финансирование</Typography>
-                <Typography>Попечительский совет</Typography>
+                <Typography>{t("creation")}</Typography>
+                <Typography>{t("mission")}</Typography>
+                <Typography>{t("activity")}</Typography>
+                <Typography>{t("funding")}</Typography>
+                <Typography>{t("trust")}</Typography>
               </AccordionDetails>
             </Accordion>
 
@@ -136,17 +136,13 @@ export default function Footer() {
                 className={styles.accordionSummary}
               >
                 <Typography className={styles.summaryContent}>
-                  Наши Проекты
+                  {t("projects")}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>Окружающая среда </Typography>
-                <Typography>
-                  Инновационные технологии в социальной сфере
-                </Typography>
-                <Typography>
-                  Программа развития образования детей с нарушением слуха
-                </Typography>
+                <Typography>{t("environment")} </Typography>
+                <Typography>{t("innovation")}</Typography>
+                <Typography>{t("program")}</Typography>
               </AccordionDetails>
             </Accordion>
 
@@ -158,11 +154,11 @@ export default function Footer() {
                 className={styles.accordionSummary}
               >
                 <Typography className={styles.summaryContent}>
-                  Объявления
+                  {t("advert_title")}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>Объявления</Typography>
+                <Typography>{t("advert_title")}</Typography>
               </AccordionDetails>
             </Accordion>
 
@@ -176,14 +172,14 @@ export default function Footer() {
                 <Typography className={styles.summaryContent}>Медиа</Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>Мероприятия</Typography>
-                <Typography>Галерея</Typography>
+                <Typography>{t("event_title")}</Typography>
+                <Typography>{t("gallery")}</Typography>
               </AccordionDetails>
             </Accordion>
           </div>
 
           <div className={styles.box}>
-            <p className={styles.subtitle}>Контакты для предложений:</p>
+            <p className={styles.subtitle}>{t("contact")}</p>
             <Link href="/">
               <a>
                 <GmailIcon />

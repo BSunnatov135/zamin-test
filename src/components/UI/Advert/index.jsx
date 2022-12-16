@@ -41,7 +41,7 @@ export default function Advert() {
       limit: 6,
     },
   });
-  console.log("advert=", adverts?.data);
+
   return (
     <Container>
       <div className={styles.main}>
