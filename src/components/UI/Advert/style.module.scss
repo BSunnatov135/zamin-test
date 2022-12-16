@@ -14,32 +14,56 @@
       overflow-x: auto;
     }
     .item {
+      display: flex;
+      flex-direction: column;
       padding: 24px 16px;
       background-color: #fff;
       cursor: pointer;
+      overflow: hidden;
+      div {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #c4c4c4;
+        p {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3; /* number of lines to show */
+          line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+      }
       p {
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:first-child {
+          overflow: hidden;
+
           font-weight: 600;
           font-size: 20px;
           line-height: 28px;
-          padding-bottom: 12px;
-          border-bottom: 1px solid #c4c4c4;
         }
         &:nth-child(2) {
-          font-size: 16px;
-          line-height: 180%;
-          color: #2d2d2d;
-          font-family: "Noto Sans";
-          margin: 12px 0 16px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          p {
+            font-size: 16px;
+            flex: 1;
+            border-bottom: 1px solid #c4c4c4;
+            line-height: 180%;
+            color: #2d2d2d;
+            font-family: "Noto Sans";
+            margin: 12px 0 16px;
+            font-weight: 400;
+          }
         }
       }
       &:hover {
         a {
-          color: #09999a;
+          color: var(--primary-color);
           svg {
             transform: translateX(5px);
             path {
-              stroke: #09999a;
+              stroke: var(--primary-color);
             }
           }
         }

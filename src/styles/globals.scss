@@ -1,5 +1,5 @@
-@import 'unit';
-@import url('../../public/fonts/font.css');
+@import "unit";
+@import url("../../public/fonts/font.css");
 
 :root {
   --primary-color: #09999a;
@@ -12,13 +12,14 @@ body {
   padding: 0 !important;
   overflow: auto !important;
   margin: 0;
-  font-family: 'Noto Serif', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: "Noto Serif", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: #f7f7f7;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden !important;
 }
 
 a {

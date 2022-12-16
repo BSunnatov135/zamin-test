@@ -6,13 +6,6 @@ import ArrowRight from "assests/icons/narrowRight.svg";
 import useTransition from "next-translate/useTranslation";
 import useAdverts from "services/advert";
 
-const { adverts } = useAdverts({
-  advertParams: {
-    offset: 0,
-    limit: 10,
-  },
-});
-console.log("data=", adverts.data);
 const items = [
   {
     title: "Междугородние трудовые поездки. Обмен опытом.",
@@ -42,15 +35,29 @@ const items = [
 
 export default function Advert() {
   const { t } = useTransition("common");
+  const { adverts } = useAdverts({
+    advertParams: {
+      offset: 0,
+      limit: 6,
+    },
+  });
+  console.log("advert=", adverts?.data);
   return (
     <Container>
       <div className={styles.main}>
         <BlogTitle title={t("advert_title")} />
         <div className={styles.list}>
-          {adverts?.data?.response?.map((item, index) => (
-            <div key={index + "key"} className={styles.item}>
-              <p>{item.title}</p>
-              <p>{item.desc}</p>
+          {adverts?.data?.response?.map((item) => (
+            <div key={item.guid} className={styles.item}>
+              <div>
+                <p>{item.header}</p>
+              </div>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: item?.description,
+                }}
+              ></p>
+
               <Link href="/">
                 <a>
                   Подробнее <ArrowRight />
