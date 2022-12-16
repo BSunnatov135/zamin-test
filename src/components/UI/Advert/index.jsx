@@ -49,15 +49,16 @@ export default function Advert() {
         <div className={styles.list}>
           {adverts?.data?.response?.map((item) => (
             <div key={item.guid} className={styles.item}>
-              <div>
+              <div className={styles.header}>
                 <p>{item.header}</p>
               </div>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: item?.description,
-                }}
-              ></p>
-
+              <div className={styles.description}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: item?.description,
+                  }}
+                ></p>
+              </div>
               <Link href="/">
                 <a>
                   Подробнее <ArrowRight />

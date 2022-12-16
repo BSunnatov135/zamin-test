@@ -1,6 +1,7 @@
 @import "styles/unit.scss";
 
 .popover {
+  position: static !important;
   width: 198px;
   padding: 16px;
   display: flex;

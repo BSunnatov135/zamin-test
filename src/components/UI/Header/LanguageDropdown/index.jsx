@@ -27,14 +27,13 @@ export default function LanguageDropdown() {
   const { t, lang } = useTranslation("common");
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
@@ -57,7 +56,7 @@ export default function LanguageDropdown() {
       >
         <ul className={styles.popover}>
           {langs.map((item) => (
-            <li key={item.key} className={styles.item}>
+            <li key={item.key} className={styles.item} onClick={handleClose}>
               <Link href={router.asPath} locale={item.key}>
                 <a>
                   <span>{item.label}</span>

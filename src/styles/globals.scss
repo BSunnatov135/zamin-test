@@ -19,7 +19,9 @@ body {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden !important;
+  & > div {
+    overflow-x: hidden !important;
+  }
 }
 
 a {
