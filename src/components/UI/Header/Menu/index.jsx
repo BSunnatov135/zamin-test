@@ -2,11 +2,21 @@ import { Container } from "@mui/material";
 import classNames from "classnames";
 import LoginForm from "components/UI/Auth/Login";
 import Link from "next/link";
-import { useState } from "react";
 import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
+import useSpheres from "services/spheres";
+import useTranslation from "next-translate/useTranslation";
+import Spheres from "./spheres";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
+  const { t } = useTranslation("common");
+
   return (
     <>
       <div
@@ -18,42 +28,32 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
         <Container>
           <div className={styles.element}>
             <div className={styles.box}>
-              <p className={styles.title}>О фонде</p>
+              <p className={styles.title}>{t("about_fond")}</p>
               <Link href="/">
-                <a>О создании</a>
+                <a>{t("creation")}</a>
               </Link>
               <Link href="/">
-                <a>Наша миссия</a>
+                <a>{t("mission")}</a>
               </Link>
               <Link href="/">
-                <a>
-                  Ключевые сферы <br /> деятельности
-                </a>
+                <a>{t("activity")}</a>
               </Link>
               <Link href="/">
-                <a>Источники финансирование</a>
+                <a>{t("funding")}</a>
               </Link>
               <Link href="/">
-                <a className={styles.box_bottom}>Попечительский совет</a>
+                <a className={styles.box_bottom}>{t("trust")}</a>
               </Link>
-              <p className={styles.title}>Объявления</p>
+              <p className={styles.title}>{t("advert_title")}</p>
               <Link href="/">
-                <a>Объявления</a>
+                <a>{t("advert_title")}</a>
               </Link>
             </div>
             <div className={styles.box}>
-              <p className={styles.title}>Наши Проекты</p>
-              <Link href="/">
-                <a>Окружающая среда</a>
-              </Link>
-              <Link href="/">
-                <a>Инновационные технологии в социальной сфере</a>
-              </Link>
-              <Link href="/">
-                <a className={styles.marginBottom_24}>
-                  Программа развития образования детей с нарушением слуха
-                </a>
-              </Link>
+              <p className={styles.title}>{t("projects")}</p>
+              {spheres?.data?.response?.map((item) => (
+                <Spheres key={item.guid} item={item} />
+              ))}
               <Link href="/">
                 <a>
                   <p className={`${styles.donation} ${styles.title}`}>
@@ -61,21 +61,21 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   </p>
                 </a>
               </Link>
-              <p className={styles.title}>Контакты</p>
+              <p className={styles.title}>{t("contacts")}</p>
               <Link href="/">
                 <a>Email: info@zaminfoundation.uz</a>
               </Link>
               <Link href="/">
-                <a>Социальные сети</a>
+                <a>{t("sns")}</a>
               </Link>
             </div>
             <div className={styles.box}>
-              <p className={styles.title}>Медиа</p>
+              <p className={styles.title}>{t("media")}</p>
               <Link href="/">
-                <a>Мероприятия</a>
+                <a>{t("event_title")}</a>
               </Link>
               <Link href="/">
-                <a className={styles.box_bottom}>Галерея</a>
+                <a className={styles.box_bottom}>{t("gallery")}</a>
               </Link>
               <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 Личный кабинет

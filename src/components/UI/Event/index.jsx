@@ -5,9 +5,10 @@ import styles from "./style.module.scss";
 import PlayLarge from "/src/assests/icons/playLarge.svg";
 import useTransition from "next-translate/useTranslation";
 import PlaySmall from "/src/assests/icons/playSmall.svg";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Event() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
   const router = useRouter();
   return (
     <Container>

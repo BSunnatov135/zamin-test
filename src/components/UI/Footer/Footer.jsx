@@ -14,9 +14,10 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Logo from "assests/icons/logo.svg";
 import useTransition from "next-translate/useTranslation";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Footer() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
   return (
     <Box
       sx={{

@@ -9,6 +9,7 @@ import CardiogramIcon from "assests/icons/cardiogram.svg";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import Link from "next/link";
 import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 const items = [
   {
@@ -35,7 +36,7 @@ const items = [
 ];
 
 export default function HelpPeople() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
   const [index, setIndex] = useState(0);
   return (
     <Container>

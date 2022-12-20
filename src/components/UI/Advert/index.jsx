@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import useTransition from "next-translate/useTranslation";
 import useAdverts from "services/advert";
+import useTranslation from "next-translate/useTranslation";
 
 const items = [
   {
@@ -34,7 +35,8 @@ const items = [
 ];
 
 export default function Advert() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
+  const { lang } = useTranslation();
   const { adverts } = useAdverts({
     advertParams: {
       offset: 0,
@@ -50,16 +52,16 @@ export default function Advert() {
           {adverts?.data?.response?.map((item) => (
             <div key={item.guid} className={styles.item}>
               <div className={styles.header}>
-                <p>{item.header}</p>
+                <p>{item?.[`${lang}_header`]}</p>
               </div>
               <div className={styles.description}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: item?.description,
+                    __html: item?.[`${lang}_description`],
                   }}
                 ></p>
               </div>
-              <Link href="/">
+              <Link href={`/info/${item.guid}?from=news`}>
                 <a>
                   Подробнее <ArrowRight />
                 </a>

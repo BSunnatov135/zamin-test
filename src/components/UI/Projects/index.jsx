@@ -4,11 +4,12 @@ import styles from "./style.module.scss";
 import HeartIcon from "assests/icons/heart.svg";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import ProjectItem from "./ProjectItem";
-import useTransition from "next-translate/useTranslation";
 import useProjects from "services/projects";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Projects() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
+
   const { projects } = useProjects({
     projectParams: {
       offset: 0,

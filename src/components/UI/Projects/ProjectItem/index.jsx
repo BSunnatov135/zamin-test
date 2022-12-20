@@ -1,7 +1,10 @@
 import styles from "./style.module.scss";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 export default function ProjectItem({ item }) {
+  const { lang } = useTranslation();
+  console.log("i18n", item);
   return (
     <div className={styles.item} key={item.img}>
       <Link href={`/info/${item.guid}`}>
@@ -10,10 +13,10 @@ export default function ProjectItem({ item }) {
             <img src={item.photo} alt={item.name} />
           </div>
           <div className={styles.body}>
-            <p className={styles.name}>{item.name}</p>
+            <p className={styles.name}>{item[`${lang}_name`]}</p>
             <p
               dangerouslySetInnerHTML={{
-                __html: item?.description,
+                __html: item[`${lang}_description`],
               }}
               className={styles.description}
             ></p>
