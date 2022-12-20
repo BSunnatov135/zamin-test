@@ -39,12 +39,26 @@ export default function Achievements() {
         <div className={styles.main}>
           <h2>{t("achievement_title")}</h2>
           <div className={styles.list}>
-            {items.map((item, index) => (
-              <div key={index + "key"} className={styles.item}>
-                <p>{item.title}</p>
-                <p>{item.desc}</p>
-              </div>
-            ))}
+            <div className={styles.item}>
+              <p>{t("achievement_sum")}</p>
+              <p>{t("achievement_support")}</p>
+            </div>
+            <div className={styles.item}>
+              <p>30+</p>
+              <p>{t("achievement_monitoring")}</p>
+            </div>
+            <div className={styles.item}>
+              <p>2+</p>
+              <p>{t("achievement_operation")}</p>
+            </div>
+            <div className={styles.item}>
+              <p>55+</p>
+              <p>{t("achievement_projects")}</p>
+            </div>
+            <div className={styles.item}>
+              <p>5000</p>
+              <p>{t("achievement_women")}</p>
+            </div>
           </div>
         </div>
       </Container>
