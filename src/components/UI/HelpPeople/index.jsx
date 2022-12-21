@@ -39,7 +39,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
-
+  console.log(sphere?.data);
   return (
     <Container>
       <div className={styles.main}>
@@ -81,7 +81,7 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            <img src="/images/people.png" alt="people" />
+            <img src={data?.photo} />
           </div>
         </div>
       </div>

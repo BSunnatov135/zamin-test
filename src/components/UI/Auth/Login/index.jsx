@@ -12,13 +12,14 @@ import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
-import { ErrorMessage } from "@hookform/error-message";
+import useTranslation from "next-translate/useTranslation";
 
 export default function LoginForm({ open, handleClose }) {
   const [state, setState] = useState({
     smsId: "",
   });
   const dispatch = useDispatch();
+  const { t } = useTranslation("common");
   const statuses = ["initial", "code"];
   const [openRegister, setOpenRegister] = useState(false);
   const {
@@ -105,18 +106,18 @@ export default function LoginForm({ open, handleClose }) {
             <CloseIcon />
           </div>
           <div className={cls.title}>
-            <h2>Вход на сайт</h2>
+            <h2>{t("enter_site")}</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             {status === "initial" && (
               <InputMaskCustom
                 control={control}
                 name="recipient"
-                label="Номер телефона"
+                label={t("phone")}
                 mask="+\9\9\8 99 999 99 99"
                 maskchar={null}
                 alwaysShowMask={false}
-                placeholder="Введите номер"
+                placeholder={t("enter_number")}
                 className={sendCode.status == "error" ? cls.borderRed : " "}
               />
             )}
@@ -125,11 +126,11 @@ export default function LoginForm({ open, handleClose }) {
                 <InputMaskCustom
                   name="recipient"
                   control={control}
-                  label="Номер телефона"
+                  label={t("phone")}
                   mask="+\9\9\8 99 999 99"
                   maskchar={null}
                   alwaysShowMask={false}
-                  placeholder="Введите номер"
+                  placeholder={t("enter_number")}
                   className={sendCode.status == "error" ? cls.borderRed : " "}
                 />
                 <ZInput
@@ -138,8 +139,8 @@ export default function LoginForm({ open, handleClose }) {
                   fullWidth
                   type="text"
                   maxlength="4"
-                  label="Код подтверждения"
-                  placeholder="Введите код подтверждения"
+                  label={t("confirm_code")}
+                  placeholder={t("enter_code")}
                   style={{
                     borderColor: sendCode.status == "error" ? "red" : "",
                   }}
@@ -151,15 +152,15 @@ export default function LoginForm({ open, handleClose }) {
               </>
             )}
             <Button type="submit" className={cls.button}>
-              Войти
+              {t("login")}
             </Button>
           </form>
 
           <div className={cls.register}>
             <p>
-              Ещё не с нами?{" "}
+              {t("not_with_us")}{" "}
               <a href="#" onClick={handleRegister}>
-                Зарегистрироваться
+                {t("register")}
               </a>
             </p>
           </div>
