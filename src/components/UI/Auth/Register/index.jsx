@@ -12,6 +12,7 @@ import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
+import useTranslation from "next-translate/useTranslation";
 
 const statuses = ["initial", "code", "gender"];
 
@@ -29,6 +30,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     formState: { errors },
   } = useForm();
   const [toggle, setToggle] = useState("male");
+  const { t } = useTranslation("common");
   const [status, setStatus] = useState(statuses[0]);
   const dispatch = useDispatch();
   const { signUp, sendCode, verifyUser } = useAuth({
@@ -108,18 +110,18 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             <CloseIcon />
           </div>
           <div className={cls.title}>
-            <h2>Регистрация</h2>
+            <h2>{t("register")}</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             {status === "initial" && (
               <InputMaskCustom
                 control={control}
                 name="phone"
-                label="Номер телефона"
+                label={t("phone")}
                 mask="(99) 999-99-99"
                 maskchar={null}
                 alwaysShowMask={false}
-                placeholder="Введите номер"
+                placeholder={t("enter_number")}
                 className={sendCode.status == "error" ? cls.borderRed : " "}
               />
             )}
@@ -128,11 +130,11 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 <InputMaskCustom
                   name="phone"
                   control={control}
-                  label="Номер телефона"
+                  label={t("phone")}
                   mask="(99) 999-99-99"
                   maskchar={null}
                   alwaysShowMask={false}
-                  placeholder="Введите номер"
+                  placeholder={t("enter_number")}
                 />
                 <ZInput
                   register={register}
@@ -141,9 +143,9 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   })}
                   name="otp"
                   fullWidth
-                  type="password"
-                  label="Код подтверждения"
-                  placeholder="Введите код подтверждения"
+                  type="text"
+                  label={t("confirm_code")}
+                  placeholder={t("enter_code")}
                   className={errors.hasOwnProperty("otp") ? cls.borderRed : " "}
                 />
                 {verifyUser.status == "error" && (
@@ -158,11 +160,11 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   className={cls.displayNone}
                   name="phone"
                   control={control}
-                  label="Номер телефона"
+                  label={t("phone")}
                   mask="(99) 999-99-99"
                   maskchar={null}
                   alwaysShowMask={false}
-                  placeholder="Введите номер"
+                  placeholder={t("enter_number")}
                 />
                 <ZInput
                   register={register}
@@ -172,8 +174,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="name"
                   fullWidth
                   type="text"
-                  label="Имя"
-                  placeholder="Введите ваше имя"
+                  label={t("name")}
+                  placeholder={t("enter_name")}
                   className={
                     errors.hasOwnProperty("name") ? cls.borderRed : " "
                   }
@@ -186,8 +188,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="surname"
                   fullWidth
                   type="text"
-                  label="Фамилия"
-                  placeholder="Введите фамилию"
+                  label={t("surname")}
+                  placeholder={t("enter_surname")}
                   className={
                     errors.hasOwnProperty("surname") ? cls.borderRed : " "
                   }
@@ -200,8 +202,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="second_name"
                   fullWidth
                   type="text"
-                  label="Отчество"
-                  placeholder="Введите отчество"
+                  label={t("middle_name")}
+                  placeholder={t("enter_middlename")}
                   className={
                     errors.hasOwnProperty("second_name") ? cls.borderRed : " "
                   }
@@ -231,14 +233,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   onFocus={(e) => (e.target.type = "date")}
                   name="birth_date"
                   fullWidth
-                  label="Дата рождения "
-                  placeholder="Выберите дату"
+                  label={t("birthdate")}
+                  placeholder={t("choose_date")}
                   className={
                     errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
                   }
                 />
                 <div className={cls.genderChooseLabel}>
-                  <label>Выберите пол</label>
+                  <label>{t("choose_gender")}</label>
                   <div
                     className={cls.genderChoose}
                     register={register}
@@ -248,13 +250,13 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                       className={cls.gender}
                       onClick={() => setToggle("male")}
                     >
-                      Мужчина {toggle === "male" && <CheckIcon />}
+                      {t("male")} {toggle === "male" && <CheckIcon />}
                     </div>
                     <div
                       className={cls.gender}
                       onClick={() => setToggle("female")}
                     >
-                      Женщина {toggle === "female" && <CheckIcon />}
+                      {t("female")} {toggle === "female" && <CheckIcon />}
                     </div>
                   </div>
                 </div>
