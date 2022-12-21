@@ -10,6 +10,7 @@ import ArrowRight from "assests/icons/narrowRight.svg";
 import Link from "next/link";
 import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
+import useSpheres from "services/spheres";
 
 const items = [
   {
@@ -38,6 +39,13 @@ const items = [
 export default function HelpPeople() {
   const { t } = useTranslation("common");
   const [index, setIndex] = useState(0);
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 5,
+    },
+  });
+  console.log("data=", spheres?.data);
   return (
     <Container>
       <div className={styles.main}>

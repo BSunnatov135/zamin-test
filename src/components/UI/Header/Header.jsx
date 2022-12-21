@@ -12,11 +12,12 @@ import useOnClickOutside from "hooks/useOnClickOutside";
 import classNames from "classnames";
 import MobileMenu from "./MobileMenu";
 import LoginForm from "../Auth/Login";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
-
+  const { t } = useTranslation("common");
   const handleLogin = (event) => {
     event && event.preventDefault();
     setOpenLogin((prev) => !prev);
@@ -59,7 +60,8 @@ export default function Header() {
                   );
                 }}
               >
-                Доступность <AccessIcon />
+                {t("accessibility")}
+                <AccessIcon />
               </p>
               <LanguageDropdown />
             </div>
