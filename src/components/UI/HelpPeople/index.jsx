@@ -1,5 +1,4 @@
 import { Container } from "@mui/material";
-import useTransition from "next-translate/useTranslation";
 import styles from "./style.module.scss";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import Link from "next/link";
@@ -7,14 +6,13 @@ import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import useSpheres from "services/spheres";
 import SphereItem from "./SphereItem";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import { useMemo } from "react";
+import { useEffect } from "react";
 
 export default function HelpPeople() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
-  const [index, setIndex] = useState(0);
   const [dataSphere, setDataSphere] = useState([0]);
   const { spheres, sphere } = useSpheres({
     sphereParams: {
@@ -31,10 +29,16 @@ export default function HelpPeople() {
   const data = useMemo(() => {
     return sphere?.data?.response[0];
   }, [sphere]);
-  console.log(data);
+
   const hanldeClick = (e) => {
     setDataSphere([e.guid]);
   };
+
+  useEffect(() => {
+    if (spheres?.data?.response) {
+      setDataSphere(spheres?.data?.response[0]?.guid);
+    }
+  }, [spheres]);
 
   return (
     <Container>
@@ -70,7 +74,7 @@ export default function HelpPeople() {
                 ></p>
                 <Link href="/">
                   <a>
-                    Подробнее <ArrowRight />
+                    {t("more")} <ArrowRight />
                   </a>
                 </Link>
               </div>

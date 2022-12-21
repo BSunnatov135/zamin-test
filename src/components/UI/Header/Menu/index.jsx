@@ -4,13 +4,13 @@ import LoginForm from "components/UI/Auth/Login";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
-import useSpheres from "services/spheres";
 import useTranslation from "next-translate/useTranslation";
-import Spheres from "./spheres";
+import Spheres from "./ProjectItems/projects";
+import useProjects from "services/projects";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
-  const { spheres } = useSpheres({
-    sphereParams: {
+  const { projects } = useProjects({
+    projectParams: {
       offset: 0,
       limit: 3,
     },
@@ -51,7 +51,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
             </div>
             <div className={styles.box}>
               <p className={styles.title}>{t("projects")}</p>
-              {spheres?.data?.response?.map((item) => (
+              {projects?.data?.response?.map((item) => (
                 <Spheres key={item.guid} item={item} />
               ))}
               <Link href="/">
