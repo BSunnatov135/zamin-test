@@ -149,7 +149,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   className={errors.hasOwnProperty("otp") ? cls.borderRed : " "}
                 />
                 {verifyUser.status == "error" && (
-                  <p className={cls.codeError}>Код введён не правильно</p>
+                  <p className={cls.codeError}>{t("code_error")}</p>
                 )}
                 <CountDown seconds={59} resendCode={resendCode} />
               </>

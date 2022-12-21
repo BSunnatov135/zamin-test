@@ -59,5 +59,6 @@
   "choose_gender": "Выберите пол",
   "male": "Мужчина",
   "female": "Женщина",
-  "with_us": "Уже с нами?"
+  "with_us": "Уже с нами?",
+  "code_error": "Code entered incorrectly"
 }

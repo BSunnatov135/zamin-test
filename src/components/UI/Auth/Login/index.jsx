@@ -146,7 +146,7 @@ export default function LoginForm({ open, handleClose }) {
                   }}
                 />
                 {verifyUser.status == "error" && (
-                  <p className={cls.codeError}>Код введён не правильно</p>
+                  <p className={cls.codeError}>{t("code_error")}</p>
                 )}
                 <CountDown seconds={59} resendCode={resendCode} />
               </>
