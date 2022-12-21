@@ -33,12 +33,12 @@ export default function Projects() {
           </div>
           <Link href="/projects">
             <a className={styles.responsiveLink}>
-              Все <ArrowRightIcon />
+              {t("all")} <ArrowRightIcon />
             </a>
           </Link>
           <Link href="/projects">
             <a className={styles.link}>
-              Все проекты <ArrowRightIcon />
+              {t("all_projects")} <ArrowRightIcon />
             </a>
           </Link>
         </div>

@@ -4,9 +4,11 @@ import Projects from "components/UI/Projects";
 import { useRouter } from "next/router";
 import useProjects from "services/projects";
 import useAdverts from "services/advert";
+import { useEffect, useState } from "react";
 
 export default function Info() {
   const router = useRouter();
+  const [data, setData] = useState(null);
   const { project } = useProjects({
     projectId: router.query.info,
   });
@@ -14,25 +16,16 @@ export default function Info() {
     advertId: router.query.info,
   });
 
-  console.log("adver", advert?.data);
+  useEffect(() => {
+    if (router?.query?.from === "news") {
+      setData(advert?.data?.response);
+    } else setData(project?.data?.response);
+  }, [advert, project]);
 
   return (
     <>
-      <Banner
-        item={
-          router?.query?.from === "news"
-            ? advert?.data?.response
-            : project?.data?.response
-        }
-      />
-      <Content
-        item={
-          router?.query?.from === "news"
-            ? advert?.data?.response
-            : project?.data?.response
-        }
-        router={router}
-      />
+      <Banner item={data ? data : {}} />
+      <Content item={data ? data : {}} router={router} />
       {/* {!router.query.key && <Projects />} */}
     </>
   );

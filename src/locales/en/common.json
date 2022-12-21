@@ -31,5 +31,11 @@
   "program": "Education development program for children with hearing impairment",
   "media": "Media",
   "gallery": "Gallery",
-  "sns": "Social Networks:"
+  "sns": "Social Networks:",
+  "login": "Login",
+  "cabinet": "Private cabinet",
+  "donate": "Make a donation",
+  "all": "All",
+  "all_projects": "All projects",
+  "more": "More"
 }

@@ -57,7 +57,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               <Link href="/">
                 <a>
                   <p className={`${styles.donation} ${styles.title}`}>
-                    Сделайте пожертвование <ArrowRight />
+                    {t("donate")} <ArrowRight />
                   </p>
                 </a>
               </Link>
@@ -78,11 +78,11 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 <a className={styles.box_bottom}>{t("gallery")}</a>
               </Link>
               <p className={`${styles.title} ${styles.marginBottom_24}`}>
-                Личный кабинет
+                {t("cabinet")}
               </p>
               <a href="/" onClick={handleLogin}>
                 <p className={`${styles.donation} ${styles.title}`}>
-                  Войти <ArrowRight />
+                  {t("login")} <ArrowRight />
                 </p>
               </a>
             </div>

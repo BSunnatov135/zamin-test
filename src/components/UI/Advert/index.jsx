@@ -63,7 +63,8 @@ export default function Advert() {
               </div>
               <Link href={`/info/${item.guid}?from=news`}>
                 <a>
-                  Подробнее <ArrowRight />
+                  {t("more")}
+                  <ArrowRight />
                 </a>
               </Link>
             </div>

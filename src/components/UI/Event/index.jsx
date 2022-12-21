@@ -16,7 +16,7 @@ export default function Event() {
         <BlogTitle
           title={t("event_title")}
           link={{
-            title: "Все",
+            title: t("all"),
             path: "/event",
           }}
         />
