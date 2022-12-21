@@ -1,51 +1,41 @@
 import { Container } from "@mui/material";
 import useTransition from "next-translate/useTranslation";
 import styles from "./style.module.scss";
-import MotarboardIcon from "assests/icons/motarboard.svg";
-import EmergencyIcon from "assests/icons/emergency.svg";
-import SecureIcon from "assests/icons/secure.svg";
-import SeedingIcon from "assests/icons/seeding.svg";
-import CardiogramIcon from "assests/icons/cardiogram.svg";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import Link from "next/link";
 import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import useSpheres from "services/spheres";
-
-const items = [
-  {
-    title: "Образование",
-    icon: <MotarboardIcon />,
-  },
-  {
-    title: "Здоровье",
-    icon: <CardiogramIcon />,
-  },
-
-  {
-    title: "Чрезвычайная ситуация",
-    icon: <EmergencyIcon />,
-  },
-  {
-    title: "Защита",
-    icon: <SecureIcon />,
-  },
-  {
-    title: "Eco Природа",
-    icon: <SeedingIcon />,
-  },
-];
+import SphereItem from "./SphereItem";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useMemo } from "react";
 
 export default function HelpPeople() {
   const { t } = useTranslation("common");
+  const { lang } = useTranslation();
   const [index, setIndex] = useState(0);
-  const { spheres } = useSpheres({
+  const [dataSphere, setDataSphere] = useState([0]);
+  const { spheres, sphere } = useSpheres({
     sphereParams: {
       offset: 0,
       limit: 5,
     },
+    dataSphere: {
+      limit: 5,
+      offset: 0,
+      spheres_id: dataSphere,
+    },
   });
-  console.log("data=", spheres?.data);
+
+  const data = useMemo(() => {
+    return sphere?.data?.response[0];
+  }, [sphere]);
+  console.log(data);
+  const hanldeClick = (e) => {
+    setDataSphere([e.guid]);
+  };
+
   return (
     <Container>
       <div className={styles.main}>
@@ -54,31 +44,30 @@ export default function HelpPeople() {
             <h2>{t("helppeople_title")}</h2>
             <div className={styles.box}>
               <div className={styles.header}>
-                {items.map((item, i) => (
-                  <p
-                    key={item.title}
-                    onClick={() => setIndex(i)}
-                    className={index === i ? styles.active : ""}
+                {spheres?.data?.response?.map((item, i) => (
+                  <div
+                    onClick={(e) => {
+                      e.preventDefault();
+                      hanldeClick(item);
+                    }}
                   >
-                    {item.icon}
-                    {item.title}
-                  </p>
+                    <SphereItem
+                      key={item.guid}
+                      item={item}
+                      className={
+                        dataSphere?.includes(item.guid) ? styles.active : ""
+                      }
+                    />
+                  </div>
                 ))}
               </div>
               <div className={styles.body}>
-                <h3>Каждый ребенок заслуживает здорового начала</h3>
-                <p>
-                  <span>
-                    С января 2020 года Фонд Билла и Мелинды Гейтс выделил более
-                    2 миллиардов долларов США на глобальные меры реагирования на
-                    COVID-19
-                  </span>
-                  <span>
-                    С января 2020 года Фонд Билла и Мелинды Гейтс выделил более
-                    2 миллиардов долларов США на глобальные меры реагирования на
-                    COVID-19
-                  </span>
-                </p>
+                <h3>{data?.[`${lang}_name`]}</h3>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: data?.[`${lang}_description`],
+                  }}
+                ></p>
                 <Link href="/">
                   <a>
                     Подробнее <ArrowRight />

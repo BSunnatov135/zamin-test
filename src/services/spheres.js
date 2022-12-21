@@ -6,10 +6,10 @@ const getSpheresFn = async (data) =>
     data,
   });
 
-const getSphereFn = async (id) =>
-  await request.get(`/v1/object/website_projects/${id}`);
+const getSphereFn = async (data) =>
+  await request.post(`/v1/object/get-list/website_projects`, { data });
 
-const useSpheres = ({ sphereParams, sphereId } = {}) => {
+const useSpheres = ({ sphereParams, dataSphere, sparesId } = {}) => {
   const spheres = useQuery(
     ["GET_SPHERES", sphereParams],
     () => getSpheresFn(sphereParams),
@@ -18,10 +18,10 @@ const useSpheres = ({ sphereParams, sphereId } = {}) => {
     }
   );
   const sphere = useQuery(
-    [`GET_SPHERE_${sphereId}`, sphereId],
-    () => getSphereFn(sphereId),
+    [`GET_SPHERE_${JSON.stringify(dataSphere)}`, dataSphere],
+    () => getSphereFn(dataSphere),
     {
-      enabled: !!sphereId,
+      enabled: !!dataSphere,
     }
   );
 

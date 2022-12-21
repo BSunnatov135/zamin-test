@@ -6,7 +6,7 @@ export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
   console.log("i18n", item);
   return (
-    <div className={styles.item} key={item.img}>
+    <div className={styles.item} key={item.id}>
       <Link href={`/info/${item.guid}`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
