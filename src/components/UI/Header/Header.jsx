@@ -13,6 +13,8 @@ import classNames from "classnames";
 import MobileMenu from "./MobileMenu";
 import LoginForm from "../Auth/Login";
 import useTranslation from "next-translate/useTranslation";
+import Logo from "/public/logos/logo.svg";
+import RestLogo from "/public/logos/resLogo.svg";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -44,12 +46,12 @@ export default function Header() {
             </div>
             <Link href="/">
               <a className={styles.logo}>
-                <img src="/logos/logo.svg" alt="logo" />
+                <Logo />
               </a>
             </Link>
             <Link href="/">
               <a className={styles.resLogo}>
-                <img src="/logos/resLogo.svg" alt="logo" />
+                <RestLogo />
               </a>
             </Link>
             <div className={styles.rightElement}>

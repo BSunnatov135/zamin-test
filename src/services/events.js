@@ -31,4 +31,4 @@ const useEvents = ({ eventParams, eventId }) => {
   };
 };
 
-export default useProjects;
+export default useEvents;

@@ -3,13 +3,20 @@ import { useRouter } from "next/router";
 import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
 import PlayLarge from "/src/assests/icons/playLarge.svg";
-import useTransition from "next-translate/useTranslation";
 import PlaySmall from "/src/assests/icons/playSmall.svg";
 import useTranslation from "next-translate/useTranslation";
+import useEvents from "services/events";
 
 export default function Event() {
   const { t } = useTranslation("common");
   const router = useRouter();
+  const { events } = useEvents({
+    eventParams: {
+      offset: 0,
+      limit: 5,
+    },
+  });
+  console.log("events=", events?.data?.response?.[0]);
   return (
     <Container>
       <div className={styles.main}>
@@ -26,20 +33,20 @@ export default function Event() {
               className={styles.item}
               onClick={() => router.push("/info/item?key=event")}
             >
-              <img src="/images/event1.jpg" />
+              <img src={events?.data?.response?.[0].poster} />
             </div>
             <div
               className={styles.item}
               onClick={() => router.push("/info/item?key=event")}
             >
-              <img src="/images/event2.jpg" />
+              <img src={events?.data?.response?.[1].poster} />
             </div>
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() => router.push("/info/item?key=event")}
             >
-              <img src="/images/event3.jpg" />
-              <PlaySmall />
+              <img src={events?.data?.response?.[2].poster} />
+              {/* <PlaySmall /> */}
             </div>
           </div>
           <div className={styles.bottomElement}>
@@ -47,15 +54,15 @@ export default function Event() {
               className={`${styles.item} ${styles.event}`}
               onClick={() => router.push("/info/item?key=event")}
             >
-              <img src="/images/event4.jpg" />
-              <PlayLarge className={styles.playLarge} />
-              <PlaySmall className={styles.playSmall} />
+              <img src={events?.data?.response?.[3].poster} />
+              {/* <PlayLarge className={styles.playLarge} />
+              <PlaySmall className={styles.playSmall} /> */}
             </div>
             <div
               className={styles.item}
               onClick={() => router.push("/info/item?key=event")}
             >
-              <img src="/images/event5.jpg" />
+              <img src={events?.data?.response?.[4].poster} />
             </div>
           </div>
         </div>
