@@ -26,7 +26,7 @@ export default function Info() {
     <>
       <Banner item={data ? data : {}} />
       <Content item={data ? data : {}} router={router} />
-      {/* {!router.query.key && <Projects />} */}
+      {project && <Projects />}
     </>
   );
 }

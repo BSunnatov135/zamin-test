@@ -5,6 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Banner({ contents, router, item }) {
   const { lang } = useTranslation();
+  const { t } = useTranslation("common");
   return (
     <Container>
       <div className={styles.main}>
@@ -16,7 +17,7 @@ export default function Banner({ contents, router, item }) {
         ></p>
         {!router.query.key && (
           <p className={styles.link}>
-            <span>Сделайте пожертвование</span>
+            <span>{t("donate")}</span>
             <ArrowRight />
           </p>
         )}

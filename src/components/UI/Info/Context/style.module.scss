@@ -35,11 +35,12 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    margin-top: 24px;
     cursor: pointer;
     span {
       font-size: 18px;
       font-weight: 700;
-      color: #09999a;
+      color: var(--primary-color);
     }
     &:hover {
       svg {
