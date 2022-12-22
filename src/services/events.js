@@ -6,8 +6,7 @@ const getEventsFn = async (data) =>
     data,
   });
 
-const getEventFn = async (file) =>
-  await request.get(`/v1/object/get-list/file`);
+const getEventFn = async (id) => await request.get(`/v1/object/gallery/${id}`);
 
 const useEvents = ({ eventParams, eventId }) => {
   const events = useQuery(
@@ -18,7 +17,7 @@ const useEvents = ({ eventParams, eventId }) => {
     }
   );
   const event = useQuery(
-    [`GET_EVENT_FILE`, eventId],
+    [`GET_EVENT_${eventId}`, eventId],
     () => getEventFn(eventId),
     {
       enabled: !!eventId,

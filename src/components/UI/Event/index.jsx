@@ -16,7 +16,6 @@ export default function Event() {
       limit: 5,
     },
   });
-  console.log("events=", events?.data?.response?.[0]);
   return (
     <Container>
       <div className={styles.main}>
@@ -31,19 +30,25 @@ export default function Event() {
           <div className={styles.topElement}>
             <div
               className={styles.item}
-              onClick={() => router.push("/info/item?key=event")}
+              onClick={() =>
+                router.push(`/info/${events?.data?.response?.[0].guid}`)
+              }
             >
               <img src={events?.data?.response?.[0].poster} />
             </div>
             <div
               className={styles.item}
-              onClick={() => router.push("/info/item?key=event")}
+              onClick={() =>
+                router.push(`/info/${events?.data?.response?.[1].guid}`)
+              }
             >
               <img src={events?.data?.response?.[1].poster} />
             </div>
             <div
               className={`${styles.item} ${styles.event}`}
-              onClick={() => router.push("/info/item?key=event")}
+              onClick={() =>
+                router.push(`/info/${events?.data?.response?.[2].guid}`)
+              }
             >
               <img src={events?.data?.response?.[2].poster} />
               {/* <PlaySmall /> */}
@@ -52,7 +57,9 @@ export default function Event() {
           <div className={styles.bottomElement}>
             <div
               className={`${styles.item} ${styles.event}`}
-              onClick={() => router.push("/info/item?key=event")}
+              onClick={() =>
+                router.push(`/info/${events?.data?.response?.[3].guid}`)
+              }
             >
               <img src={events?.data?.response?.[3].poster} />
               {/* <PlayLarge className={styles.playLarge} />
@@ -60,7 +67,9 @@ export default function Event() {
             </div>
             <div
               className={styles.item}
-              onClick={() => router.push("/info/item?key=event")}
+              onClick={() =>
+                router.push(`/info/${events?.data?.response?.[4].guid}`)
+              }
             >
               <img src={events?.data?.response?.[4].poster} />
             </div>
