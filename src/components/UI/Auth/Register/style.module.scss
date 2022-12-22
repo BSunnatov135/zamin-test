@@ -8,7 +8,7 @@
   flex-direction: column;
   box-sizing: border-box;
   border-radius: 0;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans" !important;
   @media screen and (max-width: 600px) {
     padding: 16px;
     width: 100%;
@@ -27,7 +27,7 @@
       font-weight: 700;
       font-size: 32px;
       line-height: 44px;
-      font-family: "Noto Serif";
+      font-family: "Noto Serif" !important;
     }
   }
   .form {

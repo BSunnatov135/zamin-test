@@ -58,7 +58,7 @@
   a {
     color: #fff;
     display: flex;
-    font-family: "Noto Sans";
+    font-family: "Noto Sans" !important;
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
@@ -72,7 +72,7 @@
     }
   }
   p {
-    font-family: "Noto Sans";
+    font-family: "Noto Sans" !important;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
@@ -87,7 +87,7 @@
   display: flex;
   justify-content: space-between;
   color: #fff;
-  font-family: "Noto Sans";
+  font-family: "Noto Sans" !important;
   font-size: 16px;
   line-height: 180%;
   padding: 32px 0 40px;
@@ -139,7 +139,7 @@
         font-size: 16px;
         line-height: 22px;
         color: #9a9b9b;
-        font-family: "Noto Sans";
+        font-family: "Noto Sans" !important;
       }
     }
     .accordionDetails {
