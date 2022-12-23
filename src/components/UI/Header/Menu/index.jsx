@@ -1,12 +1,13 @@
 import { Container } from "@mui/material";
 import classNames from "classnames";
-import LoginForm from "components/UI/Auth/Login";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
 import useTranslation from "next-translate/useTranslation";
 import Spheres from "./ProjectItems/projects";
 import useProjects from "services/projects";
+import scrollToRef from "mixins/scrollToRef";
+import { useSelector } from "react-redux";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const { projects } = useProjects({
@@ -16,7 +17,9 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
     },
   });
   const { t } = useTranslation("common");
-
+  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
+  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
+  console.log("eventsRef", eventsRef);
   return (
     <>
       <div
@@ -30,23 +33,62 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
             <div className={styles.box}>
               <p className={styles.title}>{t("about_fond")}</p>
               <Link href="/">
-                <a>{t("creation")}</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("creation")}
+                </a>
               </Link>
               <Link href="/">
-                <a>{t("mission")}</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("mission")}
+                </a>
               </Link>
               <Link href="/">
-                <a>{t("activity")}</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("activity")}
+                </a>
               </Link>
               <Link href="/">
-                <a>{t("funding")}</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("funding")}
+                </a>
               </Link>
               <Link href="/">
-                <a className={styles.box_bottom}>{t("trust")}</a>
+                <a
+                  className={styles.box_bottom}
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("trust")}
+                </a>
               </Link>
               <p className={styles.title}>{t("advert_title")}</p>
               <Link href="/">
-                <a>{t("advert_title")}</a>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClose(e);
+                    scrollToRef(0, advertsRef - 100);
+                  }}
+                >
+                  {t("advert_title")}
+                </a>
               </Link>
             </div>
             <div className={styles.box}>
@@ -55,7 +97,11 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 <Spheres key={item.guid} item={item} />
               ))}
               <Link href="/">
-                <a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
                   <p className={`${styles.donation} ${styles.title}`}>
                     {t("donate")} <ArrowRight />
                   </p>
@@ -63,24 +109,57 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               </Link>
               <p className={styles.title}>{t("contacts")}</p>
               <Link href="/">
-                <a>Email: info@zaminfoundation.uz</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  Email: info@zaminfoundation.uz
+                </a>
               </Link>
               <Link href="/">
-                <a>{t("sns")}</a>
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("sns")}
+                </a>
               </Link>
             </div>
             <div className={styles.box}>
               <p className={styles.title}>{t("media")}</p>
               <Link href="/">
-                <a>{t("event_title")}</a>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClose(e);
+                    scrollToRef(0, eventsRef - 100);
+                  }}
+                >
+                  {t("event_title")}
+                </a>
               </Link>
               <Link href="/">
-                <a className={styles.box_bottom}>{t("gallery")}</a>
+                <a
+                  className={styles.box_bottom}
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("gallery")}
+                </a>
               </Link>
               <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 {t("cabinet")}
               </p>
-              <a href="/" onClick={handleLogin}>
+              <a
+                href="/"
+                onClick={(e) => {
+                  handleClose(e);
+                  handleLogin(e);
+                }}
+              >
                 <p className={`${styles.donation} ${styles.title}`}>
                   {t("login")} <ArrowRight />
                 </p>

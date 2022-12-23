@@ -6,6 +6,9 @@ import PlayLarge from "/src/assests/icons/playLarge.svg";
 import PlaySmall from "/src/assests/icons/playSmall.svg";
 import useTranslation from "next-translate/useTranslation";
 import useEvents from "services/events";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setScrollRefEvents } from "store/scrollFunctionSlice/scrollFunctionSlice";
 
 export default function Event() {
   const { t } = useTranslation("common");
@@ -16,6 +19,15 @@ export default function Event() {
       limit: 5,
     },
   });
+  const eventsContainerRef = useRef(null);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (eventsContainerRef?.current?.offsetTop) {
+      setTimeout(() => {
+        dispatch(setScrollRefEvents(eventsContainerRef.current.offsetTop));
+      }, 0);
+    }
+  }, [eventsContainerRef?.current?.offsetTop]);
   return (
     <Container>
       <div className={styles.main}>
@@ -26,7 +38,7 @@ export default function Event() {
             path: "/event",
           }}
         />
-        <div className={styles.list}>
+        <div className={styles.list} ref={eventsContainerRef}>
           <div className={styles.topElement}>
             <div
               className={styles.item}
