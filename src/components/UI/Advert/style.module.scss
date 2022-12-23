@@ -40,6 +40,8 @@
         p {
           display: -webkit-box;
           -webkit-line-clamp: 2;
+          line-clamp: 2;
+          box-orient: vertical;
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -61,6 +63,8 @@
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 5;
+          line-clamp: 5;
+          box-orient: vertical;
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
