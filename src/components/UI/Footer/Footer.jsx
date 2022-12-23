@@ -15,9 +15,21 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Logo from "assests/icons/logo.svg";
 import useTransition from "next-translate/useTranslation";
 import useTranslation from "next-translate/useTranslation";
+import useProjects from "services/projects";
+import Spheres from "../Header/Menu/ProjectItems/projects";
+import scrollToRef from "mixins/scrollToRef";
+import { useSelector } from "react-redux";
 
 export default function Footer() {
+  const { projects } = useProjects({
+    projectParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
   const { t } = useTranslation("common");
+  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
+  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
   return (
     <Box
       sx={{
@@ -56,15 +68,9 @@ export default function Footer() {
                 {t("projects")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
-              <Link href="/">
-                <a>{t("environment")}</a>
-              </Link>
-              <Link href="/">
-                <a>{t("innovation")}</a>
-              </Link>
-              <Link href="/">
-                <a>{t("program")}</a>
-              </Link>
+              {projects?.data?.response?.map((item) => (
+                <Spheres key={item.guid} item={item} />
+              ))}
             </div>
             <div className={styles.box}>
               <p className={styles.subtitle}>
@@ -72,7 +78,14 @@ export default function Footer() {
                 <DropIcon />
               </p>
               <Link href="/">
-                <a>{t("advert_title")}</a>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToRef(0, advertsRef - 100);
+                  }}
+                >
+                  {t("advert_title")}
+                </a>
               </Link>
             </div>
             <div className={styles.box}>
@@ -81,7 +94,14 @@ export default function Footer() {
                 <DropIcon />
               </p>
               <Link href="/">
-                <a>{t("event_title")}</a>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToRef(0, eventsRef - 100);
+                  }}
+                >
+                  {t("event_title")}
+                </a>
               </Link>
               <Link href="/">
                 <a>{t("gallery")}</a>
