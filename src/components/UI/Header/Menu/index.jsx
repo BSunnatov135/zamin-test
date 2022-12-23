@@ -109,13 +109,17 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               </Link>
               <p className={styles.title}>{t("contacts")}</p>
               <Link href="/">
-                <a
-                  onClick={(e) => {
-                    handleClose(e);
-                  }}
-                >
-                  Email: info@zaminfoundation.uz
-                </a>
+                <div className={styles.emailContainer}>
+                  <p className={styles.email}>Email:</p>
+                  <a
+                    href="mailto:info@zaminfoundation.uz"
+                    onClick={(e) => {
+                      handleClose(e);
+                    }}
+                  >
+                    info@zaminfoundation.uz
+                  </a>
+                </div>
               </Link>
               <Link href="/">
                 <a

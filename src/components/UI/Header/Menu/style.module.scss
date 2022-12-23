@@ -30,6 +30,16 @@
     .box {
       border-right: 1px solid #cfcfcf;
       padding: 0 24px;
+      .emailContainer {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        font-size: 18px;
+        .email {
+          margin-bottom: 12px;
+        }
+      }
+
       &:first-child {
         padding-left: 0;
       }
