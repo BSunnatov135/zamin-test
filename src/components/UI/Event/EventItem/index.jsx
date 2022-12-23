@@ -5,6 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function EventItem({ item }) {
   const { lang } = useTranslation();
+  const { t } = useTranslation("common");
   return (
     <Link href={`/info/${item.guid}`}>
       <a>
@@ -17,12 +18,12 @@ export default function EventItem({ item }) {
             <p
               className={styles.body__text}
               dangerouslySetInnerHTML={{
-                __html: item.desc || item.sub_desc,
+                __html: item?.[`${lang}_description`],
               }}
             />
             <Link href={`/info/${item.guid}`} styles={styles.body__link}>
               <a>
-                Подробнее <ArrowRight />
+                {t("more")} <ArrowRight />
               </a>
             </Link>
           </div>

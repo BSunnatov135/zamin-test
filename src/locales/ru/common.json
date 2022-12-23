@@ -60,5 +60,10 @@
   "male": "Мужчина",
   "female": "Женщина",
   "with_us": "Уже с нами?",
-  "code_error": "Code entered incorrectly"
+  "code_error": "Code entered incorrectly",
+  "week": "За эту неделю",
+  "by_date": "По Дате",
+  "month": "За этот месяц",
+  "year": "За год",
+  "half_year": "За полгода"
 }

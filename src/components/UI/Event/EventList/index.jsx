@@ -5,46 +5,13 @@ import ArrowDownIcon from "assests/icons/arrowDown.svg";
 import { Popover } from "@mui/material";
 import { useState } from "react";
 import CheckIcon from "@mui/icons-material/Check";
-import Link from "next/link";
 import useEvents from "services/events";
-
-const items = [
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev1.png",
-  },
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev2.png",
-  },
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev3.png",
-  },
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev4.png",
-  },
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev5.png",
-  },
-  {
-    title: "Общенациональный проект «Зеленое пространство»",
-    desc: "Частичная или полная потеря слуха лишает детей важного источника информации...",
-    img: "/images/ev6.png",
-  },
-];
+import useTranslation from "next-translate/useTranslation";
 
 export default function EventPage() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [toggle, setToggle] = useState("w");
-
+  const { t } = useTranslation("common");
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   const { events } = useEvents({
@@ -66,9 +33,9 @@ export default function EventPage() {
     <Container>
       <div className={styles.main}>
         <div className={styles.title}>
-          <h2 className={styles.sectionTitle}>Мероприятие</h2>
+          <h2 className={styles.sectionTitle}>{t("event_title")}</h2>
           <div className={styles.chooseDate} onClick={handleClick}>
-            <p>По дате</p>
+            <p>{t("by_date")}</p>
             <ArrowDownIcon />
           </div>
           <Popover
@@ -83,20 +50,44 @@ export default function EventPage() {
             }}
           >
             <ul className={styles.popover}>
-              <li className={styles.item} onClick={() => setToggle("w")}>
-                За эту неделю
+              <li
+                className={styles.item}
+                onClick={(e) => {
+                  handleClose(e);
+                  setToggle("w");
+                }}
+              >
+                {t("week")}
                 {toggle === "w" && <CheckIcon fontSize="small" />}
               </li>
-              <li className={styles.item} onClick={() => setToggle("m")}>
-                За этот месяц
+              <li
+                className={styles.item}
+                onClick={(e) => {
+                  handleClose(e);
+                  setToggle("m");
+                }}
+              >
+                {t("month")}
                 {toggle === "m" && <CheckIcon fontSize="small" />}
               </li>
-              <li className={styles.item} onClick={() => setToggle("h")}>
-                За полгода
+              <li
+                className={styles.item}
+                onClick={(e) => {
+                  handleClose(e);
+                  setToggle("h");
+                }}
+              >
+                {t("half_year")}
                 {toggle === "h" && <CheckIcon fontSize="small" />}
               </li>
-              <li className={styles.item} onClick={() => setToggle("y")}>
-                За год
+              <li
+                className={styles.item}
+                onClick={(e) => {
+                  handleClose(e);
+                  setToggle("y");
+                }}
+              >
+                {t("year")}
                 {toggle === "y" && <CheckIcon fontSize="small" />}
               </li>
             </ul>

@@ -60,5 +60,10 @@
   "male": "Erkak",
   "female": "Ayol",
   "with_us": "Ro'yxatdan o'tganmisiz?",
-  "code_error": "Kod noto'g'ri kiritildi"
+  "code_error": "Kod noto'g'ri kiritildi",
+  "week": "Bu haftalik",
+  "by_date": "Sana bo'yicha",
+  "month": "Bu oylik",
+  "year": "Bu yillik",
+  "half_year": "Yarim yillik"
 }
