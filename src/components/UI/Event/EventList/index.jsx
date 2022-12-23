@@ -7,6 +7,7 @@ import { useState } from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import Link from "next/link";
 import useEvents from "services/events";
+import useTranslation from "next-translate/useTranslation";
 
 const items = [
   {
@@ -44,6 +45,7 @@ const items = [
 export default function EventPage() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [toggle, setToggle] = useState("w");
+  const { t } = useTranslation("common");
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
