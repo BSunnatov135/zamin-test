@@ -39,8 +39,9 @@ export default function Advert() {
               <div className={styles.header}>
                 <p>{item?.[`${lang}_header`]}</p>
               </div>
-              <div className={styles.description}>
+              <div className={styles.body}>
                 <p
+                  className={styles.description}
                   dangerouslySetInnerHTML={{
                     __html: item?.[`${lang}_description`],
                   }}

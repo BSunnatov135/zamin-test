@@ -68,6 +68,7 @@ export default function HelpPeople() {
               <div className={styles.body}>
                 <h3>{data?.[`${lang}_name`]}</h3>
                 <p
+                  className={styles.description}
                   dangerouslySetInnerHTML={{
                     __html: data?.[`${lang}_description`],
                   }}

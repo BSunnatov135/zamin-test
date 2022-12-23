@@ -47,12 +47,11 @@
           text-overflow: ellipsis;
         }
       }
-
-      .description {
-        flex: 1;
+      .body {
+        overflow: hidden;
+        max-height: 200px;
         display: flex;
-        flex-direction: column;
-        & > p {
+        .description {
           font-size: 16px;
           flex: 1;
           line-height: 180%;
@@ -65,8 +64,6 @@
           -webkit-line-clamp: 5;
           line-clamp: 5;
           box-orient: vertical;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
           text-overflow: ellipsis;
         }
       }
@@ -83,7 +80,8 @@
       }
       a {
         display: flex;
-        align-items: center;
+        flex: 1;
+        align-items: flex-end;
         font-weight: 500;
         font-size: 16px;
         line-height: 22px;
