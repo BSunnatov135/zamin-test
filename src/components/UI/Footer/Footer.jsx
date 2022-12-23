@@ -190,7 +190,9 @@ export default function Footer() {
                 id="panel1a-header"
                 className={styles.accordionSummary}
               >
-                <Typography className={styles.summaryContent}>Медиа</Typography>
+                <Typography className={styles.summaryContent}>
+                  {t("media")}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
                 <Typography>{t("event_title")}</Typography>
@@ -207,7 +209,7 @@ export default function Footer() {
                 info@zaminfoundation.uz
               </a>
             </Link>
-            <p className={styles.subtitle}>Соц-сети:</p>
+            <p className={styles.subtitle}>{t("sns")}</p>
             <div className={styles.accordionIcons}>
               <Link href="/">
                 <div className={styles.SocialIcons}>
@@ -220,11 +222,17 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.bottomElement}>
-          <p className={styles.subtitle}>©Zamin 2022. Все права защищены</p>
+          <p className={styles.subtitle}>{t("rights")}</p>
           <div className={styles.SocialIcons}>
-            <InstagramIcon />
-            <FacebookIcon />
-            <TelegramIcon />
+            <a href="https://www.instagram.com/zaminfoundation/">
+              <InstagramIcon />
+            </a>
+            <a href="https://www.facebook.com/zaminfoundation">
+              <FacebookIcon />
+            </a>
+            <a href="https://t.me/zaminfoundation">
+              <TelegramIcon />
+            </a>
           </div>
         </div>
       </Container>

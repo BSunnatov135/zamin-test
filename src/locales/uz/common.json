@@ -61,9 +61,10 @@
   "female": "Ayol",
   "with_us": "Ro'yxatdan o'tganmisiz?",
   "code_error": "Kod noto'g'ri kiritildi",
-  "week": "Bu haftalik",
+  "week": "Haftalik",
   "by_date": "Sana bo'yicha",
-  "month": "Bu oylik",
-  "year": "Bu yillik",
-  "half_year": "Yarim yillik"
+  "month": "Oylik",
+  "year": "Yillik",
+  "half_year": "Yarim yillik",
+  "rights": "©Zamin 2022. Barcha huquqlar himoyalangan"
 }

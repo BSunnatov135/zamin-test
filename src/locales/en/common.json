@@ -60,5 +60,11 @@
   "male": "Male",
   "female": "Female",
   "with_us": "Already with us?",
-  "code_error": "Kod noto'g'ri kiritildi"
+  "code_error": "Kod noto'g'ri kiritildi",
+  "week": "Weekly",
+  "by_date": "By date",
+  "month": "Monthly",
+  "year": "Yearly",
+  "half_year": "6 months",
+  "rights": "©Zamin 2022. All rights reserved"
 }
