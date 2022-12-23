@@ -66,9 +66,9 @@ export default function EventPage() {
     <Container>
       <div className={styles.main}>
         <div className={styles.title}>
-          <h2 className={styles.sectionTitle}>Мероприятие</h2>
+          <h2 className={styles.sectionTitle}>{t("event_title")}</h2>
           <div className={styles.chooseDate} onClick={handleClick}>
-            <p>По дате</p>
+            <p>{t("date_filter")}</p>
             <ArrowDownIcon />
           </div>
           <Popover

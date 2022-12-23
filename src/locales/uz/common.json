@@ -60,5 +60,6 @@
   "male": "Erkak",
   "female": "Ayol",
   "with_us": "Ro'yxatdan o'tganmisiz?",
-  "code_error": "Kod noto'g'ri kiritildi"
+  "code_error": "Kod noto'g'ri kiritildi",
+  "date_filter": "Sana bo'yicha"
 }

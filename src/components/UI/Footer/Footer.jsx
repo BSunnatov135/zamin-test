@@ -191,9 +191,9 @@ export default function Footer() {
             <div className={styles.accordionIcons}>
               <Link href="/">
                 <div className={styles.SocialIcons}>
-                  <InstagramIcon />
-                  <FacebookIcon />
-                  <TelegramIcon />
+                  <a href="https://www.instagram.com/zaminfoundation/" target="_blank"> <InstagramIcon /></a>
+                  <a href="https://www.facebook.com/zaminfoundation" target="_blank"> <FacebookIcon /></a>
+                  <a href="https://t.me/zaminfoundation" target="_blank"><TelegramIcon /></a>
                 </div>
               </Link>
             </div>

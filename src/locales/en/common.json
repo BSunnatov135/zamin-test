@@ -60,5 +60,6 @@
   "male": "Male",
   "female": "Female",
   "with_us": "Already with us?",
-  "code_error": "Kod noto'g'ri kiritildi"
+  "code_error": "Invalid otp",
+  "date_filter": "By date"
 }

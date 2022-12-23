@@ -60,5 +60,6 @@
   "male": "Мужчина",
   "female": "Женщина",
   "with_us": "Уже с нами?",
-  "code_error": "Code entered incorrectly"
+  "code_error": "Code entered incorrectly",
+  "date_filter": "По дате"
 }

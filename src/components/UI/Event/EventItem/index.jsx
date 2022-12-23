@@ -17,7 +17,7 @@ export default function EventItem({ item }) {
             <p
               className={styles.body__text}
               dangerouslySetInnerHTML={{
-                __html: item.desc || item.sub_desc,
+                __html: item[`${lang}_description`],
               }}
             />
             <Link href={`/info/${item.guid}`} styles={styles.body__link}>
