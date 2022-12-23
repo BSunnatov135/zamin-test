@@ -6,33 +6,9 @@ import ArrowRight from "assests/icons/narrowRight.svg";
 import useTransition from "next-translate/useTranslation";
 import useAdverts from "services/advert";
 import useTranslation from "next-translate/useTranslation";
-
-const items = [
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-  {
-    title: "Междугородние трудовые поездки. Обмен опытом.",
-    desc: "Я хочу внести вклад в будущее нашей страны со своими сверстниками и друзьями плечом к плечу. Отвага и знания - это путь в прекрасное будущее. Вперёд друзья за мечтой в светлое буду ...",
-  },
-];
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setScrollRefAdverts } from "store/scrollFunctionSlice/scrollFunctionSlice";
 
 export default function Advert() {
   const { t } = useTranslation("common");
@@ -43,12 +19,21 @@ export default function Advert() {
       limit: 6,
     },
   });
+  const adversContainerRef = useRef(null);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (adversContainerRef?.current?.offsetTop) {
+      setTimeout(() => {
+        dispatch(setScrollRefAdverts(adversContainerRef.current.offsetTop));
+      }, 0);
+    }
+  }, [adversContainerRef?.current?.offsetTop]);
 
   return (
     <Container>
       <div className={styles.main}>
         <BlogTitle title={t("advert_title")} />
-        <div className={styles.list}>
+        <div className={styles.list} ref={adversContainerRef}>
           {adverts?.data?.response?.map((item) => (
             <div key={item.guid} className={styles.item}>
               <div className={styles.header}>
