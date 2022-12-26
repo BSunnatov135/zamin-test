@@ -241,12 +241,12 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
               </div>
             )}
             <Button type="submit" className={cls.button}>
-              Подтвердить
+              {t("confirm")}
             </Button>
           </form>
           <div className={cls.register}>
             <p>
-              Уже с нами?{" "}
+              {t("with_us")}{" "}
               <a
                 href="#"
                 onClick={(e) => {
@@ -254,7 +254,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   handleClose(e);
                 }}
               >
-                Войдите
+                {t("login")}
               </a>
             </p>
           </div>
