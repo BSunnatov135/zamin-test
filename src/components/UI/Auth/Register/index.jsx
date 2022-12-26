@@ -14,7 +14,7 @@ import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import useTranslation from "next-translate/useTranslation";
 
-const statuses = ["initial", "code", "gender"];
+const statuses = ["initial", "code", "register"];
 
 export default function RegisterForm({ open, handleClose, openLogin }) {
   const [state, setState] = useState({
@@ -88,7 +88,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     signUp.mutate({
       data: {
         ...data,
-        gender: [toggle],
         user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         birth_date: new Date(data.birth_date),
       },
@@ -110,7 +109,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             <CloseIcon />
           </div>
           <div className={cls.title}>
-            <h2>{t("register")}</h2>
+            <h2>{t("register_title")}</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             {status === "initial" && (
@@ -154,7 +153,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 <CountDown seconds={59} resendCode={resendCode} />
               </>
             )}
-            {status === "gender" && (
+            {status === "register" && (
               <div className={cls.inputWrapper}>
                 <InputMaskCustom
                   className={cls.displayNone}
@@ -239,27 +238,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                     errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
                   }
                 />
-                <div className={cls.genderChooseLabel}>
-                  <label>{t("choose_gender")}</label>
-                  <div
-                    className={cls.genderChoose}
-                    register={register}
-                    name="gender"
-                  >
-                    <div
-                      className={cls.gender}
-                      onClick={() => setToggle("male")}
-                    >
-                      {t("male")} {toggle === "male" && <CheckIcon />}
-                    </div>
-                    <div
-                      className={cls.gender}
-                      onClick={() => setToggle("female")}
-                    >
-                      {t("female")} {toggle === "female" && <CheckIcon />}
-                    </div>
-                  </div>
-                </div>
               </div>
             )}
             <Button type="submit" className={cls.button}>
