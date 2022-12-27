@@ -5,16 +5,24 @@ import { useRouter } from "next/router";
 import useProjects from "services/projects";
 import useAdverts from "services/advert";
 import useEvents from "services/events";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Slider from "../Slider/Index";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Info() {
+  const { lang } = useTranslation();
   const router = useRouter();
-  const [data, setData] = useState(null);
   const queryFrom = router?.query?.from;
-  const { project } = useProjects({
+  const { project, projectSlider } = useProjects({
     projectId: router.query.info,
+    sliderProps: {
+      shouldGet: false,
+      limit: 50,
+      offset: 0,
+      website_projects_id: router.query.info,
+    },
   });
+
   const { event } = useEvents({
     eventId: router.query.info,
   });
@@ -22,21 +30,37 @@ export default function Info() {
     advertId: router.query.info,
   });
 
-  console.log("data=", event?.data);
-
-  useEffect(() => {
+  const sliderData = useMemo(() => {
+    let data;
     if (queryFrom === "news") {
-      setData(advert?.data?.response);
     } else if (queryFrom === "events") {
-      setData(event?.data?.response);
-    } else setData(project?.data?.response);
+    } else {
+      data = projectSlider?.data?.response;
+    }
+    return data;
+  }, [projectSlider]);
+
+  const data = useMemo(() => {
+    let newData;
+    if (queryFrom === "news") {
+      newData = advert?.data?.response;
+    } else if (queryFrom === "events") {
+      newData = event?.data?.response;
+    } else newData = project?.data?.response;
+    return newData;
   }, [advert, project, event]);
 
-  console.log(event);
   return (
     <>
-      {project && !queryFrom && <Banner item={data ? data : {}} />}
-      {!project && <Slider item={data ? data : {}} />}
+      {/* {project && !queryFrom && <Banner item={data ? data : {}} />} */}
+      <Slider
+        data={sliderData ?? []}
+        title={
+          data?.[`${lang}_name`]
+            ? data?.[`${lang}_name`]
+            : data?.[`${lang}_header`]
+        }
+      />
       <Content item={data ? data : {}} router={router} />
       {!queryFrom && <Projects />}
     </>
