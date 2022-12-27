@@ -54,6 +54,7 @@ export default function HelpPeople() {
                       e.preventDefault();
                       hanldeClick(item);
                     }}
+                    className={styles.wrapper}
                   >
                     <SphereItem
                       key={item.guid}
