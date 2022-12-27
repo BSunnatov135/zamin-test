@@ -9,30 +9,71 @@ import Tree from "/public/logos/Tree.svg";
 import UNDP from "/public/logos/UNDP.svg";
 import EduIcon from "/public/logos/EduIcon.svg";
 import UNEP from "/public/logos/UNEP.svg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const items = [
-  <MedIcon />,
-  <Unicef />,
-  <HydroIcon />,
-  <FAOIcon />,
-  <Tree />,
-  <UNDP />,
-  <EduIcon />,
-  <UNEP />,
-];
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return <div className={styles.next} onClick={onClick} />;
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return <div className={styles.prev} onClick={onClick} />;
+}
 
 export default function Partners() {
+  let settings = {
+    dots: false,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <Container>
-      <div className={styles.wrapper}>
-        <div className={styles.list}>
-          {items.map((item, index) => (
-            <div key={index + "key"} className={styles.item}>
-              {item}
-            </div>
-          ))}
+      <Slider {...settings} className={styles.slider}>
+        <div className={styles.item}>
+          <MedIcon />
         </div>
-      </div>
+        <div className={styles.item}>
+          <GasLogo />
+        </div>
+        <div className={styles.item}>
+          <Unicef />
+        </div>
+        <div className={styles.item}>
+          <HydroIcon />
+        </div>
+        <div className={styles.item}>
+          <FAOIcon />
+        </div>
+        <div className={styles.item}>
+          <Tree />
+        </div>
+        <div className={styles.item}>
+          <UNDP />
+        </div>
+        <div className={styles.item}>
+          <EduIcon />
+        </div>
+        <div className={styles.item}>
+          <UNEP />
+        </div>
+      </Slider>
     </Container>
   );
 }

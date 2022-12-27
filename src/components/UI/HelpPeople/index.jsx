@@ -59,7 +59,9 @@ export default function HelpPeople() {
                       key={item.guid}
                       item={item}
                       className={
-                        dataSphere?.includes(item.guid) ? styles.active : ""
+                        dataSphere?.includes(item.guid)
+                          ? `${styles.active} ${styles.item}`
+                          : styles.item
                       }
                     />
                   </div>

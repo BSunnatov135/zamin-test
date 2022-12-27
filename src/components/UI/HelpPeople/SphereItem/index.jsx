@@ -10,7 +10,7 @@ export default function SphereItem({ item, className }) {
   return (
     <p className={className}>
       <IconGeneretor icon={item?.sphere_icon} />
-      {item[`${lang}_name`]}
+      <p>{item[`${lang}_name`]}</p>
     </p>
   );
 }

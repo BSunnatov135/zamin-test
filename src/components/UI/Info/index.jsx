@@ -36,7 +36,7 @@ export default function Info() {
   return (
     <>
       {project && !queryFrom && <Banner item={data ? data : {}} />}
-      <Slider item={data ? data : {}} />
+      {!project && <Slider item={data ? data : {}} />}
       <Content item={data ? data : {}} router={router} />
       {!queryFrom && <Projects />}
     </>

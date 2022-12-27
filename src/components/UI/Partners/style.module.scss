@@ -1,33 +1,35 @@
-@import "styles/unit.scss";
-
-.wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .list {
-    display: flex;
-    column-gap: 140px;
-
-    @media screen and (max-width: 600px) {
-      grid-template-columns: repeat(9, 1fr);
+.slider {
+  padding: 0 25px;
+  .item {
+    display: flex !important;
+    justify-content: center;
+    svg {
+      background: #f7f7f7;
+      path {
+        mix-blend-mode: multiply;
+      }
     }
-    .item {
-      height: 110px;
-      @include element-center;
-      &:nth-child(4) {
-        img {
-          height: 50px;
-        }
-      }
-      @media screen and (max-width: 600px) {
-        height: 70px;
-      }
-      height: 80px;
-      object-fit: cover;
+  }
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+    &::before {
+      content: ">";
+      color: black;
+      font-size: 20px;
+    }
+  }
+  .prev {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 0;
+    &::before {
+      content: "<";
+      color: black;
+      font-size: 20px;
     }
   }
 }
