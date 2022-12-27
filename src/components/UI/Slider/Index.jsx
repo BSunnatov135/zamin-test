@@ -26,7 +26,7 @@ export default function Slider({ data, title }) {
 
   const currentData = useMemo(() => {
     return data[slideIndex - 1];
-  }, [slideIndex]);
+  }, [slideIndex, data]);
 
   return (
     <>

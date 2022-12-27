@@ -39,7 +39,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
-  console.log(sphere?.data);
+  console.log("spheresDara", data);
   return (
     <Container>
       <div className={styles.main}>
@@ -76,7 +76,7 @@ export default function HelpPeople() {
                     __html: data?.[`${lang}_description`],
                   }}
                 ></p>
-                <Link href="/">
+                <Link href={`/info/${data?.guid}`}>
                   <a>
                     {t("more")} <ArrowRight />
                   </a>
