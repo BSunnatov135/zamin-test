@@ -12,7 +12,6 @@ import UNEP from "/public/logos/UNEP.svg";
 
 const items = [
   <MedIcon />,
-  <GasLogo />,
   <Unicef />,
   <HydroIcon />,
   <FAOIcon />,

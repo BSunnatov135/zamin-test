@@ -6,6 +6,7 @@ import useProjects from "services/projects";
 import useAdverts from "services/advert";
 import useEvents from "services/events";
 import { useEffect, useState } from "react";
+import Slider from "../Slider/Index";
 
 export default function Info() {
   const router = useRouter();
@@ -26,14 +27,18 @@ export default function Info() {
   useEffect(() => {
     if (queryFrom === "news") {
       setData(advert?.data?.response);
-    } else setData(project?.data?.response || event?.data?.response);
+    } else if (queryFrom === "events") {
+      setData(event?.data?.response);
+    } else setData(project?.data?.response);
   }, [advert, project, event]);
 
+  console.log(event);
   return (
     <>
-      <Banner item={data ? data : {}} />
+      {project && !queryFrom && <Banner item={data ? data : {}} />}
+      <Slider item={data ? data : {}} />
       <Content item={data ? data : {}} router={router} />
-      {project && !queryFrom && !event && <Projects />}
+      {!queryFrom && <Projects />}
     </>
   );
 }

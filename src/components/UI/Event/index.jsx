@@ -43,7 +43,9 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(`/info/${events?.data?.response?.[0].guid}`)
+                router.push(
+                  `/info/${events?.data?.response?.[0].guid}?from=events`
+                )
               }
             >
               <img src={events?.data?.response?.[0].poster} />
@@ -51,7 +53,9 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(`/info/${events?.data?.response?.[1].guid}`)
+                router.push(
+                  `/info/${events?.data?.response?.[1].guid}?from=events`
+                )
               }
             >
               <img src={events?.data?.response?.[1].poster} />
@@ -59,7 +63,9 @@ export default function Event() {
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
-                router.push(`/info/${events?.data?.response?.[2].guid}`)
+                router.push(
+                  `/info/${events?.data?.response?.[2].guid}?from=events`
+                )
               }
             >
               <img src={events?.data?.response?.[2].poster} />
@@ -70,7 +76,9 @@ export default function Event() {
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
-                router.push(`/info/${events?.data?.response?.[3].guid}`)
+                router.push(
+                  `/info/${events?.data?.response?.[3].guid}?from=events`
+                )
               }
             >
               <img src={events?.data?.response?.[3].poster} />
@@ -80,7 +88,9 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(`/info/${events?.data?.response?.[4].guid}`)
+                router.push(
+                  `/info/${events?.data?.response?.[4].guid}?from=events`
+                )
               }
             >
               <img src={events?.data?.response?.[4].poster} />
