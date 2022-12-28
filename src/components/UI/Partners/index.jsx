@@ -12,15 +12,25 @@ import UNEP from "/public/logos/UNEP.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NextArrow from "/src/assests/icons/slickRIght.svg";
+import PrevArrow from "/src/assests/icons/slickLeft.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-  return <div className={styles.next} onClick={onClick} />;
+  return (
+    <div className={styles.next} onClick={onClick}>
+      <NextArrow />
+    </div>
+  );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
-  return <div className={styles.prev} onClick={onClick} />;
+  return (
+    <div className={styles.prev} onClick={onClick}>
+      <PrevArrow />
+    </div>
+  );
 }
 
 export default function Partners() {

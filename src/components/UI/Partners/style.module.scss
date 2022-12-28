@@ -14,16 +14,17 @@
     cursor: pointer;
     position: absolute;
     top: 50%;
-
+    transform: translate(0, -50%);
     right: 0;
-    transition: all 0.3s ease-in-out;
-    &:hover {
-      transform: translateX(1px);
-    }
-    &::before {
-      content: ">";
-      color: black;
-      font-size: 20px;
+    svg {
+      path {
+        stroke: #b3b6bf;
+      }
+      &:hover {
+        path {
+          stroke: #000;
+        }
+      }
     }
   }
   .prev {
@@ -32,10 +33,12 @@
     top: 50%;
     transform: translate(0, -50%);
     left: 0;
-    &::before {
-      content: "<";
-      color: black;
-      font-size: 20px;
+    svg {
+      &:hover {
+        path {
+          fill: #000;
+        }
+      }
     }
   }
 }
