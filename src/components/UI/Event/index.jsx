@@ -69,7 +69,6 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[2].poster} />
-              {/* <PlaySmall /> */}
             </div>
           </div>
           <div className={styles.bottomElement}>
@@ -82,8 +81,6 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[3].poster} />
-              {/* <PlayLarge className={styles.playLarge} />
-              <PlaySmall className={styles.playSmall} /> */}
             </div>
             <div
               className={styles.item}

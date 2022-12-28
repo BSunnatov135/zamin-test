@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import useProjects from "services/projects";
 import useAdverts from "services/advert";
 import useEvents from "services/events";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Slider from "../Slider/Index";
 import useTranslation from "next-translate/useTranslation";
 
@@ -13,32 +13,61 @@ export default function Info() {
   const { lang } = useTranslation();
   const router = useRouter();
   const queryFrom = router?.query?.from;
+  const projectId = useMemo(() => {
+    let id;
+    if (!queryFrom) id = router.query.info;
+    return id;
+  }, [router.query]);
+  const advertId = useMemo(() => {
+    let id;
+    if (queryFrom === "news") id = router.query.info;
+    return id;
+  }, [router.query]);
+  const eventId = useMemo(() => {
+    let id;
+    if (queryFrom === "events") id = router.query.info;
+    return id;
+  }, [router.query]);
+
   const { project, projectSlider } = useProjects({
-    projectId: router.query.info,
+    projectId: projectId,
     sliderProps: {
       shouldGet: false,
       limit: 50,
       offset: 0,
-      website_projects_id: router.query.info,
+      website_projects_id: projectId,
     },
   });
-
-  const { event } = useEvents({
-    eventId: router.query.info,
+  const { advert, advertSlider } = useAdverts({
+    advertId: advertId,
+    sliderProps: {
+      shouldGet: false,
+      limit: 50,
+      offset: 0,
+      news_id: advertId,
+    },
   });
-  const { advert } = useAdverts({
-    advertId: router.query.info,
+  const { event, eventSlider } = useEvents({
+    eventId: eventId,
+    sliderProps: {
+      shouldGet: false,
+      limit: 50,
+      offset: 0,
+      website_events_id: eventId,
+    },
   });
-
+  console.log("eventData", projectSlider);
   const sliderData = useMemo(() => {
     let data;
     if (queryFrom === "news") {
+      data = advertSlider?.data?.response;
     } else if (queryFrom === "events") {
+      data = eventSlider?.data?.response;
     } else {
       data = projectSlider?.data?.response;
     }
     return data;
-  }, [projectSlider]);
+  }, [projectSlider, eventSlider, advertSlider]);
 
   const data = useMemo(() => {
     let newData;

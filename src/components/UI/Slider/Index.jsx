@@ -9,9 +9,9 @@ import useTranslation from "next-translate/useTranslation";
 export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
   const nextSlide = () => {
-    if (slideIndex !== sliderData.length) {
+    if (slideIndex < data.length) {
       setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === sliderData.length) {
+    } else {
       setSlideIndex(1);
     }
   };
@@ -20,19 +20,19 @@ export default function Slider({ data, title }) {
     if (slideIndex !== 1) {
       setSlideIndex(slideIndex - 1);
     } else if (slideIndex === 1) {
-      setSlideIndex(sliderData.length);
+      setSlideIndex(data.length);
     }
   };
 
   const currentData = useMemo(() => {
     return data[slideIndex - 1];
   }, [slideIndex, data]);
-
+  console.log("data", data);
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <div className={styles.containerSlider}>
-        {sliderData.map((obj, index) => {
+        {data.map((obj, index) => {
           return (
             <div
               key={obj.id}
@@ -42,7 +42,13 @@ export default function Slider({ data, title }) {
                   : styles.slide
               }
             >
-              <img src={currentData?.file_link}></img>
+              {currentData?.file_link?.includes(".mp4") ? (
+                <video controls width={"100%"} height={"100%"}>
+                  <source src={currentData?.file_link} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={currentData?.file_link}></img>
+              )}
             </div>
           );
         })}
