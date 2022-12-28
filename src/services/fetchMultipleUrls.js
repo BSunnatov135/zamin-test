@@ -1,21 +1,19 @@
-import { request } from './http-client'
+import { request } from "./http-client";
 
 export const fetchMultipleUrls = async (urls) => {
-  let data
+  let data;
   try {
     data = await Promise.all(
       urls.map(async (url) => {
         try {
-          const response = await request.get(url)
-          return response.data
-        } catch (e) {
-          console.log(e)
-        }
+          const response = await request.get(url);
+          return response.data;
+        } catch (e) {}
       })
-    )
+    );
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 
-  return data
-}
+  return data;
+};

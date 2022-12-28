@@ -20,7 +20,7 @@ export default function EventPage() {
       limit: 100,
     },
   });
-  console.log("event_data=", events?.data);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };

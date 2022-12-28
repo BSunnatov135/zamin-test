@@ -12,7 +12,6 @@ export default function InputMaskCustom({
   name,
   ...props
 }) {
-  console.log("PROPS --> ", props);
   return (
     <div className={`${className} ${styles.inputMaskWrapper}`}>
       {props.label && (

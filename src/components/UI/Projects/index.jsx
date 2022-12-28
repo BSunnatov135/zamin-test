@@ -16,7 +16,7 @@ export default function Projects() {
       limit: 3,
     },
   });
-  console.log("projectsdata=", projects?.data);
+
   return (
     <Container>
       <div className={styles.main}>

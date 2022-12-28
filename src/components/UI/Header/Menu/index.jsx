@@ -19,7 +19,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const { t } = useTranslation("common");
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
-  console.log("eventsRef", eventsRef);
+
   return (
     <>
       <div

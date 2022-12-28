@@ -36,7 +36,6 @@ const useProjects = ({ projectParams, projectId, sliderProps }) => {
       enabled: !!sliderProps,
     }
   );
-  console.log("projectId", sliderProps);
 
   return {
     projects: projects?.data,

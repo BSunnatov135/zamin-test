@@ -81,7 +81,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
       return;
     }
     if (status === "code") {
-      console.log("data===>", data);
       verifyUser.mutate(otpCredentials);
       return;
     }
@@ -92,7 +91,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
         birth_date: new Date(data.birth_date),
       },
     });
-    console.log("nomer:", data);
   };
   return (
     <>

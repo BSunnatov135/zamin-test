@@ -54,7 +54,6 @@ export default function LoginForm({ open, handleClose }) {
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        console.log(value);
         dispatch(setUser(value.data.client_platform));
         setStatus(statuses[0]);
         reset();
@@ -75,7 +74,6 @@ export default function LoginForm({ open, handleClose }) {
     });
   };
   const onSubmit = (data) => {
-    console.log("data===>", data);
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",
@@ -85,7 +83,6 @@ export default function LoginForm({ open, handleClose }) {
       return;
     }
     if (status === "code") {
-      console.log("data===>", data);
       verifyUser.mutate(otpCredentials);
 
       return;
