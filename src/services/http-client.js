@@ -15,18 +15,6 @@ const errorHandler = (error) => {
   return Promise.reject(error.response);
 };
 
-// request.interceptors.request.use(
-//   (config) => {
-//     config.headers.Authorization = `Bearer ${
-//       store.getState().common.accessToken
-//     }`
-//     return config
-//   },
-//   (error) => {
-//     return Promise.reject(error)
-//   }
-// )
-
 request.interceptors.response.use((response) => {
   return response.data.data;
 }, errorHandler);
