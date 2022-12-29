@@ -16,7 +16,7 @@ const useGallery = ({ galleryParams }) => {
   );
 
   return {
-    adverts: images?.data,
+    images: images?.data,
   };
 };
 

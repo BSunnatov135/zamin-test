@@ -1,7 +1,4 @@
 import styles from "./styles.module.scss";
-import Image from "next/image";
-import { useMemo } from "react";
-import { useEffect } from "react";
 import useGallery from "services/gallery";
 
 export default function Gallery() {
@@ -11,13 +8,23 @@ export default function Gallery() {
       limit: 10,
     },
   });
-  console.log("gallery==>", images?.data);
+  console.log("gallery==>", images);
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Галерея</h2>
       <div className={styles.flexContainer}>
-        <div className={styles.item}>{/* <img src={item.image} /> */}</div>
+        {images?.data?.response.map((item) => (
+          <div className={styles.item}>
+            <img
+              src={
+                item.gallery_file
+                  ? item.gallery_file
+                  : item.file_id_data?.file_link
+              }
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
