@@ -81,7 +81,6 @@ export default function Info() {
 
   return (
     <>
-      {/* {project && !queryFrom && <Banner item={data ? data : {}} />} */}
       <Slider
         data={sliderData ?? []}
         title={

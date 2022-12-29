@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import BtnSlider from "./BtnSlider";
-import sliderData from "./SliderData";
 import event1 from "/public/images/ev1.png";
 import { useMemo } from "react";
 import useTranslation from "next-translate/useTranslation";

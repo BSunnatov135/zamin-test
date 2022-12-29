@@ -1,0 +1,39 @@
+@import "styles/unit.scss";
+
+.container {
+  margin: 82px 96px 80px;
+  .title {
+    font-family: "Noto Serif";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 0.326451px;
+    padding-bottom: 34px;
+  }
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 24px;
+    .item {
+      flex: 1;
+      height: 425px;
+      max-width: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      &:nth-child(3n) {
+        flex: auto;
+        height: 722px;
+        width: 100%;
+        max-width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
