@@ -47,7 +47,7 @@ export default function Footer() {
                 {t("about_fond")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
-              <Link href="/">
+              <Link href="/about">
                 <a className={styles.link}>{t("creation")}</a>
               </Link>
               <Link href="/">
@@ -103,7 +103,7 @@ export default function Footer() {
                   {t("event_title")}
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/gallery">
                 <a>{t("gallery")}</a>
               </Link>
             </div>

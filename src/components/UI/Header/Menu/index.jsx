@@ -32,7 +32,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
           <div className={styles.element}>
             <div className={styles.box}>
               <p className={styles.title}>{t("about_fond")}</p>
-              <Link href="/">
+              <Link href="/about">
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -144,7 +144,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("event_title")}
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/gallery">
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
