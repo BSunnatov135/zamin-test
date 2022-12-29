@@ -1,11 +1,11 @@
 import SEO from "components/SEO";
-import About from "components/UI/About";
+import Gallery from "components/UI/Gallery";
 
 export default function Home() {
   return (
     <>
       <SEO />
-      <About />
+      <Gallery />
     </>
   );
 }
