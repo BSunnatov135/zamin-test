@@ -29,7 +29,7 @@ export default function Projects() {
               {t("projects_motto")}
             </p>
             <p className={styles.title}>{t("projects_title")}</p>
-            <p className={styles.responsiveTitle}>Наши проекты</p>
+            <p className={styles.responsiveTitle}>{t("projects")}</p>
           </div>
           <Link href="/projects">
             <a className={styles.responsiveLink}>

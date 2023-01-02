@@ -7,11 +7,28 @@ import PauseIcon from "assests/icons/pause.svg";
 import useTransition from "next-translate/useTranslation";
 import { useState } from "react";
 import { useRef } from "react";
+import useProjects from "services/projects";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Banner() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
+  const { lang } = useTranslation();
   const [isPlay, setIsPlay] = useState(false);
   const videoRef = useRef();
+  const { projects } = useProjects({
+    projectParams: {
+      offset: 0,
+      limit: 7,
+    },
+  });
+  console.log("pdata===>", projects?.data);
+
+  console.log(projects?.data?.response?.guid);
+
+  let id;
+  for (id in projects?.data?.response) {
+    console.log(projects?.data?.response?.[id].guid);
+  }
   const playVideo = () => {
     videoRef.current.play();
     setIsPlay(false);
@@ -40,15 +57,20 @@ export default function Banner() {
             height: "100%",
           }}
         >
-          <div className={styles.content}>
-            <h1>{t("banner_title")}</h1>
-            <Link href="/">
-              <a>
-                <LearnMoreIcon />
-                {t("learn_more")}
-              </a>
-            </Link>
-          </div>
+          {projects?.data?.response?.map(
+            (item) =>
+              item?.guid == "ae66b866-ff55-4e82-aa56-91e1b0dec7b7" && (
+                <div className={styles.content}>
+                  <h1>{item[`${lang}_name`]}</h1>
+                  <Link href={`/info/${item.guid}`}>
+                    <a>
+                      <LearnMoreIcon />
+                      {t("learn_more")}
+                    </a>
+                  </Link>
+                </div>
+              )
+          )}
         </Container>
         <div className={styles.play} onClick={isPlay ? playVideo : pauseVideo}>
           {!isPlay ? <PauseIcon /> : <PlayIcon />}
