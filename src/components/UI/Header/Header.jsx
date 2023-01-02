@@ -55,7 +55,13 @@ export default function Header() {
               </a>
             </Link>
             <div className={styles.rightElement}>
-              <p onClick={() => {}}>
+              <p
+                onClick={() => {
+                  console.log(
+                    document.getElementById("userwayAccessibilityIcon").click()
+                  );
+                }}
+              >
                 {t("accessibility")}
                 <AccessIcon />
               </p>
