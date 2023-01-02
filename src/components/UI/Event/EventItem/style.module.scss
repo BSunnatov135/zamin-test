@@ -2,6 +2,9 @@
 
 .item {
   cursor: pointer;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   &:hover {
     .img {
       img {
@@ -25,6 +28,7 @@
     }
   }
   .body {
+    flex: 1;
     padding: 16px 12px;
     background-color: #fff;
     &__text {

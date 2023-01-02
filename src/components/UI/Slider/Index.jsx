@@ -27,7 +27,7 @@ export default function Slider({ data, title }) {
   const currentData = useMemo(() => {
     return data[slideIndex - 1];
   }, [slideIndex, data]);
-
+  console.log("data", currentData);
   useEffect(() => {
     if (currentData?.file_link?.includes(".mp4")) {
       videRef.current.play();
@@ -37,33 +37,34 @@ export default function Slider({ data, title }) {
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <div className={styles.containerSlider}>
-        {data.map((obj, index) => {
-          return (
-            <div
-              key={obj.id}
-              className={
-                slideIndex === index + 1
-                  ? `${styles.slide} ${styles.active_anim}`
-                  : styles.slide
-              }
-            >
-              {currentData?.file_link?.includes(".mp4") ? (
-                <video
-                  ref={videRef}
-                  loop
-                  playsInline
-                  controls
-                  width={"100%"}
-                  height={"100%"}
-                >
-                  <source src={currentData?.file_link} type="video/mp4" />
-                </video>
-              ) : (
-                <img src={currentData?.file_link}></img>
-              )}
-            </div>
-          );
-        })}
+        {!!currentData?.file_link &&
+          data.map((obj, index) => {
+            return (
+              <div
+                key={obj.id}
+                className={
+                  slideIndex === index + 1
+                    ? `${styles.slide} ${styles.active_anim}`
+                    : styles.slide
+                }
+              >
+                {currentData?.file_link?.includes(".mp4") ? (
+                  <video
+                    ref={videRef}
+                    loop
+                    playsInline
+                    controls
+                    width={"100%"}
+                    height={"100%"}
+                  >
+                    <source src={currentData?.file_link} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img src={currentData?.file_link}></img>
+                )}
+              </div>
+            );
+          })}
         <BtnSlider moveSlide={nextSlide} direction={"next"} />
         <BtnSlider moveSlide={prevSlide} direction={"prev"} />
       </div>
