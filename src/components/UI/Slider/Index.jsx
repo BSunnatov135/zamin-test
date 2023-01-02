@@ -4,9 +4,11 @@ import BtnSlider from "./BtnSlider";
 import event1 from "/public/images/ev1.png";
 import { useMemo } from "react";
 import useTranslation from "next-translate/useTranslation";
+import { useRef } from "react";
 
 export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
+  const videRef = useRef(null);
   const nextSlide = () => {
     if (slideIndex < data.length) {
       setSlideIndex(slideIndex + 1);
@@ -22,11 +24,15 @@ export default function Slider({ data, title }) {
       setSlideIndex(data.length);
     }
   };
-
   const currentData = useMemo(() => {
     return data[slideIndex - 1];
   }, [slideIndex, data]);
-  console.log("data", data);
+
+  useEffect(() => {
+    if (currentData?.file_link?.includes(".mp4")) {
+      videRef.current.play();
+    }
+  }, [currentData, videRef]);
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
@@ -42,7 +48,14 @@ export default function Slider({ data, title }) {
               }
             >
               {currentData?.file_link?.includes(".mp4") ? (
-                <video controls width={"100%"} height={"100%"}>
+                <video
+                  ref={videRef}
+                  loop
+                  playsInline
+                  controls
+                  width={"100%"}
+                  height={"100%"}
+                >
                   <source src={currentData?.file_link} type="video/mp4" />
                 </video>
               ) : (
