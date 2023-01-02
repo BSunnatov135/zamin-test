@@ -10,23 +10,23 @@ export const ArrowRight = () => (
       <path
         d="M5 12H19"
         stroke="#09999A"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeWinecap="round"
+        strokeWinejoin="round"
       />
       <path
         d="M15 16L19 12"
         stroke="#09999A"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M15 8L19 12"
         stroke="#09999A"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
