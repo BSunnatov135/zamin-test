@@ -36,9 +36,9 @@ export default function Slider({ data, title }) {
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
-      <div className={styles.containerSlider}>
-        {!!currentData?.file_link &&
-          data.map((obj, index) => {
+      {currentData && (
+        <div className={styles.containerSlider}>
+          {data.map((obj, index) => {
             return (
               <div
                 key={obj.id}
@@ -65,9 +65,10 @@ export default function Slider({ data, title }) {
               </div>
             );
           })}
-        <BtnSlider moveSlide={nextSlide} direction={"next"} />
-        <BtnSlider moveSlide={prevSlide} direction={"prev"} />
-      </div>
+          <BtnSlider moveSlide={nextSlide} direction={"next"} />
+          <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+        </div>
+      )}
     </>
   );
 }
