@@ -67,7 +67,7 @@ const items = [
     children: [
       {
         title: "Email: info@zaminfoundation.uz",
-        href: "/",
+        href: "mailto:info@zaminfoundation.uz",
       },
       {
         title: "Социальные сети",

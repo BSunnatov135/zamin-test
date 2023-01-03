@@ -8,8 +8,11 @@ import Spheres from "./ProjectItems/projects";
 import useProjects from "services/projects";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
+  const router = useRouter();
+  console.log("router", router);
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
@@ -19,6 +22,14 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const { t } = useTranslation("common");
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
+
+  function handleRouterActions(status) {
+    if (status === "event") {
+      router.asPath === "/"
+        ? scrollToRef(0, eventsRef - 100)
+        : router.push("/event");
+    }
+  }
 
   return (
     <>
@@ -108,7 +119,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 </a>
               </Link>
               <p className={styles.title}>{t("contacts")}</p>
-              <Link href="/">
+              <Link href="mailto:info@zaminfoundation.uz">
                 <div className={styles.emailContainer}>
                   <p className={styles.email}>Email:</p>
                   <a
@@ -138,7 +149,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   onClick={(e) => {
                     e.preventDefault();
                     handleClose(e);
-                    scrollToRef(0, eventsRef - 100);
+                    handleRouterActions("event");
                   }}
                 >
                   {t("event_title")}

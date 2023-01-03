@@ -21,14 +21,7 @@ export default function Banner() {
       limit: 7,
     },
   });
-  console.log("pdata===>", projects?.data);
 
-  console.log(projects?.data?.response?.guid);
-
-  let id;
-  for (id in projects?.data?.response) {
-    console.log(projects?.data?.response?.[id].guid);
-  }
   const playVideo = () => {
     videoRef.current.play();
     setIsPlay(false);

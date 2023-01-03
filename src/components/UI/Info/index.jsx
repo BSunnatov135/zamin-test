@@ -47,6 +47,7 @@ export default function Info() {
       news_id: advertId,
     },
   });
+
   const { event, eventSlider } = useEvents({
     eventId: eventId,
     sliderProps: {
@@ -56,7 +57,7 @@ export default function Info() {
       website_events_id: eventId,
     },
   });
-  console.log("eventData", projectSlider);
+  console.log("event", event);
   const sliderData = useMemo(() => {
     let data;
     if (queryFrom === "news") {
@@ -88,6 +89,7 @@ export default function Info() {
             ? data?.[`${lang}_name`]
             : data?.[`${lang}_header`]
         }
+        event={event}
       />
       <Content item={data ? data : {}} router={router} />
       {!queryFrom && <Projects />}

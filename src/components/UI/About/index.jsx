@@ -1,101 +1,75 @@
 import { Container } from "@mui/material";
 import { style } from "@mui/system";
 import styles from "./style.module.scss";
+import useTranslation from "next-translate/useTranslation";
 
 export default function About() {
+  const { t } = useTranslation("about");
   return (
     <>
-      <h2 className={styles.title}>Международный общественный фонд «Zamin»</h2>
+      <h2 className={styles.title}>{t("about")}</h2>
       <div className={styles.banner}>
         <img src="/images/aboutBanner.jpeg"></img>
       </div>
       <Container>
         <div className={styles.context}>
-          <p>
-            Цель Фонда – содействовать устойчивому развитию страны и повышать
-            уровень жизни населения.
-          </p>
-          <p>
-            Фонд «Zamin» основан с фокусом на долгосрочные, стратегически важные
-            и устойчивые проекты в 4-х направлениях:
-          </p>
-          <p>— содействие работе по защите окружающей среды;</p>
-          <p>
-            — инициирование и поддержка проектов по мониторингу загрязнения
-            воздуха, восстановлению почв и обеспечению доступа к питьевой воде;
-          </p>
-          <p>
-            — участие в процессах внедрения инновационных разработок в
-            социальное развитие и финансировании проектов в социальной сфере;
-          </p>
-          <p>
-            Название фонда Zamin в переводе с узбекского языка означает основу,
-            платформу и возможность для роста.
-          </p>
+          <p>{t("aim")}</p>
+          <p>{t("focus")}</p>
+          <p>{t("protection")}</p>
+          <p>{t("monitor")}</p>
+          <p>{t("development")}</p>
+          <p>{t("condition")}</p>
+          <p>{t("name")}</p>
         </div>
-        <h2 className={styles.sphereTitle}>Ключевые сферы</h2>
+        <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
         <div className={styles.spheresWrapper}>
           <div className={styles.sphereItem}>
             <img src="/images/sphere1.jpeg"></img>
-            <p>Окружающая среда</p>
+            <p>{t("environment")}</p>
           </div>
           <div className={styles.sphereItem}>
             <img src="/images/sphere2.jpeg"></img>
-            <p>Инновационные технологии в социальное сфере </p>
+            <p>{t("innovation")} </p>
           </div>
           <div className={styles.sphereItem}>
             <img src="/images/sphere3.jpeg"></img>
-            <p>Программа развития образования детей с нарушением слуха </p>
+            <p>{t("program")} </p>
           </div>
         </div>
-        <h2 className={styles.boardTitle}>Попечительский совет</h2>
+        <h2 className={styles.boardTitle}>{t("board")} </h2>
         <div className={styles.boardWrapper}>
           <div className={styles.boardItem}>
-            <h6>Мирзиёева Зироат Махмудовна</h6>
-            <p className={styles.position}>Член попечительского совета</p>
-            <p>
+            <h6>{t("chairman_name")} </h6>
+            <p className={styles.position}>{t("chairman")} </p>
+            {/* <p>
               Заместитель директора по лечебной работе, главный врач
               Республиканского специализированного научно-практического
               медицинского центра педиатрии, доктор медицинских наук
-            </p>
+            </p> */}
           </div>
           <div className={styles.boardItem}>
-            <h6>Саидова Лола Абдувахидовна </h6>
-            <p className={styles.position}>Член попечительского совета</p>
-            <p>
-              Заместитель директора по лечебной работе, главный врач
-              Республиканского специализированного научно-практического
-              медицинского центра педиатрии, доктор медицинских наук
-            </p>
+            <h6>{t("deputy_name")} </h6>
+            <p className={styles.position}>{t("deputy")} </p>
+            <p>{t("deputy_job")}</p>
           </div>
           <div className={styles.boardItem}>
-            <h6>Новицкий Зиновий Богданович</h6>
-            <p className={styles.position}>Член попечительского совета</p>
-            <p>
-              Заместитель директора по лечебной работе, главный врач
-              Республиканского специализированного научно-практического
-              медицинского центра педиатрии, доктор медицинских наук
-            </p>
+            <h6>{t("member_name_1")} </h6>
+            <p className={styles.position}>{t("member")} </p>
+            <p>{t("member_1_job")}</p>
           </div>
           <div className={styles.boardItem}>
-            <h6>Абдукаюмов Абдуманноп Абдумаджитович</h6>
-            <p className={styles.position}>Член попечительского совета</p>
-            <p>
-              Заместитель директора по лечебной работе, главный врач
-              Республиканского специализированного научно-практического
-              медицинского центра педиатрии, доктор медицинских наук
-            </p>
+            <h6>{t("member_name_2")} </h6>
+            <p className={styles.position}>{t("member")} </p>
+            <p>{t("member_2_job")}</p>
           </div>
           <div className={styles.boardItem}>
-            <h6>Алиева Тамила Анваровна</h6>
-            <p className={styles.position}>
-              Директор Международного общественного фонда “Zamin”
-            </p>
-            <p>
+            <h6>{t("director_name")} </h6>
+            <p className={styles.position}>{t("director")}</p>
+            {/* <p>
               Заместитель директора по лечебной работе, главный врач
               Республиканского специализированного научно-практического
               медицинского центра педиатрии, доктор медицинских наук
-            </p>
+            </p> */}
           </div>
         </div>
       </Container>

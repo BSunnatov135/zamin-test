@@ -19,7 +19,7 @@ import useProjects from "services/projects";
 import Spheres from "../Header/Menu/ProjectItems/projects";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
-
+import { useRouter } from "next/router";
 export default function Footer() {
   const { projects } = useProjects({
     projectParams: {
@@ -28,8 +28,23 @@ export default function Footer() {
     },
   });
   const { t } = useTranslation("common");
+  const router = useRouter();
+  const path = router.asPath;
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
+
+  function handleRouterActions(status) {
+    if (status === "event") {
+      path === "/" ? scrollToRef(0, eventsRef - 100) : router.push("/event");
+    }
+
+    if (status === "advert") {
+      path === "/"
+        ? scrollToRef(0, advertsRef - 100)
+        : router.push("/", undefined, { scroll: false });
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -81,7 +96,7 @@ export default function Footer() {
                 <a
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToRef(0, advertsRef - 100);
+                    handleRouterActions("advert");
                   }}
                 >
                   {t("advert_title")}
@@ -97,7 +112,7 @@ export default function Footer() {
                 <a
                   onClick={(e) => {
                     e.preventDefault();
-                    scrollToRef(0, eventsRef - 100);
+                    handleRouterActions("event");
                   }}
                 >
                   {t("event_title")}
@@ -109,8 +124,8 @@ export default function Footer() {
             </div>
             <div className={styles.box}>
               <p className={styles.subtitle}>{t("contact")}</p>
-              <Link href="/">
-                <a>
+              <Link href="mailto:info@zaminfoundation.uz">
+                <a href="mailto:info@zaminfoundation.uz">
                   <GmailIcon />
                   info@zaminfoundation.uz
                 </a>
@@ -203,8 +218,8 @@ export default function Footer() {
 
           <div className={styles.box}>
             <p className={styles.subtitle}>{t("contact")}</p>
-            <Link href="/">
-              <a>
+            <Link href="mailto:info@zaminfoundation.uz">
+              <a href="mailto:info@zaminfoundation.uz">
                 <GmailIcon />
                 info@zaminfoundation.uz
               </a>

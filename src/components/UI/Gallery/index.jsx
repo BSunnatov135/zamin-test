@@ -1,18 +1,19 @@
 import styles from "./styles.module.scss";
 import useGallery from "services/gallery";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Gallery() {
+  const { t } = useTranslation("common");
   const { images } = useGallery({
     galleryParams: {
       offset: 0,
       limit: 10,
     },
   });
-  console.log("gallery==>", images);
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Галерея</h2>
+      <h2 className={styles.title}>{t("gallery")}</h2>
       <div className={styles.flexContainer}>
         {images?.data?.response.map((item) => (
           <div className={styles.item}>
