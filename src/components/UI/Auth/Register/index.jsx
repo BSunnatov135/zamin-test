@@ -29,7 +29,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     watch,
     formState: { errors },
   } = useForm();
-  const [toggle, setToggle] = useState("male");
+
   const { t } = useTranslation("common");
   const [status, setStatus] = useState(statuses[0]);
   const dispatch = useDispatch();
@@ -67,7 +67,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const resendCode = () => {
     sendCode.mutate({
       client_type: "SITE_USER",
-      recipient: `+998${watch("phone").replace(/[- )(]/g, "")}`,
+      recipient: `${watch("phone").replace(/[- )(]/g, "")}`,
       text: "Код подтверждения",
     });
   };
@@ -75,7 +75,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",
-        recipient: `+998${data.phone.replace(/[- )(]/g, "")}`,
+        recipient: `${data.phone.replace(/[- )(]/g, "")}`,
         text: "Код подтверждения",
       });
       return;
@@ -87,6 +87,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     signUp.mutate({
       data: {
         ...data,
+        phone: `${watch("phone").replace(/[- )(]/g, "")}`,
         user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         birth_date: new Date(data.birth_date),
       },
@@ -115,7 +116,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 control={control}
                 name="phone"
                 label={t("phone")}
-                mask="(99) 999-99-99"
+                mask="+\9\9\8 99 999 99 99"
                 maskchar={null}
                 alwaysShowMask={false}
                 placeholder={t("enter_number")}
@@ -128,7 +129,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="phone"
                   control={control}
                   label={t("phone")}
-                  mask="(99) 999-99-99"
+                  mask="+\9\9\8 99 999 99 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}
@@ -158,7 +159,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="phone"
                   control={control}
                   label={t("phone")}
-                  mask="(99) 999-99-99"
+                  mask="+\9\9\8 99 999 99 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}
