@@ -4,9 +4,10 @@ import BtnSlider from "./BtnSlider";
 import { useMemo } from "react";
 import { useRef } from "react";
 
-export default function Slider({ data, title, event }) {
+export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
   const videRef = useRef(null);
+  const [autoPlay, setautoPlay] = useState(false);
   const nextSlide = () => {
     if (slideIndex < data.length) {
       setSlideIndex(slideIndex + 1);
@@ -26,10 +27,10 @@ export default function Slider({ data, title, event }) {
   }, [slideIndex, data]);
 
   useEffect(() => {
-    if (currentData?.file_link?.includes(".mp4")) {
+    if (currentData?.type === "mp4" && videRef?.current && autoPlay) {
       videRef.current.play();
     }
-  }, [currentData, videRef]);
+  }, [currentData, videRef, autoPlay]);
 
   return (
     <>
@@ -47,12 +48,11 @@ export default function Slider({ data, title, event }) {
                       : styles.slide
                   }
                 >
-                  {/* <img src={event?.data?.response?.poster}></img> */}
-                  {currentData?.file_link?.includes(".mp4") ? (
+                  {currentData?.type === "mp4" ? (
                     <video
+                      autoPlay={true}
                       ref={videRef}
                       loop
-                      playsInline
                       controls
                       width={"100%"}
                       height={"100%"}

@@ -57,18 +57,6 @@ export default function Info() {
       website_events_id: eventId,
     },
   });
-  console.log("event", event);
-  const sliderData = useMemo(() => {
-    let data;
-    if (queryFrom === "news") {
-      data = advertSlider?.data?.response;
-    } else if (queryFrom === "events") {
-      data = eventSlider?.data?.response;
-    } else {
-      data = projectSlider?.data?.response;
-    }
-    return data;
-  }, [projectSlider, eventSlider, advertSlider]);
 
   const data = useMemo(() => {
     let newData;
@@ -80,6 +68,21 @@ export default function Info() {
     return newData;
   }, [advert, project, event]);
 
+  const sliderData = useMemo(() => {
+    let currentData;
+    if (queryFrom === "news") {
+      currentData = advertSlider?.data?.response;
+    } else if (queryFrom === "events") {
+      currentData = [
+        { file_link: data?.poster },
+        ...eventSlider?.data?.response,
+      ];
+    } else {
+      currentData = projectSlider?.data?.response;
+    }
+    return currentData;
+  }, [projectSlider, eventSlider, advertSlider]);
+
   return (
     <>
       <Slider
@@ -89,7 +92,6 @@ export default function Info() {
             ? data?.[`${lang}_name`]
             : data?.[`${lang}_header`]
         }
-        event={event}
       />
       <Content item={data ? data : {}} router={router} />
       {!queryFrom && <Projects />}
