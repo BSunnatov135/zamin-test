@@ -71,14 +71,19 @@ export default function Info() {
   const sliderData = useMemo(() => {
     let currentData;
     if (queryFrom === "news") {
-      currentData = advertSlider?.data?.response;
-    } else if (queryFrom === "events") {
       currentData = [
         { file_link: data?.poster },
-        ...eventSlider?.data?.response,
+        ...advertSlider?.data?.response,
       ];
+    } else if (queryFrom === "events") {
+      currentData = eventSlider?.data?.response
+        ? [{ file_link: data?.poster }, ...eventSlider?.data?.response]
+        : [{ file_link: data?.poster }];
     } else {
-      currentData = projectSlider?.data?.response;
+      currentData = [
+        { file_link: data?.poster },
+        ...projectSlider?.data?.response,
+      ];
     }
     return currentData;
   }, [projectSlider, eventSlider, advertSlider]);
