@@ -11,17 +11,18 @@
   .description {
     font-size: 18px !important;
     font-family: "Noto Sans" !important;
-    font-weight: 400;
+    font-weight: 400 !important;
     color: #000000;
     margin-top: 30px;
     max-width: 887px;
     margin: auto;
+
     p {
       font-family: "Noto Sans" !important;
+      line-height: 150.2% !important;
     }
     @media screen and (max-width: 600px) {
       font-size: 16px;
-      line-height: 150.2%;
       margin-bottom: 12px;
       &:last-child {
         margin-bottom: 24px;

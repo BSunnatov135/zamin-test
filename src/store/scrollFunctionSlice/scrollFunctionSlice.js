@@ -5,6 +5,7 @@ export const scrollFunctionSlice = createSlice({
   initialState: {
     advertsRef: null,
     eventsRef: null,
+    scrollSectionName: "",
   },
   reducers: {
     setScrollRefAdverts: (state, action) => {
@@ -13,10 +14,14 @@ export const scrollFunctionSlice = createSlice({
     setScrollRefEvents: (state, action) => {
       state.eventsRef = action.payload;
     },
+    setScrollSectionName: (state, action) => {
+      state.scrollSectionName = action.payload;
+    },
   },
 });
 
 export const { setScrollRefAdverts } = scrollFunctionSlice.actions;
 export const { setScrollRefEvents } = scrollFunctionSlice.actions;
+export const { setScrollSectionName } = scrollFunctionSlice.actions;
 
 export default scrollFunctionSlice.reducer;

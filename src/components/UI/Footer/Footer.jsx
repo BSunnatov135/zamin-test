@@ -13,14 +13,17 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Logo from "assests/icons/logo.svg";
-import useTransition from "next-translate/useTranslation";
 import useTranslation from "next-translate/useTranslation";
 import useProjects from "services/projects";
 import Spheres from "../Header/Menu/ProjectItems/projects";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
+
 export default function Footer() {
+  const dispatch = useDispatch();
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
@@ -35,14 +38,20 @@ export default function Footer() {
 
   function handleRouterActions(status) {
     if (status === "event") {
-      path === "/" ? scrollToRef(0, eventsRef - 100) : router.push("/event");
+      path === "/" ? scrollTo(eventsRef) : router.push("/event");
     }
 
     if (status === "advert") {
-      path === "/"
-        ? scrollToRef(0, advertsRef - 100)
-        : router.push("/", undefined, { scroll: false });
+      path === "/" ? scrollTo(advertsRef) : scrrollHome();
     }
+
+    function scrollTo(where) {
+      scrollToRef(0, where - 100);
+    }
+    function scrrollHome() {
+      router.push("/", undefined, { scroll: false });
+    }
+    dispatch(setScrollSectionName(status));
   }
 
   return (

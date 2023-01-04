@@ -54,11 +54,11 @@
         .description {
           font-size: 16px !important;
           flex: 1;
-          line-height: 180%;
+          line-height: 180% !important;
           color: #2d2d2d;
           font-family: "Noto Sans" !important;
           margin: 12px 0 16px;
-          font-weight: 400;
+          font-weight: 400 !important;
           overflow: hidden;
           display: -webkit-box;
           -webkit-line-clamp: 5;

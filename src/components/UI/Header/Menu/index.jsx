@@ -9,26 +9,39 @@ import useProjects from "services/projects";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
-
+  const dispatch = useDispatch();
+  const { t } = useTranslation("common");
+  const path = router.asPath;
+  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
+  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
       limit: 3,
     },
   });
-  const { t } = useTranslation("common");
-  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
-  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
 
   function handleRouterActions(status) {
     if (status === "event") {
-      router.asPath === "/"
-        ? scrollToRef(0, eventsRef - 100)
-        : router.push("/event");
+      path === "/" ? scrollTo(eventsRef) : router.push("/event");
     }
+
+    if (status === "advert") {
+      path === "/" ? scrollTo(advertsRef) : scrrollHome();
+    }
+
+    function scrollTo(where) {
+      scrollToRef(0, where - 100);
+    }
+    function scrrollHome() {
+      router.push("/", undefined, { scroll: false });
+    }
+    dispatch(setScrollSectionName(status));
   }
 
   return (
@@ -95,7 +108,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   onClick={(e) => {
                     e.preventDefault();
                     handleClose(e);
-                    scrollToRef(0, advertsRef - 100);
+                    handleRouterActions("advert");
                   }}
                 >
                   {t("advert_title")}

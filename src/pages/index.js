@@ -12,20 +12,27 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import scrollToRef from "mixins/scrollToRef";
+import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import { useDispatch } from "react-redux";
 
 export default function Home() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
+  const scrollSectionName = useSelector(
+    (state) => state.scrollRef.scrollSectionName
+  );
 
   useEffect(() => {
-    if (router?.query?.srcoll === "advert" && advertsRef) {
-      router.push("/", undefined, { scroll: false });
-      setTimeout(() => {
-        scrollToRef(0, advertsRef - 100);
-      }, 1000);
+    if (scrollSectionName === "advert" && advertsRef) {
+      scrollToRef(0, advertsRef - 100);
     }
-  }, [router, advertsRef]);
+
+    setTimeout(() => {
+      dispatch(setScrollSectionName(""));
+    }, 0);
+  }, [router, advertsRef, scrollSectionName, eventsRef]);
 
   return (
     <>
