@@ -23,6 +23,7 @@ export default function SEO() {
       <meta name="twitter:site" content="Zamin" />
       <meta name="twitter:creator" content="Udevs" />
       <script
+        defer
         dangerouslySetInnerHTML={{
           __html: `(function(d){
               var s = d.createElement("script");
