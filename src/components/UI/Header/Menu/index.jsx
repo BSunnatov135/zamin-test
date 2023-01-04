@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
-  console.log("router", router);
+
   const { projects } = useProjects({
     projectParams: {
       offset: 0,

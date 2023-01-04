@@ -38,6 +38,7 @@ export default function Info() {
       website_projects_id: projectId,
     },
   });
+
   const { advert, advertSlider } = useAdverts({
     advertId: advertId,
     sliderProps: {
@@ -71,19 +72,17 @@ export default function Info() {
   const sliderData = useMemo(() => {
     let currentData;
     if (queryFrom === "news") {
-      currentData = [
-        { file_link: data?.poster },
-        ...advertSlider?.data?.response,
-      ];
+      currentData = advertSlider?.data?.response
+        ? [{ file_link: data?.photo }, ...advertSlider?.data?.response]
+        : [{ file_link: data?.photo }];
     } else if (queryFrom === "events") {
       currentData = eventSlider?.data?.response
         ? [{ file_link: data?.poster }, ...eventSlider?.data?.response]
         : [{ file_link: data?.poster }];
     } else {
-      currentData = [
-        { file_link: data?.poster },
-        ...projectSlider?.data?.response,
-      ];
+      currentData = projectSlider?.data?.response
+        ? [{ file_link: data?.photo }, ...projectSlider?.data?.response]
+        : [{ file_link: data?.photo }];
     }
     return currentData;
   }, [projectSlider, eventSlider, advertSlider]);
