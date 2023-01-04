@@ -43,7 +43,7 @@ export default function SEO() {
               /* s.setAttribute("data-mobile", true);*/
               /* uncomment the following line to set custom trigger action for accessibility menu*/
               /* s.setAttribute("data-trigger", "triggerId")*/
-              s.setAttribute("data-account", "Vd1g4ZWeMD");
+              s.setAttribute("data-account", "CZDyCvecmY");
               s.setAttribute("src", "https://cdn.userway.org/widget.js");
               (d.body || d.head).appendChild(s);})(document)`,
         }}
