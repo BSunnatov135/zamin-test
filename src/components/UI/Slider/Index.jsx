@@ -6,8 +6,7 @@ import { useRef } from "react";
 
 export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
-  const videRef = useRef(null);
-  const [autoPlay, setautoPlay] = useState(false);
+
   const nextSlide = () => {
     if (slideIndex < data.length) {
       setSlideIndex(slideIndex + 1);
@@ -25,12 +24,6 @@ export default function Slider({ data, title }) {
   const currentData = useMemo(() => {
     return data[slideIndex - 1];
   }, [slideIndex, data]);
-
-  useEffect(() => {
-    if (currentData?.type === "mp4" && videRef?.current && autoPlay) {
-      videRef.current.play();
-    }
-  }, [currentData, videRef, autoPlay]);
 
   return (
     <>
@@ -50,11 +43,11 @@ export default function Slider({ data, title }) {
                 >
                   {currentData?.type === "mp4" ? (
                     <video
-                      autoPlay={true}
-                      ref={videRef}
                       loop
+                      playsInline
+                      autoPlay
+                      muted
                       controls
-                      width={"100%"}
                       height={"100%"}
                     >
                       <source src={currentData?.file_link} type="video/mp4" />
