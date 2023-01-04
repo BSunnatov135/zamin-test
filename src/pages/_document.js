@@ -1,18 +1,18 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
     <Html>
       <Head>
-        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel='preconnect'
-          href='https://fonts.gstatic.com'
-          crossOrigin='true'
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
         />
         <link
-          href='https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap'
-          rel='stylesheet'
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -34,9 +34,9 @@ export default function Document() {
               /* s.setAttribute("data-mobile", true);*/
               /* uncomment the following line to set custom trigger action for accessibility menu*/
               /* s.setAttribute("data-trigger", "triggerId")*/
-              s.setAttribute("data-account", "Vd1g4ZWeMD");
+              s.setAttribute("data-account", "CZDyCvecmY");
               s.setAttribute("src", "https://cdn.userway.org/widget.js");
-              (d.body || d.head).appendChild(s);})(document)`
+              (d.body || d.head).appendChild(s);})(document)`,
           }}
         ></script>
       </Head>
@@ -45,5 +45,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
