@@ -52,7 +52,7 @@
         max-height: 200px;
         display: flex;
         .description {
-          font-size: 16px;
+          font-size: 16px !important;
           flex: 1;
           line-height: 180%;
           color: #2d2d2d;
