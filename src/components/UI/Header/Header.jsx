@@ -45,12 +45,12 @@ export default function Header() {
               {open || mobileMenu ? <CloseIcon /> : <MenuIcon />}
             </div>
             <Link href="/">
-              <a className={styles.logo}>
+              <a className={styles.logo} href="/">
                 <Logo />
               </a>
             </Link>
             <Link href="/">
-              <a className={styles.resLogo}>
+              <a className={styles.resLogo} href="/">
                 <RestLogo />
               </a>
             </Link>

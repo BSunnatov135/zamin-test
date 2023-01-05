@@ -18,6 +18,7 @@ export default function Advert() {
       limit: 6,
     },
   });
+  console.log("data==>", adverts);
   const adversContainerRef = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {

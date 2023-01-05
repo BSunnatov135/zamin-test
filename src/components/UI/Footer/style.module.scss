@@ -24,15 +24,6 @@
     @media screen and (max-width: 1020px) {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      .box {
-        width: auto;
-        .accordionIcons {
-          .SocialIcons {
-            display: flex;
-            column-gap: 12px;
-          }
-        }
-      }
     }
     @media screen and (max-width: 960px) {
       // display: grid;
@@ -50,7 +41,14 @@
     }
   }
 }
+
 .box {
+  .accordionIcons {
+    .SocialIcons {
+      display: flex;
+      column-gap: 12px;
+    }
+  }
   display: flex;
   flex-direction: column;
   row-gap: 16px;
