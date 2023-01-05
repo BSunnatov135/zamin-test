@@ -1,7 +1,8 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import { Box } from "@mui/system";
-import useTransition from "next-translate/useTranslation";
+
+import useTranslation from "next-translate/useTranslation";
 
 const items = [
   {
@@ -28,7 +29,7 @@ const items = [
 ];
 
 export default function Achievements() {
-  const { t } = useTransition("common");
+  const { t } = useTranslation("common");
   return (
     <Box
       sx={{

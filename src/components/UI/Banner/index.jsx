@@ -4,7 +4,6 @@ import styles from "./style.module.scss";
 import LearnMoreIcon from "assests/icons/learnMore.svg";
 import PlayIcon from "assests/icons/play.svg";
 import PauseIcon from "assests/icons/pause.svg";
-import useTransition from "next-translate/useTranslation";
 import { useState } from "react";
 import { useRef } from "react";
 import useProjects from "services/projects";

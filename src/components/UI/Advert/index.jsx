@@ -3,7 +3,6 @@ import Link from "next/link";
 import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
 import ArrowRight from "assests/icons/narrowRight.svg";
-import useTransition from "next-translate/useTranslation";
 import useAdverts from "services/advert";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useRef } from "react";
