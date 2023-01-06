@@ -68,20 +68,30 @@ export default function Info() {
     } else newData = project?.data?.response;
     return newData;
   }, [advert, project, event]);
+  console.log("data", data?.photo);
 
   const sliderData = useMemo(() => {
     let currentData;
     if (queryFrom === "news") {
       currentData = advertSlider?.data?.response
-        ? [{ file_link: data?.photo }, ...advertSlider?.data?.response]
+        ? [
+            { file_link: data?.photo !== null && data?.photo },
+            ...advertSlider?.data?.response,
+          ]
         : [{ file_link: data?.photo }];
     } else if (queryFrom === "events") {
       currentData = eventSlider?.data?.response
-        ? [{ file_link: data?.poster }, ...eventSlider?.data?.response]
+        ? [
+            { file_link: data?.poster !== null && data?.poster },
+            ...eventSlider?.data?.response,
+          ]
         : [{ file_link: data?.poster }];
     } else {
       currentData = projectSlider?.data?.response
-        ? [{ file_link: data?.photo }, ...projectSlider?.data?.response]
+        ? [
+            { file_link: data?.photo !== null && data?.photo },
+            ...projectSlider?.data?.response,
+          ]
         : [{ file_link: data?.photo }];
     }
     return currentData;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import BtnSlider from "./BtnSlider";
 import { useMemo } from "react";
-import { useRef } from "react";
 
 export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -21,9 +20,14 @@ export default function Slider({ data, title }) {
       setSlideIndex(data.length);
     }
   };
+  const newArr = [];
   const currentData = useMemo(() => {
-    return data[slideIndex - 1];
-  }, [slideIndex, data]);
+    data.filter((el) => el.file_link && newArr?.push(el));
+    return newArr[slideIndex - 1];
+  }, [slideIndex, newArr, data]);
+
+  // console.log("type currentData", currentData?.type?.toLowerCase());
+  // console.log("type currentData", currentData);
 
   return (
     <>
@@ -41,7 +45,8 @@ export default function Slider({ data, title }) {
                       : styles.slide
                   }
                 >
-                  {currentData?.type === "mp4" ? (
+                  {currentData?.type &&
+                  currentData?.type.toLowerCase() === "mp4" ? (
                     <video
                       loop
                       playsInline
@@ -53,7 +58,7 @@ export default function Slider({ data, title }) {
                       <source src={currentData?.file_link} type="video/mp4" />
                     </video>
                   ) : (
-                    <img src={currentData?.file_link}></img>
+                    <img src={currentData?.file_link} />
                   )}
                 </div>
               </>
