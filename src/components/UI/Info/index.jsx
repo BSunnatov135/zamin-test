@@ -68,7 +68,6 @@ export default function Info() {
     } else newData = project?.data?.response;
     return newData;
   }, [advert, project, event]);
-  console.log("data", data?.photo);
 
   const sliderData = useMemo(() => {
     let currentData;

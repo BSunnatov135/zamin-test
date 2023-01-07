@@ -26,9 +26,6 @@ export default function Slider({ data, title }) {
     return newArr[slideIndex - 1];
   }, [slideIndex, newArr, data]);
 
-  // console.log("type currentData", currentData?.type?.toLowerCase());
-  // console.log("type currentData", currentData);
-
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
@@ -45,8 +42,7 @@ export default function Slider({ data, title }) {
                       : styles.slide
                   }
                 >
-                  {currentData?.type &&
-                  currentData?.type.toLowerCase() === "mp4" ? (
+                  {currentData?.type.toLowerCase() === "mp4" ? (
                     <video
                       loop
                       playsInline
