@@ -55,19 +55,16 @@
 }
 .spheresWrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(325px, 1fr));
   margin-top: 56px;
   width: 100%;
+  overflow-x: auto;
   column-gap: 24px;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
-  @media screen and (max-width: 820px) {
-    grid-template-columns: repeat(3, 325px);
-    overflow-x: auto;
-    margin-top: 24px;
-  }
+
   .sphereItem {
     display: flex;
     flex-direction: column;
@@ -106,14 +103,8 @@
   gap: 24px;
   margin-top: 32px;
   margin-bottom: 80px;
-  grid-template-columns: repeat(3, 1fr);
-  @media screen and (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 24px;
-  }
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 100%;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+
   .boardItem {
     display: flex;
     flex-direction: column;

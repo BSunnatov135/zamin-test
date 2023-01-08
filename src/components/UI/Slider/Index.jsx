@@ -42,7 +42,7 @@ export default function Slider({ data, title }) {
                       : styles.slide
                   }
                 >
-                  {currentData?.type.toLowerCase() === "mp4" ? (
+                  {currentData?.type?.toLowerCase() === "mp4" ? (
                     <video
                       loop
                       playsInline

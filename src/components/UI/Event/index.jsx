@@ -2,8 +2,7 @@ import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
-import PlayLarge from "/src/assests/icons/playLarge.svg";
-import PlaySmall from "/src/assests/icons/playSmall.svg";
+
 import useTranslation from "next-translate/useTranslation";
 import useEvents from "services/events";
 import { useEffect, useRef } from "react";
