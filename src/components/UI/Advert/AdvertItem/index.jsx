@@ -2,11 +2,11 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
-export default function ProjectItem({ item }) {
+export default function AdvertItem({ item }) {
   const { lang } = useTranslation();
   return (
     <div className={styles.item} key={item.id}>
-      <Link href={`/info/${item.guid}`}>
+      <Link href={`/info/${item?.guid}?from=news`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
             <img src={item.photo} alt={item.name} />
