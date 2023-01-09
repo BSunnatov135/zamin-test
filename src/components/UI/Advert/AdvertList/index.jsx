@@ -5,9 +5,10 @@ import useAdverts from "services/advert";
 import useTranslation from "next-translate/useTranslation";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
-import Skeleton from "@mui/material";
+import { Skeleton } from "@mui/material";
 
 export default function AdvertList() {
+  const [isloading, setLoading] = useState(true);
   const { t } = useTranslation("common");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +16,7 @@ export default function AdvertList() {
   const [hasMore, setHasMore] = useState(true);
   const { adverts } = useAdverts({
     advertParams: {
-      offset: currentPage * limit,
+      offset: (currentPage - 1) * limit,
       limit: limit,
     },
   });
@@ -28,10 +29,12 @@ export default function AdvertList() {
         setData((prev) => [...prev, ...adverts?.data?.response]);
       }
     }
-    if (adverts?.data?.count === data?.length) {
+    if (adverts?.data?.count < (currentPage - 1) * limit) {
       setHasMore(false);
     }
   }, [adverts, currentPage]);
+
+  console.log("data", data?.length);
 
   return (
     <Container>
@@ -42,7 +45,15 @@ export default function AdvertList() {
           style={{ overflow: "visible" }}
           hasMore={hasMore}
           next={() => setCurrentPage((pre) => ++pre)}
-          // loader={<h2>Loading</h2>}
+          loader={
+            hasMore && (
+              <div className={styles.skeletonWrapper}>
+                <Skeleton variant="rectangle" />
+                <Skeleton variant="rectangle" />
+                <Skeleton variant="rectangle" />
+              </div>
+            )
+          }
         >
           <div className={styles.list}>
             {data?.map((item) => (

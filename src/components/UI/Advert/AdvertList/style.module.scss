@@ -27,4 +27,10 @@
     justify-content: center;
     margin-top: 32px;
   }
+  .skeletonWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(325px, 1fr));
+    margin-top: 24px;
+    gap: 24px;
+  }
 }
