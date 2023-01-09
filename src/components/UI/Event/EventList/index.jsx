@@ -3,23 +3,42 @@ import styles from "./style.module.scss";
 import EventItem from "../EventItem";
 import ArrowDownIcon from "assests/icons/arrowDown.svg";
 import { Popover } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import useEvents from "services/events";
 import useTranslation from "next-translate/useTranslation";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { Skeleton } from "@mui/material";
 
 export default function EventPage() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [toggle, setToggle] = useState("w");
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(6);
+  const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   const { events } = useEvents({
     eventParams: {
-      offset: 0,
-      limit: 100,
+      offset: (currentPage - 1) * limit,
+      limit: limit,
     },
   });
+
+  useEffect(() => {
+    if (events?.data?.response?.length > 0) {
+      if (currentPage == 1) {
+        setData(events?.data?.response);
+      } else {
+        setData((prev) => [...prev, ...events?.data?.response]);
+      }
+    }
+    if (events?.data?.count < (currentPage - 1) * limit) {
+      setHasMore(false);
+    }
+  }, [events, currentPage]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -94,11 +113,27 @@ export default function EventPage() {
           </Popover>
         </div>
 
-        <div className={styles.list}>
-          {events?.data?.response?.map((item) => (
-            <EventItem key={item.guid} item={item} />
-          ))}
-        </div>
+        <InfiniteScroll
+          dataLength={data?.length || 0}
+          style={{ overflow: "visible" }}
+          hasMore={hasMore}
+          next={() => setCurrentPage((pre) => ++pre)}
+          loader={
+            hasMore && (
+              <div className={styles.skeletonWrapper}>
+                <Skeleton variant="rectangle" />
+                <Skeleton variant="rectangle" />
+                <Skeleton variant="rectangle" />
+              </div>
+            )
+          }
+        >
+          <div className={styles.list}>
+            {data?.map((item) => (
+              <EventItem key={item?.guid} item={item} />
+            ))}
+          </div>
+        </InfiniteScroll>
       </div>
     </Container>
   );

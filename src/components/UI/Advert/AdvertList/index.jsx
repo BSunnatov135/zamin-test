@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 
 export default function AdvertList() {
-  const [isloading, setLoading] = useState(true);
   const { t } = useTranslation("common");
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
