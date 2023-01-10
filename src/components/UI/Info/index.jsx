@@ -8,7 +8,7 @@ import useEvents from "services/events";
 import { useMemo, useState } from "react";
 
 import useTranslation from "next-translate/useTranslation";
-import Slider from "../Slider";
+import Slider from "components/UI/Slider/Slider";
 
 export default function Info() {
   const { lang } = useTranslation();
