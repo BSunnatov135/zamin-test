@@ -29,41 +29,66 @@ export default function Slider({ data, title }) {
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>
-      {currentData && (
-        <div className={styles.containerSlider}>
-          {data.map((obj, index) => {
-            return (
-              <>
-                <div
-                  key={obj.id}
-                  className={
-                    slideIndex === index + 1
-                      ? `${styles.slide} ${styles.active_anim}`
-                      : styles.slide
-                  }
-                >
-                  {currentData?.type?.toLowerCase() === "mp4" ? (
-                    <video
-                      loop
-                      playsInline
-                      autoPlay
-                      muted
-                      controls
-                      height={"100%"}
-                    >
-                      <source src={currentData?.file_link} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={currentData?.file_link} />
-                  )}
-                </div>
-              </>
-            );
-          })}
-          <BtnSlider moveSlide={nextSlide} direction={"next"} />
-          <BtnSlider moveSlide={prevSlide} direction={"prev"} />
-        </div>
-      )}
+      {currentData &&
+        (newArr.length > 1 ? (
+          <div className={styles.containerSlider}>
+            {data.map((obj, index) => {
+              return (
+                <>
+                  <div
+                    key={obj.id}
+                    className={
+                      slideIndex === index + 1
+                        ? `${styles.slide} ${styles.active_anim}`
+                        : styles.slide
+                    }
+                  >
+                    {currentData?.type?.toLowerCase() === "mp4" ? (
+                      <video
+                        loop
+                        playsInline
+                        autoPlay
+                        muted
+                        controls
+                        height={"100%"}
+                      >
+                        <source src={currentData?.file_link} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img src={currentData?.file_link} />
+                    )}
+                  </div>
+                </>
+              );
+            })}
+            <BtnSlider moveSlide={nextSlide} direction={"next"} />
+            <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+          </div>
+        ) : newArr.length === 1 ? (
+          <>
+            {currentData?.type?.toLowerCase() === "mp4" ? (
+              <video
+                loop
+                playsInline
+                autoPlay
+                muted
+                controls
+                height={"100%"}
+                className={styles.singleElement}
+              >
+                <source
+                  src={currentData?.file_link}
+                  type="video/mp4"
+                  className={styles.singleElement}
+                />
+              </video>
+            ) : (
+              <img src={currentData?.file_link} />
+            )}
+          </>
+        ) : (
+          {}
+        ))}
     </>
   );
 }

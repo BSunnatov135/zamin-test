@@ -6,7 +6,7 @@ import useProjects from "services/projects";
 import useAdverts from "services/advert";
 import useEvents from "services/events";
 import { useMemo, useState } from "react";
-import Slider from "../Slider/Index";
+import Slider from "../Slider/index";
 import useTranslation from "next-translate/useTranslation";
 
 export default function Info() {
