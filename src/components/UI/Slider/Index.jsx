@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
-import BtnSlider from "./BtnSlider";
+import BtnSlider from "./BtnSlider/BtnSlider";
 import { useMemo } from "react";
 
 export default function Slider({ data, title }) {
