@@ -42,7 +42,7 @@ export default function Footer() {
     }
 
     if (status === "advert") {
-      path === "/" ? scrollTo(advertsRef) : scrrollHome();
+      path === "/" ? scrollTo(advertsRef) : router.push("/news");
     }
 
     function scrollTo(where) {
