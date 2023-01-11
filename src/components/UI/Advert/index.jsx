@@ -47,7 +47,11 @@ export default function Advert() {
           {adverts?.data?.response?.map((item) => (
             <div key={item.guid} className={styles.item}>
               <div className={styles.header}>
-                <p>{item?.[`${lang}_header`]}</p>
+                <Link href={`/info/${item.guid}?from=news`}>
+                  <a>
+                    <p>{item?.[`${lang}_header`]}</p>
+                  </a>
+                </Link>
               </div>
               <div className={styles.body}>
                 <p
@@ -58,7 +62,7 @@ export default function Advert() {
                 ></p>
               </div>
               <Link href={`/info/${item.guid}?from=news`}>
-                <a>
+                <a className={styles.link}>
                   {t("more")}
                   <ArrowRight />
                 </a>

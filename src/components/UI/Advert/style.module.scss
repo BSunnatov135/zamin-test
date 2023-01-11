@@ -21,7 +21,7 @@
         }
       }
     }
-    a {
+    .link {
       font-size: 16px;
       line-height: 24px;
       font-family: "Noto Sans" !important;
@@ -68,7 +68,7 @@
       flex-direction: column;
       padding: 24px 16px;
       background-color: #fff;
-      cursor: pointer;
+
       overflow: hidden;
       .header {
         padding-bottom: 12px;
@@ -108,7 +108,7 @@
         }
       }
       &:hover {
-        a {
+        .link {
           color: var(--primary-color);
           svg {
             transform: translateX(5px);
@@ -118,7 +118,7 @@
           }
         }
       }
-      a {
+      .link {
         display: flex;
         flex: 1;
         align-items: flex-end;
