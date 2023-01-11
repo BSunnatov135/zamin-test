@@ -74,10 +74,7 @@ export default function Info() {
     let currentData;
     if (queryFrom === "news") {
       currentData = advertSlider?.data?.response
-        ? [
-            { file_link: data?.photo !== null && data?.photo },
-            ...advertSlider?.data?.response,
-          ]
+        ? [{ file_link: data?.photo }, ...advertSlider?.data?.response]
         : [{ file_link: data?.photo }];
     } else if (queryFrom === "events") {
       currentData = eventSlider?.data?.response

@@ -47,9 +47,21 @@ export default function AdvertList() {
           loader={
             hasMore && (
               <div className={styles.skeletonWrapper}>
-                <Skeleton variant="rectangle" />
-                <Skeleton variant="rectangle" />
-                <Skeleton variant="rectangle" />
+                <div className={styles.skeletonItem}>
+                  <Skeleton variant="rectangle" width="100%" height="50px" />
+                  <Skeleton variant="rectangle" width="100%" height="130px" />
+                  <Skeleton variant="rectangle" width="212px" height="24px" />
+                </div>
+                <div className={styles.skeletonItem}>
+                  <Skeleton variant="rectangle" width="100%" height="50px" />
+                  <Skeleton variant="rectangle" width="100%" height="130px" />
+                  <Skeleton variant="rectangle" width="212px" height="24px" />
+                </div>
+                <div className={styles.skeletonItem}>
+                  <Skeleton variant="rectangle" width="100%" height="50px" />
+                  <Skeleton variant="rectangle" width="100%" height="130px" />
+                  <Skeleton variant="rectangle" width="212px" height="24px" />
+                </div>
               </div>
             )
           }
