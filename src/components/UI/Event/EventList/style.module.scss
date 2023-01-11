@@ -108,3 +108,14 @@
     }
   }
 }
+.skeletonWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  margin-top: 24px;
+  gap: 24px;
+  .skeletonItem {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+}
