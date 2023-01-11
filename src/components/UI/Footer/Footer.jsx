@@ -229,7 +229,18 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("event_title")}</Typography>
+                <Typography>
+                  {" "}
+                  <a
+                    className={styles.summaryContent}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleRouterActions("event");
+                    }}
+                  >
+                    {t("event_title")}
+                  </a>
+                </Typography>
                 <Typography>{t("gallery")}</Typography>
               </AccordionDetails>
             </Accordion>

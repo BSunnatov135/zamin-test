@@ -83,7 +83,10 @@ export default function Slider({ data, title }) {
                 />
               </video>
             ) : (
-              <img src={currentData?.file_link} />
+              <img
+                src={currentData?.file_link}
+                className={styles.singleElement}
+              />
             )}
           </>
         ) : (

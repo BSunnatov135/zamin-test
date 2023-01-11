@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
 import useTranslation from "next-translate/useTranslation";
-import Spheres from "./ProjectItems/projects";
+import Projects from "./ProjectItems/projects";
 import useProjects from "services/projects";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
@@ -118,7 +118,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
             <div className={styles.box}>
               <p className={styles.title}>{t("projects")}</p>
               {projects?.data?.response?.map((item) => (
-                <Spheres key={item.guid} item={item} />
+                <Projects key={item.guid} item={item} />
               ))}
               <Link href="/">
                 <a
