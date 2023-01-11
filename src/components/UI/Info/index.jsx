@@ -74,22 +74,31 @@ export default function Info() {
     let currentData;
     if (queryFrom === "news") {
       currentData = advertSlider?.data?.response
-        ? [{ file_link: data?.photo }, ...advertSlider?.data?.response]
-        : [{ file_link: data?.photo }];
+        ? [
+            { file_link: data?.[`${lang}_photo`] },
+            ...advertSlider?.data?.response,
+          ]
+        : [{ file_link: data?.[`${lang}_photo`] }];
     } else if (queryFrom === "events") {
       currentData = eventSlider?.data?.response
         ? [
-            { file_link: data?.poster !== null && data?.poster },
+            {
+              file_link:
+                data?.[`${lang}_poster`] !== null && data?.[`${lang}_poster`],
+            },
             ...eventSlider?.data?.response,
           ]
-        : [{ file_link: data?.poster }];
+        : [{ file_link: data?.[`${lang}_poster`] }];
     } else {
       currentData = projectSlider?.data?.response
         ? [
-            { file_link: data?.photo !== null && data?.photo },
+            {
+              file_link:
+                data?.[`${lang}_photo`] !== null && data?.[`${lang}_photo`],
+            },
             ...projectSlider?.data?.response,
           ]
-        : [{ file_link: data?.photo }];
+        : [{ file_link: data?.[`${lang}_photo`] }];
     }
     return currentData;
   }, [projectSlider, eventSlider, advertSlider]);

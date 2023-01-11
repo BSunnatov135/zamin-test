@@ -9,7 +9,7 @@ export default function AdvertItem({ item }) {
       <Link href={`/info/${item?.guid}?from=news`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
-            <img src={item.photo} alt={item.name} />
+            <img src={item[`${lang}_photo`]} alt={item[`${lang}_name`]} />
           </div>
           <div className={styles.body}>
             <p className={styles.name}>{item[`${lang}_name`]}</p>

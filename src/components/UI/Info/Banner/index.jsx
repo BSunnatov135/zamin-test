@@ -10,7 +10,7 @@ export default function Banner({ item }) {
       <div className={styles.banner}>
         <img
           className={styles.banner__main_img}
-          src={item?.photo || item?.poster}
+          src={item[`${lang}_photo`] || item[`${lang}_poster`]}
           alt={item?.[`${lang}_name`]}
         />
       </div>
