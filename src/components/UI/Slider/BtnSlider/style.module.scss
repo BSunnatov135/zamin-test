@@ -21,6 +21,9 @@
   left: 20px;
   transform: translateY(-60%);
   border: none;
+  @media screen and (max-width: 400px) {
+    left: 0;
+  }
 }
 .next {
   border: none;
@@ -28,4 +31,7 @@
   top: 50%;
   right: 20px;
   transform: translateY(-60%);
+  @media screen and (max-width: 400px) {
+    right: 0;
+  }
 }

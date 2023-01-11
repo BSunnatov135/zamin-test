@@ -165,7 +165,9 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("creation")}</Typography>
+                <Link href="/about">
+                  <Typography>{t("creation")}</Typography>
+                </Link>
                 <Typography>{t("mission")}</Typography>
                 <Typography>{t("activity")}</Typography>
                 <Typography>{t("funding")}</Typography>
@@ -185,9 +187,9 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("environment")} </Typography>
-                <Typography>{t("innovation")}</Typography>
-                <Typography>{t("program")}</Typography>
+                {projects?.data?.response?.map((item) => (
+                  <Spheres key={item.guid} item={item} />
+                ))}
               </AccordionDetails>
             </Accordion>
 
@@ -198,8 +200,16 @@ export default function Footer() {
                 id="panel1a-header"
                 className={styles.accordionSummary}
               >
-                <Typography className={styles.summaryContent}>
-                  {t("advert_title")}
+                <Typography>
+                  <a
+                    className={styles.summaryContent}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleRouterActions("advert");
+                    }}
+                  >
+                    {t("advert_title")}
+                  </a>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
