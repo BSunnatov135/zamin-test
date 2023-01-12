@@ -32,14 +32,11 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
     }
 
     if (status === "advert") {
-      path === "/" ? scrollTo(advertsRef) : router.push("/advert");
+      path === "/" ? scrollTo(advertsRef) : router.push("/news");
     }
 
     function scrollTo(where) {
       scrollToRef(0, where - 100);
-    }
-    function scrrollHome() {
-      router.push("/", undefined, { scroll: false });
     }
     dispatch(setScrollSectionName(status));
   }
