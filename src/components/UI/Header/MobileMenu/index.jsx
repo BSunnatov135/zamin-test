@@ -80,15 +80,15 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       children: [
         {
           title: `${projects?.data?.response[0][`${lang}_name`]}`,
-          href: `${`/info/${projects?.data?.response[0].guid}`}`,
+          href: `${`/project-info/${projects?.data?.response[0].guid}`}`,
         },
         {
           title: `${projects?.data?.response[1][`${lang}_name`]}`,
-          href: `${`/info/${projects?.data?.response[1].guid}`}`,
+          href: `${`/project-info/${projects?.data?.response[1].guid}`}`,
         },
         {
           title: `${projects?.data?.response[2][`${lang}_name`]}`,
-          href: `${`/info/${projects?.data?.response[2].guid}`}`,
+          href: `${`/project-info/${projects?.data?.response[2].guid}`}`,
         },
       ],
     },

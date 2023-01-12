@@ -39,6 +39,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
+  console.log("data", data);
   return (
     <Container>
       <div className={styles.main}>
@@ -75,7 +76,7 @@ export default function HelpPeople() {
                     __html: data?.[`${lang}_description`],
                   }}
                 ></p>
-                <Link href={`/info/${data?.guid}`}>
+                <Link href={`/project-info/${data?.guid}`}>
                   <a>
                     {t("more")} <ArrowRight />
                   </a>
@@ -84,7 +85,7 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            <img src={data?.photo} />
+            <img src={data?.[`${lang}_photo`]} />
           </div>
         </div>
       </div>

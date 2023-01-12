@@ -54,7 +54,7 @@ export default function Banner() {
               item?.guid == "ae66b866-ff55-4e82-aa56-91e1b0dec7b7" && (
                 <div className={styles.content}>
                   <h1>{item[`${lang}_name`]}</h1>
-                  <Link href={`/info/${item.guid}`}>
+                  <Link href={`/project-info/${item.guid}`}>
                     <a>
                       <LearnMoreIcon />
                       {t("learn_more")}

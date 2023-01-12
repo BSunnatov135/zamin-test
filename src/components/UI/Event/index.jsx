@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setScrollRefEvents } from "store/scrollFunctionSlice/scrollFunctionSlice";
 
 export default function Event() {
+  const { lang } = useTranslation();
   const { t } = useTranslation("common");
   const router = useRouter();
   const { events } = useEvents({
@@ -43,31 +44,31 @@ export default function Event() {
               className={styles.item}
               onClick={() =>
                 router.push(
-                  `/info/${events?.data?.response?.[0].guid}?from=events`
+                  `/events-info/${events?.data?.response?.[0].guid}?from=events`
                 )
               }
             >
-              <img src={events?.data?.response?.[0].poster} />
+              <img src={events?.data?.response?.[0][`${lang}_poster`]} />
             </div>
             <div
               className={styles.item}
               onClick={() =>
                 router.push(
-                  `/info/${events?.data?.response?.[1].guid}?from=events`
+                  `/events-info/${events?.data?.response?.[1].guid}?from=events`
                 )
               }
             >
-              <img src={events?.data?.response?.[1].poster} />
+              <img src={events?.data?.response?.[1][`${lang}_poster`]} />
             </div>
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
                 router.push(
-                  `/info/${events?.data?.response?.[2].guid}?from=events`
+                  `/events-info/${events?.data?.response?.[2].guid}?from=events`
                 )
               }
             >
-              <img src={events?.data?.response?.[2].poster} />
+              <img src={events?.data?.response?.[2][`${lang}_poster`]} />
             </div>
           </div>
           <div className={styles.bottomElement}>
@@ -75,21 +76,21 @@ export default function Event() {
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
                 router.push(
-                  `/info/${events?.data?.response?.[3].guid}?from=events`
+                  `/events-info/${events?.data?.response?.[3].guid}?from=events`
                 )
               }
             >
-              <img src={events?.data?.response?.[3].poster} />
+              <img src={events?.data?.response?.[3][`${lang}_poster`]} />
             </div>
             <div
               className={styles.item}
               onClick={() =>
                 router.push(
-                  `/info/${events?.data?.response?.[4].guid}?from=events`
+                  `/events-info/${events?.data?.response?.[4].guid}?from=events`
                 )
               }
             >
-              <img src={events?.data?.response?.[4].poster} />
+              <img src={events?.data?.response?.[4][`${lang}_poster`]} />
             </div>
           </div>
         </div>

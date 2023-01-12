@@ -6,7 +6,7 @@ export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
   return (
     <div className={styles.item} key={item.id}>
-      <Link href={`/info/${item.guid}`}>
+      <Link href={`/project-info/${item.guid}`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
             <img src={item[`${lang}_photo`]} alt={item[`${lang}_header`]} />

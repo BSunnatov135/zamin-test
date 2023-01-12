@@ -6,7 +6,7 @@ export default function AdvertItem({ item }) {
   const { lang } = useTranslation();
   return (
     <div className={styles.item} key={item.id}>
-      <Link href={`/info/${item?.guid}?from=news`}>
+      <Link href={`/news-info/${item?.guid}?from=news`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
             <img src={item[`${lang}_photo`]} alt={item[`${lang}_name`]} />

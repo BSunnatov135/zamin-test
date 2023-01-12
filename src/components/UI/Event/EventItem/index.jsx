@@ -5,9 +5,10 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function EventItem({ item }) {
   const { lang } = useTranslation();
+  console.log("item", item);
   const { t } = useTranslation("common");
   return (
-    <Link href={`/info/${item.guid}?from=events`}>
+    <Link href={`/events-info/${item.guid}?from=events`}>
       <a>
         <div className={styles.item} key={item.img}>
           <div className={styles.img}>
@@ -22,7 +23,7 @@ export default function EventItem({ item }) {
               }}
             />
             <Link
-              href={`/info/${item.guid}?from=events`}
+              href={`/events-info/${item.guid}?from=events`}
               styles={styles.body__link}
             >
               <a>
