@@ -67,12 +67,6 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
     {
       title: `${t("advert_title")}`,
       key: "ads",
-      children: [
-        {
-          title: `${t("advert_title")}`,
-          href: "/news",
-        },
-      ],
     },
     {
       title: `${t("projects")}`,
@@ -141,19 +135,51 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
     >
       {!activeLink && (
         <div className={styles.box}>
-          {items.map((item, index) => (
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveLink(index + 1);
-              }}
-              key={item.key}
-            >
-              {item.title}
-              <RightArrow />
-            </a>
-          ))}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink(1);
+            }}
+            key={items[0].key}
+          >
+            {items[0].title}
+            <RightArrow />
+          </a>
+          <a href="/news">{items[1].title}</a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink(3);
+            }}
+            key={items[2].key}
+          >
+            {items[2].title}
+            <RightArrow />
+          </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink(4);
+            }}
+            key={items[3].key}
+          >
+            {items[3].title}
+            <RightArrow />
+          </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink(5);
+            }}
+            key={items[4].key}
+          >
+            {items[4].title}
+            <RightArrow />
+          </a>
         </div>
       )}
 
@@ -172,6 +198,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           <ArrowRight /> Назад
         </a>
         {activeLink &&
+          items[activeLink - 1].children &&
           items[activeLink - 1].children.map((data) => (
             <Link href={data.href} key={data.title}>
               <a onClick={(e) => handleLinks(e, data.key)}>{data.title}</a>
