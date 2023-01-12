@@ -93,7 +93,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       ],
     },
     {
-      title: "Контакты",
+      title: `${t("contacts")}`,
       key: "contact",
       children: [
         {
@@ -101,31 +101,31 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           href: "mailto:info@zaminfoundation.uz",
         },
         {
-          title: "Социальные сети",
+          title: `${t("sns")}`,
           href: "/",
         },
       ],
     },
     {
-      title: "Медиа",
+      title: `${t("media")}`,
       key: "media",
       children: [
         {
-          title: "Мероприятия",
+          title: `${t("event_title")}`,
           href: "/",
         },
         {
-          title: "Галерея",
+          title: `${t("gallery")}`,
           href: "/",
         },
       ],
     },
     {
-      title: "Личный кабинет",
+      title: `${t("cabinet")}`,
       key: "cabinet",
       children: [
         {
-          title: "Войти",
+          title: `${t("login")}`,
           href: "/",
           key: "login",
         },
