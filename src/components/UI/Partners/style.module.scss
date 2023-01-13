@@ -4,6 +4,16 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
+    .mobileIcon {
+      @media screen and (min-width: 500px) {
+        display: none;
+      }
+    }
+    .desktopIcon {
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
     svg {
       background: #f7f7f7;
       path {

@@ -80,40 +80,40 @@ export default function Partners() {
     <Container>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
-          <MedIcon />
-          <ResMedLogo />
+          <MedIcon className={styles.desktopIcon} />
+          <ResMedLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <GasLogo />
-          <ResGasLogo />
+          <GasLogo className={styles.desktopIcon} />
+          <ResGasLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <Unicef />
-          <ResUnicef />
+          <Unicef className={styles.desktopIcon} />
+          <ResUnicef className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <HydroIcon />
-          <ResHydro />
+          <HydroIcon className={styles.desktopIcon} />
+          <ResHydro className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <FAOIcon />
-          <ResFAO />
+          <FAOIcon className={styles.desktopIcon} />
+          <ResFAO className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <Tree />
-          <ResTree />
+          <Tree className={styles.desktopIcon} />
+          <ResTree className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <UNDP />
-          <ResUNDP />
+          <UNDP className={styles.desktopIcon} />
+          <ResUNDP className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <EduIcon />
-          <ResEdu />
+          <EduIcon className={styles.desktopIcon} />
+          <ResEdu className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <UNEP />
-          <ResUNEP />
+          <UNEP className={styles.desktopIcon} />
+          <ResUNEP className={styles.mobileIcon} />
         </div>
       </Slider>
     </Container>
