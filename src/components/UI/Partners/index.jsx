@@ -14,6 +14,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "/src/assests/icons/slickRIght.svg";
 import PrevArrow from "/src/assests/icons/slickLeft.svg";
+import ResMedLogo from "/public/logos/ResMedLogo.svg";
+import ResEdu from "/public/logos/ResEdu.svg";
+import ResGasLogo from "/public/logos/ResGasLogo.svg";
+import ResTree from "/public/logos/ResTree.svg";
+import ResUNDP from "/public/logos/ResUNDP.svg";
+import ResUNEP from "/public/logos/ResUNEP.svg";
+import ResUnicef from "/public/logos/ResUnicef.svg";
+import ResFAO from "/public/logos/ResFAO.svg";
+import ResHydro from "/public/logos/ResHydro.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -72,30 +81,39 @@ export default function Partners() {
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
           <MedIcon />
+          <ResMedLogo />
         </div>
         <div className={styles.item}>
           <GasLogo />
+          <ResGasLogo />
         </div>
         <div className={styles.item}>
           <Unicef />
+          <ResUnicef />
         </div>
         <div className={styles.item}>
           <HydroIcon />
+          <ResHydro />
         </div>
         <div className={styles.item}>
           <FAOIcon />
+          <ResFAO />
         </div>
         <div className={styles.item}>
           <Tree />
+          <ResTree />
         </div>
         <div className={styles.item}>
           <UNDP />
+          <ResUNDP />
         </div>
         <div className={styles.item}>
           <EduIcon />
+          <ResEdu />
         </div>
         <div className={styles.item}>
           <UNEP />
+          <ResUNEP />
         </div>
       </Slider>
     </Container>

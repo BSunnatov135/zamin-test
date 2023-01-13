@@ -65,7 +65,7 @@ export default function Slider({ data, title }) {
             <BtnSlider moveSlide={prevSlide} direction={"prev"} />
           </div>
         ) : newArr.length === 1 ? (
-          <>
+          <div className={styles.singleElement}>
             {currentData?.type?.toLowerCase() === "mp4" ? (
               <video
                 loop
@@ -76,11 +76,7 @@ export default function Slider({ data, title }) {
                 height={"100%"}
                 className={styles.singleElement}
               >
-                <source
-                  src={currentData?.file_link}
-                  type="video/mp4"
-                  className={styles.singleElement}
-                />
+                <source src={currentData?.file_link} type="video/mp4" />
               </video>
             ) : (
               <img
@@ -88,7 +84,7 @@ export default function Slider({ data, title }) {
                 className={styles.singleElement}
               />
             )}
-          </>
+          </div>
         ) : (
           {}
         ))}
