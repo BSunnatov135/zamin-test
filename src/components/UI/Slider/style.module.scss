@@ -14,7 +14,8 @@
   }
 }
 .containerSlider {
-  max-width: 100%;
+  max-width: 1570px;
+  margin: auto;
   position: relative;
   height: 800px;
   overflow: hidden;
@@ -33,6 +34,7 @@
   }
   .slide {
     width: 100%;
+    max-width: 1570px;
     height: 100%;
     position: absolute;
     transition: opacity ease-in-out 0.4s;
