@@ -21,7 +21,7 @@ import ResTree from "/public/logos/ResTree.svg";
 import ResUNDP from "/public/logos/ResUNDP.svg";
 import ResUNEP from "/public/logos/ResUNEP.svg";
 import ResUnicef from "/public/logos/ResUnicef.svg";
-import ResFAO from "/public/logos/ResFAO.svg";
+import ResFAO from "/public/logos/ResFao.svg";
 import ResHydro from "/public/logos/ResHydro.svg";
 
 function SampleNextArrow(props) {
