@@ -60,7 +60,9 @@ export default function Header() {
                   document.getElementById("userwayAccessibilityIcon").click();
                 }}
               >
-                {t("accessibility")}
+                <p className={styles.accessibilityTitle}>
+                  {t("accessibility")}
+                </p>
                 <AccessIcon />
               </p>
               <LanguageDropdown />

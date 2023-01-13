@@ -67,10 +67,17 @@
         @include align-items-center;
         column-gap: 12px;
         cursor: pointer;
+        .accessibilityTitle {
+          @media screen and (max-width: 400px) {
+            max-width: 115px;
+            text-align: center;
+          }
+        }
         &:last-child {
           column-gap: 9px;
           @media screen and (max-width: 530px) {
             display: none;
+            width: 100px;
           }
         }
       }

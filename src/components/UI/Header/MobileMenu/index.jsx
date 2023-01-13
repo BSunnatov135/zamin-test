@@ -7,11 +7,13 @@ import RightArrow from "/src/assests/icons/rightArrow.svg";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
 import useTranslation from "next-translate/useTranslation";
 import useProjects from "services/projects";
+import { useRouter } from "next/router";
 
 export default function MobileMenu({ open, handleClose, handleLogin }) {
   const [activeLink, setActiveLink] = useState(null);
-  const { t } = useTranslation("common");
-  const { lang } = useTranslation();
+  const { t, lang } = useTranslation("common");
+
+  const router = useRouter();
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
@@ -37,6 +39,21 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       handleClose();
     }
   };
+  const langs = [
+    {
+      key: "ru",
+      label: "Ру",
+    },
+    {
+      key: "uz",
+      label: "O’zb",
+    },
+
+    {
+      key: "en",
+      label: "En",
+    },
+  ];
   const items = [
     {
       title: `${t("about_fond")}`,
@@ -180,6 +197,25 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             {items[4].title}
             <RightArrow />
           </a>
+          <div>
+            <p className={styles.language}>{t("language")}</p>
+            <ul className={styles.languageWrapper}>
+              {langs.map((item) => (
+                <li
+                  key={item.key}
+                  className={classNames(styles.item, {
+                    [styles.chosen]: item.key === lang,
+                  })}
+                >
+                  <Link href={router.asPath} locale={item.key}>
+                    <a>
+                      <span>{item.label}</span>
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
 
@@ -198,7 +234,6 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           <ArrowRight /> Назад
         </a>
         {activeLink &&
-          items[activeLink - 1].children &&
           items[activeLink - 1].children.map((data) => (
             <Link href={data.href} key={data.title}>
               <a onClick={(e) => handleLinks(e, data.key)}>{data.title}</a>
