@@ -39,9 +39,9 @@
       height: auto;
     }
     .name {
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 28px;
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 30px;
       margin-bottom: 8px;
       overflow: hidden;
       display: -webkit-box;
@@ -50,12 +50,13 @@
       opacity: 0.8;
     }
     .description {
-      max-height: 115px;
+      max-height: 100px;
       overflow: hidden;
       p {
         font-family: "Noto Sans" !important;
+        font-weight: 300;
         font-size: 16px !important;
-        line-height: 180%;
+        line-height: 24px;
         color: #2d2d2d;
         opacity: 0.8;
         overflow: hidden;
