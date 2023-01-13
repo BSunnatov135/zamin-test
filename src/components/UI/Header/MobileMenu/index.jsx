@@ -231,7 +231,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             setActiveLink(null);
           }}
         >
-          <ArrowRight /> Назад
+          <ArrowRight /> {t("back")}
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
