@@ -45,6 +45,20 @@ export default function Partners() {
     slidesToScroll: 1,
     responsive: [
       {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
           slidesToShow: 3,
