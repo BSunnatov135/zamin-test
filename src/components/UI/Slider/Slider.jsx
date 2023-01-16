@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./style.module.scss";
 import BtnSlider from "./BtnSlider/BtnSlider";
 import { useMemo } from "react";

@@ -2,11 +2,10 @@ import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
-
 import useTranslation from "next-translate/useTranslation";
 import useEvents from "services/events";
 import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setScrollRefEvents } from "store/scrollFunctionSlice/scrollFunctionSlice";
 
 export default function Event() {

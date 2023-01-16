@@ -2,8 +2,8 @@ import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
-import MedIcon from "/public/logos/MedIcon.svg";
-import GasLogo from "/public/logos/GasLogo.svg";
+import MedIcon from "/public/logos/MedIcon.png";
+import GasLogo from "/public/logos/GasLogo.png";
 import Unicef from "/public/logos/Unicef.svg";
 import Tree from "/public/logos/Tree.svg";
 import UNDP from "/public/logos/UNDP.svg";
@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "/src/assests/icons/slickRIght.svg";
 import PrevArrow from "/src/assests/icons/slickLeft.svg";
-import ResMedLogo from "/public/logos/ResMedLogo.svg";
+import ResMedLogo from "/public/logos/ResMedLogo.png";
 import ResEdu from "/public/logos/ResEdu.svg";
 import ResGasLogo from "/public/logos/ResGasLogo.svg";
 import ResTree from "/public/logos/ResTree.svg";
@@ -80,11 +80,11 @@ export default function Partners() {
     <Container>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
-          <MedIcon className={styles.desktopIcon} />
-          <ResMedLogo className={styles.mobileIcon} />
+          <img src={MedIcon} className={styles.desktopIcon} />
+          <img src={ResMedLogo} className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <GasLogo className={styles.desktopIcon} />
+          <img src={GasLogo} className={styles.desktopIcon} />
           <ResGasLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>

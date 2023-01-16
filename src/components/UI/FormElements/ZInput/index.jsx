@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import ShowPasswordIcon from "assests/icons/showPassword.svg";
 
 //small, medium, large
 

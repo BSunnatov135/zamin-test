@@ -6,7 +6,6 @@ import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import useSpheres from "services/spheres";
 import SphereItem from "./SphereItem";
-
 import { useMemo } from "react";
 import { useEffect } from "react";
 

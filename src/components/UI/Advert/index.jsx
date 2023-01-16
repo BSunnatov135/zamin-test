@@ -1,6 +1,5 @@
 import { Container } from "@mui/material";
 import Link from "next/link";
-import BlogTitle from "../BlogTitle";
 import styles from "./style.module.scss";
 import ArrowRight from "assests/icons/narrowRight.svg";
 import useAdverts from "services/advert";

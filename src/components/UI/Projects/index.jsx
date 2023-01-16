@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import HeartIcon from "assests/icons/heart.svg";

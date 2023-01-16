@@ -4,7 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import ZInput from "components/UI/FormElements/ZInput";
 import { useRef, useState } from "react";
-import CheckIcon from "/src/assests/icons/checkIcon.svg";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";

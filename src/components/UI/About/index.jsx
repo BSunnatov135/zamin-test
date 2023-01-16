@@ -1,5 +1,4 @@
 import { Container } from "@mui/material";
-import { style } from "@mui/system";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
 
