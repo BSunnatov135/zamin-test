@@ -33,7 +33,7 @@ export default function AdvertList() {
     }
   }, [adverts, currentPage]);
 
-  console.log("data", data?.length);
+  console.log("data", data);
 
   return (
     <Container>
