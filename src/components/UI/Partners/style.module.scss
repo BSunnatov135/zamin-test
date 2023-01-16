@@ -16,12 +16,12 @@
         display: none;
       }
     }
-    // svg {
-    //   background: #f7f7f7;
-    //   path {
-    //     mix-blend-mode: multiply;
-    //   }
-    // }
+    svg {
+      background: #f7f7f7;
+      path {
+        mix-blend-mode: multiply;
+      }
+    }
   }
   .next {
     cursor: pointer;

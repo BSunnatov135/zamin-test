@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
-import MedIcon from "/public/logos/MedIcon.png";
+import MedIcon from "/public/logos/MedIcon.svg";
 import GasLogo from "/public/logos/GasLogo.png";
 import Unicef from "/public/logos/Unicef.svg";
 import Tree from "/public/logos/Tree.svg";
@@ -80,7 +80,7 @@ export default function Partners() {
     <Container>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
-          <img src="/logos/MedIcon.png" className={styles.desktopIcon} />
+          <MedIcon className={styles.desktopIcon} />
           <img src="/logos/ResMedLogo.png" className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
