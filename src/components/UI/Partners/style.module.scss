@@ -30,12 +30,10 @@
     transform: translate(0, -50%);
     right: 0;
     svg {
-      path {
-        stroke: #b3b6bf;
-      }
+      transform: rotate(180deg);
       &:hover {
         path {
-          stroke: #000;
+          fill: #000;
         }
       }
     }
