@@ -80,11 +80,11 @@ export default function Partners() {
     <Container>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
-          <img src={MedIcon} className={styles.desktopIcon} />
-          <img src={ResMedLogo} className={styles.mobileIcon} />
+          <img src="/logos/MedIcon.png" className={styles.desktopIcon} />
+          <img src="/logos/ResMedLogo.png" className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <img src={GasLogo} className={styles.desktopIcon} />
+          <img src="/logos/GasLogo.png" className={styles.desktopIcon} />
           <ResGasLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
@@ -108,7 +108,7 @@ export default function Partners() {
           <ResUNDP className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <EduIcon className={styles.desktopIcon} />
+          <img src="/logos/EduIcon.svg" className={styles.desktopIcon} />
           <ResEdu className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
