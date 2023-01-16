@@ -28,7 +28,7 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div className={styles.next} onClick={onClick}>
-      <NextArrow />
+      <PrevArrow />
     </div>
   );
 }
