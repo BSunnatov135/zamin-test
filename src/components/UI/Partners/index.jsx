@@ -3,19 +3,15 @@ import styles from "./style.module.scss";
 import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
 import MedIcon from "/public/logos/MedIcon.svg";
-import GasLogo from "/public/logos/GasLogo.png";
+import GasLogo from "/public/logos/GasLogo.svg";
 import Unicef from "/public/logos/Unicef.svg";
-import Tree from "/public/logos/Tree.svg";
 import UNDP from "/public/logos/UNDP.svg";
-import EduIcon from "/public/logos/EduIcon.svg";
 import UNEP from "/public/logos/UNEP.svg";
 import Slider from "react-slick";
+import ResMedLogo from "/public/logos/ResMedLogo.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import NextArrow from "/src/assests/icons/slickRIght.svg";
 import PrevArrow from "/src/assests/icons/slickLeft.svg";
-import ResMedLogo from "/public/logos/ResMedLogo.png";
-import ResEdu from "/public/logos/ResEdu.svg";
 import ResGasLogo from "/public/logos/ResGasLogo.svg";
 import ResTree from "/public/logos/ResTree.svg";
 import ResUNDP from "/public/logos/ResUNDP.svg";
@@ -81,10 +77,10 @@ export default function Partners() {
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
           <MedIcon className={styles.desktopIcon} />
-          <img src="/logos/ResMedLogo.png" className={styles.mobileIcon} />
+          <ResMedLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <img src="/logos/GasLogo.png" className={styles.desktopIcon} />
+          <GasLogo className={styles.desktopIcon} />
           <ResGasLogo className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
@@ -100,7 +96,11 @@ export default function Partners() {
           <ResFAO className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <Tree className={styles.desktopIcon} />
+          <img
+            src="/logos/Tree.png"
+            height={"72px"}
+            className={styles.desktopIcon}
+          />
           <ResTree className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
@@ -108,8 +108,16 @@ export default function Partners() {
           <ResUNDP className={styles.mobileIcon} />
         </div>
         <div className={styles.item}>
-          <img src="/logos/EduIcon.svg" className={styles.desktopIcon} />
-          <ResEdu className={styles.mobileIcon} />
+          <img
+            src="/logos/EduIcon.png"
+            height={"72px"}
+            className={styles.desktopIcon}
+          />
+          <img
+            src="/logos/EduIcon.png"
+            height={"56px"}
+            className={styles.mobileIcon}
+          />
         </div>
         <div className={styles.item}>
           <UNEP className={styles.desktopIcon} />
