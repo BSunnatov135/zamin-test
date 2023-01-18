@@ -69,5 +69,9 @@
   "half_year": "За полгода",
   "rights": "©Zamin 2022. Все права защищены",
   "language": "Язык",
-  "back": "Назад"
+  "back": "Назад",
+  "donate_title": "Сделайте пожертование сейчас",
+  "donate_to_general_fund": "Пожертвовать в общий фонд",
+  "donate_to_project": "Пожертвовать по проекту",
+  "select_amount": "Выберите сумму"
 }

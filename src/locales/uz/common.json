@@ -69,5 +69,9 @@
   "half_year": "Yarim yillik",
   "rights": "©Zamin 2022. Barcha huquqlar himoyalangan",
   "language": "Til",
-  "back": "Ortga"
+  "back": "Ortga",
+  "donate_title": "Hozir xayriya qiling",
+  "donate_to_general_fund": "Umumiy fondga xayriya qilish",
+  "donate_to_project": "Loyihaga xayriya qilish",
+  "select_amount": "Summa tanlang"
 }
