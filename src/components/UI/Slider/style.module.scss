@@ -38,6 +38,7 @@
     width: 100%;
     max-width: 1570px;
     height: 100%;
+    max-height: 800px;
     position: absolute;
     transition: opacity ease-in-out 0.4s;
     img {
@@ -80,6 +81,7 @@
 
 .singleElement {
   width: 100%;
+  max-height: 800px;
   max-width: 1570px;
   margin: auto;
   object-fit: cover;
