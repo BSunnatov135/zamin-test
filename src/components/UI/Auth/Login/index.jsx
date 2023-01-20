@@ -55,15 +55,16 @@ export default function LoginForm({ open, handleClose }) {
     singInQueryProps: {
       onSuccess: (value) => {
         console.log("value1", value);
-        dispatch(setUser(value.data.data));
+        // dispatch(setUser(value.data.data));
+        handleClose();
       },
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        handleGetUserInfo(value.data.user_id);
         setStatus(statuses[0]);
+        console.log("ee", value?.data?.role.id);
+        handleGetUserInfo(value.data.role.id);
         reset();
-        handleClose();
       },
     },
     verifyParams: {
@@ -133,7 +134,7 @@ export default function LoginForm({ open, handleClose }) {
                   name="recipient"
                   control={control}
                   label={t("phone")}
-                  mask="+\9\9\8 99 999 99"
+                  mask="+\9\9\8 99 999 99 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}

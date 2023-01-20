@@ -25,8 +25,8 @@ export default function Donate() {
       limit: limit,
     },
   });
-  const userInfos = useSelector((state) => state.auth.user);
-  console.log("userInfos", userInfos);
+  // const userInfos = useSelector((state) => state.auth.user);
+  // console.log("userInfos", userInfos);
   useEffect(() => {
     if (projects?.data?.response?.length > 0) {
       if (currentPage == 1) {
@@ -85,10 +85,14 @@ export default function Donate() {
               style={{ display: "grid", gridTemplateColumns: "100%" }}
             >
               <p>{t("choose_project")}</p>
-              <p onClick={handleClick} className={styles.chooseProject}>
+              <button
+                aria-describedby={id}
+                onClick={handleClick}
+                className={styles.chooseProject}
+              >
                 <span>{t("project")}</span>
                 <ArrowDownIcon />
-              </p>
+              </button>
               <Popover
                 id={id}
                 open={open}
@@ -106,7 +110,6 @@ export default function Donate() {
                   style={{ overflow: "visible" }}
                   hasMore={hasMore}
                   next={() => setCurrentPage((pre) => ++pre)}
-                  loader="loading"
                   className={styles.scroll}
                 >
                   <ul className={styles.popover}>

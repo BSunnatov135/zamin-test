@@ -20,7 +20,7 @@ const useAuth = ({
   verifyParams,
 }) => {
   const signUp = useMutation(signupFn, signupQueryProps);
-  const signIn = useQuery(signInFn, singInQueryProps);
+  const signIn = useMutation(signInFn, singInQueryProps);
   const sendCode = useMutation(sendCodeFn, sendCodeQueryProps);
   const verifyUser = useMutation(
     (data) => verifyUserFn(data, verifyParams),
