@@ -47,7 +47,7 @@
       display: flex;
       flex-direction: column;
       row-gap: 8px;
-      p {
+      & > p {
         font-weight: 600;
         font-size: 16px;
         line-height: 24px;
@@ -56,7 +56,138 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         column-gap: 12px;
+
+        .amountItem {
+          height: 40px;
+          background: #f7f7f7;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          p {
+            font-family: "Noto Sans";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+        .active {
+          background-color: var(--primary-color);
+          color: #fff;
+        }
       }
+      .chooseProject {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #cfcfcf;
+        align-items: center;
+        cursor: pointer;
+        span {
+          font-size: 16px;
+          line-height: 150%;
+          font-family: "Noto Sans";
+          font-weight: 400;
+          padding: 12px;
+          color: #84919a;
+        }
+        svg {
+          margin: 12px;
+          &:hover {
+            path {
+              fill: #000;
+            }
+          }
+          path {
+            fill: #80868b;
+          }
+        }
+      }
+    }
+
+    .comments {
+      display: flex;
+      margin-top: 16px;
+      flex-direction: column;
+      row-gap: 8px;
+      & > p {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      form {
+        textarea {
+          width: 100%;
+          height: 96px;
+          padding: 16px;
+          border: 1px solid #cfcfcf;
+          resize: none;
+          font-family: "Noto Sans";
+          font-size: 16px;
+          line-height: 150%;
+          &:focus {
+            border: 1px solid var(--primary-color);
+            outline: none !important;
+          }
+        }
+      }
+    }
+    .formTitle {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      font-family: "Noto Serif";
+    }
+    .form {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 12px;
+      row-gap: 16px;
+      .formInput {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+        label {
+          font-size: 16px;
+          line-height: 150%;
+          font-family: "Noto Sans";
+        }
+        input {
+          width: 100%;
+          font-size: 16px;
+          line-height: 150%;
+          border: 1px solid #cfcfcf;
+          padding: 12px;
+          &:focus {
+            border: 1px solid var(--primary-color);
+            outline: none !important;
+          }
+        }
+      }
+    }
+  }
+}
+.scroll {
+  height: 200px !important;
+  background-color: #fff;
+}
+.popoverWrapper {
+  .popover {
+    width: 776px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    list-style-type: none;
+    background: #fff;
+    box-shadow: -11px 11px 30px #f7f7f7;
+    li {
+      padding: 12px;
+      cursor: pointer;
+      font-family: "Noto Serif";
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }

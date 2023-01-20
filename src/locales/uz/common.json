@@ -73,5 +73,12 @@
   "donate_title": "Hozir xayriya qiling",
   "donate_to_general_fund": "Umumiy fondga xayriya qilish",
   "donate_to_project": "Loyihaga xayriya qilish",
-  "select_amount": "Summa tanlang"
+  "select_amount": "Summa tanlang",
+  "sum": "so'm",
+  "other_amount": "Boshqa summa",
+  "comments": "Izohlar",
+  "your_info": "Siz haqida ma'lumotlar",
+  "email": "Elektron pochta",
+  "choose_project": "Loyihani tanlang",
+  "project": "Loyiha"
 }

@@ -73,5 +73,12 @@
   "donate_title": "Make a donation now",
   "donate_to_general_fund": "Donate to the general fund",
   "donate_to_project": "Donate to a project",
-  "select_amount": "Select amount"
+  "select_amount": "Select amount",
+  "sum": "sum",
+  "other_amount": "Other amount",
+  "comments": "Comments",
+  "your_info": "Your information",
+  "email": "E-mail",
+  "choose_project": "Choose a project",
+  "project": "Project"
 }

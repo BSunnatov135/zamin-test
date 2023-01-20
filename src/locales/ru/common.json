@@ -50,7 +50,7 @@
   "send_sms_again": "Отправить код ещё раз",
   "confirm": "Подтвердить",
   "name": "Имя",
-  "surname": "фамилия",
+  "surname": "Фамилия",
   "middle_name": "Отчество",
   "birthdate": "Дата рождения",
   "enter_name": "Введите имя",
@@ -73,5 +73,12 @@
   "donate_title": "Сделайте пожертование сейчас",
   "donate_to_general_fund": "Пожертвовать в общий фонд",
   "donate_to_project": "Пожертвовать по проекту",
-  "select_amount": "Выберите сумму"
+  "select_amount": "Выберите сумму",
+  "sum": "сум",
+  "other_amount": "Другая сумма",
+  "comments": "Комментария",
+  "your_info": "Ваши данные",
+  "email": "Электронная почта",
+  "choose_project": "Выберите проект",
+  "project": "Проект"
 }
