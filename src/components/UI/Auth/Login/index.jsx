@@ -41,7 +41,7 @@ export default function LoginForm({ open, handleClose }) {
   const handleCloseRegister = () => {
     setOpenRegister((prev) => !prev);
   };
-  const { sendCode, verifyUser } = useAuth({
+  const { sendCode, verifyUser, signIn } = useAuth({
     sendCodeQueryProps: {
       onSuccess: (value) => {
         setState((prev) => ({
@@ -52,9 +52,15 @@ export default function LoginForm({ open, handleClose }) {
         reset();
       },
     },
+    singInQueryProps: {
+      onSuccess: (value) => {
+        console.log("value1", value);
+        dispatch(setUser(value.data.data));
+      },
+    },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        dispatch(setUser(value.data.client_platform));
+        handleGetUserInfo(value.data.user_id);
         setStatus(statuses[0]);
         reset();
         handleClose();
@@ -72,6 +78,9 @@ export default function LoginForm({ open, handleClose }) {
       recipient: `${watch("recipient").replace(/[- )(]/g, "")}`,
       text: "Код подтверждения",
     });
+  };
+  const handleGetUserInfo = (value) => {
+    signIn.mutate(value);
   };
   const onSubmit = (data) => {
     if (status === "initial") {

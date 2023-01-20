@@ -34,7 +34,8 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const dispatch = useDispatch();
   const { signUp, sendCode, verifyUser } = useAuth({
     signupQueryProps: {
-      onSuccess: () => {
+      onSuccess: (value) => {
+        dispatch(setUser(value.data?.data));
         setStatus(statuses[0]);
         handleClose();
         reset();
@@ -52,7 +53,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        dispatch(setUser(value.data.client_platform));
+        // here platform id
         setStatus(statuses[2]);
         reset();
       },

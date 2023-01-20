@@ -6,6 +6,7 @@ import ArrowDownIcon from "assests/icons/arrowDown.svg";
 import { Popover } from "@mui/material";
 import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useSelector } from "react-redux";
 
 export default function Donate() {
   const { t } = useTranslation("common");
@@ -24,7 +25,8 @@ export default function Donate() {
       limit: limit,
     },
   });
-
+  const userInfos = useSelector((state) => state.auth.user);
+  console.log("userInfos", userInfos);
   useEffect(() => {
     if (projects?.data?.response?.length > 0) {
       if (currentPage == 1) {
