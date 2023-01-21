@@ -7,10 +7,12 @@ import { Popover } from "@mui/material";
 import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector } from "react-redux";
+import TickIcon from "/src/assests/icons/tickIcon.svg";
 
 export default function Donate() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
+  const [toggle, setToggle] = useState(null);
   const [isActive, setIsActive] = useState("50");
   const types = ["all", "project"];
   const [currentPage, setCurrentPage] = useState(1);
@@ -90,7 +92,7 @@ export default function Donate() {
                 onClick={handleClick}
                 className={styles.chooseProject}
               >
-                <span>{t("project")}</span>
+                <span id="placeholder">{t("project")}</span>
                 <ArrowDownIcon />
               </div>
               <Popover
@@ -109,12 +111,23 @@ export default function Donate() {
                   dataLength={data?.length || 0}
                   style={{ overflow: "visible" }}
                   hasMore={hasMore}
+                  loader={hasMore && <p>Loading</p>}
                   next={() => setCurrentPage((pre) => ++pre)}
                   className={styles.scroll}
                 >
                   <ul className={styles.popover}>
                     {data?.map((item) => (
-                      <li onClick={handleClose}>{item[`${lang}_name`]}</li>
+                      <li
+                        onClick={() => {
+                          setToggle(item);
+                          document.getElementById("placeholder").textContent =
+                            item[`${lang}_name`];
+                          handleClose();
+                        }}
+                      >
+                        <p>{item[`${lang}_name`]}</p>
+                        {toggle == item && <TickIcon />}
+                      </li>
                     ))}
                   </ul>
                 </InfiniteScroll>
