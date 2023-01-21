@@ -85,14 +85,14 @@ export default function Donate() {
               style={{ display: "grid", gridTemplateColumns: "100%" }}
             >
               <p>{t("choose_project")}</p>
-              <button
+              <div
                 aria-describedby={id}
                 onClick={handleClick}
                 className={styles.chooseProject}
               >
                 <span>{t("project")}</span>
                 <ArrowDownIcon />
-              </button>
+              </div>
               <Popover
                 id={id}
                 open={open}
