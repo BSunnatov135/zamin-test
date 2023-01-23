@@ -73,6 +73,8 @@
   "donate_title": "Make a donation now",
   "donate_to_general_fund": "Donate to the general fund",
   "donate_to_project": "Donate to a project",
+  "res_general_fund": "General fund",
+  "res_project": "By project",
   "select_amount": "Select amount",
   "sum": "sum",
   "other_amount": "Other amount",

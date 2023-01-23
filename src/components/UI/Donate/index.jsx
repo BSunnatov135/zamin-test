@@ -70,6 +70,28 @@ export default function Donate() {
           <p
             onClick={(e) => {
               e.preventDefault();
+              setType(types[0]);
+            }}
+            className={classNames(styles.resItem, {
+              [styles.chosen]: type == "all",
+            })}
+          >
+            {t("res_general_fund")}
+          </p>
+          <p
+            onClick={(e) => {
+              e.preventDefault();
+              setType(types[1]);
+            }}
+            className={classNames(styles.resItem, {
+              [styles.chosen]: type == "project",
+            })}
+          >
+            {t("res_project")}
+          </p>
+          <p
+            onClick={(e) => {
+              e.preventDefault();
               setType(types[1]);
             }}
             className={classNames(styles.item, {
@@ -167,7 +189,7 @@ export default function Donate() {
                 })}
               >
                 <p>300 000 {t("sum")}</p>
-              </div>
+              </div>{" "}
               <div
                 onClick={() => {
                   setIsActive("500");
@@ -203,23 +225,23 @@ export default function Donate() {
         <form className={styles.form}>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("name")}</label>
-            <input type="text" height={"48px"} width={"100%"} />
+            <input type="text" width={"100%"} />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("surname")}</label>
-            <input type="text" height={"48px"} width={"100%"} />
+            <input type="text" width={"100%"} />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("middle_name")}</label>
-            <input type="text" height={"48px"} width={"100%"} />
+            <input type="text" width={"100%"} />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("phone")}</label>
-            <input type="text" height={"48px"} width={"100%"} />
+            <input type="text" width={"100%"} />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("email")}</label>
-            <input type="text" height={"48px"} width={"100%"} />
+            <input type="text" width={"100%"} />
           </div>
         </form>
       </div>

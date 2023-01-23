@@ -13,12 +13,20 @@
     font-weight: 600;
     font-size: 32px;
     line-height: 38px;
+    @media screen and (max-width: 540px) {
+      padding-top: 38px;
+      font-size: 24px;
+      padding-bottom: 28px;
+    }
   }
   .formWrapper {
     background-color: #fff;
     width: 100%;
     padding: 24px;
     margin-bottom: 24px;
+    @media screen and (max-width: 500px) {
+      padding: 12px;
+    }
     .typeWrapper {
       background-color: #f7f7f7;
       padding: 6px;
@@ -27,15 +35,35 @@
       align-items: center;
       grid-template-columns: 1fr 1fr;
       .item {
+        @media screen and (max-width: 600px) {
+          display: none;
+        }
         cursor: pointer;
         font-family: Fira Sans;
         text-align: center;
         font-weight: 400;
         font-size: 16px;
-        line-height: 150%;
-        background-color: #fff;
-        line-height: 40px;
         background-color: #f7f7f7;
+        align-self: stretch;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .resItem {
+        @media screen and (min-width: 601px) {
+          display: none;
+        }
+        cursor: pointer;
+        font-family: Fira Sans;
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        background-color: #f7f7f7;
+        align-self: stretch;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .chosen {
         background-color: #fff;
@@ -51,19 +79,26 @@
         font-weight: 600;
         font-size: 16px;
         line-height: 24px;
+        font-family: "Noto Sans";
       }
       .amountButtons {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        display: flex;
         column-gap: 12px;
+        row-gap: 12px;
+        flex-wrap: wrap;
+
+        justify-content: center;
 
         .amountItem {
+          min-width: 98px;
           height: 40px;
+          flex: 1;
           background: #f7f7f7;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
+
           p {
             font-family: "Noto Sans";
             font-weight: 500;
@@ -111,6 +146,7 @@
       row-gap: 8px;
       & > p {
         font-weight: 600;
+        font-family: "Noto Sans";
         font-size: 16px;
         line-height: 24px;
       }
@@ -128,6 +164,9 @@
             border: 1px solid var(--primary-color);
             outline: none !important;
           }
+          @media screen and (max-width: 600px) {
+            padding: 12px;
+          }
         }
       }
     }
@@ -141,16 +180,25 @@
       margin-top: 24px;
       display: grid;
       grid-template-columns: 1fr 1fr;
+      @media screen and (max-width: 540px) {
+        grid-template-columns: 100%;
+      }
       column-gap: 12px;
       row-gap: 16px;
       .formInput {
         display: flex;
         flex-direction: column;
         row-gap: 8px;
+        @media screen and (max-width: 540px) {
+          row-gap: 4px;
+        }
         label {
           font-size: 16px;
           line-height: 150%;
           font-family: "Noto Sans";
+          @media screen and (max-width: 540px) {
+            font-size: 14px;
+          }
         }
         input {
           width: 100%;
@@ -158,6 +206,9 @@
           line-height: 150%;
           border: 1px solid #cfcfcf;
           padding: 12px;
+          @media screen and (max-width: 540px) {
+            padding: 8px 12px;
+          }
           &:focus {
             border: 1px solid var(--primary-color);
             outline: none !important;
