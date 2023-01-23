@@ -6,7 +6,6 @@ import ArrowDownIcon from "assests/icons/arrowDown.svg";
 import { Popover } from "@mui/material";
 import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useSelector } from "react-redux";
 import TickIcon from "/src/assests/icons/tickIcon.svg";
 
 export default function Donate() {

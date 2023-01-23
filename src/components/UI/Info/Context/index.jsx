@@ -1,5 +1,5 @@
 import styles from "./style.module.scss";
-import { Container } from "@mui/material";
+import { Container, Link } from "@mui/material";
 import { ArrowRight } from "components/UI/svg";
 import useTranslation from "next-translate/useTranslation";
 
@@ -16,10 +16,10 @@ export default function Banner({ contents, router, item }) {
           className={styles.description}
         ></p>
         {!router.query.key && (
-          <p className={styles.link}>
+          <Link className={styles.link} href="/donate">
             <span>{t("donate")}</span>
             <ArrowRight />
-          </p>
+          </Link>
         )}
       </div>
     </Container>

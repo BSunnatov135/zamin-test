@@ -117,7 +117,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               {projects?.data?.response?.map((item) => (
                 <Projects key={item.guid} item={item} />
               ))}
-              <Link href="/">
+              <Link href="/donate">
                 <a
                   onClick={(e) => {
                     handleClose(e);
