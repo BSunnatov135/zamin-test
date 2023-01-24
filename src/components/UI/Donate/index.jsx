@@ -7,6 +7,7 @@ import { Popover } from "@mui/material";
 import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
 import TickIcon from "/src/assests/icons/tickIcon.svg";
+import { useSelector } from "react-redux";
 
 export default function Donate() {
   const { t } = useTranslation("common");
@@ -26,8 +27,8 @@ export default function Donate() {
       limit: limit,
     },
   });
-  // const userInfos = useSelector((state) => state.auth.user);
-  // console.log("userInfos", userInfos);
+  const userInfos = useSelector((state) => state.auth.user);
+  console.log("userInfos", userInfos);
   useEffect(() => {
     if (projects?.data?.response?.length > 0) {
       if (currentPage == 1) {
@@ -49,7 +50,6 @@ export default function Donate() {
   };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-  console.log("data", data);
 
   return (
     <div className={styles.container}>
@@ -132,7 +132,7 @@ export default function Donate() {
                   dataLength={data?.length || 0}
                   style={{ overflow: "visible" }}
                   hasMore={hasMore}
-                  loader={hasMore && <p>Loading</p>}
+                  loader={hasMore && <></>}
                   next={() => setCurrentPage((pre) => ++pre)}
                   className={styles.scroll}
                 >
@@ -225,23 +225,48 @@ export default function Donate() {
         <form className={styles.form}>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("name")}</label>
-            <input type="text" width={"100%"} />
+            <input
+              type="text"
+              width={"100%"}
+              value={userInfos?.name}
+              disabled
+            />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("surname")}</label>
-            <input type="text" width={"100%"} />
+            <input
+              type="text"
+              width={"100%"}
+              value={userInfos?.surname}
+              disabled
+            />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("middle_name")}</label>
-            <input type="text" width={"100%"} />
+            <input
+              type="text"
+              width={"100%"}
+              value={userInfos?.second_name}
+              disabled
+            />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("phone")}</label>
-            <input type="text" width={"100%"} />
+            <input
+              type="text"
+              width={"100%"}
+              value={userInfos?.phone}
+              disabled
+            />
           </div>
           <div className={styles.formInput}>
             <label htmlFor="name">{t("email")}</label>
-            <input type="text" width={"100%"} />
+            <input
+              type="text"
+              width={"100%"}
+              value={userInfos?.email}
+              disabled
+            />
           </div>
         </form>
       </div>

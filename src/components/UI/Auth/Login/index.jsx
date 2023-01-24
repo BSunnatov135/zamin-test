@@ -11,14 +11,16 @@ import { useForm } from "react-hook-form";
 import useAuth from "services/auth";
 import { otpCredentials } from "utils/authCredentials";
 import { setUser } from "store/authSlice/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useTranslation from "next-translate/useTranslation";
+import { userDataInstallments } from "store/authSlice/userData";
 
 export default function LoginForm({ open, handleClose }) {
   const [state, setState] = useState({
     smsId: "",
   });
   const dispatch = useDispatch();
+  const userLoginData = useSelector((state) => state.userAuthData.data);
   const { t } = useTranslation("common");
   const statuses = ["initial", "code"];
   const [openRegister, setOpenRegister] = useState(false);
@@ -32,6 +34,8 @@ export default function LoginForm({ open, handleClose }) {
   } = useForm();
   const [status, setStatus] = useState(statuses[0]);
 
+  // console.log("userLoginData ====> ", userLoginData);
+
   const handleRegister = (event) => {
     event && event.preventDefault();
     setOpenRegister((prev) => !prev);
@@ -44,9 +48,12 @@ export default function LoginForm({ open, handleClose }) {
   const { sendCode, verifyUser, signIn } = useAuth({
     sendCodeQueryProps: {
       onSuccess: (value) => {
+        console.log("send code res => ", value);
+        dispatch(userDataInstallments(value?.data));
         setState((prev) => ({
           ...prev,
           smsId: value.data.sms_id,
+          user_found: value.data?.data?.user_found,
         }));
         setStatus(statuses[1]);
         reset();
@@ -54,16 +61,16 @@ export default function LoginForm({ open, handleClose }) {
     },
     singInQueryProps: {
       onSuccess: (value) => {
-        console.log("value1", value);
-        // dispatch(setUser(value.data.data));
+        console.log("sign in res", value);
+        dispatch(setUser(value.data.response));
         handleClose();
       },
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
         setStatus(statuses[0]);
-        console.log("ee", value?.data?.role.id);
-        handleGetUserInfo(value.data.role.id);
+        console.log("eeeee", value);
+        handleGetUserInfo(value.data.user_id);
         reset();
       },
     },
@@ -72,6 +79,7 @@ export default function LoginForm({ open, handleClose }) {
       smsId: state.smsId,
     },
   });
+  console.log("state", state);
 
   const resendCode = () => {
     sendCode.mutate({
@@ -81,6 +89,7 @@ export default function LoginForm({ open, handleClose }) {
     });
   };
   const handleGetUserInfo = (value) => {
+    console.log("VALUE ==>", value);
     signIn.mutate(value);
   };
   const onSubmit = (data) => {
@@ -93,7 +102,7 @@ export default function LoginForm({ open, handleClose }) {
       return;
     }
     if (status === "code") {
-      verifyUser.mutate(otpCredentials);
+      verifyUser.mutate(userLoginData);
 
       return;
     }

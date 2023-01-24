@@ -35,7 +35,6 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const { signUp, sendCode, verifyUser } = useAuth({
     signupQueryProps: {
       onSuccess: (value) => {
-        dispatch(setUser(value.data?.data));
         setStatus(statuses[0]);
         handleClose();
         reset();
