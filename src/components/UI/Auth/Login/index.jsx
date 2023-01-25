@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import cls from "./style.module.scss";
 import ZInput from "components/UI/FormElements/ZInput";
 import RegisterForm from "../Register";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";
@@ -22,8 +22,9 @@ export default function LoginForm({ open, handleClose }) {
   const dispatch = useDispatch();
   const userLoginData = useSelector((state) => state.userAuthData.data);
   const { t } = useTranslation("common");
-  const statuses = ["initial", "code"];
+  const statuses = ["initial", "code", "register"];
   const [openRegister, setOpenRegister] = useState(false);
+  const ref = useRef();
   const {
     control,
     register,
@@ -45,7 +46,7 @@ export default function LoginForm({ open, handleClose }) {
   const handleCloseRegister = () => {
     setOpenRegister((prev) => !prev);
   };
-  const { sendCode, verifyUser, signIn } = useAuth({
+  const { sendCode, verifyUser, signIn, registerUser } = useAuth({
     sendCodeQueryProps: {
       onSuccess: (value) => {
         console.log("send code res => ", value);
@@ -66,11 +67,18 @@ export default function LoginForm({ open, handleClose }) {
         handleClose();
       },
     },
+    // verifyUserQueryProps: {
+    //   onSuccess: (value) => {
+    // setStatus(statuses[0]);
+    //     console.log("eeeee", value);
+    //     handleGetUserInfo(value.data.user_id);
+    //     reset();
+    //   },
+    // },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        setStatus(statuses[0]);
-        console.log("eeeee", value);
-        handleGetUserInfo(value.data.user_id);
+        console.log("data==>", value);
+        setStatus(statuses[2]);
         reset();
       },
     },
@@ -79,7 +87,6 @@ export default function LoginForm({ open, handleClose }) {
       smsId: state.smsId,
     },
   });
-  console.log("state", state);
 
   const resendCode = () => {
     sendCode.mutate({
@@ -93,6 +100,7 @@ export default function LoginForm({ open, handleClose }) {
     signIn.mutate(value);
   };
   const onSubmit = (data) => {
+    console.log("data====>", data);
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",
@@ -103,6 +111,22 @@ export default function LoginForm({ open, handleClose }) {
     }
     if (status === "code") {
       verifyUser.mutate(userLoginData);
+
+      return;
+    }
+
+    if (status === "register") {
+      registerUser.mutate({
+        data: {
+          birth_date: data.birth_date,
+          email: data.email,
+          name: data.name,
+          phone: data.phone,
+          second_name: data.second_name,
+          surname: data.surname,
+          user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
+        },
+      });
 
       return;
     }
@@ -167,19 +191,106 @@ export default function LoginForm({ open, handleClose }) {
                 <CountDown seconds={59} resendCode={resendCode} />
               </>
             )}
+            {status === "register" && (
+              <div className={cls.inputWrapper}>
+                <InputMaskCustom
+                  className={cls.displayNone}
+                  name="phone"
+                  control={control}
+                  label={t("phone")}
+                  mask="(99) 999-99-99"
+                  maskchar={null}
+                  alwaysShowMask={false}
+                  placeholder={t("enter_number")}
+                />
+                <ZInput
+                  register={register}
+                  {...register("name", {
+                    required: true,
+                  })}
+                  name="name"
+                  fullWidth
+                  type="text"
+                  label={t("name")}
+                  placeholder={t("enter_name")}
+                  className={
+                    errors.hasOwnProperty("name") ? cls.borderRed : " "
+                  }
+                />
+                <ZInput
+                  register={register}
+                  {...register("surname", {
+                    required: true,
+                  })}
+                  name="surname"
+                  fullWidth
+                  type="text"
+                  label={t("surname")}
+                  placeholder={t("enter_surname")}
+                  className={
+                    errors.hasOwnProperty("surname") ? cls.borderRed : " "
+                  }
+                />
+                <ZInput
+                  register={register}
+                  {...register("second_name", {
+                    required: true,
+                  })}
+                  name="second_name"
+                  fullWidth
+                  type="text"
+                  label={t("middle_name")}
+                  placeholder={t("enter_middlename")}
+                  className={
+                    errors.hasOwnProperty("second_name") ? cls.borderRed : " "
+                  }
+                />
+                <ZInput
+                  register={register}
+                  {...register("email", {
+                    required: true,
+                  })}
+                  name="email"
+                  fullWidth
+                  type="email"
+                  label="E-mail"
+                  placeholder="E-mail"
+                  className={
+                    errors.hasOwnProperty("email") ? cls.borderRed : " "
+                  }
+                />
+
+                <ZInput
+                  register={register}
+                  {...register("birth_date", {
+                    required: true,
+                  })}
+                  ref={ref}
+                  type="text"
+                  onFocus={(e) => (e.target.type = "date")}
+                  name="birth_date"
+                  fullWidth
+                  label={t("birthdate")}
+                  placeholder={t("choose_date")}
+                  className={
+                    errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
+                  }
+                />
+              </div>
+            )}
             <Button type="submit" className={cls.button}>
               {t("login")}
             </Button>
           </form>
 
-          <div className={cls.register}>
+          {/* <div className={cls.register}>
             <p>
               {t("not_with_us")}{" "}
               <a href="#" onClick={handleRegister}>
                 {t("register")}
               </a>
             </p>
-          </div>
+          </div> */}
         </div>
       </Dialog>
       <RegisterForm
