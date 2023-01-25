@@ -6,6 +6,8 @@ const signupFn = async (data) =>
 const signInFn = async (id) =>
   await request.get(`/v1/object/website_users/${id}`);
 const sendCodeFn = async (data) => await requestAuth.post("/send-code", data);
+const registerFn = async (data) =>
+  await requestAuth.post("/register-otp/website_users", data);
 const verifyUserFn = async (data, verifyParams) =>
   await requestAuth.post(
     `verify/${verifyParams.smsId}/${verifyParams.otp}`,
@@ -17,12 +19,14 @@ const useAuth = ({
   singInQueryProps,
   sendCodeQueryProps,
   verifyUserQueryProps,
+  ifUserNotFoundQueryProps,
   verifyParams,
 }) => {
   const signUp = useMutation(signupFn, signupQueryProps);
   const signIn = useMutation((id) => signInFn(id), singInQueryProps);
   // const signIn = useMutation({ signInFn, singInQueryProps });
   const sendCode = useMutation(sendCodeFn, sendCodeQueryProps);
+  const registerUser = useMutation(registerFn, ifUserNotFoundQueryProps);
   const verifyUser = useMutation(
     (data) => verifyUserFn(data, verifyParams),
     verifyUserQueryProps
@@ -32,6 +36,7 @@ const useAuth = ({
     signIn,
     sendCode,
     verifyUser,
+    registerUser,
   };
 };
 
