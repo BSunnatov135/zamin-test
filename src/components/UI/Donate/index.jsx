@@ -8,9 +8,11 @@ import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
 import TickIcon from "/src/assests/icons/tickIcon.svg";
 import { useSelector } from "react-redux";
+import InputMask from "react-input-mask";
 
 export default function Donate() {
   const { t } = useTranslation("common");
+  const [input, setInput] = useState(false);
   const { lang } = useTranslation();
   const [toggle, setToggle] = useState(null);
   const [isActive, setIsActive] = useState("50");
@@ -20,14 +22,21 @@ export default function Donate() {
   const [hasMore, setHasMore] = useState(true);
   const [type, setType] = useState(types[0]);
   const [anchorEl, setAnchorEl] = useState(null);
+  const userInfos = useSelector((state) => state.auth.user);
   const [data, setData] = useState([]);
+  const [value, setValue] = useState(null);
+  const addSpace = (num) =>
+    num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  const removeNonNumeric = (num) => num.toString().replace(/[^0-9]/g, "");
+  const handleChange = (event) =>
+    setValue(addSpace(removeNonNumeric(event.target.value)));
   const { projects } = useProjects({
     projectParams: {
       offset: (currentPage - 1) * limit,
       limit: limit,
     },
   });
-  const userInfos = useSelector((state) => state.auth.user);
+
   console.log("userInfos", userInfos);
   useEffect(() => {
     if (projects?.data?.response?.length > 0) {
@@ -163,6 +172,7 @@ export default function Donate() {
               <div
                 onClick={() => {
                   setIsActive("50");
+                  setInput(false);
                 }}
                 className={classNames(styles.amountItem, {
                   [styles.active]: isActive === "50",
@@ -173,6 +183,7 @@ export default function Donate() {
               <div
                 onClick={() => {
                   setIsActive("200");
+                  setInput(false);
                 }}
                 className={classNames(styles.amountItem, {
                   [styles.active]: isActive === "200",
@@ -183,6 +194,7 @@ export default function Donate() {
               <div
                 onClick={() => {
                   setIsActive("300");
+                  setInput(false);
                 }}
                 className={classNames(styles.amountItem, {
                   [styles.active]: isActive === "300",
@@ -193,6 +205,7 @@ export default function Donate() {
               <div
                 onClick={() => {
                   setIsActive("500");
+                  setInput(false);
                 }}
                 className={classNames(styles.amountItem, {
                   [styles.active]: isActive === "500",
@@ -200,16 +213,30 @@ export default function Donate() {
               >
                 <p>500 000 {t("sum")}</p>
               </div>
-              <div
-                onClick={() => {
-                  setIsActive("other");
-                }}
-                className={classNames(styles.amountItem, {
-                  [styles.active]: isActive === "other",
-                })}
-              >
-                <p>{t("other_amount")}</p>
-              </div>
+              <>
+                {input ? (
+                  <input
+                    onChange={handleChange}
+                    type="text"
+                    className={styles.sumInput}
+                    placeholder={t("select_amount")}
+                    autoFocus
+                    value={value}
+                  />
+                ) : (
+                  <div
+                    onClick={() => {
+                      setIsActive("other");
+                      setInput(true);
+                    }}
+                    className={classNames(styles.amountItem, {
+                      [styles.active]: isActive === "other",
+                    })}
+                  >
+                    <p>{t("enter_amount")}</p>
+                  </div>
+                )}
+              </>
             </div>
           </div>
           <div className={styles.comments}>
