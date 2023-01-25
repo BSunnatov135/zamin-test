@@ -43,7 +43,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     },
     sendCodeQueryProps: {
       onSuccess: (value) => {
-        dispatch(userDataInstallments(value?.data));
+        // dispatch(userDataInstallments(value?.data));
         setState((prev) => ({
           ...prev,
           smsId: value.data.sms_id,
