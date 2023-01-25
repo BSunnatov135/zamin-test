@@ -197,6 +197,17 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             {items[4].title}
             <RightArrow />
           </a>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveLink(6);
+            }}
+            key={items[5].key}
+          >
+            {items[5].title}
+            <RightArrow />
+          </a>
           <div>
             <p className={styles.language}>{t("language")}</p>
             <ul className={styles.languageWrapper}>

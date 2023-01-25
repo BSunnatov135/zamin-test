@@ -36,12 +36,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     signupQueryProps: {
       onSuccess: (value) => {
         setStatus(statuses[0]);
+        dispatch(setUser(value.data.response));
         handleClose();
         reset();
       },
     },
     sendCodeQueryProps: {
       onSuccess: (value) => {
+        dispatch(userDataInstallments(value?.data));
         setState((prev) => ({
           ...prev,
           smsId: value.data.sms_id,
