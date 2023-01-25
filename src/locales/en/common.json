@@ -79,9 +79,10 @@
   "enter_amount": "Enter amount",
   "sum": "sum",
   "other_amount": "Other amount",
-  "comments": "Comments",
+  "comments": "Comment",
   "your_info": "Your information",
   "email": "E-mail",
   "choose_project": "Choose a project",
-  "project": "Project"
+  "project": "Project",
+  "phone_card": "Phone number linked to your card"
 }

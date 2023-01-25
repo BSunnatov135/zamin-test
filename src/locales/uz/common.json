@@ -79,9 +79,10 @@
   "enter_amount": "Summa kiriting",
   "sum": "so'm",
   "other_amount": "Boshqa summa",
-  "comments": "Izohlar",
+  "comments": "Izoh",
   "your_info": "Siz haqida ma'lumotlar",
   "email": "Elektron pochta",
   "choose_project": "Loyihani tanlang",
-  "project": "Loyiha"
+  "project": "Loyiha",
+  "phone_card": "Kartangizga bog'langan telefon raqami"
 }

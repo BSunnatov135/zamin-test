@@ -8,7 +8,7 @@ import useProjects from "services/projects";
 import InfiniteScroll from "react-infinite-scroll-component";
 import TickIcon from "/src/assests/icons/tickIcon.svg";
 import { useSelector } from "react-redux";
-import InputMask from "react-input-mask";
+import UncontrolledSelect from "./SelectSum";
 
 export default function Donate() {
   const { t } = useTranslation("common");
@@ -117,15 +117,15 @@ export default function Donate() {
               style={{ display: "grid", gridTemplateColumns: "100%" }}
             >
               <p>{t("choose_project")}</p>
-              <div
+              {/* <div
                 aria-describedby={id}
                 onClick={handleClick}
                 className={styles.chooseProject}
               >
                 <span id="placeholder">{t("project")}</span>
                 <ArrowDownIcon />
-              </div>
-              <Popover
+              </div> */}
+              {/* <Popover
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -136,32 +136,37 @@ export default function Donate() {
                 }}
                 className={styles.popoverWrapper}
                 transformOrigin={{ horizontal: "center", vertical: "top" }}
-              >
-                <InfiniteScroll
-                  dataLength={data?.length || 0}
-                  style={{ overflow: "visible" }}
-                  hasMore={hasMore}
-                  loader={hasMore && <></>}
-                  next={() => setCurrentPage((pre) => ++pre)}
-                  className={styles.scroll}
-                >
-                  <ul className={styles.popover}>
-                    {data?.map((item) => (
-                      <li
-                        onClick={() => {
-                          setToggle(item);
-                          document.getElementById("placeholder").textContent =
-                            item[`${lang}_name`];
-                          handleClose();
-                        }}
-                      >
-                        <p>{item[`${lang}_name`]}</p>
-                        {toggle == item && <TickIcon />}
-                      </li>
-                    ))}
-                  </ul>
-                </InfiniteScroll>
-              </Popover>
+              > */}
+              <UncontrolledSelect
+                placeholder={t("project")}
+                options={
+                  <InfiniteScroll
+                    dataLength={data?.length || 0}
+                    style={{ overflow: "visible" }}
+                    hasMore={hasMore}
+                    loader={hasMore && <></>}
+                    next={() => setCurrentPage((pre) => ++pre)}
+                    className={styles.scroll}
+                  >
+                    <ul className={styles.popover}>
+                      {data?.map((item) => (
+                        <li
+                        // onClick={() => {
+                        //   setToggle(item);
+                        //   document.getElementById("placeholder").textContent =
+                        //     item[`${lang}_name`];
+                        //   handleClose();
+                        // }}
+                        >
+                          <p>{item[`${lang}_name`]}</p>
+                          {toggle == item && <TickIcon />}
+                        </li>
+                      ))}
+                    </ul>
+                  </InfiniteScroll>
+                }
+              />
+              {/* </Popover> */}
             </div>
           )}
         </div>
@@ -219,7 +224,7 @@ export default function Donate() {
                     onChange={handleChange}
                     type="text"
                     className={styles.sumInput}
-                    placeholder={t("select_amount")}
+                    placeholder={t("enter_amount")}
                     autoFocus
                     value={value}
                   />
@@ -233,7 +238,7 @@ export default function Donate() {
                       [styles.active]: isActive === "other",
                     })}
                   >
-                    <p>{t("enter_amount")}</p>
+                    <p>{t("other_amount")}</p>
                   </div>
                 )}
               </>
@@ -278,12 +283,12 @@ export default function Donate() {
             />
           </div>
           <div className={styles.formInput}>
-            <label htmlFor="name">{t("phone")}</label>
+            <label htmlFor="name">{t("phone_card")}</label>
             <input
               type="text"
               width={"100%"}
-              value={userInfos?.phone}
-              disabled
+              required
+              placeholder={t("enter_number")}
             />
           </div>
           <div className={styles.formInput}>
