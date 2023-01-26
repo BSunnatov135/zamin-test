@@ -84,5 +84,6 @@
   "email": "E-mail",
   "choose_project": "Choose a project",
   "project": "Project",
-  "phone_card": "Phone number linked to your card"
+  "phone_card": "Phone number linked to your card",
+  "not_found": "Page not found"
 }
