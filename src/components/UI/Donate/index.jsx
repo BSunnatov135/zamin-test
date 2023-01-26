@@ -2,29 +2,18 @@ import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
-import ArrowDownIcon from "assests/icons/arrowDown.svg";
-import { Popover } from "@mui/material";
 import useProjects from "services/projects";
-import InfiniteScroll from "react-infinite-scroll-component";
-import TickIcon from "/src/assests/icons/tickIcon.svg";
 import { useSelector } from "react-redux";
 import UncontrolledSelect from "./SelectSum";
 
 export default function Donate() {
   const { t } = useTranslation("common");
-  const [isLoading, setIsLoading] = useState(false);
   const [input, setInput] = useState(false);
   const { lang } = useTranslation();
-  const [toggle, setToggle] = useState(null);
   const [isActive, setIsActive] = useState("50");
   const types = ["all", "project"];
-  const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(6);
-  const [hasMore, setHasMore] = useState(true);
   const [type, setType] = useState(types[0]);
-  const [anchorEl, setAnchorEl] = useState(null);
   const userInfos = useSelector((state) => state.auth.user);
-  const [data, setData] = useState([]);
   const [value, setValue] = useState(null);
   const addSpace = (num) =>
     num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -33,55 +22,15 @@ export default function Donate() {
     setValue(addSpace(removeNonNumeric(event.target.value)));
   const { projects } = useProjects({
     projectParams: {
-      offset: (currentPage - 1) * limit,
-      limit: limit,
+      offset: 0,
+      limit: 100,
     },
   });
   const handleSelect = (event) => {
     console.log("select", event);
   };
 
-  const langOptions = [
-    { value: "lotin", label: "О'zbek" },
-    { value: "kiril", label: "Ўзбек" },
-    { value: "rus", label: "Русский" },
-  ];
-
   console.log("userInfos", userInfos);
-  useEffect(() => {
-    if (projects?.data?.response?.length > 0) {
-      if (currentPage == 1) {
-        setData(projects?.data?.response);
-      } else {
-        setData((prev) => [...prev, ...projects?.data?.response]);
-      }
-    }
-    if (projects?.data?.count < (currentPage - 1) * limit) {
-      setHasMore(false);
-    }
-  }, [projects, currentPage]);
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-  // const langOptions = {data?.map(item) => (
-  //   //       <li
-  //   //       // onClick={() => {
-  //   //       //   setToggle(item);
-  //   //       //   document.getElementById("placeholder").textContent =
-  //   //       //     item[`${lang}_name`];
-  //   //       //   handleClose();
-  //   //       // }}
-  //   //       >
-  //   //         <p>{item[`${lang}_name`]}</p>
-  //   //         {toggle == item && <TickIcon />}
-  //   //       </li>
-  //   //     ))}
 
   return (
     <div className={styles.container}>
@@ -163,36 +112,28 @@ export default function Donate() {
               <UncontrolledSelect
                 placeholder={t("project")}
                 onChange={handleSelect}
-                hasNextPage={true}
-                isNextPageLoading={isLoading}
-                options={data.map((item) => {
+                options={projects?.data?.response?.map((item) => {
                   return {
                     value: item[`${lang}_name`],
                     label: item[`${lang}_name`],
                   };
                 })}
+                onMenuScrollToBottom
                 // components={
-                //   <InfiniteScroll
-                //     dataLength={data?.length || 0}
-                //     style={{ overflow: "visible" }}
-                //     hasMore={hasMore}
-                //     loader={hasMore && <></>}
-                //     next={() => setCurrentPage((pre) => ++pre)}
-                //     className={styles.scroll}
-                //   >
-                //     <ul className={styles.popover}>
+                //   <div>
+                //     <InfiniteScroll
+                //       dataLength={data?.length || 0}
+                //       style={{ overflow: "visible" }}
+                //       hasMore={hasMore}
+                //       loader={hasMore && <></>}
+                //       next={() => setCurrentPage((pre) => ++pre)}
+                //       className={styles.scroll}
+                //     >
                 //       {data?.map((item) => (
-                //         <li
-                //           onClick={() => {
-                //             handleClose();
-                //           }}
-                //         >
-                //           <p>{item[`${lang}_name`]}</p>
-                //           {toggle == item && <TickIcon />}
-                //         </li>
+                //         <p>{item[`${lang}_name`]}</p>
                 //       ))}
-                //     </ul>
-                //   </InfiniteScroll>
+                //     </InfiniteScroll>
+                //   </div>
                 // }
               />
               {/* </Popover> */}

@@ -10,8 +10,8 @@ const colourStyles = {
     borderWidth: "1px",
     borderColor: isFocused ? "var(--primary-color)" : "#E5E9EB",
     boxShadow: "none",
-    height: "36px",
-    borderRadius: "6px",
+    height: "48px",
+    borderRadius: "0",
     cursor: "pointer",
     transition: "all .25s ease-in-out",
     ":hover": {
@@ -26,15 +26,12 @@ const colourStyles = {
       cursor: isDisabled ? "not-allowed" : "default",
       backgroundColor: isFocused ? "rgba(0, 180, 39, 0.1)" : "#fff",
       color: isFocused && "#000",
-      fontSize: "14px",
+      padding: "16px",
+      fontWeight: 500,
+      fontSize: "16px",
       lineHeight: "24px",
       ":active": {
         ...styles[":active"],
-
-        //     ? isSelected
-        //       ? data.color
-        //       : color.alpha(0.3).css()
-        //     : undefined,
       },
     };
   },
