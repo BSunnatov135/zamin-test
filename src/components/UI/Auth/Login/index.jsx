@@ -35,8 +35,6 @@ export default function LoginForm({ open, handleClose }) {
   } = useForm();
   const [status, setStatus] = useState(statuses[0]);
 
-  // console.log("userLoginData ====> ", userLoginData);
-
   const handleRegister = (event) => {
     event && event.preventDefault();
     setOpenRegister((prev) => !prev);
@@ -49,7 +47,6 @@ export default function LoginForm({ open, handleClose }) {
   const { sendCode, verifyUser, signIn, registerUser } = useAuth({
     sendCodeQueryProps: {
       onSuccess: (value) => {
-        console.log("send code res => ", value);
         dispatch(userDataInstallments(value?.data));
         setState((prev) => ({
           ...prev,
@@ -62,23 +59,15 @@ export default function LoginForm({ open, handleClose }) {
     },
     singInQueryProps: {
       onSuccess: (value) => {
-        console.log("sign in res", value);
         dispatch(setUser(value.data.response));
         handleClose();
       },
     },
-    // verifyUserQueryProps: {
-    //   onSuccess: (value) => {
-    // setStatus(statuses[0]);
-    //     console.log("eeeee", value);
-    //     handleGetUserInfo(value.data.user_id);
-    //     reset();
-    //   },
-    // },
+
     verifyUserQueryProps: {
       onSuccess: (value) => {
         console.log("data==>", value);
-        setStatus(statuses[2]);
+        state.user_found ? handleClose() : setStatus(statuses[2]);
         reset();
       },
     },
@@ -96,11 +85,9 @@ export default function LoginForm({ open, handleClose }) {
     });
   };
   const handleGetUserInfo = (value) => {
-    console.log("VALUE ==>", value);
     signIn.mutate(value);
   };
   const onSubmit = (data) => {
-    console.log("data====>", data);
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",

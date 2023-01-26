@@ -15,6 +15,8 @@ import LoginForm from "../Auth/Login";
 import useTranslation from "next-translate/useTranslation";
 import Logo from "/public/logos/logo.svg";
 import RestLogo from "/public/logos/resLogo.svg";
+import Profile from "./Profile/Profile";
+import { LogOutIcon } from "/public/icons/icons";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -66,6 +68,10 @@ export default function Header() {
                 <AccessIcon />
               </p>
               <LanguageDropdown />
+              <div className={styles.profileSets}>
+                <Profile />
+                <LogOutIcon />
+              </div>
             </div>
           </div>
         </Container>
