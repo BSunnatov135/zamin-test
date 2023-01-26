@@ -85,5 +85,9 @@
   "choose_project": "Choose a project",
   "project": "Project",
   "phone_card": "Phone number linked to your card",
-  "not_found": "Page not found"
+  "not_found": "Page not found",
+  "card_number": "Card number",
+  "enter_cardnumber": "Enter card number",
+  "expiry": "Date of expiry",
+  "make_donation": "Donate"
 }

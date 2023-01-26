@@ -5,6 +5,7 @@ import classNames from "classnames";
 import useProjects from "services/projects";
 import { useSelector } from "react-redux";
 import UncontrolledSelect from "./SelectSum";
+import InputMask from "react-input-mask";
 
 export default function Donate() {
   const { t } = useTranslation("common");
@@ -89,26 +90,6 @@ export default function Donate() {
               style={{ display: "grid", gridTemplateColumns: "100%" }}
             >
               <p>{t("choose_project")}</p>
-              {/* <div
-                aria-describedby={id}
-                onClick={handleClick}
-                className={styles.chooseProject}
-              >
-                <span id="placeholder">{t("project")}</span>
-                <ArrowDownIcon />
-              </div> */}
-              {/* <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClose}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
-                className={styles.popoverWrapper}
-                transformOrigin={{ horizontal: "center", vertical: "top" }}
-              > */}
               <UncontrolledSelect
                 placeholder={t("project")}
                 onChange={handleSelect}
@@ -119,24 +100,7 @@ export default function Donate() {
                   };
                 })}
                 onMenuScrollToBottom
-                // components={
-                //   <div>
-                //     <InfiniteScroll
-                //       dataLength={data?.length || 0}
-                //       style={{ overflow: "visible" }}
-                //       hasMore={hasMore}
-                //       loader={hasMore && <></>}
-                //       next={() => setCurrentPage((pre) => ++pre)}
-                //       className={styles.scroll}
-                //     >
-                //       {data?.map((item) => (
-                //         <p>{item[`${lang}_name`]}</p>
-                //       ))}
-                //     </InfiniteScroll>
-                //   </div>
-                // }
               />
-              {/* </Popover> */}
             </div>
           )}
         </div>
@@ -262,6 +226,26 @@ export default function Donate() {
             />
           </div>
           <div className={styles.formInput}>
+            <label htmlFor="name">{t("card_number")}</label>
+            <InputMask
+              mask="9999 9999 9999 9999"
+              type="text"
+              width={"100%"}
+              required
+              placeholder={t("enter_cardnumber")}
+            />
+          </div>
+          <div className={styles.formInput}>
+            <label htmlFor="name">{t("expiry")}</label>
+            <InputMask
+              mask="99/99"
+              type="text"
+              width={"100%"}
+              required
+              placeholder={t("YY/MM")}
+            />
+          </div>
+          {/* <div className={`${styles.formInput} ${styles.email}`}>
             <label htmlFor="name">{t("email")}</label>
             <input
               type="text"
@@ -269,8 +253,11 @@ export default function Donate() {
               value={userInfos?.email}
               disabled
             />
-          </div>
+          </div> */}
         </form>
+      </div>
+      <div className={styles.submitButton}>
+        <button type="submit">{t("make_donation")}</button>
       </div>
     </div>
   );

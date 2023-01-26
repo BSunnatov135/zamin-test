@@ -85,5 +85,9 @@
   "choose_project": "Loyihani tanlang",
   "project": "Loyiha",
   "phone_card": "Kartangizga bog'langan telefon raqami",
-  "not_found": "Sahifa topilmadi"
+  "not_found": "Sahifa topilmadi",
+  "card_number": "Karta raqami",
+  "enter_cardnumber": "Kartangiz raqamini kiriting",
+  "expiry": "Amal qilish muddati",
+  "make_donation": "Xayriya qilish"
 }

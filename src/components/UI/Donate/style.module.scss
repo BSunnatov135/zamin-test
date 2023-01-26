@@ -231,38 +231,26 @@
           }
         }
       }
+      .email {
+        grid-column: 1/3;
+      }
     }
   }
-}
-.scroll {
-  height: 200px !important;
-  background-color: #fff;
-}
-.popoverWrapper {
-  position: absolute;
-  .popover {
-    width: 776px;
-    padding: 16px;
-    max-width: 100%;
+  .submitButton {
+    margin-top: 16px;
     display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-    list-style-type: none;
-    background: #fff;
-    box-shadow: -11px 11px 30px #f7f7f7;
-    li {
-      padding: 12px;
+    justify-content: right;
+    margin-bottom: 86px;
+    button {
+      padding: 14px 28px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+      color: #fff;
+      background-color: var(--primary-color);
+      border: none;
+      outline: none;
       cursor: pointer;
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      p {
-        font-family: "Noto Serif";
-        font-weight: 500;
-        font-size: 16px;
-        max-width: 90%;
-        line-height: 24px;
-      }
     }
   }
 }
