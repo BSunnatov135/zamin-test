@@ -9,8 +9,11 @@ import useEvents from "services/events";
 import useTranslation from "next-translate/useTranslation";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Skeleton } from "@mui/material";
+import CRangePicker from "components/UI/CRangePicker/CRangePicker";
+import { format } from "date-fns";
 
 export default function EventPage() {
+  const [datePicker, setDatePicker] = useState([null, null]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [toggle, setToggle] = useState("w");
   const [data, setData] = useState([]);
@@ -20,8 +23,15 @@ export default function EventPage() {
   const { t } = useTranslation("common");
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
+  const params = {
+    $gte: datePicker[0] || undefined,
+    $lt: datePicker[1] || undefined,
+  };
+
   const { events } = useEvents({
     eventParams: {
+      date: params.$gte ? params : undefined,
       offset: (currentPage - 1) * limit,
       limit: limit,
     },
@@ -40,9 +50,9 @@ export default function EventPage() {
     }
   }, [events, currentPage]);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const handleClose = () => {
     setAnchorEl(null);
@@ -53,11 +63,10 @@ export default function EventPage() {
       <div className={styles.main}>
         <div className={styles.title}>
           <h2 className={styles.sectionTitle}>{t("event_title")}</h2>
-          <div className={styles.chooseDate} onClick={handleClick}>
-            <p>{t("by_date")}</p>
-            <ArrowDownIcon />
-          </div>
-          <Popover
+          {/* <div className={styles.chooseDate}> */}
+          <CRangePicker value={datePicker} onChange={setDatePicker} />
+          {/* </div> */}
+          {/* <Popover
             id={id}
             open={open}
             anchorEl={anchorEl}
@@ -110,7 +119,7 @@ export default function EventPage() {
                 {toggle === "y" && <CheckIcon fontSize="small" />}
               </li>
             </ul>
-          </Popover>
+          </Popover> */}
         </div>
 
         <InfiniteScroll
