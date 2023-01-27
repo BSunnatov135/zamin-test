@@ -14,6 +14,7 @@ import { setUser } from "store/authSlice/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import useTranslation from "next-translate/useTranslation";
 import { userDataInstallments } from "store/authSlice/userData";
+import classNames from "classnames";
 
 export default function LoginForm({ open, handleClose }) {
   const [state, setState] = useState({
@@ -200,9 +201,9 @@ export default function LoginForm({ open, handleClose }) {
                   type="text"
                   label={t("name")}
                   placeholder={t("enter_name")}
-                  className={
-                    errors.hasOwnProperty("name") ? cls.borderRed : " "
-                  }
+                  className={classNames(cls.name, {
+                    [cls.borderRed]: errors.hasOwnProperty("name"),
+                  })}
                 />
                 <ZInput
                   register={register}
