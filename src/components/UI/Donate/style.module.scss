@@ -207,6 +207,9 @@
         }
         label {
           font-size: 16px;
+          flex: 1;
+          display: flex;
+          align-items: center;
           line-height: 150%;
           font-family: "Noto Sans";
           @media screen and (max-width: 540px) {
