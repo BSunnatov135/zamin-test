@@ -89,5 +89,8 @@
   "card_number": "Card number",
   "enter_cardnumber": "Enter card number",
   "expiry": "Date of expiry",
-  "make_donation": "Donate"
+  "make_donation": "Donate",
+  "success": "Success",
+  "success_th": "Thanks to your donation.",
+  "to_home": "Return to the homepage"
 }

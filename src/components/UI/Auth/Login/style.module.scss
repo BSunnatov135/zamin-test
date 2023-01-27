@@ -35,6 +35,9 @@
     display: flex;
     flex-direction: column;
     row-gap: 12px;
+    .input {
+      margin-bottom: 12px;
+    }
     .codeError {
       color: red !important;
       margin-top: -12px;

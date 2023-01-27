@@ -58,6 +58,9 @@ export default function Footer() {
     <Box
       sx={{
         background: "#000",
+        position: "absolute",
+        bottom: "auto",
+        width: "100%",
       }}
     >
       <Container>

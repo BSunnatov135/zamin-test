@@ -89,5 +89,8 @@
   "card_number": "Karta raqami",
   "enter_cardnumber": "Kartangiz raqamini kiriting",
   "expiry": "Amal qilish muddati",
-  "make_donation": "Xayriya qilish"
+  "make_donation": "Xayriya qilish",
+  "success": "Muvaffaqiyatli",
+  "success_th": "Xayriyangiz uchun rahmat.",
+  "to_home": "Asosiy sahifaga qaytish"
 }

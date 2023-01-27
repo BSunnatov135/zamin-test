@@ -5,6 +5,10 @@
   }
   input {
     border: 1px solid #cfcfcf;
+    margin-bottom: 12px;
+    &:first-child {
+      margin-top: 12px;
+    }
 
     &.fullWidth {
       width: 100%;
