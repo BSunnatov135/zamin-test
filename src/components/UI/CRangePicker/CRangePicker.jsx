@@ -3,10 +3,14 @@ import ReactDatePicker, { registerLocale } from "react-datepicker";
 import ru from "date-fns/locale/ru";
 import { TextField, InputAdornment } from "@mui/material";
 import { ArrowIcon } from "/public/icons/icons";
+import CloseIcon from "@mui/icons-material/Close";
 
 registerLocale("ru", ru);
 
 const DataPickerInput = forwardRef((props, ref) => {
+  const handleReload = (e) => {
+    window.location.reload();
+  };
   return (
     <TextField
       variant="standard"
@@ -16,7 +20,11 @@ const DataPickerInput = forwardRef((props, ref) => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="start">
-            <ArrowIcon />
+            <CloseIcon
+              fontSize="small"
+              style={{ cursor: "pointer" }}
+              onClick={(e) => handleReload(e)}
+            />
           </InputAdornment>
         ),
         disableUnderline: true,
