@@ -73,20 +73,18 @@
             text-align: center;
           }
         }
-        &:last-child {
-          column-gap: 9px;
-          @media screen and (max-width: 530px) {
-            display: none;
-            width: 100px;
-          }
+      }
+      .languageDropdown {
+        @media screen and (max-width: 530px) {
+          display: none;
         }
       }
+    }
 
-      .profileSets {
-        display: flex;
-        align-items: center;
-        column-gap: 12px;
-      }
+    .profileSets {
+      display: flex;
+      align-items: center;
+      column-gap: 12px;
     }
   }
 }
