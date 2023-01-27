@@ -108,7 +108,7 @@ export default function LoginForm({ open, handleClose }) {
           birth_date: data.birth_date,
           email: data.email,
           name: data.name,
-          phone: data.phone,
+          phone: data.recipient,
           second_name: data.second_name,
           surname: data.surname,
           user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
@@ -181,14 +181,14 @@ export default function LoginForm({ open, handleClose }) {
             {status === "register" && (
               <div className={cls.inputWrapper}>
                 <InputMaskCustom
-                  className={cls.displayNone}
-                  name="phone"
+                  name="recipient"
                   control={control}
                   label={t("phone")}
                   mask="(99) 999-99-99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}
+                  className={sendCode.status == "error" ? cls.borderRed : " "}
                 />
                 <ZInput
                   register={register}
