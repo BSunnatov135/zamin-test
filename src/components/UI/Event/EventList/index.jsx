@@ -25,8 +25,8 @@ export default function EventPage() {
   const id = open ? "simple-popover" : undefined;
 
   const params = {
-    $gte: datePicker[0] || undefined,
-    $lt: datePicker[1] || undefined,
+    $gte: datePicker[0] && format(datePicker[0], "yyyy-MM-dd"),
+    $lt: datePicker[1] && format(datePicker[1], "yyyy-MM-dd"),
   };
 
   const { events } = useEvents({
