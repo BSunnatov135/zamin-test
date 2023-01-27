@@ -188,7 +188,7 @@ export default function Donate() {
       </div>
       <div className={styles.formWrapper}>
         <h3 className={styles.formTitle}>{t("your_info")}</h3>
-        <form className={styles.form}>
+        <form className={styles.form} id="form">
           <div className={styles.formInput}>
             <label htmlFor="name">{t("name")}</label>
             <input
@@ -257,7 +257,9 @@ export default function Donate() {
         </form>
       </div>
       <div className={styles.submitButton}>
-        <button type="submit">{t("make_donation")}</button>
+        <button type="submit" form="form">
+          {t("make_donation")}
+        </button>
       </div>
     </div>
   );
