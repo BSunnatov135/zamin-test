@@ -16,7 +16,7 @@ export default function Banner({ contents, router, item }) {
           className={styles.description}
         ></p>
         {!router.query.key && (
-          <Link className={styles.link} href="/donate">
+          <Link className={styles.link} href="/">
             <span>{t("donate")}</span>
             <ArrowRight />
           </Link>
