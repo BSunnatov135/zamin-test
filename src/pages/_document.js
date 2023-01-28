@@ -20,14 +20,22 @@ export default function Document() {
         <NextScript />
         <script
           defer
+          // dangerouslySetInnerHTML={{
+          //   __html: `(function (d) {
+          //     var s = d.createElement("script");
+          //     s.setAttribute("data-account", "czdycvecmy");
+          //     s.setAttribute("data-color", "#09999A");
+          //     s.setAttribute("src", "https://cdn.userway.org/widget.js");
+          //     (d.body || d.head).appendChild(s);
+          //   })(document)`,
+          // }}
           dangerouslySetInnerHTML={{
-            __html: `(function (d) {
+            __html: `(function(d){
               var s = d.createElement("script");
-              s.setAttribute("data-account", "czdycvecmy");
+              s.setAttribute("data-account", "CZDyCvecmY");
               s.setAttribute("data-color", "#09999A");
               s.setAttribute("src", "https://cdn.userway.org/widget.js");
-              (d.body || d.head).appendChild(s);
-            })(document)`,
+              (d.body || d.head).appendChild(s);})(document)`,
           }}
         ></script>
       </body>
