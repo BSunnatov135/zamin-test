@@ -123,11 +123,11 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       children: [
         {
           title: `${t("event_title")}`,
-          href: "/",
+          href: "/event",
         },
         {
           title: `${t("gallery")}`,
-          href: "/",
+          href: "/gallery",
         },
       ],
     },
