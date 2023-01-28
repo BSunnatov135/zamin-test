@@ -108,7 +108,7 @@ export default function LoginForm({ open, handleClose }) {
       let pn2 = pn.split("");
       let pn3 = pn2.splice(3, 0, ")");
       let pn4 = pn2.join("");
-      console.log("phone==>", pn4);
+
       registerUser.mutate({
         data: {
           birth_date: data.birth_date,
@@ -120,7 +120,9 @@ export default function LoginForm({ open, handleClose }) {
           user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         },
       });
-
+      handleClose();
+      setStatus(statuses[0]);
+      reset();
       return;
     }
   };

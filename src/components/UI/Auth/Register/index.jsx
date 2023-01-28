@@ -57,6 +57,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
         // here platform id
         setStatus(statuses[2]);
         reset();
+        handleClose();
       },
     },
     verifyParams: {
@@ -83,6 +84,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     }
     if (status === "code") {
       verifyUser.mutate(otpCredentials);
+      handleClose();
       return;
     }
     signUp.mutate({
@@ -92,7 +94,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
         user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         birth_date: new Date(data.birth_date),
       },
+      onSuccess: (value) => {
+        handleClose();
+        setStatus[0];
+        reset();
+      },
     });
+    handleClose();
+    reset();
   };
   return (
     <>
