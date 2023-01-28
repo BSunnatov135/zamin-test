@@ -68,10 +68,10 @@ export default function Header() {
                 <AccessIcon />
               </p>
               <LanguageDropdown />
-              <div className={styles.profileSets}>
+              {/* <div className={styles.profileSets}>
                 <Profile />
                 <LogOutIcon />
-              </div>
+              </div> */}
             </div>
           </div>
         </Container>
