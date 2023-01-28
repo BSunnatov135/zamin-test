@@ -259,13 +259,17 @@ export default function Footer() {
             </Link>
             <p className={styles.subtitle}>{t("sns")}</p>
             <div className={styles.accordionIcons}>
-              <Link href="/">
-                <div className={styles.SocialIcons}>
+              <div className={styles.SocialIcons}>
+                <a href="https://www.instagram.com/zaminfoundation/">
                   <InstagramIcon />
+                </a>
+                <a href="https://www.facebook.com/zaminfoundation">
                   <FacebookIcon />
+                </a>
+                <a href="https://t.me/zaminfoundation">
                   <TelegramIcon />
-                </div>
-              </Link>
+                </a>
+              </div>
             </div>
           </div>
         </div>
