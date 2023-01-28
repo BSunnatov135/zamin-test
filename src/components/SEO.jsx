@@ -9,7 +9,7 @@ export default function SEO() {
         content="width=device-width, initial-scale=1  maximum-scale=1, user-scalable=0"
       />
       <meta charSet="utf-8" />
-      <title>Zamin</title>
+      <title>Zamin Foundation</title>
       <meta name="description" content="Zamin" />
       <meta name="keywords" content="zamin" />
       <meta property="og:type" content="website" />
