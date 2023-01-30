@@ -20,7 +20,7 @@ export default function About() {
           <p>{t("condition")}</p>
           <p>{t("name")}</p>
         </div>
-        <div id="spheres">
+        <div id="sphere">
           <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
