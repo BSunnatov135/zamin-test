@@ -80,7 +80,7 @@ export default function Footer() {
               {/* <Link href="/">
                 <a>{t("mission")}</a>
               </Link> */}
-              <Link href="/about#event" scroll={false}>
+              <Link href="/about#sphere" scroll={false}>
                 <a>{t("activity")}</a>
               </Link>
               {/* <Link href="/">
