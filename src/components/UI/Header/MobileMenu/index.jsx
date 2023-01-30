@@ -239,7 +239,13 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
-            <Link href={data.href} key={data.title} scroll={false}>
+            <Link
+              href={data.href}
+              key={data.title}
+              scroll={false}
+              passHref
+              legacyBehavior
+            >
               <a onClick={(e) => handleLinks(e, data.key)}>{data.title}</a>
             </Link>
           ))}

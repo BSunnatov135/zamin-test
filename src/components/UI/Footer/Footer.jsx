@@ -80,13 +80,13 @@ export default function Footer() {
               {/* <Link href="/">
                 <a>{t("mission")}</a>
               </Link> */}
-              <Link href="/about#sphere" scroll={false}>
+              <Link href="/about#sphere" scroll={false} passHref legacyBehavior>
                 <a>{t("activity")}</a>
               </Link>
               {/* <Link href="/">
                 <a>{t("funding")}</a>
               </Link> */}
-              <Link href="/about#board" scroll={false}>
+              <Link href="/about#board" scroll={false} passHref legacyBehavior>
                 <a>{t("trust")}</a>
               </Link>
             </div>
@@ -172,11 +172,21 @@ export default function Footer() {
                   <Typography>{t("creation")}</Typography>
                 </Link>
                 {/* <Typography>{t("mission")}</Typography> */}
-                <Link href="/about#event" scroll={false}>
+                <Link
+                  href="/about#event"
+                  scroll={false}
+                  passHref
+                  legacyBehavior
+                >
                   <Typography>{t("activity")}</Typography>
                 </Link>
                 {/* <Typography>{t("funding")}</Typography> */}
-                <Link href="/about#board" scroll={false}>
+                <Link
+                  href="/about#board"
+                  scroll={false}
+                  passHref
+                  legacyBehavior
+                >
                   <Typography>{t("trust")}</Typography>
                 </Link>
               </AccordionDetails>
