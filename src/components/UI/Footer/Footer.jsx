@@ -77,16 +77,16 @@ export default function Footer() {
               <Link href="/about">
                 <a className={styles.link}>{t("creation")}</a>
               </Link>
-              <Link href="/">
+              {/* <Link href="/">
                 <a>{t("mission")}</a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              <Link href="/about#event" scroll={false}>
                 <a>{t("activity")}</a>
               </Link>
-              <Link href="/">
+              {/* <Link href="/">
                 <a>{t("funding")}</a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              <Link href="/about#board" scroll={false}>
                 <a>{t("trust")}</a>
               </Link>
             </div>
@@ -171,10 +171,14 @@ export default function Footer() {
                 <Link href="/about">
                   <Typography>{t("creation")}</Typography>
                 </Link>
-                <Typography>{t("mission")}</Typography>
-                <Typography>{t("activity")}</Typography>
-                <Typography>{t("funding")}</Typography>
-                <Typography>{t("trust")}</Typography>
+                {/* <Typography>{t("mission")}</Typography> */}
+                <Link href="/about#event" scroll={false}>
+                  <Typography>{t("activity")}</Typography>
+                </Link>
+                {/* <Typography>{t("funding")}</Typography> */}
+                <Link href="/about#board" scroll={false}>
+                  <Typography>{t("trust")}</Typography>
+                </Link>
               </AccordionDetails>
             </Accordion>
 

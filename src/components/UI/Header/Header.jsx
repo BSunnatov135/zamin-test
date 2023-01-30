@@ -37,7 +37,7 @@ export default function Header() {
             <div
               className={styles.menu}
               onClick={() => {
-                if (window.innerWidth < 600) {
+                if (window.innerWidth < 700) {
                   setMobileMenu((prev) => !prev);
                 } else {
                   setOpen((prev) => !prev);
