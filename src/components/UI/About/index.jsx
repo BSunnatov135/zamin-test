@@ -20,55 +20,59 @@ export default function About() {
           <p>{t("condition")}</p>
           <p>{t("name")}</p>
         </div>
-        <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
-        <div className={styles.spheresWrapper}>
-          <div className={styles.sphereItem}>
-            <img src="/images/sphere1.jpeg"></img>
-            <p>{t("environment")}</p>
-          </div>
-          <div className={styles.sphereItem}>
-            <img src="/images/sphere2.jpeg"></img>
-            <p>{t("innovation")} </p>
-          </div>
-          <div className={styles.sphereItem}>
-            <img src="/images/sphere3.jpeg"></img>
-            <p>{t("program")} </p>
+        <div id="sphere">
+          <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
+          <div className={styles.spheresWrapper}>
+            <div className={styles.sphereItem}>
+              <img src="/images/sphere1.jpeg"></img>
+              <p>{t("environment")}</p>
+            </div>
+            <div className={styles.sphereItem}>
+              <img src="/images/sphere2.jpeg"></img>
+              <p>{t("innovation")} </p>
+            </div>
+            <div className={styles.sphereItem}>
+              <img src="/images/sphere3.jpeg"></img>
+              <p>{t("program")} </p>
+            </div>
           </div>
         </div>
-        <h2 className={styles.boardTitle}>{t("board")} </h2>
-        <div className={styles.boardWrapper}>
-          <div className={styles.boardItem}>
-            <h6>{t("chairman_name")} </h6>
-            <p className={styles.position}>{t("chairman")} </p>
-            {/* <p>
+        <div id="board">
+          <h2 className={styles.boardTitle}>{t("board")} </h2>
+          <div className={styles.boardWrapper}>
+            <div className={styles.boardItem}>
+              <h6>{t("chairman_name")} </h6>
+              <p className={styles.position}>{t("chairman")} </p>
+              {/* <p>
               Заместитель директора по лечебной работе, главный врач
               Республиканского специализированного научно-практического
               медицинского центра педиатрии, доктор медицинских наук
             </p> */}
-          </div>
-          <div className={styles.boardItem}>
-            <h6>{t("deputy_name")} </h6>
-            <p className={styles.position}>{t("deputy")} </p>
-            <p>{t("deputy_job")}</p>
-          </div>
-          <div className={styles.boardItem}>
-            <h6>{t("member_name_1")} </h6>
-            <p className={styles.position}>{t("member")} </p>
-            <p>{t("member_1_job")}</p>
-          </div>
-          <div className={styles.boardItem}>
-            <h6>{t("member_name_2")} </h6>
-            <p className={styles.position}>{t("member")} </p>
-            <p>{t("member_2_job")}</p>
-          </div>
-          <div className={styles.boardItem}>
-            <h6>{t("director_name")} </h6>
-            <p className={styles.position}>{t("director")}</p>
-            {/* <p>
+            </div>
+            <div className={styles.boardItem}>
+              <h6>{t("deputy_name")} </h6>
+              <p className={styles.position}>{t("deputy")} </p>
+              <p>{t("deputy_job")}</p>
+            </div>
+            <div className={styles.boardItem}>
+              <h6>{t("member_name_1")} </h6>
+              <p className={styles.position}>{t("member")} </p>
+              <p>{t("member_1_job")}</p>
+            </div>
+            <div className={styles.boardItem}>
+              <h6>{t("member_name_2")} </h6>
+              <p className={styles.position}>{t("member")} </p>
+              <p>{t("member_2_job")}</p>
+            </div>
+            <div className={styles.boardItem}>
+              <h6>{t("director_name")} </h6>
+              <p className={styles.position}>{t("director")}</p>
+              {/* <p>
               Заместитель директора по лечебной работе, главный врач
               Республиканского специализированного научно-практического
               медицинского центра педиатрии, доктор медицинских наук
             </p> */}
+            </div>
           </div>
         </div>
       </Container>

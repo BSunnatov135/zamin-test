@@ -64,20 +64,13 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           href: "/about",
         },
         {
-          title: `${t("mission")}`,
-          href: "/",
-        },
-        {
           title: `${t("activity")}`,
-          href: "/",
+          href: "/about#sphere",
         },
-        {
-          title: `${t("funding")}`,
-          href: "/",
-        },
+
         {
           title: `${t("trust")}`,
-          href: "/",
+          href: "/about#board",
         },
       ],
     },
@@ -246,7 +239,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
-            <Link href={data.href} key={data.title}>
+            <Link href={data.href} key={data.title} scroll={false}>
               <a onClick={(e) => handleLinks(e, data.key)}>{data.title}</a>
             </Link>
           ))}

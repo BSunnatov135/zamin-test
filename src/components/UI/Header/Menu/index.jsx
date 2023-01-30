@@ -62,7 +62,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("creation")}
                 </a>
               </Link>
-              <Link href="/">
+              {/* <Link href="/">
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -70,8 +70,8 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   {t("mission")}
                 </a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              <Link href="/about#sphere" scroll={false}>
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -80,7 +80,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("activity")}
                 </a>
               </Link>
-              <Link href="/">
+              {/* <Link href="/">
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -88,8 +88,8 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   {t("funding")}
                 </a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              <Link href="/about#board" scroll={false}>
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
