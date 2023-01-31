@@ -16,7 +16,6 @@
     }
     .rightElement {
       order: 2;
-      height: 561px;
       width: 763px;
       max-width: 100%;
       @media screen and (max-width: 1200px) {
@@ -24,6 +23,9 @@
         height: auto;
         display: flex;
         width: 100%;
+      }
+      @media screen and (min-width: 1440px) {
+        width: 60%;
       }
       img {
         max-width: 100%;
@@ -43,6 +45,9 @@
         order: 2;
         position: static;
         width: 100%;
+      }
+      @media screen and (min-width: 1400px) {
+        width: 50%;
       }
       h2 {
         font-weight: 600;
