@@ -11,15 +11,17 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
+  const [dataSphere, setDataSphere] = useState([0]);
   const path = router.asPath;
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
-  const { spheres } = useSpheres({
+  const { spheres, sphere } = useSpheres({
     sphereParams: {
       offset: 0,
       limit: 3,
@@ -108,7 +110,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               </Link>
               <p className={styles.title}>{t("projects")}</p>
               {spheres?.data?.response?.map((item) => (
-                <Projects key={item.guid} item={item} />
+                <Projects key={item?.guid} item={item} />
               ))}
               {/* <Link href="/">
                 <a
