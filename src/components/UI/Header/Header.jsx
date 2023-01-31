@@ -58,9 +58,9 @@ export default function Header() {
             </Link>
             <div className={styles.rightElement}>
               <div
-                onClick={() => {
-                  document.getElementById("userwayAccessibilityIcon").click();
-                }}
+                // onClick={() => {
+                //   document.getElementById("userwayAccessibilityIcon").click();
+                // }}
                 id="openAccessibility"
                 tabIndex="0"
               >
@@ -69,7 +69,7 @@ export default function Header() {
                 </p>
                 <AccessIcon />
               </div>
-              <LanguageDropdown />
+              <LanguageDropdown className={styles.LanguageDropdown} />
               {/* <div className={styles.profileSets}>
                 <Profile />
                 <LogOutIcon />

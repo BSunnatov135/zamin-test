@@ -77,7 +77,7 @@
       }
       .languageDropdown {
         @media screen and (max-width: 530px) {
-          display: none;
+          display: none !important;
         }
       }
     }
