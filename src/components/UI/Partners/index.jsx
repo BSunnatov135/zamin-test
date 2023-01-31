@@ -101,11 +101,40 @@ export default function Partners() {
             height={"72px"}
             className={styles.desktopIcon}
           />
-          <ResTree className={styles.mobileIcon} />
+          <img
+            src="/logos/Tree.png"
+            height={"56px"}
+            className={styles.mobileIcon}
+          />
+          {/* <ResTree className={styles.mobileIcon} /> */}
         </div>
         <div className={styles.item}>
           <UNDP className={styles.desktopIcon} />
           <ResUNDP className={styles.mobileIcon} />
+        </div>
+        <div className={styles.item}>
+          <img
+            src="/logos/EcoSchool.png"
+            height={"72px"}
+            className={styles.desktopIcon}
+          />
+          <img
+            src="/logos/EcoSchool.png"
+            height={"56px"}
+            className={styles.mobileIcon}
+          />
+        </div>
+        <div className={styles.item}>
+          <img
+            src="/logos/GreenKey.png"
+            height={"72px"}
+            className={styles.desktopIcon}
+          />
+          <img
+            src="/logos/GreenKey.png"
+            height={"56px"}
+            className={styles.mobileIcon}
+          />
         </div>
         <div className={styles.item}>
           <img
