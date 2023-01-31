@@ -6,7 +6,7 @@ export default function Projects({ item, handleClose }) {
   const { lang } = useTranslation();
   return (
     <div key={item.guid}>
-      <Link href={`/project-info/${item.guid}`}>
+      <Link href={"/"}>
         <a
           className={styles.projectItem}
           onClick={(e) => {

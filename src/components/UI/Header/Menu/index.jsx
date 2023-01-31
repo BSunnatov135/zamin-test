@@ -5,7 +5,7 @@ import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
 import useTranslation from "next-translate/useTranslation";
 import Projects from "./ProjectItems/projects";
-import useProjects from "services/projects";
+import useSpheres from "services/spheres";
 import scrollToRef from "mixins/scrollToRef";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -19,8 +19,8 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const path = router.asPath;
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
-  const { projects } = useProjects({
-    projectParams: {
+  const { spheres } = useSpheres({
+    sphereParams: {
       offset: 0,
       limit: 3,
     },
@@ -59,7 +59,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                     handleClose(e);
                   }}
                 >
-                  {t("creation")}
+                  {t("about_fond")}
                 </a>
               </Link>
               {/* <Link href="/">
@@ -71,7 +71,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("mission")}
                 </a>
               </Link> */}
-              <Link
+              {/* <Link
                 href="/about#sphere"
                 passHref
                 legacyBehavior
@@ -86,7 +86,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   {t("activity")}
                 </a>
-              </Link>
+              </Link> */}
               {/* <Link href="/">
                 <a
                   onClick={(e) => {
@@ -96,13 +96,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("funding")}
                 </a>
               </Link> */}
-              <Link
-                href="/about#board"
-                passHref
-                legacyBehavior
-                scroll={false}
-                replace
-              >
+              <Link href="/about#board" passHref legacyBehavior scroll={false}>
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
@@ -112,8 +106,11 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("trust")}
                 </a>
               </Link>
-              <p className={styles.title}>{t("advert_title")}</p>
-              <Link href="/">
+              <p className={styles.title}>{t("projects")}</p>
+              {spheres?.data?.response?.map((item) => (
+                <Projects key={item.guid} item={item} />
+              ))}
+              {/* <Link href="/">
                 <a
                   onClick={(e) => {
                     e.preventDefault();
@@ -123,14 +120,14 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   {t("advert_title")}
                 </a>
-              </Link>
+              </Link> */}
             </div>
             <div className={styles.box}>
-              <p className={styles.title}>{t("projects")}</p>
-              {projects?.data?.response?.map((item) => (
+              {/* <p className={styles.title}>{t("projects")}</p> */}
+              {/* {projects?.data?.response?.map((item) => (
                 <Projects key={item.guid} item={item} />
-              ))}
-              <Link href="/">
+              ))} */}
+              {/* <Link href="/">
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -140,7 +137,32 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                     {t("donate")} <ArrowRight />
                   </p>
                 </a>
+              </Link> */}
+
+              <p className={styles.title}>{t("media")}</p>
+              <Link href="/">
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClose(e);
+                    handleRouterActions("event");
+                  }}
+                >
+                  {t("event_title")}
+                </a>
               </Link>
+              <Link href="/gallery">
+                <a
+                  className={styles.box_bottom}
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  {t("gallery")}
+                </a>
+              </Link>
+            </div>
+            <div className={styles.box}>
               <p className={styles.title}>{t("contacts")}</p>
               <Link href="mailto:info@zaminfoundation.uz">
                 <div className={styles.emailContainer}>
@@ -164,31 +186,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("sns")}
                 </a>
               </Link>
-            </div>
-            <div className={styles.box}>
-              <p className={styles.title}>{t("media")}</p>
-              <Link href="/">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClose(e);
-                    handleRouterActions("event");
-                  }}
-                >
-                  {t("event_title")}
-                </a>
-              </Link>
-              <Link href="/gallery">
-                <a
-                  className={styles.box_bottom}
-                  onClick={(e) => {
-                    handleClose(e);
-                  }}
-                >
-                  {t("gallery")}
-                </a>
-              </Link>
-              <p className={`${styles.title} ${styles.marginBottom_24}`}>
+              {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 {t("cabinet")}
               </p>
               <a
@@ -201,7 +199,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 <p className={`${styles.donation} ${styles.title}`}>
                   {t("login")} <ArrowRight />
                 </p>
-              </a>
+              </a> */}
             </div>
           </div>
         </Container>
