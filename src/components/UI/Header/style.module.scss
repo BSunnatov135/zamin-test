@@ -60,7 +60,8 @@
       }
       @include align-items-center;
       column-gap: 24px;
-      p {
+      p,
+      div {
         font-weight: 500;
         font-size: 16px;
         line-height: 22px;

@@ -57,12 +57,18 @@ export default function Header() {
               </a>
             </Link>
             <div className={styles.rightElement}>
-              <p id="openAccessibility" tabindex="0">
+              <div
+                onClick={() => {
+                  document.getElementById("userwayAccessibilityIcon").click();
+                }}
+                id="openAccessibility"
+                tabIndex="0"
+              >
                 <p className={styles.accessibilityTitle}>
                   {t("accessibility")}
                 </p>
                 <AccessIcon />
-              </p>
+              </div>
               <LanguageDropdown />
               {/* <div className={styles.profileSets}>
                 <Profile />
