@@ -71,7 +71,13 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("mission")}
                 </a>
               </Link> */}
-              <Link href="/about#sphere" passHref legacyBehavior scroll={false}>
+              <Link
+                href="/about#sphere"
+                passHref
+                legacyBehavior
+                scroll={false}
+                replace
+              >
                 <a
                   onClick={(e) => {
                     handleClose(e);
@@ -90,7 +96,13 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("funding")}
                 </a>
               </Link> */}
-              <Link href="/about#board" passHref legacyBehavior scroll={false}>
+              <Link
+                href="/about#board"
+                passHref
+                legacyBehavior
+                scroll={false}
+                replace
+              >
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
