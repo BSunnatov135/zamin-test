@@ -55,7 +55,7 @@ export default function Banner() {
                 <div className={styles.content}>
                   {/* <h1>{item[`${lang}_name`]}</h1> */}
                   <h1>{t("banner_title")}</h1>
-                  <Link href={`/project-info/${item.guid}`}>
+                  <Link href={`/about`}>
                     <a>
                       <LearnMoreIcon />
                       {t("learn_more")}
