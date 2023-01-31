@@ -149,8 +149,16 @@ export default function Partners() {
           />
         </div>
         <div className={styles.item}>
-          <UNEP className={styles.desktopIcon} />
-          <ResUNEP className={styles.mobileIcon} />
+          <img
+            src="/logos/UNEP.png"
+            height={"72px"}
+            className={styles.desktopIcon}
+          />
+          <img
+            src="/logos/UNEP.png"
+            height={"56px"}
+            className={styles.mobileIcon}
+          />
         </div>
       </Slider>
     </Container>
