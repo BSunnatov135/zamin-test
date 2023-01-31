@@ -14,9 +14,45 @@
     row-gap: 16px;
     .item {
       max-width: 100%;
+      position: relative;
+      z-index: 1;
       @media screen and (max-width: 600px) {
         height: auto;
       }
+      .itemInfo {
+        position: absolute;
+        top: 0;
+        color: #fff;
+        display: none;
+        z-index: 99;
+        padding: 20px;
+        filter: brightness(1);
+        > p:first-child {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 25px;
+          font-family: "Noto Serif";
+        }
+        > p:nth-child(2) {
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 19px;
+          font-family: "Noto Sans";
+          letter-spacing: -1;
+          margin-top: 9px;
+        }
+      }
+      &:hover {
+        img {
+          filter: brightness(0.3);
+          transition: all 0.5s;
+        }
+
+        .itemInfo {
+          display: block;
+        }
+      }
+
       img {
         width: 100%;
         height: 100%;

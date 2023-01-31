@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Tooltip } from "@mui/material";
 import styles from "./style.module.scss";
 import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
@@ -19,6 +19,7 @@ import ResUNEP from "/public/logos/ResUNEP.svg";
 import ResUnicef from "/public/logos/ResUnicef.svg";
 import ResFAO from "/public/logos/ResFao.svg";
 import ResHydro from "/public/logos/ResHydro.svg";
+import useTranslation from "next-translate/useTranslation";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -39,6 +40,7 @@ function SamplePrevArrow(props) {
 }
 
 export default function Partners() {
+  const { t } = useTranslation("common");
   let settings = {
     dots: false,
     arrows: true,
@@ -78,22 +80,43 @@ export default function Partners() {
         <div className={styles.item}>
           <MedIcon className={styles.desktopIcon} />
           <ResMedLogo className={styles.mobileIcon} />
+
+          <span>
+            {t("med")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <GasLogo className={styles.desktopIcon} />
           <ResGasLogo className={styles.mobileIcon} />
+          <span>
+            {t("water")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <Unicef className={styles.desktopIcon} />
           <ResUnicef className={styles.mobileIcon} />
+          <span>
+            {t("unicef")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <HydroIcon className={styles.desktopIcon} />
           <ResHydro className={styles.mobileIcon} />
+          <span>
+            {t("hydro")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <FAOIcon className={styles.desktopIcon} />
           <ResFAO className={styles.mobileIcon} />
+          <span>
+            {t("FAO")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <img
@@ -106,11 +129,19 @@ export default function Partners() {
             height={"56px"}
             className={styles.mobileIcon}
           />
+          <span>
+            {t("tree")}
+            <i></i>
+          </span>
           {/* <ResTree className={styles.mobileIcon} /> */}
         </div>
         <div className={styles.item}>
           <UNDP className={styles.desktopIcon} />
           <ResUNDP className={styles.mobileIcon} />
+          <span>
+            {t("UNDP")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <img
@@ -123,6 +154,10 @@ export default function Partners() {
             height={"56px"}
             className={styles.mobileIcon}
           />
+          <span>
+            {t("EcoSchool")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <img
@@ -135,6 +170,10 @@ export default function Partners() {
             height={"56px"}
             className={styles.mobileIcon}
           />
+          <span>
+            {t("greenkey")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <img
@@ -147,6 +186,10 @@ export default function Partners() {
             height={"56px"}
             className={styles.mobileIcon}
           />
+          <span>
+            {t("edu")}
+            <i></i>
+          </span>
         </div>
         <div className={styles.item}>
           <img
@@ -159,6 +202,10 @@ export default function Partners() {
             height={"56px"}
             className={styles.mobileIcon}
           />
+          <span>
+            {t("UNEP")}
+            <i></i>
+          </span>
         </div>
       </Slider>
     </Container>

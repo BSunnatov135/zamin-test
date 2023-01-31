@@ -27,6 +27,7 @@ export default function Event() {
       }, 0);
     }
   }, [eventsContainerRef?.current?.offsetTop]);
+  console.log("eventsDataResponse", events?.data?.response);
   return (
     <Container>
       <div className={styles.main}>
@@ -48,6 +49,14 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[0][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[0][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{events?.data?.response?.[0].date}</p>
+              </div>
             </div>
             <div
               className={styles.item}
@@ -58,6 +67,14 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[1][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[1][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{events?.data?.response?.[1].date}</p>
+              </div>
             </div>
             <div
               className={`${styles.item} ${styles.event}`}
@@ -68,6 +85,14 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[2][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[2][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{events?.data?.response?.[2].date}</p>
+              </div>
             </div>
           </div>
           <div className={styles.bottomElement}>
@@ -80,6 +105,14 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[3][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[3][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{events?.data?.response?.[3].date}</p>
+              </div>
             </div>
             <div
               className={styles.item}
@@ -90,6 +123,14 @@ export default function Event() {
               }
             >
               <img src={events?.data?.response?.[4][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[4][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{events?.data?.response?.[4].date}</p>
+              </div>
             </div>
           </div>
         </div>
