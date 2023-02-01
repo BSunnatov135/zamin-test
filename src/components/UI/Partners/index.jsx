@@ -1,4 +1,4 @@
-import { Container, Tooltip } from "@mui/material";
+import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
@@ -20,6 +20,9 @@ import ResUnicef from "/public/logos/ResUnicef.svg";
 import ResFAO from "/public/logos/ResFao.svg";
 import ResHydro from "/public/logos/ResHydro.svg";
 import useTranslation from "next-translate/useTranslation";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import React from "react";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -74,138 +77,182 @@ export default function Partners() {
       },
     ],
   };
+
   return (
     <Container>
       <Slider {...settings} className={styles.slider}>
         <div className={styles.item}>
-          <MedIcon className={styles.desktopIcon} />
-          <ResMedLogo className={styles.mobileIcon} />
-
-          <span>
-            {t("med")}
-            <i></i>
-          </span>
-        </div>
-        <div className={styles.item}>
-          <GasLogo className={styles.desktopIcon} />
-          <ResGasLogo className={styles.mobileIcon} />
-          <span>
-            {t("water")}
-            <i></i>
-          </span>
-        </div>
-        <div className={styles.item}>
-          <Unicef className={styles.desktopIcon} />
-          <ResUnicef className={styles.mobileIcon} />
-          <span>
-            {t("unicef")}
-            <i></i>
-          </span>
-        </div>
-        <div className={styles.item}>
-          <HydroIcon className={styles.desktopIcon} />
-          <ResHydro className={styles.mobileIcon} />
-          <span>
-            {t("hydro")}
-            <i></i>
-          </span>
-        </div>
-        <div className={styles.item}>
-          <FAOIcon className={styles.desktopIcon} />
-          <ResFAO className={styles.mobileIcon} />
-          <span>
-            {t("FAO")}
-            <i></i>
-          </span>
-        </div>
-        <div className={styles.item}>
-          <img
-            src="/logos/Tree.png"
-            height={"72px"}
-            className={styles.desktopIcon}
+          <div id="med">
+            <MedIcon className={styles.desktopIcon} />
+            <ResMedLogo className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="med"
+            place="bottom"
+            content={t("med")}
+            className={styles.popover}
           />
-          <img
-            src="/logos/Tree.png"
-            height={"56px"}
-            className={styles.mobileIcon}
+        </div>
+        <div className={styles.item}>
+          <div id="water">
+            <GasLogo className={styles.desktopIcon} />
+            <ResGasLogo className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="water"
+            place="bottom"
+            content={t("water")}
+            className={styles.popover}
           />
-          <span>
-            {t("tree")}
-            <i></i>
-          </span>
+        </div>
+        <div className={styles.item}>
+          <div id="unicef">
+            <Unicef className={styles.desktopIcon} />
+            <ResUnicef className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="unicef"
+            place="bottom"
+            content={t("unicef")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="hydro">
+            <HydroIcon className={styles.desktopIcon} />
+            <ResHydro className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="hydro"
+            place="bottom"
+            content={t("hydro")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="fao">
+            <FAOIcon className={styles.desktopIcon} />
+            <ResFAO className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="fao"
+            place="bottom"
+            content={t("FAO")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="tree">
+            <img
+              src="/logos/Tree.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Tree.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="tree"
+            place="bottom"
+            content={t("tree")}
+            className={styles.popover}
+          />
           {/* <ResTree className={styles.mobileIcon} /> */}
         </div>
         <div className={styles.item}>
-          <UNDP className={styles.desktopIcon} />
-          <ResUNDP className={styles.mobileIcon} />
-          <span>
-            {t("UNDP")}
-            <i></i>
-          </span>
+          <div id="undp">
+            <UNDP className={styles.desktopIcon} />
+            <ResUNDP className={styles.mobileIcon} />
+          </div>
+          <ReactTooltip
+            anchorId="undp"
+            place="bottom"
+            content={t("UNDP")}
+            className={styles.popover}
+          />
         </div>
         <div className={styles.item}>
-          <img
-            src="/logos/EcoSchool.png"
-            height={"72px"}
-            className={styles.desktopIcon}
+          <div id="ecoschool">
+            <img
+              src="/logos/EcoSchool.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/EcoSchool.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="ecoschool"
+            place="bottom"
+            content={t("EcoSchool")}
+            className={styles.popover}
           />
-          <img
-            src="/logos/EcoSchool.png"
-            height={"56px"}
-            className={styles.mobileIcon}
-          />
-          <span>
-            {t("EcoSchool")}
-            <i></i>
-          </span>
         </div>
         <div className={styles.item}>
-          <img
-            src="/logos/GreenKey.png"
-            height={"72px"}
-            className={styles.desktopIcon}
+          <div id="greenkey">
+            <img
+              src="/logos/GreenKey.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/GreenKey.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="greenkey"
+            place="bottom"
+            content={t("greenkey")}
+            className={styles.popover}
           />
-          <img
-            src="/logos/GreenKey.png"
-            height={"56px"}
-            className={styles.mobileIcon}
-          />
-          <span>
-            {t("greenkey")}
-            <i></i>
-          </span>
         </div>
         <div className={styles.item}>
-          <img
-            src="/logos/EduIcon.png"
-            height={"72px"}
-            className={styles.desktopIcon}
+          <div id="edu">
+            <img
+              src="/logos/EduIcon.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/EduIcon.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="edu"
+            place="bottom"
+            content={t("edu")}
+            className={styles.popover}
           />
-          <img
-            src="/logos/EduIcon.png"
-            height={"56px"}
-            className={styles.mobileIcon}
-          />
-          <span>
-            {t("edu")}
-            <i></i>
-          </span>
         </div>
         <div className={styles.item}>
-          <img
-            src="/logos/UNEP.png"
-            height={"72px"}
-            className={styles.desktopIcon}
+          <div id="unep">
+            <img
+              src="/logos/UNEP.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/UNEP.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="unep"
+            place="bottom"
+            content={t("UNEP")}
+            className={styles.popover}
           />
-          <img
-            src="/logos/UNEP.png"
-            height={"56px"}
-            className={styles.mobileIcon}
-          />
-          <span>
-            {t("UNEP")}
-            <i></i>
-          </span>
         </div>
       </Slider>
     </Container>
