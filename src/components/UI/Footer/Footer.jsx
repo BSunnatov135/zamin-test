@@ -21,11 +21,12 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import useSpheres from "services/spheres";
 
 export default function Footer() {
   const dispatch = useDispatch();
-  const { projects } = useProjects({
-    projectParams: {
+  const { spheres } = useSpheres({
+    sphereParams: {
       offset: 0,
       limit: 3,
     },
@@ -74,14 +75,14 @@ export default function Footer() {
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
               <Link href="/about">
-                <a className={styles.link}>{t("creation")}</a>
+                <a className={styles.link}>{t("about_fond")}</a>
               </Link>
               {/* <Link href="/">
                 <a>{t("mission")}</a>
               </Link> */}
-              <Link href="/about#sphere" scroll={false} passHref legacyBehavior>
+              {/* <Link href="/about#sphere" scroll={false} passHref legacyBehavior>
                 <a>{t("activity")}</a>
-              </Link>
+              </Link> */}
               {/* <Link href="/">
                 <a>{t("funding")}</a>
               </Link> */}
@@ -94,11 +95,11 @@ export default function Footer() {
                 {t("projects")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
-              {projects?.data?.response?.map((item) => (
-                <Spheres key={item.guid} item={item} />
+              {spheres?.data?.response?.map((item) => (
+                <Spheres key={item.guid} item={item} id={item.guid} />
               ))}
             </div>
-            <div className={styles.box}>
+            {/* <div className={styles.box}>
               <p className={styles.subtitle}>
                 {t("advert_title")}
                 <DropIcon />
@@ -113,7 +114,7 @@ export default function Footer() {
                   {t("advert_title")}
                 </a>
               </Link>
-            </div>
+            </div> */}
             <div className={styles.box}>
               <p className={styles.subtitle}>
                 {t("media")}
@@ -203,8 +204,8 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                {projects?.data?.response?.map((item) => (
-                  <Spheres key={item.guid} item={item} />
+                {spheres?.data?.response?.map((item) => (
+                  <Spheres key={item.guid} item={item} id={item.guid} />
                 ))}
               </AccordionDetails>
             </Accordion>
