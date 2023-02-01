@@ -63,6 +63,7 @@ export default function Header() {
                 // }}
                 id="openAccessibility"
                 tabIndex="0"
+                className={styles.accessibility}
               >
                 <p className={styles.accessibilityTitle}>
                   {t("accessibility")}

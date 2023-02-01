@@ -68,10 +68,17 @@
         @include align-items-center;
         column-gap: 12px;
         cursor: pointer;
+
         .accessibilityTitle {
+          display: none;
           @media screen and (max-width: 400px) {
             max-width: 115px;
             text-align: center;
+          }
+        }
+        &:hover {
+          .accessibilityTitle {
+            display: block;
           }
         }
       }
