@@ -110,7 +110,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               </Link>
               <p className={styles.title}>{t("projects")}</p>
               {spheres?.data?.response?.map((item) => (
-                <Projects key={item?.guid} item={item} />
+                <Projects key={item?.guid} item={item} id={item.guid} />
               ))}
               {/* <Link href="/">
                 <a

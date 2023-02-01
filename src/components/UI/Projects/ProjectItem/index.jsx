@@ -12,8 +12,18 @@ export default function ProjectItem({ item }) {
             <img src={item[`${lang}_photo`]} alt={item[`${lang}_header`]} />
           </div>
           <div className={styles.body}>
-            <p className={styles.name}>{item[`${lang}_name`]}</p>
-            <p className={styles.name}>{item[`${lang}_header`]}</p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: item[`${lang}_name`],
+              }}
+              className={styles.name}
+            />
+            <p
+              dangerouslySetInnerHTML={{
+                __html: item[`${lang}_header`],
+              }}
+              className={styles.name}
+            />
             <p
               dangerouslySetInnerHTML={{
                 __html: item[`${lang}_description`],
