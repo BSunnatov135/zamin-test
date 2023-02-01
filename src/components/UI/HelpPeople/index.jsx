@@ -38,7 +38,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
-  console.log("data", data);
+
   return (
     <Container>
       <div className={styles.main}>

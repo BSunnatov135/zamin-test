@@ -5,7 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function EventItem({ item }) {
   const { lang } = useTranslation();
-  console.log("item", item);
+
   const { t } = useTranslation("common");
   return (
     <Link href={`/events-info/${item.guid}?from=events`}>

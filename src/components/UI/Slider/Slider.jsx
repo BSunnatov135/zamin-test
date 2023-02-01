@@ -25,7 +25,6 @@ export default function Slider({ data, title }) {
     data.filter((el) => el.file_link && newArr?.push(el));
     return newArr[slideIndex - 1];
   }, [slideIndex, newArr, data]);
-  console.log("currentData", newArr);
   return (
     <>
       <h2 className={styles.sectionTitle}>{title}</h2>

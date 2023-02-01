@@ -67,7 +67,6 @@ export default function LoginForm({ open, handleClose }) {
 
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        console.log("data==>", value);
         state.user_found ? handleClose() : setStatus(statuses[2]);
         reset();
       },

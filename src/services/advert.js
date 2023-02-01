@@ -6,17 +6,26 @@ const getAdvertsFn = async (data) =>
     data,
   });
 const getAdvertFn = async (id) => await request.get(`/v1/object/news/${id}`);
+const getAdvertIsActiveFn = async (isActive) =>
+  await request.get(`/v1/is-active`);
 const getSliderFn = async (data) =>
   await request.post("/v1/object/get-list/file", {
     data,
   });
 
-const useAdverts = ({ advertParams, advertId, sliderProps }) => {
+const useAdverts = ({ advertParams, advertId, sliderProps, isActive }) => {
   const adverts = useQuery(
     ["GET_ADVERTS", advertParams],
     () => getAdvertsFn(advertParams),
     {
       enabled: !!advertParams,
+    }
+  );
+  const advertIsActive = useQuery(
+    ["GET_ADVERT_ISACTIVE", advertParams],
+    () => getAdvertIsActiveFn(isActive),
+    {
+      enabled: !!isActive,
     }
   );
   const advert = useQuery(
@@ -38,6 +47,7 @@ const useAdverts = ({ advertParams, advertId, sliderProps }) => {
     adverts: adverts?.data,
     advert: advert?.data,
     advertSlider: advertSlider?.data,
+    isActive: advertIsActive?.data,
   };
 };
 

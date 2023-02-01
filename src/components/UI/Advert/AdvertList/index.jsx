@@ -33,8 +33,6 @@ export default function AdvertList() {
     }
   }, [adverts, currentPage]);
 
-  console.log("data", data);
-
   return (
     <Container>
       <div className={styles.main}>

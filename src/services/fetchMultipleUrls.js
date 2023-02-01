@@ -11,9 +11,7 @@ export const fetchMultipleUrls = async (urls) => {
         } catch (e) {}
       })
     );
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 
   return data;
 };

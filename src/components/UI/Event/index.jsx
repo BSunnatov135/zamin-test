@@ -27,7 +27,7 @@ export default function Event() {
       }, 0);
     }
   }, [eventsContainerRef?.current?.offsetTop]);
-  console.log("eventsDataResponse", events?.data?.response);
+
   return (
     <Container>
       <div className={styles.main}>

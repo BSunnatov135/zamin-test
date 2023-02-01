@@ -37,8 +37,6 @@ export default function Donate() {
     console.log("select", event);
   };
 
-  console.log("userInfos", userInfos);
-
   return (
     <>
       <div className={styles.container}>

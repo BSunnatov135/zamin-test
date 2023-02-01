@@ -20,7 +20,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       limit: 3,
     },
   });
-  console.log(projects?.data?.response);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
