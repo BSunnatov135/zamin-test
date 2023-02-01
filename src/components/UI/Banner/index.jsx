@@ -4,20 +4,31 @@ import styles from "./style.module.scss";
 import LearnMoreIcon from "assests/icons/learnMore.svg";
 import PlayIcon from "assests/icons/play.svg";
 import PauseIcon from "assests/icons/pause.svg";
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import useProjects from "services/projects";
 import useTranslation from "next-translate/useTranslation";
+import { useCallback } from "react";
+import useObjects from "services/objectService";
 
 export default function Banner() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [isPlay, setIsPlay] = useState(false);
+  const [videoIndex, setvideoIndex] = useState(0);
   const videoRef = useRef();
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
       limit: 7,
+    },
+  });
+
+  const { object } = useObjects({
+    table_slug: "banners",
+    objectParams: { data: {} },
+    objectProperties: {
+      enabled: true,
+      select: (data) => data?.data?.response.map((el) => el.banner_video),
     },
   });
 
@@ -31,18 +42,37 @@ export default function Banner() {
     setIsPlay(true);
   };
 
+  const handleLoadedMetadata = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    setTimeout(() => {
+      setvideoIndex((prev) => {
+        if (object?.length - 1 === videoIndex) {
+          return 0;
+        } else {
+          return ++prev;
+        }
+      });
+    }, video.duration * 1000);
+  }, [object, videoIndex]);
+
+  useEffect(() => {
+    if (object?.length) {
+      videoRef.current.load();
+    }
+  }, [object, videoIndex]);
+
   return (
     <>
       <div className={styles.banner}>
         <video
           autoPlay
           muted
-          loop
-          playsInline
           ref={videoRef}
           poster="/video/poster.jpeg"
+          onLoadedMetadata={handleLoadedMetadata}
         >
-          <source src="/video/banner.mp4" type="video/mp4" />
+          <source src={object?.[videoIndex]} type="video/mp4" />
         </video>
         <Container
           sx={{
