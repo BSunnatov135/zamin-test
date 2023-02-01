@@ -69,7 +69,6 @@ export default function Banner() {
           autoPlay
           muted
           ref={videoRef}
-          poster="/video/poster.jpeg"
           onLoadedMetadata={handleLoadedMetadata}
         >
           <source src={object?.[videoIndex]} type="video/mp4" />
