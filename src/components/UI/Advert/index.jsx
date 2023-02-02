@@ -18,6 +18,9 @@ export default function Advert() {
       limit: 6,
     },
   });
+  const { isActive } = useAdverts({
+    advertIsActive: {},
+  });
   const adversContainerRef = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,46 +33,48 @@ export default function Advert() {
 
   return (
     <Container>
-      <div className={styles.main}>
-        <div className={styles.header}>
-          <div className={styles.leftElement}>
-            <p className={styles.title}>{t("advert_title")}</p>
-          </div>
+      {isActive.data == "true" && (
+        <div className={styles.main}>
+          <div className={styles.header}>
+            <div className={styles.leftElement}>
+              <p className={styles.title}>{t("advert_title")}</p>
+            </div>
 
-          <Link href="/news">
-            <a className={styles.link}>
-              {t("all")} <ArrowRightIcon />
-            </a>
-          </Link>
-        </div>
-        <div className={styles.list} ref={adversContainerRef}>
-          {adverts?.data?.response?.map((item) => (
-            <div key={item.guid} className={styles.item}>
-              <div className={styles.header}>
+            <Link href="/news">
+              <a className={styles.link}>
+                {t("all")} <ArrowRightIcon />
+              </a>
+            </Link>
+          </div>
+          <div className={styles.list} ref={adversContainerRef}>
+            {adverts?.data?.response?.map((item) => (
+              <div key={item.guid} className={styles.item}>
+                <div className={styles.header}>
+                  <Link href={`/news-info/${item.guid}?from=news`}>
+                    <a>
+                      <p>{item?.[`${lang}_header`]}</p>
+                    </a>
+                  </Link>
+                </div>
+                <div className={styles.body}>
+                  <p
+                    className={styles.description}
+                    dangerouslySetInnerHTML={{
+                      __html: item?.[`${lang}_description`],
+                    }}
+                  ></p>
+                </div>
                 <Link href={`/news-info/${item.guid}?from=news`}>
-                  <a>
-                    <p>{item?.[`${lang}_header`]}</p>
+                  <a className={styles.link}>
+                    {t("more")}
+                    <ArrowRight />
                   </a>
                 </Link>
               </div>
-              <div className={styles.body}>
-                <p
-                  className={styles.description}
-                  dangerouslySetInnerHTML={{
-                    __html: item?.[`${lang}_description`],
-                  }}
-                ></p>
-              </div>
-              <Link href={`/news-info/${item.guid}?from=news`}>
-                <a className={styles.link}>
-                  {t("more")}
-                  <ArrowRight />
-                </a>
-              </Link>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </Container>
   );
 }

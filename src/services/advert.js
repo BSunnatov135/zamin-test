@@ -6,14 +6,18 @@ const getAdvertsFn = async (data) =>
     data,
   });
 const getAdvertFn = async (id) => await request.get(`/v1/object/news/${id}`);
-const getAdvertIsActiveFn = async (isActive) =>
-  await request.get(`/v1/is-active`);
+const getAdvertIsActiveFn = async () => await request.get(`/v1/is-active`);
 const getSliderFn = async (data) =>
   await request.post("/v1/object/get-list/file", {
     data,
   });
 
-const useAdverts = ({ advertParams, advertId, sliderProps, isActive }) => {
+const useAdverts = ({
+  advertParams,
+  advertId,
+  sliderProps,
+  advertIsActive,
+}) => {
   const adverts = useQuery(
     ["GET_ADVERTS", advertParams],
     () => getAdvertsFn(advertParams),
@@ -21,11 +25,11 @@ const useAdverts = ({ advertParams, advertId, sliderProps, isActive }) => {
       enabled: !!advertParams,
     }
   );
-  const advertIsActive = useQuery(
-    ["GET_ADVERT_ISACTIVE", advertParams],
-    () => getAdvertIsActiveFn(isActive),
+  const isActive = useQuery(
+    ["GET_ADVERT_ISACTIVE", advertIsActive],
+    () => getAdvertIsActiveFn(advertIsActive),
     {
-      enabled: !!isActive,
+      enabled: !!advertIsActive,
     }
   );
   const advert = useQuery(
@@ -47,7 +51,7 @@ const useAdverts = ({ advertParams, advertId, sliderProps, isActive }) => {
     adverts: adverts?.data,
     advert: advert?.data,
     advertSlider: advertSlider?.data,
-    isActive: advertIsActive?.data,
+    isActive: isActive,
   };
 };
 

@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
 import { useEffect, useMemo, useState } from "react";
+import useAdverts from "services/advert";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
@@ -27,6 +28,10 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
       limit: 3,
     },
   });
+  const { isActive } = useAdverts({
+    advertIsActive: {},
+  });
+  console.log("isactive", isActive);
 
   function handleRouterActions(status) {
     if (status === "event") {
@@ -112,17 +117,6 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               {spheres?.data?.response?.map((item) => (
                 <Projects key={item?.guid} item={item} id={item.guid} />
               ))}
-              {/* <Link href="/">
-                <a
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClose(e);
-                    handleRouterActions("advert");
-                  }}
-                >
-                  {t("advert_title")}
-                </a>
-              </Link> */}
             </div>
             <div className={styles.box}>
               {/* <p className={styles.title}>{t("projects")}</p> */}
@@ -140,7 +134,6 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   </p>
                 </a>
               </Link> */}
-
               <p className={styles.title}>{t("media")}</p>
               <Link href="/">
                 <a
@@ -163,6 +156,22 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("gallery")}
                 </a>
               </Link>
+              {isActive?.data == "true" && (
+                <>
+                  <p className={styles.title}>{t("advert_title")}</p>
+                  <Link href="/">
+                    <a
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleClose(e);
+                        handleRouterActions("advert");
+                      }}
+                    >
+                      {t("advert_title")}
+                    </a>
+                  </Link>
+                </>
+              )}
             </div>
             <div className={styles.box}>
               <p className={styles.title}>{t("contacts")}</p>
