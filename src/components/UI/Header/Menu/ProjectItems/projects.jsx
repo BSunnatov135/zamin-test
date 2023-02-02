@@ -14,9 +14,10 @@ export default function Projects({ item, handleClose, id }) {
           onClick={(e) => {
             handleClose(e);
           }}
-        >
-          {item[`${lang}_name`]}
-        </a>
+          dangerouslySetInnerHTML={{
+            __html: item?.[`${lang}_name`],
+          }}
+        />
       </Link>
     </div>
   );

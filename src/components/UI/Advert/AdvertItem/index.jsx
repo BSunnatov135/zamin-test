@@ -12,8 +12,18 @@ export default function AdvertItem({ item }) {
             <img src={item[`${lang}_photo`]} alt={item[`${lang}_name`]} />
           </div>
           <div className={styles.body}>
-            <p className={styles.name}>{item[`${lang}_name`]}</p>
-            <p className={styles.name}>{item[`${lang}_header`]}</p>
+            <p
+              className={styles.name}
+              dangerouslySetInnerHTML={{
+                __html: item?.[`${lang}_name`],
+              }}
+            />
+            <p
+              className={styles.name}
+              dangerouslySetInnerHTML={{
+                __html: item?.[`${lang}_header`],
+              }}
+            />
             <p
               dangerouslySetInnerHTML={{
                 __html: item[`${lang}_description`],
