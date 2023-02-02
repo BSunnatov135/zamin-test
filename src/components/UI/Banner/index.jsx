@@ -31,9 +31,7 @@ export default function Banner() {
       // select: (data) => data?.data?.response.map((el) => el.banner_video),
     },
   });
-  console.log(object);
   const video = object?.data?.response.map((el) => el.banner_video);
-  console.log("video==>", video);
   const playVideo = () => {
     videoRef.current.play();
     setIsPlay(false);
@@ -71,7 +69,7 @@ export default function Banner() {
           autoPlay
           muted
           ref={videoRef}
-          poster={object?.data?.response[videoIndex].banner_photo}
+          poster={object?.data?.response[videoIndex]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
         >
           <source src={video?.[videoIndex]} type="video/mp4" />

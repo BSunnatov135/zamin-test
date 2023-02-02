@@ -31,7 +31,6 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
-  console.log("isactive", isActive);
 
   function handleRouterActions(status) {
     if (status === "event") {
