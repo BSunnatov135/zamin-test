@@ -28,10 +28,12 @@ export default function Banner() {
     objectParams: { data: {} },
     objectProperties: {
       enabled: true,
-      select: (data) => data?.data?.response.map((el) => el.banner_video),
+      // select: (data) => data?.data?.response.map((el) => el.banner_video),
     },
   });
-
+  console.log(object);
+  const video = object?.data?.response.map((el) => el.banner_video);
+  console.log("video==>", video);
   const playVideo = () => {
     videoRef.current.play();
     setIsPlay(false);
@@ -47,20 +49,20 @@ export default function Banner() {
     if (!video) return;
     setTimeout(() => {
       setvideoIndex((prev) => {
-        if (object?.length - 1 === videoIndex) {
+        if (video?.length - 1 === videoIndex) {
           return 0;
         } else {
           return ++prev;
         }
       });
     }, video.duration * 1000);
-  }, [object, videoIndex]);
+  }, [video, videoIndex]);
 
   useEffect(() => {
-    if (object?.length) {
+    if (video?.length) {
       videoRef.current.load();
     }
-  }, [object, videoIndex]);
+  }, [video, videoIndex]);
 
   return (
     <>
@@ -69,9 +71,10 @@ export default function Banner() {
           autoPlay
           muted
           ref={videoRef}
+          poster={object?.data?.response[videoIndex].banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
         >
-          <source src={object?.[videoIndex]} type="video/mp4" />
+          <source src={video?.[videoIndex]} type="video/mp4" />
         </video>
         <Container
           sx={{

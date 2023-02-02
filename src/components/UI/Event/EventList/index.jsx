@@ -15,6 +15,7 @@ import { format } from "date-fns";
 export default function EventPage() {
   const [datePicker, setDatePicker] = useState([null, null]);
   const [data, setData] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
