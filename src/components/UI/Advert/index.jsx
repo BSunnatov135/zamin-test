@@ -52,7 +52,11 @@ export default function Advert() {
                 <div className={styles.header}>
                   <Link href={`/news-info/${item.guid}?from=news`}>
                     <a>
-                      <p>{item?.[`${lang}_header`]}</p>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: item?.[`${lang}_header`],
+                        }}
+                      />
                     </a>
                   </Link>
                 </div>

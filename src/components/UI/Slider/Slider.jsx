@@ -27,7 +27,12 @@ export default function Slider({ data, title }) {
   }, [slideIndex, newArr, data]);
   return (
     <>
-      <h2 className={styles.sectionTitle}>{title}</h2>
+      <h2
+        className={styles.sectionTitle}
+        dangerouslySetInnerHTML={{
+          __html: title,
+        }}
+      />
       {currentData &&
         (newArr.length > 1 ? (
           <div className={styles.containerSlider}>

@@ -15,7 +15,12 @@ export default function EventItem({ item }) {
             <img src={item[`${lang}_poster`]} alt={item[`${lang}_header`]} />
           </div>
           <div className={styles.body}>
-            <p className={styles.body__title}>{item[`${lang}_header`]}</p>
+            <p
+              className={styles.body__title}
+              dangerouslySetInnerHTML={{
+                __html: item?.[`${lang}_header`],
+              }}
+            />
             <p
               className={styles.body__text}
               dangerouslySetInnerHTML={{
