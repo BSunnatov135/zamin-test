@@ -29,6 +29,7 @@ export default function HelpPeople() {
     return sphere?.data?.response[0];
   }, [sphere]);
 
+  console.log(sphere?.data?.response[0])
   const hanldeClick = (e) => {
     setDataSphere([e.guid]);
   };
@@ -49,6 +50,7 @@ export default function HelpPeople() {
               <div className={styles.header}>
                 {spheres?.data?.response?.map((item, i) => (
                   <div
+                  key={item.guid}
                     onClick={(e) => {
                       e.preventDefault();
                       hanldeClick(item);
@@ -68,7 +70,12 @@ export default function HelpPeople() {
                 ))}
               </div>
               <div className={styles.body}>
-                <h3>{data?.[`${lang}_name`]}</h3>
+                <h3
+                className={styles.name}
+                dangerouslySetInnerHTML={{
+                  __html: data?.[`${lang}_name`],
+                }}
+                ></h3>
                 <p
                   className={styles.description}
                   dangerouslySetInnerHTML={{
