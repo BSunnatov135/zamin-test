@@ -48,19 +48,15 @@
     overflow: visible;
 
     .item {
-      border-right: 1px solid #e5e9eb;
       padding-right: 20px;
+      position: relative;
+
 
       @media screen and (max-width: 600px) {
         border-bottom: 1px solid #e5e9eb;
         border-right: none;
       }
-
-      &:last-child {
-        border: none;
-        padding-right: 0;
-      }
-
+      
       .title {
         font-weight: 600;
         font-size: 40px;

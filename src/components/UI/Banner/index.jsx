@@ -71,6 +71,7 @@ export default function Banner() {
           ref={videoRef}
           poster={object?.data?.response[videoIndex]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
+          loop={true}
         >
           <source src={video?.[videoIndex]} type="video/mp4" />
         </video>

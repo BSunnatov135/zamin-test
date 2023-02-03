@@ -35,7 +35,6 @@ export default function Achievements() {
     },
   });
 
-  console.log("achievements", achievements);
   const { t } = useTranslation("common");
   return (
     <Box
@@ -51,9 +50,9 @@ export default function Achievements() {
             arrows: true,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
-            infinite: false,
+            infinite: true,
             speed: 500,
-            slidesToShow: 6,
+            slidesToShow: 5,
             slidesToScroll: 1,
             responsive: [
               {
