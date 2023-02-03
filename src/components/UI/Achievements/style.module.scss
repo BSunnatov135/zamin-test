@@ -1,66 +1,92 @@
 @import "styles/unit.scss";
 @import url("/public/fonts/font.css");
 
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 38%;
+  transform: translate(0, -50%);
+  right: -40px;
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  transform: translate(0, -50%);
+  left: -30px;
+  transform: rotate(180deg);
+}
+
 .main {
-  padding: 60px 0 86px;
+  padding: 60px 0 116px;
   color: #fff;
+
   @media screen and (max-width: 600px) {
     padding-bottom: 48px;
     padding-top: 32px;
   }
-  h2 {
+
+  .head {
     font-weight: 600;
     font-size: 32px;
     line-height: 44px;
     margin-bottom: 58px;
+
     @media screen and (max-width: 600px) {
       margin-bottom: 0;
       font-size: 24px;
       line-height: 35px;
     }
+
   }
-  .list {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    @media screen and (max-width: 600px) {
-      grid-template-columns: 100%;
-    }
-    column-gap: 15px;
+
+  .slider {
+    max-height: 75px;
+    position: relative;
+    overflow: visible;
+
     .item {
       border-right: 1px solid #e5e9eb;
       padding-right: 20px;
+
       @media screen and (max-width: 600px) {
         border-bottom: 1px solid #e5e9eb;
         border-right: none;
       }
+
       &:last-child {
         border: none;
         padding-right: 0;
       }
-      p {
+
+      .title {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 54px;
         text-align: center;
-        &:first-child {
-          font-weight: 600;
-          font-size: 40px;
-          line-height: 54px;
-          @media screen and (max-width: 600px) {
-            padding-top: 28px;
-            text-align: left;
-            font-size: 32px;
-            line-height: 44px;
-          }
+
+        @media screen and (max-width: 600px) {
+          padding-top: 28px;
+          text-align: left;
+          font-size: 32px;
+          line-height: 44px;
         }
-        &:nth-child(2) {
-          font-size: 14px;
-          line-height: 19px;
-          margin-top: 12px;
-          font-family: "Noto Sans" !important;
-          @media screen and (max-width: 600px) {
-            padding-bottom: 16px;
-            text-align: left;
-            font-size: 16px;
-            line-height: 20px;
-          }
+      }
+
+      .desc {
+        text-align: center;
+        font-size: 14px;
+        line-height: 19px;
+        margin-top: 12px;
+        font-family: "Noto Sans" !important;
+
+        @media screen and (max-width: 600px) {
+          padding-bottom: 16px;
+          text-align: left;
+          font-size: 16px;
+          line-height: 20px;
         }
       }
     }

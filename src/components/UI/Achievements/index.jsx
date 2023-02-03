@@ -1,34 +1,41 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import { Box } from "@mui/system";
-
+import useAchievements from "services/achievements";
 import useTranslation from "next-translate/useTranslation";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { ArrowRightIcon } from "/public/icons/icons";
 
-const items = [
-  {
-    title: "120 млрд",
-    desc: "Общая благотворительная поддержка",
-  },
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={styles.next} onClick={onClick}>
+      <ArrowRightIcon />
+    </div>
+  );
+}
 
-  {
-    title: "30+",
-    desc: "Установленных автоматических станции мониторинга воздуха",
-  },
-  {
-    title: "2+",
-    desc: "операций кохлеарной имплантации ежегодно",
-  },
-  {
-    title: "55+",
-    desc: "запущенных проектов",
-  },
-  {
-    title: "5000",
-    desc: "карт были переданы нуждающимся женщинам",
-  },
-];
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div className={styles.prev} onClick={onClick}>
+      <ArrowRightIcon />
+    </div>
+  );
+}
 
 export default function Achievements() {
+  const { lang } = useTranslation();
+
+  const { achievements } = useAchievements({
+    achieveParams: {
+      on_main: true,
+    },
+  });
+
+  console.log("achievements", achievements);
   const { t } = useTranslation("common");
   return (
     <Box
@@ -36,32 +43,63 @@ export default function Achievements() {
         background: "#09999a",
       }}
     >
-      <Container>
-        <div className={styles.main}>
-          <h2>{t("achievement_title")}</h2>
-          <div className={styles.list}>
-            <div className={styles.item}>
-              <p>{t("achievement_sum")}</p>
-              <p>{t("achievement_support")}</p>
-            </div>
-            <div className={styles.item}>
-              <p>30+</p>
-              <p>{t("achievement_monitoring")}</p>
-            </div>
-            <div className={styles.item}>
-              <p>2+</p>
-              <p>{t("achievement_operation")}</p>
-            </div>
-            <div className={styles.item}>
-              <p>55+</p>
-              <p>{t("achievement_projects")}</p>
-            </div>
-            <div className={styles.item}>
-              <p>5000</p>
-              <p>{t("achievement_women")}</p>
-            </div>
-          </div>
-        </div>
+      <Container className={styles.main}>
+        <h2 className={styles.head}>{t("achievement_title")}</h2>
+        <Slider
+          {...{
+            dots: false,
+            arrows: true,
+            nextArrow: <SampleNextArrow />,
+            prevArrow: <SamplePrevArrow />,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 900,
+                settings: {
+                  slidesToShow: 5,
+                  slidesToScroll: 1,
+                },
+              },
+              {
+                breakpoint: 700,
+                settings: {
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                },
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1,
+                },
+              },
+            ],
+          }}
+          className={styles.slider}
+        >
+          {achievements?.data?.response?.map((element) => {
+            return (
+              <div key={element.guid} className={styles.item}>
+                <p
+                  className={styles.title}
+                  dangerouslySetInnerHTML={{
+                    __html: element?.[`${lang}_title`],
+                  }}
+                />
+                <p
+                  className={styles.desc}
+                  dangerouslySetInnerHTML={{
+                    __html: element?.[`${lang}_description`],
+                  }}
+                />
+              </div>
+            );
+          })}
+        </Slider>
       </Container>
     </Box>
   );
