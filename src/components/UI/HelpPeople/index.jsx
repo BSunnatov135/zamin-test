@@ -8,6 +8,7 @@ import useSpheres from "services/spheres";
 import SphereItem from "./SphereItem";
 import { useMemo } from "react";
 import { useEffect } from "react";
+import { DefaultImage } from "/public/icons/icons";
 
 export default function HelpPeople() {
   const { t } = useTranslation("common");
@@ -91,7 +92,7 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            <img src={data?.[`${lang}_photo`]} />
+            {data?.[`${lang}_photo`] ? <img src={data?.[`${lang}_photo`]} alt="image" /> : <div className={styles.defaultWrapper}><DefaultImage/></div>}
           </div>
         </div>
       </div>
