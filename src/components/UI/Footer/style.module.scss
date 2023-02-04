@@ -47,6 +47,9 @@
     .SocialIcons {
       display: flex;
       column-gap: 12px;
+      svg path { 
+        stroke: none;
+      }
     }
   }
   display: flex;

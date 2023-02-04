@@ -11,8 +11,11 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import useAdverts from "services/advert";
+import TelegramHeader from "assests/icons/TelegramHeader.svg";
+import InstagramHeader from "assests/icons/InstagramHeader.svg";
+import FaceBookHeader from "assests/icons/FaceBookHeader.svg";
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
@@ -196,6 +199,17 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("sns")}
                 </a>
               </Link>
+              <div className={styles.SocialIcons}>
+                <a href="https://www.instagram.com/zaminfoundation/" target="_blank" rel="noopener noreferrer">
+                  <InstagramHeader />
+                </a>
+                <a href="https://www.facebook.com/zaminfoundation" target="_blank" rel="noopener noreferrer">
+                  <FaceBookHeader />
+                </a>
+                <a >
+                  <TelegramHeader href="https://t.me/zaminfoundation" target="_blank" rel="noopener noreferrer" />
+                </a>
+              </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 {t("cabinet")}
               </p>

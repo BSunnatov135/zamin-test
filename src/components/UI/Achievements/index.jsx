@@ -56,6 +56,13 @@ export default function Achievements() {
             slidesToScroll: 1,
             responsive: [
               {
+                breakpoint: 1250,
+                settings: {
+                  slidesToShow: 4,
+                  slidesToScroll: 1,
+                },
+              },
+              {
                 breakpoint: 900,
                 settings: {
                   slidesToShow: 5,
@@ -99,6 +106,26 @@ export default function Achievements() {
             );
           })}
         </Slider>
+        <div className={styles.sliderNon}>
+        {achievements?.data?.response?.map((element) => {
+            return (
+              <div key={element.guid} className={styles.item}>
+                <p
+                  className={styles.title}
+                  dangerouslySetInnerHTML={{
+                    __html: element?.[`${lang}_title`],
+                  }}
+                />
+                <p
+                  className={styles.desc}
+                  dangerouslySetInnerHTML={{
+                    __html: element?.[`${lang}_description`],
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
       </Container>
     </Box>
   );
