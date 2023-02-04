@@ -79,12 +79,9 @@ export default function Banner() {
           sx={{
             height: "100%",
           }}
-        >
-          {projects?.data?.response?.map(
-            (item) =>
-              item?.guid == "ae66b866-ff55-4e82-aa56-91e1b0dec7b7" && (
+        > 
                 <div className={styles.content}>
-                  <h1>{item[`${lang}_name`]}</h1>
+                  {/* <h1>{item[`${lang}_name`]}</h1> */}
                   <h1>{t("banner_title")}</h1>
                   <Link href={`/about`}>
                     <a>
@@ -93,8 +90,6 @@ export default function Banner() {
                     </a>
                   </Link>
                 </div>
-              )
-          )}
         </Container>
         <div className={styles.play} onClick={isPlay ? playVideo : pauseVideo}>
           {!isPlay ? <PauseIcon /> : <PlayIcon />}
