@@ -35,6 +35,7 @@ export default function EventPage() {
 
   const ResponseData = () => {
     if (events?.data?.response) {
+      if (!events?.data?.response?.length) return setHasMore(false)
       if (currentPage == 1) {
         setData(events?.data?.response);
       } else {
@@ -59,7 +60,7 @@ export default function EventPage() {
           <CRangePicker value={datePicker} onChange={setDatePicker} />
         </div>
 
-        <InfiniteScroll
+        {data?.length > 0 && <InfiniteScroll
           dataLength={data?.length || 0}
           style={{ overflow: "visible" }}
           hasMore={hasMore}
@@ -86,16 +87,14 @@ export default function EventPage() {
             )
           }
         >
-          {data.length > 0 ? (
+          {data.length > 0 && (
             <div className={styles.list}>
               {data?.map((item) => (
                 <EventItem key={item?.guid} item={item} />
               ))}
             </div>
-          ) : (
-            []
           )}
-        </InfiniteScroll>
+        </InfiniteScroll>}
       </div>
     </Container>
   );

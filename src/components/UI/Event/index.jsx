@@ -7,6 +7,7 @@ import useEvents from "services/events";
 import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { setScrollRefEvents } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import { format } from "date-fns";
 
 export default function Event() {
   const { lang } = useTranslation();
@@ -18,6 +19,16 @@ export default function Event() {
       limit: 5,
     },
   });
+
+  const fullDate = (i) => {
+    try {
+      const res = format(
+        new Date(events?.data?.response?.[i].date),
+        "MM.dd.yyyy"
+      );
+      return res;
+    } catch (err) {}
+  };
   const eventsContainerRef = useRef(null);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -55,7 +66,7 @@ export default function Event() {
                     __html: events?.data?.response?.[0][`${lang}_header`],
                   }}
                 ></p>
-                <p>{events?.data?.response?.[0].date}</p>
+                <p>{fullDate(0)}</p>
               </div>
             </div>
             <div
@@ -73,7 +84,7 @@ export default function Event() {
                     __html: events?.data?.response?.[1][`${lang}_header`],
                   }}
                 ></p>
-                <p>{events?.data?.response?.[1].date}</p>
+                <p>{fullDate(1)}</p>
               </div>
             </div>
             <div
@@ -91,7 +102,7 @@ export default function Event() {
                     __html: events?.data?.response?.[2][`${lang}_header`],
                   }}
                 ></p>
-                <p>{events?.data?.response?.[2].date}</p>
+                <p>{fullDate(2)}</p>
               </div>
             </div>
           </div>
@@ -111,7 +122,7 @@ export default function Event() {
                     __html: events?.data?.response?.[3][`${lang}_header`],
                   }}
                 ></p>
-                <p>{events?.data?.response?.[3].date}</p>
+                <p>{fullDate(3)}</p>
               </div>
             </div>
             <div
@@ -129,7 +140,7 @@ export default function Event() {
                     __html: events?.data?.response?.[4][`${lang}_header`],
                   }}
                 ></p>
-                <p>{events?.data?.response?.[4].date}</p>
+                <p>{fullDate(4)}</p>
               </div>
             </div>
           </div>

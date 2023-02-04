@@ -15,12 +15,12 @@ export default function Banner({ contents, router, item }) {
           }}
           className={styles.description}
         ></p>
-        {!router.query.key && (
+        {/* {!router.query.key && (
           <Link className={styles.link} href="/">
             <span>{t("donate")}</span>
             <ArrowRight />
           </Link>
-        )}
+        )} */}
       </div>
     </Container>
   );

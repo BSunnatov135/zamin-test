@@ -246,7 +246,12 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
               passHref
               legacyBehavior
             >
-              <a onClick={(e) => handleLinks(e, data.key)}>{data.title}</a>
+              <a
+                onClick={(e) => handleLinks(e, data.key)}
+                dangerouslySetInnerHTML={{
+                  __html: data.title,
+                }}
+              ></a>
             </Link>
           ))}
       </div>

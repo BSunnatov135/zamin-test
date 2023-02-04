@@ -71,6 +71,7 @@ export default function Banner() {
           ref={videoRef}
           poster={object?.data?.response[videoIndex]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
+          loop={true}
         >
           <source src={video?.[videoIndex]} type="video/mp4" />
         </video>
@@ -83,7 +84,7 @@ export default function Banner() {
             (item) =>
               item?.guid == "ae66b866-ff55-4e82-aa56-91e1b0dec7b7" && (
                 <div className={styles.content}>
-                  {/* <h1>{item[`${lang}_name`]}</h1> */}
+                  <h1>{item[`${lang}_name`]}</h1>
                   <h1>{t("banner_title")}</h1>
                   <Link href={`/about`}>
                     <a>

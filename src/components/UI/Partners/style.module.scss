@@ -13,6 +13,7 @@
     overflow-y: visible;
     position: relative;
     height: 150px;
+
     .popover {
       font-weight: 400;
       font-size: 12px;
@@ -33,31 +34,39 @@
 
     .mobileIcon {
       mix-blend-mode: multiply;
+
       @media screen and (min-width: 500px) {
         display: none;
       }
     }
+
     .desktopIcon {
       mix-blend-mode: multiply;
+
       @media screen and (max-width: 500px) {
         display: none;
       }
     }
+
     svg {
       background: #f7f7f7;
+
       path {
         mix-blend-mode: multiply;
       }
     }
   }
+
   .next {
     cursor: pointer;
     position: absolute;
     top: 40%;
     transform: translate(0, -50%);
     right: 0;
+
     svg {
       transform: rotate(180deg);
+
       &:hover {
         path {
           fill: #000;
@@ -65,12 +74,14 @@
       }
     }
   }
+
   .prev {
     cursor: pointer;
     position: absolute;
     top: 40%;
     transform: translate(0, -50%);
     left: 0;
+
     svg {
       &:hover {
         path {

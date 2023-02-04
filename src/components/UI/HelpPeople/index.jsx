@@ -8,6 +8,7 @@ import useSpheres from "services/spheres";
 import SphereItem from "./SphereItem";
 import { useMemo } from "react";
 import { useEffect } from "react";
+import { DefaultImage } from "/public/icons/icons";
 
 export default function HelpPeople() {
   const { t } = useTranslation("common");
@@ -29,6 +30,7 @@ export default function HelpPeople() {
     return sphere?.data?.response[0];
   }, [sphere]);
 
+  console.log(sphere?.data?.response[0])
   const hanldeClick = (e) => {
     setDataSphere([e.guid]);
   };
@@ -49,6 +51,7 @@ export default function HelpPeople() {
               <div className={styles.header}>
                 {spheres?.data?.response?.map((item, i) => (
                   <div
+                  key={item.guid}
                     onClick={(e) => {
                       e.preventDefault();
                       hanldeClick(item);
@@ -68,7 +71,12 @@ export default function HelpPeople() {
                 ))}
               </div>
               <div className={styles.body}>
-                <h3>{data?.[`${lang}_name`]}</h3>
+                <h3
+                className={styles.name}
+                dangerouslySetInnerHTML={{
+                  __html: data?.[`${lang}_name`],
+                }}
+                ></h3>
                 <p
                   className={styles.description}
                   dangerouslySetInnerHTML={{
@@ -84,7 +92,7 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            <img src={data?.[`${lang}_photo`]} />
+            {data?.[`${lang}_photo`] ? <img src={data?.[`${lang}_photo`]} alt="image" /> : <div className={styles.defaultWrapper}><DefaultImage/></div>}
           </div>
         </div>
       </div>
