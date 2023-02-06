@@ -28,7 +28,6 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
-  console.log("isActive", isActive);
 
   useEffect(() => {
     if (open) {
