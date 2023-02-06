@@ -90,7 +90,12 @@ export default function Footer() {
               {/* <Link href="/">
                 <a>{t("funding")}</a>
               </Link> */}
-              <Link href="/about#board" scroll={false} passHref legacyBehavior>
+              <Link
+                href="/about#board"
+                passHref={true}
+                scroll={false}
+                legacyBehavior
+              >
                 <a>{t("trust")}</a>
               </Link>
             </div>
