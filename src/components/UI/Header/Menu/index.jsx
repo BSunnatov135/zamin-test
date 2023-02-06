@@ -16,7 +16,6 @@ import useAdverts from "services/advert";
 import TelegramHeader from "assests/icons/TelegramHeader.svg";
 import InstagramHeader from "assests/icons/InstagramHeader.svg";
 import FaceBookHeader from "assests/icons/FaceBookHeader.svg";
-import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 export default function Menu({ open, menuRef, handleClose, handleLogin }) {
   const router = useRouter();
