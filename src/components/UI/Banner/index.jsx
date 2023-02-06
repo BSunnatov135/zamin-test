@@ -9,7 +9,6 @@ import useProjects from "services/projects";
 import useTranslation from "next-translate/useTranslation";
 import { useCallback } from "react";
 import useObjects from "services/objectService";
-import Logo from "assests/icons/FaceBookHeader.svg";
 
 export default function Banner() {
   const { t } = useTranslation("common");
@@ -66,21 +65,23 @@ export default function Banner() {
   return (
     <>
       <div className={styles.banner}>
-            <video
-            src={video?.[videoIndex]}
-            autoPlay
-            muted
-            ref={videoRef}
-            poster={object?.data?.response[1]?.banner_photo }
-            onLoadedMetadata={handleLoadedMetadata}
-            width="640" height="480"
-          ></video>
+        {console.log("indexindex", videoIndex)}
+        <video
+          src={video?.[videoIndex]}
+          autoPlay
+          muted
+          ref={videoRef}
+          poster={object?.data?.response[0]?.banner_photo}
+          onLoadedMetadata={handleLoadedMetadata}
+        >
+        </video>
         <Container
           sx={{
             height: "100%",
           }}
         >
           <div className={styles.content}>
+            {/* <h1>{item[`${lang}_name`]}</h1> */}
             <h1>{t("banner_title")}</h1>
             <Link href={`/about`}>
               <a>
