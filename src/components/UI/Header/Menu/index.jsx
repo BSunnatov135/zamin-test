@@ -204,16 +204,22 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 <a
                   href="https://www.instagram.com/zaminfoundation/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <InstagramHeader />
                 </a>
                 <a
                   href="https://www.facebook.com/zaminfoundation"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <FaceBookHeader />
                 </a>
-                <a href="https://t.me/zaminfoundation" target="_blank">
+                <a
+                  href="https://t.me/zaminfoundation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TelegramHeader />
                 </a>
               </div>

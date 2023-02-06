@@ -136,9 +136,9 @@ export default function Footer() {
                   {t("event_title")}
                 </a>
               </Link>
-              <Link href="/gallery">
+              {/* <Link href="/gallery">
                 <a>{t("gallery")}</a>
-              </Link>
+              </Link> */}
             </div>
             <div className={styles.box}>
               <p className={styles.subtitle}>{t("contact")}</p>
@@ -299,13 +299,25 @@ export default function Footer() {
         <div className={styles.bottomElement}>
           <p className={styles.subtitle}>{t("rights")}</p>
           <div className={styles.SocialIcons}>
-            <a href="https://www.instagram.com/zaminfoundation/">
+            <a
+              href="https://www.instagram.com/zaminfoundation/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <InstagramIcon />
             </a>
-            <a href="https://www.facebook.com/zaminfoundation">
+            <a
+              href="https://www.facebook.com/zaminfoundation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FacebookIcon />
             </a>
-            <a href="https://t.me/zaminfoundation">
+            <a
+              href="https://t.me/zaminfoundation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <TelegramIcon />
             </a>
           </div>
