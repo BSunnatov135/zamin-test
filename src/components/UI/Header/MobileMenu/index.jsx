@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 import useProjects from "services/projects";
 import InstaLight from "assests/icons/InstagramHeader.svg";
 import TelegramLight from "assests/icons/TelegramHeader.svg";
-import FacebookLight from "assests/icons/FacebookHeader.svg";
+import FacebookLight from "assests/icons/FaceBookHeader.svg";
 import { useRouter } from "next/router";
 
 export default function MobileMenu({ open, handleClose, handleLogin }) {
