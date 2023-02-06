@@ -49,7 +49,6 @@ export default function Banner() {
     let videos = object?.data?.response.map((el) => el.banner_video);
     const video = videoRef.current;
     if (!video) return;
-    console.log(videos.length);
     setTimeout(() => {
       setVideoIndex((prev) => {
         if (videos?.length - 1 === videoIndex) {
