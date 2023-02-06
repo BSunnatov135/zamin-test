@@ -58,7 +58,6 @@
           height: 233px;
         }
       }
-
     }
 
     .leftElement {
@@ -142,7 +141,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             color: #fff;
-
+            font-family: "Noto Serif" !important;
             @media screen and (max-width: 1200px) {
               font-weight: 500;
               font-size: 24px;
@@ -190,7 +189,7 @@
             }
           }
 
-          &>p {
+          & > p {
             overflow: hidden;
             display: -webkit-box !important;
             -webkit-line-clamp: 5;

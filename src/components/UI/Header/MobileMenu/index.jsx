@@ -12,6 +12,7 @@ import TelegramLight from "assests/icons/TelegramHeader.svg";
 import FacebookLight from "assests/icons/FaceBookHeader.svg";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
+import useAdverts from "services/advert";
 
 export default function MobileMenu({ open, handleClose, handleLogin }) {
   const [activeLink, setActiveLink] = useState(null);
@@ -24,7 +25,10 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       limit: 3,
     },
   });
-  console.log("sphere", spheres);
+  const { isActive } = useAdverts({
+    advertIsActive: {},
+  });
+  console.log("isActive", isActive);
 
   useEffect(() => {
     if (open) {
@@ -161,7 +165,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             {items[0].title}
             <RightArrow />
           </a>
-          <a href="/news" >{items[1].title}</a>
+          {isActive?.data == "true" && <a href="/news">{items[1].title}</a>}
           <a
             href="#"
             onClick={(e) => {
