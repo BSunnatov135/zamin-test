@@ -66,8 +66,6 @@ export default function Banner() {
   return (
     <>
       <div className={styles.banner}>
-        {console.log("indexindex", videoIndex)}
-          { object?.data?.response[1]?.banner_photo ? 
             <video
             src={video?.[videoIndex]}
             autoPlay
@@ -77,8 +75,6 @@ export default function Banner() {
             onLoadedMetadata={handleLoadedMetadata}
             width="640" height="480"
           ></video>
-          : <img src="" alt="" />
-          }
         <Container
           sx={{
             height: "100%",
