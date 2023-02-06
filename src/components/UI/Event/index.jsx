@@ -13,6 +13,7 @@ export default function Event() {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   const router = useRouter();
+  console.log("router==", router);
   const { events } = useEvents({
     eventParams: {
       offset: 0,

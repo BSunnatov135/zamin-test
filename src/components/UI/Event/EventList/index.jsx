@@ -11,11 +11,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { Skeleton } from "@mui/material";
 import CRangePicker from "components/UI/CRangePicker/CRangePicker";
 import { format } from "date-fns";
+import { useRouter } from "next/router";
 
 export default function EventPage() {
   const [datePicker, setDatePicker] = useState([null, null]);
   const [data, setData] = useState([]);
-
+  const router = useRouter();
+  console.log("router==", router);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
@@ -35,7 +37,7 @@ export default function EventPage() {
 
   const ResponseData = () => {
     if (events?.data?.response) {
-      if (!events?.data?.response?.length) return setHasMore(false)
+      if (!events?.data?.response?.length) return setHasMore(false);
       if (currentPage == 1) {
         setData(events?.data?.response);
       } else {
@@ -60,41 +62,43 @@ export default function EventPage() {
           <CRangePicker value={datePicker} onChange={setDatePicker} />
         </div>
 
-        {data?.length > 0 && <InfiniteScroll
-          dataLength={data?.length || 0}
-          style={{ overflow: "visible" }}
-          hasMore={hasMore}
-          next={() => setCurrentPage((pre) => ++pre)}
-          loader={
-            hasMore && (
-              <div className={styles.skeletonWrapper}>
-                <div className={styles.skeletonItem}>
-                  <Skeleton variant="rectangle" width="100%" height="50px" />
-                  <Skeleton variant="rectangle" width="100%" height="130px" />
-                  <Skeleton variant="rectangle" width="212px" height="24px" />
+        {data?.length > 0 && (
+          <InfiniteScroll
+            dataLength={data?.length || 0}
+            style={{ overflow: "visible" }}
+            hasMore={hasMore}
+            next={() => setCurrentPage((pre) => ++pre)}
+            loader={
+              hasMore && (
+                <div className={styles.skeletonWrapper}>
+                  <div className={styles.skeletonItem}>
+                    <Skeleton variant="rectangle" width="100%" height="50px" />
+                    <Skeleton variant="rectangle" width="100%" height="130px" />
+                    <Skeleton variant="rectangle" width="212px" height="24px" />
+                  </div>
+                  <div className={styles.skeletonItem}>
+                    <Skeleton variant="rectangle" width="100%" height="50px" />
+                    <Skeleton variant="rectangle" width="100%" height="130px" />
+                    <Skeleton variant="rectangle" width="212px" height="24px" />
+                  </div>
+                  <div className={styles.skeletonItem}>
+                    <Skeleton variant="rectangle" width="100%" height="50px" />
+                    <Skeleton variant="rectangle" width="100%" height="130px" />
+                    <Skeleton variant="rectangle" width="212px" height="24px" />
+                  </div>
                 </div>
-                <div className={styles.skeletonItem}>
-                  <Skeleton variant="rectangle" width="100%" height="50px" />
-                  <Skeleton variant="rectangle" width="100%" height="130px" />
-                  <Skeleton variant="rectangle" width="212px" height="24px" />
-                </div>
-                <div className={styles.skeletonItem}>
-                  <Skeleton variant="rectangle" width="100%" height="50px" />
-                  <Skeleton variant="rectangle" width="100%" height="130px" />
-                  <Skeleton variant="rectangle" width="212px" height="24px" />
-                </div>
+              )
+            }
+          >
+            {data.length > 0 && (
+              <div className={styles.list}>
+                {data?.map((item) => (
+                  <EventItem key={item?.guid} item={item} />
+                ))}
               </div>
-            )
-          }
-        >
-          {data.length > 0 && (
-            <div className={styles.list}>
-              {data?.map((item) => (
-                <EventItem key={item?.guid} item={item} />
-              ))}
-            </div>
-          )}
-        </InfiniteScroll>}
+            )}
+          </InfiniteScroll>
+        )}
       </div>
     </Container>
   );

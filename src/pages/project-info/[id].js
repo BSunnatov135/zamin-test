@@ -5,6 +5,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import useProjects from "services/projects";
+import useSpheres from "services/spheres";
 
 export default function Home() {
   const router = useRouter();
@@ -23,6 +24,7 @@ export default function Home() {
   const data = useMemo(() => {
     return project?.data?.response ?? [];
   }, [project]);
+  console.log("data===", data);
 
   const sliderData = useMemo(() => {
     let currentData;
