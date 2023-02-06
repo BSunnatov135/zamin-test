@@ -17,7 +17,6 @@ export default function About() {
         <div className={styles.context}>
           <p>{t("aim")}</p>
           <p>{t("focus")}</p>
-          <p>{t("protection")}</p>
           <p>{t("monitor")}</p>
           <p>{t("development")}</p>
           <p>{t("condition")}</p>
