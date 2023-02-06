@@ -19,7 +19,7 @@ export default function Info({ title, sliderData, data }) {
     <>
       <Slider data={sliderData ?? []} title={title} />
       <Content item={data ? data : {}} router={router} />
-      {!queryFrom && <Projects sphere={sphere} />}
+      {!queryFrom && <Projects sphere={sphere} data={data} />}
     </>
   );
 }

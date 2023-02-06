@@ -12,18 +12,20 @@ import useSpheres from "services/spheres";
 export default function Projects(sphere) {
   const { t } = useTranslation("common");
   const router = useRouter();
-  console.log("router=", router);
-  if (router?.asPath.includes("info")) {
-    console.log("hi");
-  } else {
-    console.log("hello");
-  }
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
       limit: 3,
     },
   });
+  const { charitySphere } = useSpheres({
+    dataSphere: {
+      offset: 0,
+      limit: 1,
+      spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
+    },
+  });
+  console.log("charity===", charitySphere);
 
   console.log("sphere", sphere?.sphere?.data);
   return (
@@ -41,13 +43,23 @@ export default function Projects(sphere) {
               <p className={styles.title}>{t("projects_title")}</p>
               <p className={styles.responsiveTitle}>{t("projects")}</p>
             </div>
-            <Link href="/projects">
-              <a className={styles.responsiveLink}>
+            <Link
+              href={`/projects/${sphere?.sphere?.data?.response[0].spheres_id}`}
+            >
+              <a
+                className={styles.responsiveLink}
+                href={`/projects/${sphere?.sphere?.data?.response[0].spheres_id}`}
+              >
                 {t("all")} <ArrowRightIcon />
               </a>
             </Link>
-            <Link href="/projects">
-              <a className={styles.link}>
+            <Link
+              href={`/projects/${sphere?.sphere?.data?.response[0].spheres_id}`}
+            >
+              <a
+                className={styles.link}
+                href={`/projects/${sphere?.sphere?.data?.response[0].spheres_id}`}
+              >
                 {t("all_projects")} <ArrowRightIcon />
               </a>
             </Link>

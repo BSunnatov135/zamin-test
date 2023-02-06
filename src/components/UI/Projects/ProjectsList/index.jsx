@@ -3,6 +3,7 @@ import styles from "./style.module.scss";
 import ProjectItem from "../ProjectItem";
 import useProjects from "services/projects";
 import useTranslation from "next-translate/useTranslation";
+import useSpheres from "services/spheres";
 
 export default function ProjectsPage() {
   const { t } = useTranslation("common");
@@ -12,6 +13,14 @@ export default function ProjectsPage() {
       limit: 100,
     },
   });
+  const { charitySphere } = useSpheres({
+    dataSphere: {
+      offset: 0,
+      limit: 3,
+      spheres_id: "954b354c-037c-4e9a-b9f3-4cb9057c9e1c",
+    },
+  });
+  console.log("charity===", charitySphere);
   return (
     <Container>
       <div className={styles.main}>
