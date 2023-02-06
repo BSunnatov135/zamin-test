@@ -3,7 +3,7 @@
 .header {
   height: 80px;
   @include align-items-center;
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   left: 0;
   top: 0;

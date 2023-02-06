@@ -1,5 +1,5 @@
 .menu {
-  position: absolute;
+  position: fixed;
 
   left: 0;
   right: 0;
@@ -55,7 +55,7 @@
           }
         }
 
-        &>a {
+        & > a {
           @media screen and (max-width: 800px) {
             font-size: 16px;
           }
@@ -112,7 +112,9 @@
           stroke: none;
         }
       }
-
+      .iconTitle {
+        cursor: default;
+      }
       .SocialIcons {
         display: flex;
         align-items: center;

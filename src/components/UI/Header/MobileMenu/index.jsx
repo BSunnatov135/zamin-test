@@ -127,10 +127,6 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           title: `${t("event_title")}`,
           href: "/event",
         },
-        {
-          title: `${t("gallery")}`,
-          href: "/gallery",
-        },
       ],
     },
     {

@@ -148,7 +148,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   {t("event_title")}
                 </a>
               </Link>
-              <Link href="/gallery">
+              {/* <Link href="/gallery">
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
@@ -157,7 +157,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   {t("gallery")}
                 </a>
-              </Link>
+              </Link> */}
               {isActive?.data == "true" && (
                 <>
                   <p className={styles.title}>{t("advert_title")}</p>
@@ -195,6 +195,7 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                   onClick={(e) => {
                     handleClose(e);
                   }}
+                  className={styles.iconTitle}
                 >
                   {t("sns")}
                 </a>
@@ -212,11 +213,8 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 >
                   <FaceBookHeader />
                 </a>
-                <a>
-                  <TelegramHeader
-                    href="https://t.me/zaminfoundation"
-                    target="_blank"
-                  />
+                <a href="https://t.me/zaminfoundation" target="_blank">
+                  <TelegramHeader />
                 </a>
               </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
