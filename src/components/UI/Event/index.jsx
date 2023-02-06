@@ -24,7 +24,7 @@ export default function Event() {
     try {
       const res = format(
         new Date(events?.data?.response?.[i].date),
-        "MM.dd.yyyy"
+        "dd.MM.yyyy"
       );
       return res;
     } catch (err) {}

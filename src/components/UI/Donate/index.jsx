@@ -33,9 +33,6 @@ export default function Donate() {
     event && event.preventDefault();
     setOpenSuccessPopup((prev) => !prev);
   };
-  const handleSelect = (event) => {
-    console.log("select", event);
-  };
 
   return (
     <>
@@ -97,7 +94,6 @@ export default function Donate() {
                 <p>{t("choose_project")}</p>
                 <UncontrolledSelect
                   placeholder={t("project")}
-                  onChange={handleSelect}
                   options={projects?.data?.response?.map((item) => {
                     return {
                       value: item[`${lang}_name`],
