@@ -78,6 +78,9 @@
         }
         &:hover {
           .accessibilityTitle {
+            @media screen and (max-width: 400px) {
+              display: none;
+            }
             display: block;
           }
         }
