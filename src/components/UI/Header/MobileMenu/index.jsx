@@ -7,6 +7,9 @@ import RightArrow from "/src/assests/icons/rightArrow.svg";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
 import useTranslation from "next-translate/useTranslation";
 import useProjects from "services/projects";
+import InstaLight from "assests/icons/InstagramHeader.svg";
+import TelegramLight from "assests/icons/TelegramHeader.svg";
+import FacebookLight from "assests/icons/FacebookHeader.svg";
 import { useRouter } from "next/router";
 
 export default function MobileMenu({ open, handleClose, handleLogin }) {
@@ -60,13 +63,13 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       key: "fond",
       children: [
         {
-          title: `${t("creation")}`,
+          title: `${t("about_fond")}`,
           href: "/about",
         },
-        {
-          title: `${t("activity")}`,
-          href: "/about#sphere",
-        },
+        // {
+        //   title: `${t("activity")}`,
+        //   href: "/about#sphere",
+        // },
 
         {
           title: `${t("trust")}`,
@@ -190,7 +193,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             {items[4].title}
             <RightArrow />
           </a>
-          <a
+          {/* <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
@@ -200,7 +203,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
           >
             {items[5].title}
             <RightArrow />
-          </a>
+          </a> */}
           <div>
             <p className={styles.language}>{t("language")}</p>
             <ul className={styles.languageWrapper}>
@@ -246,12 +249,48 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
               passHref
               legacyBehavior
             >
-              <a
-                onClick={(e) => handleLinks(e, data.key)}
-                dangerouslySetInnerHTML={{
-                  __html: data.title,
-                }}
-              ></a>
+              <>
+                {data.title != `${t("sns")}` ? (
+                  <a
+                    onClick={(e) => handleLinks(e, data.key)}
+                    dangerouslySetInnerHTML={{
+                      __html: data.title,
+                    }}
+                  ></a>
+                ) : (
+                  <div>
+                    <a
+                      onClick={(e) => handleLinks(e, data.key)}
+                      dangerouslySetInnerHTML={{
+                        __html: data.title,
+                      }}
+                    ></a>
+                    <div className={styles.snsButtons}>
+                      <a
+                        href="https://www.instagram.com/zaminfoundation/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <InstaLight />
+                      </a>
+                      <a
+                        href="https://www.facebook.com/zaminfoundation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <FacebookLight />
+                      </a>
+                      <a
+                        href="https://t.me/zaminfoundation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <TelegramLight />
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </>
             </Link>
           ))}
       </div>

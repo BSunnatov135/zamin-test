@@ -47,6 +47,17 @@
           color: #ffffff;
         }
       }
+      .snsButtons {
+        display: flex;
+        column-gap: 12px;
+        padding: 0;
+        border: none;
+        svg {
+          path {
+            stroke: transparent !important;
+          }
+        }
+      }
     }
 
     transform: translateX(0);

@@ -200,14 +200,23 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
                 </a>
               </Link>
               <div className={styles.SocialIcons}>
-                <a href="https://www.instagram.com/zaminfoundation/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.instagram.com/zaminfoundation/"
+                  target="_blank"
+                >
                   <InstagramHeader />
                 </a>
-                <a href="https://www.facebook.com/zaminfoundation" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.facebook.com/zaminfoundation"
+                  target="_blank"
+                >
                   <FaceBookHeader />
                 </a>
-                <a >
-                  <TelegramHeader href="https://t.me/zaminfoundation" target="_blank" rel="noopener noreferrer" />
+                <a>
+                  <TelegramHeader
+                    href="https://t.me/zaminfoundation"
+                    target="_blank"
+                  />
                 </a>
               </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
