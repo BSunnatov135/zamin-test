@@ -14,7 +14,7 @@ export default function Banner() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [isPlay, setIsPlay] = useState(false);
-  const [videoIndex, setvideoIndex] = useState(0);
+  const [videoIndex, setVideoIndex] = useState(0);
   const videoRef = useRef();
   const { projects } = useProjects({
     projectParams: {
@@ -32,22 +32,27 @@ export default function Banner() {
     },
   });
   const video = object?.data?.response.map((el) => el.banner_video);
-  const playVideo = () => {
+
+  const playVideo = (e) => {
+    e.preventDefault();
     videoRef.current.play();
     setIsPlay(false);
   };
 
-  const pauseVideo = () => {
+  const pauseVideo = (e) => {
+    e.preventDefault();
     videoRef.current.pause();
     setIsPlay(true);
   };
 
   const handleLoadedMetadata = useCallback(() => {
+    let videos = object?.data?.response.map((el) => el.banner_video);
     const video = videoRef.current;
     if (!video) return;
+    console.log(videos.length);
     setTimeout(() => {
-      setvideoIndex((prev) => {
-        if (video?.length - 1 === videoIndex) {
+      setVideoIndex((prev) => {
+        if (videos?.length - 1 === videoIndex) {
           return 0;
         } else {
           return ++prev;
@@ -60,7 +65,7 @@ export default function Banner() {
     if (video?.length) {
       videoRef.current.load();
     }
-  }, [video, videoIndex]);
+  }, [videoIndex]);
 
   return (
     <>
@@ -73,8 +78,7 @@ export default function Banner() {
           ref={videoRef}
           poster={object?.data?.response[0]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
-        >
-        </video>
+        ></video>
         <Container
           sx={{
             height: "100%",
