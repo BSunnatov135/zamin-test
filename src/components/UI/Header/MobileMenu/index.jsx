@@ -11,18 +11,20 @@ import InstaLight from "assests/icons/InstagramHeader.svg";
 import TelegramLight from "assests/icons/TelegramHeader.svg";
 import FacebookLight from "assests/icons/FaceBookHeader.svg";
 import { useRouter } from "next/router";
+import useSpheres from "services/spheres";
 
 export default function MobileMenu({ open, handleClose, handleLogin }) {
   const [activeLink, setActiveLink] = useState(null);
   const { t, lang } = useTranslation("common");
 
   const router = useRouter();
-  const { projects } = useProjects({
-    projectParams: {
+  const { spheres, sphere } = useSpheres({
+    sphereParams: {
       offset: 0,
       limit: 3,
     },
   });
+  console.log("sphere", spheres);
 
   useEffect(() => {
     if (open) {
@@ -86,16 +88,16 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
       key: "projects",
       children: [
         {
-          title: `${projects?.data?.response[0][`${lang}_name`]}`,
-          href: `${`/project-info/${projects?.data?.response[0].guid}`}`,
+          title: `${spheres?.data?.response[0][`${lang}_name`]}`,
+          href: `/projects/${spheres?.data?.response[0].guid}`,
         },
         {
-          title: `${projects?.data?.response[1][`${lang}_name`]}`,
-          href: `${`/project-info/${projects?.data?.response[1].guid}`}`,
+          title: `${spheres?.data?.response[1][`${lang}_name`]}`,
+          href: `/projects/${spheres?.data?.response[1].guid}`,
         },
         {
-          title: `${projects?.data?.response[2][`${lang}_name`]}`,
-          href: `${`/project-info/${projects?.data?.response[2].guid}`}`,
+          title: `${spheres?.data?.response[2][`${lang}_name`]}`,
+          href: `/projects/${spheres?.data?.response[2].guid}`,
         },
       ],
     },
@@ -256,6 +258,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
                     dangerouslySetInnerHTML={{
                       __html: data.title,
                     }}
+                    href={data.href}
                   ></a>
                 ) : (
                   <div>
