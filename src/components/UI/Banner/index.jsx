@@ -65,11 +65,11 @@ export default function Banner() {
   return (
     <>
       <div className={styles.banner}>
-        {console.log("indexindex", videoIndex)}
         <video
           src={video?.[videoIndex]}
           autoPlay
           muted
+          playsInline
           ref={videoRef}
           poster={object?.data?.response[0]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
