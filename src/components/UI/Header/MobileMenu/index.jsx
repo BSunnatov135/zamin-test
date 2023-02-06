@@ -161,7 +161,7 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
             {items[0].title}
             <RightArrow />
           </a>
-          <a href="/news">{items[1].title}</a>
+          <a href="/news" >{items[1].title}</a>
           <a
             href="#"
             onClick={(e) => {

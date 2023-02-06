@@ -30,7 +30,6 @@ export default function HelpPeople() {
     return sphere?.data?.response[0];
   }, [sphere]);
 
-  console.log(sphere?.data?.response[0])
   const hanldeClick = (e) => {
     setDataSphere([e.guid]);
   };
@@ -40,6 +39,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
+  console.log("spheresspheres",data)
 
   return (
     <Container>

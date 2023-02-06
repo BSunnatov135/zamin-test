@@ -5,7 +5,6 @@ import { DefaultImage } from "/public/icons/icons";
 
 export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
-
   return (
     <div className={styles.item} key={item.id}>
       <Link href={`/project-info/${item.guid}`}>
