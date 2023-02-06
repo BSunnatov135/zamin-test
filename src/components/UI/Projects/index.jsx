@@ -18,16 +18,15 @@ export default function Projects(sphere) {
       limit: 3,
     },
   });
-  const { charitySphere } = useSpheres({
-    dataSphere: {
-      offset: 0,
-      limit: 1,
-      spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
-    },
-  });
-  console.log("charity===", charitySphere);
+  // const { charitySphere } = useSpheres({
+  //   dataSphere: {
+  //     offset: 0,
+  //     limit: 1,
+  //     spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
+  //   },
+  // });
+  // console.log("charity===", charitySphere);
 
-  console.log("sphere", sphere?.sphere?.data);
   return (
     <Container>
       {router?.asPath.includes("info") ? (
