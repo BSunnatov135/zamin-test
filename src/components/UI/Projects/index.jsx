@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 import Link from "next/link";
 import styles from "./style.module.scss";
-import HeartIcon from "assests/icons/heart.svg";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import ProjectItem from "./ProjectItem";
 import useProjects from "services/projects";
