@@ -79,7 +79,7 @@ export default function Footer() {
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
               <Link href="/about">
-                <a className={styles.link}>{t("about_fond")}</a>
+                <a className={styles.link}>{t("about")}</a>
               </Link>
               {/* <Link href="/">
                 <a>{t("mission")}</a>
@@ -180,17 +180,17 @@ export default function Footer() {
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
                 <Link href="/about">
-                  <Typography>{t("creation")}</Typography>
+                  <Typography>{t("about")}</Typography>
                 </Link>
                 {/* <Typography>{t("mission")}</Typography> */}
-                <Link
+                {/* <Link
                   href="/about#event"
                   scroll={false}
                   passHref
                   legacyBehavior
                 >
                   <Typography>{t("activity")}</Typography>
-                </Link>
+                </Link> */}
                 {/* <Typography>{t("funding")}</Typography> */}
                 <Link
                   href="/about#board"

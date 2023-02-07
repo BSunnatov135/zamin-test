@@ -83,7 +83,7 @@ export default function Menu({
                     handleClose(e);
                   }}
                 >
-                  {t("about_fond")}
+                  {t("about")}
                 </a>
               </Link>
               {/* <Link href="/">

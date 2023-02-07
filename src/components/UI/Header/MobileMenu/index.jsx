@@ -68,7 +68,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
       key: "fond",
       children: [
         {
-          title: `${t("about_fond")}`,
+          title: `${t("about")}`,
           href: "/about",
         },
         // {
