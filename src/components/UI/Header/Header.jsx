@@ -119,6 +119,7 @@ export default function Header() {
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
       <LoginForm open={openLogin} handleClose={handleLogin} />
     </>
