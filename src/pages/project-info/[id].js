@@ -24,7 +24,6 @@ export default function Home() {
   const data = useMemo(() => {
     return project?.data?.response ?? [];
   }, [project]);
-  console.log("data===", data);
 
   const sliderData = useMemo(() => {
     let currentData;

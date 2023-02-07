@@ -7,7 +7,6 @@ import useSpheres from "services/spheres";
 export default function Info({ title, sliderData, data }) {
   const router = useRouter();
   const queryFrom = router?.query?.from;
-  console.log("infoData", data);
   const { sphere } = useSpheres({
     dataSphere: {
       offset: 0,

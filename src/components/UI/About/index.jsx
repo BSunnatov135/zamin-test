@@ -24,12 +24,12 @@ export default function About() {
       </div>
       <Container>
         <div className={styles.context}>
-          <p>{t("aim")}</p>
-          <p>{t("focus")}</p>
-          <p>{t("monitor")}</p>
-          <p>{t("development")}</p>
-          <p>{t("condition")}</p>
-          <p>{t("name")}</p>
+          <p className={styles.aim}>{t("aim")}</p>
+          <p className={styles.isAbout}>{t("focus")}</p>
+          <p className={styles.items}>{t("monitor")}</p>
+          <p className={styles.items}>{t("development")}</p>
+          <p className={styles.items}>{t("condition")}</p>
+          <p className={styles.naming}>{t("name")}</p>
         </div>
         <div id="sphere">
           <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
@@ -60,7 +60,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <Board id="board" />
+        <Board />
       </Container>
     </>
   );
