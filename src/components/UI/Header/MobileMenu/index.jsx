@@ -215,7 +215,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
             {items[5].title}
             <RightArrow />
           </a> */}
-          <div>
+          {/* <div>
             <p className={styles.language}>{t("language")}</p>
             <ul className={styles.languageWrapper}>
               {langs.map((item) => (
@@ -233,7 +233,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       )}
 

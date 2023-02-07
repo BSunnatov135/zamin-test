@@ -27,6 +27,7 @@ import Health from "/public/logos/Health.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+  const { lang } = useTranslation();
   return (
     <div className={styles.next} onClick={onClick}>
       <PrevArrow />
@@ -210,6 +211,26 @@ export default function Partners() {
           </div>
           <ReactTooltip
             anchorId="fee"
+            place="bottom"
+            content={t("tree")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="health">
+            <img
+              src="/logos/Health.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Health.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="health"
             place="bottom"
             content={t("tree")}
             className={styles.popover}
