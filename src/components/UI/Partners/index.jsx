@@ -23,6 +23,7 @@ import useTranslation from "next-translate/useTranslation";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import React from "react";
+import Health from "/public/logos/Health.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -191,6 +192,46 @@ export default function Partners() {
             anchorId="ecoschool"
             place="bottom"
             content={t("EcoSchool")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="fee">
+            <img
+              src="/logos/FEE.jpeg"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Tree.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="fee"
+            place="bottom"
+            content={t("tree")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="health">
+            <img
+              src="/logos/Health.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Health.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="health"
+            place="bottom"
+            content={t("tree")}
             className={styles.popover}
           />
         </div>
