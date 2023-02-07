@@ -13,7 +13,6 @@ export default function Event() {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   const router = useRouter();
-  console.log("router==", router);
   const { events } = useEvents({
     eventParams: {
       offset: 0,
@@ -48,7 +47,8 @@ export default function Event() {
           link={{
             title: t("all"),
             path: "/event",
-          }}
+          }
+        }
         />
         <div className={styles.list} ref={eventsContainerRef}>
           <div className={styles.topElement}>

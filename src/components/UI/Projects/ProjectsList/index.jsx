@@ -20,7 +20,6 @@ export default function ProjectsPage() {
       spheres_id: "954b354c-037c-4e9a-b9f3-4cb9057c9e1c",
     },
   });
-  console.log("charity===", charitySphere);
   return (
     <Container>
       <div className={styles.main}>

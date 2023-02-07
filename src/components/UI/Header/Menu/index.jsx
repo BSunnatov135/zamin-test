@@ -17,11 +17,16 @@ import TelegramHeader from "assests/icons/TelegramHeader.svg";
 import InstagramHeader from "assests/icons/InstagramHeader.svg";
 import FaceBookHeader from "assests/icons/FaceBookHeader.svg";
 
-export default function Menu({ open, menuRef, handleClose, handleLogin }) {
+export default function Menu({
+  open,
+  menuRef,
+  handleClose,
+  handleLogin,
+  size,
+}) {
   const router = useRouter();
   const dispatch = useDispatch();
   const { t } = useTranslation("common");
-  const [dataSphere, setDataSphere] = useState([0]);
   const path = router.asPath;
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
@@ -54,9 +59,19 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
     <>
       <div
         ref={menuRef}
-        className={classNames(styles.menu, {
-          [styles.open]: open,
-        })}
+        className={
+          size
+            ? classNames(
+                styles.menu,
+                {
+                  [styles.open]: open,
+                },
+                styles.headerLight
+              )
+            : classNames(styles.menu, {
+                [styles.open]: open,
+              })
+        }
       >
         <Container>
           <div className={styles.element}>
@@ -160,7 +175,9 @@ export default function Menu({ open, menuRef, handleClose, handleLogin }) {
               </Link> */}
               {isActive?.data == "true" && (
                 <>
-                  <p className={styles.title}>{t("advert_title")}</p>
+                  <p className={classNames(styles.title, styles.topMargin)}>
+                    {t("advert_title")}
+                  </p>
                   <Link href="/">
                     <a
                       onClick={(e) => {

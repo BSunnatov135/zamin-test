@@ -31,6 +31,7 @@ export default function Header() {
   const ref = useRef();
   useOnClickOutside(ref, () => setOpen(false));
   //////////
+  const menuBlock = typeof window !== 'undefined' && document.getElementById("menu")
   const listenScrollEvent = () => {
     if (window.scrollY < 80) {
       setSize(false)
@@ -112,11 +113,13 @@ export default function Header() {
         open={open}
         handleClose={() => setOpen((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
       <MobileMenu
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
       <LoginForm open={openLogin} handleClose={handleLogin} />
     </>

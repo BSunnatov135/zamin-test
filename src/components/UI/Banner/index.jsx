@@ -51,20 +51,23 @@ export default function Banner() {
     if (!video) return;
     setTimeout(() => {
       setVideoIndex((prev) => {
-        if (videos?.length - 1 === videoIndex) {
-          return 0;
-        } else {
-          return ++prev;
+        if (videos?.length === 1) return 0;
+        else {
+          if (videos?.length - 1 === videoIndex) {
+            return 0;
+          } else {
+            return ++prev;
+          }
         }
       });
     }, video.duration * 1000);
   }, [video, videoIndex]);
 
-  useEffect(() => {
-    if (video?.length) {
-      videoRef.current.load();
-    }
-  }, [videoIndex]);
+  // useEffect(() => {
+  //   if (video?.length) {
+  //     videoRef.current.load();
+  //   }
+  // }, [videoIndex]);
 
   return (
     <>
@@ -77,6 +80,7 @@ export default function Banner() {
           ref={videoRef}
           poster={object?.data?.response[0]?.banner_photo}
           onLoadedMetadata={handleLoadedMetadata}
+          loop
         ></video>
         <Container
           sx={{

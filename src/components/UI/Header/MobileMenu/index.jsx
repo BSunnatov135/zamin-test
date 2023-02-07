@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import useAdverts from "services/advert";
 
-export default function MobileMenu({ open, handleClose, handleLogin }) {
+export default function MobileMenu({ open, handleClose, handleLogin, size }) {
   const [activeLink, setActiveLink] = useState(null);
   const { t, lang } = useTranslation("common");
 
@@ -143,9 +143,19 @@ export default function MobileMenu({ open, handleClose, handleLogin }) {
 
   return (
     <div
-      className={classNames(styles.menu, {
-        [styles.open]: open,
-      })}
+      className={
+        size
+          ? classNames(
+              styles.menu,
+              {
+                [styles.open]: open,
+              },
+              styles.headerLight
+            )
+          : classNames(styles.menu, {
+              [styles.open]: open,
+            })
+      }
     >
       {!activeLink && (
         <div className={styles.box}>
