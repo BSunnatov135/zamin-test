@@ -33,12 +33,6 @@ export default function Projects(sphere) {
         <div className={styles.main}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
-              <p>
-                <span>
-                  <HeartIcon />
-                </span>
-                {t("projects_motto")}
-              </p>
               <p className={styles.title}>{t("projects_title")}</p>
               <p className={styles.responsiveTitle}>{t("projects")}</p>
             </div>
@@ -76,12 +70,6 @@ export default function Projects(sphere) {
         <div className={styles.main}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
-              <p>
-                <span>
-                  <HeartIcon />
-                </span>
-                {t("projects_motto")}
-              </p>
               <p className={styles.title}>{t("projects_title")}</p>
               <p className={styles.responsiveTitle}>{t("projects")}</p>
             </div>
