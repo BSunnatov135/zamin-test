@@ -31,14 +31,12 @@ export default function Board() {
           <p className={styles.position}>{t("member")} </p>
           <p>{t("member_2_job")}</p>
         </div>
+      </div>
+      <h2 className={styles.executiveBoardTitle}>{t("executive_board")} </h2>
+      <div className={`${styles.boardWrapper} ${styles.executiveBoard}`}>
         <div className={styles.boardItem}>
-          <h6>{t("director_name")} </h6>
-          <p className={styles.position}>{t("director")}</p>
-          {/* <p>
-              Заместитель директора по лечебной работе, главный врач
-              Республиканского специализированного научно-практического
-              медицинского центра педиатрии, доктор медицинских наук
-            </p> */}
+          <h6>{t("director_name")}</h6>
+          <p>{t("director")}</p>
         </div>
       </div>
     </div>
