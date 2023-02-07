@@ -41,9 +41,9 @@ export default function Menu({
   });
 
   function handleRouterActions(status) {
-    if (status === "event") {
-      path === "/" ? scrollTo(eventsRef) : router.push("/event");
-    }
+    // if (status === "event") {
+    //   path === "/" ? scrollTo(eventsRef) : router.push("/event");
+    // }
 
     if (status === "advert") {
       path === "/" ? scrollTo(advertsRef) : router.push("/news");
@@ -152,13 +152,12 @@ export default function Menu({
                 </a>
               </Link> */}
               <p className={styles.title}>{t("media")}</p>
-              <Link href="/">
+              <Link href="/event">
                 <a
                   onClick={(e) => {
-                    e.preventDefault();
                     handleClose(e);
-                    handleRouterActions("event");
                   }}
+                  href="/event"
                 >
                   {t("event_title")}
                 </a>
