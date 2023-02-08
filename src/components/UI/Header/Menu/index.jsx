@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import classNames from "classnames";
+import { useEffect } from "react";
 import Link from "next/link";
 import styles from "./style.module.scss";
 import ArrowRight from "/src/assests/icons/narrowRight.svg";
@@ -39,6 +40,25 @@ export default function Menu({
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
+
+  const board =
+    typeof window !== "undefined" && document.querySelector("#board");
+  console.log("board", board);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      // board && board.scrollIntoView({
+      //   behavior: "smooth",
+      //   block: "end",
+      //   inline: "nearest",
+      // });
+      console.log("route change");
+    };
+    router.events.on("routeChangeStart", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   function handleRouterActions(status) {
     if (status === "event") {
@@ -120,7 +140,7 @@ export default function Menu({
                   {t("funding")}
                 </a>
               </Link> */}
-              <Link href="/about#board" passHref legacyBehavior scroll={false}>
+              <Link href="/about#board" scroll={true}>
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
@@ -206,16 +226,6 @@ export default function Menu({
                     info@zaminfoundation.uz
                   </a>
                 </div>
-              </Link>
-              <Link href="/">
-                <a
-                  onClick={(e) => {
-                    handleClose(e);
-                  }}
-                  className={styles.iconTitle}
-                >
-                  {t("sns")}
-                </a>
               </Link>
               <div className={styles.SocialIcons}>
                 <a
