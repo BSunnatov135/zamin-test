@@ -24,7 +24,6 @@ export default function Projects(sphere) {
       limit: 3,
     },
   });
-  console.log(spheres);
   // const { charitySphere } = useSpheres({
   //   dataSphere: {
   //     offset: 0,
@@ -32,7 +31,6 @@ export default function Projects(sphere) {
   //     spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
   //   },
   // });
-  // console.log("charity===", charitySphere);
 
   return (
     <Container>

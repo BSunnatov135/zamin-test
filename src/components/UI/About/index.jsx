@@ -1,13 +1,30 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import dynamic from "next/dynamic";
 import Board from "./Board";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 // const Board = dynamic(() => import("./Board"));
 
 export default function About() {
   const { t } = useTranslation("about");
+  const router = useRouter();
+
+  useEffect(() => {
+    const boardElement =
+      typeof window != "undefined" && document.getElementById("board");
+    setTimeout(() => {
+      if (router.asPath.includes("#board")) {
+        boardElement.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+          inline: "nearest",
+        });
+      }
+    }, 100);
+  }, []);
+
   return (
     <>
       <h2 className={styles.title}>{t("about")}</h2>
