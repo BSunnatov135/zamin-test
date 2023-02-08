@@ -4,26 +4,20 @@ import HydroIcon from "/public/logos/HydroIcon.svg";
 import FAOIcon from "/public/logos/FAOIcon.svg";
 import MedIcon from "/public/logos/MedIcon.svg";
 import GasLogo from "/public/logos/GasLogo.svg";
-import Unicef from "/public/logos/Unicef.svg";
 import UNDP from "/public/logos/UNDP.svg";
-import UNEP from "/public/logos/UNEP.svg";
 import Slider from "react-slick";
 import ResMedLogo from "/public/logos/ResMedLogo.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PrevArrow from "/src/assests/icons/slickLeft.svg";
 import ResGasLogo from "/public/logos/ResGasLogo.svg";
-import ResTree from "/public/logos/ResTree.svg";
 import ResUNDP from "/public/logos/ResUNDP.svg";
-import ResUNEP from "/public/logos/ResUNEP.svg";
-import ResUnicef from "/public/logos/ResUnicef.svg";
 import ResFAO from "/public/logos/ResFao.svg";
 import ResHydro from "/public/logos/ResHydro.svg";
 import useTranslation from "next-translate/useTranslation";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import React from "react";
-import Health from "/public/logos/Health.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
