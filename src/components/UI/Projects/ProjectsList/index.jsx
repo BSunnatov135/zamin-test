@@ -20,7 +20,6 @@ export default function ProjectsPage() {
       limit: 3,
     },
   });
-  console.log("spheres", spheres);
   return (
     <Container>
       <div className={styles.main}>

@@ -48,11 +48,10 @@ export default function Partners() {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   let settings = {
-    dots: false,
+    infinite: false,
     arrows: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    infinite: false,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -221,7 +220,7 @@ export default function Partners() {
           <ReactTooltip
             anchorId="fee"
             place="bottom"
-            content={t("tree")}
+            content={t("fee")}
             className={styles.popover}
           />
         </div>
@@ -241,7 +240,7 @@ export default function Partners() {
           <ReactTooltip
             anchorId="health"
             place="bottom"
-            content={t("tree")}
+            content={t("health")}
             className={styles.popover}
           />
         </div>
@@ -260,9 +259,30 @@ export default function Partners() {
             />
           </div>
           <ReactTooltip
-            anchorId="health"
+            anchorId="yia"
             place="bottom"
-            content={t("tree")}
+            content={t("yia")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="school">
+            <img
+              src={`/logos/school${lang}.png`}
+              height={"60px"}
+              flex={"1"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src={`/logos/resschool${lang}.png`}
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="school"
+            place="bottom"
+            content={t("school")}
             className={styles.popover}
           />
         </div>
@@ -283,6 +303,26 @@ export default function Partners() {
             anchorId="greenkey"
             place="bottom"
             content={t("greenkey")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="unece">
+            <img
+              src="/logos/unece.png"
+              height={"60px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/unece.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="unece"
+            place="bottom"
+            content={t("unece")}
             className={styles.popover}
           />
         </div>
