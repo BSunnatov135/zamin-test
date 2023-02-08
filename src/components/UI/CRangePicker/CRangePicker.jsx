@@ -18,7 +18,7 @@ const DataPickerInput = forwardRef((props, ref) => {
       {...props}
       placeholder="Bыберите период"
       InputProps={{
-        endAdornment: ( 
+        endAdornment: (
           <InputAdornment position="start">
             <CloseIcon
               fontSize="small"
