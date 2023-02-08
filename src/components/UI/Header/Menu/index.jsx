@@ -41,10 +41,6 @@ export default function Menu({
     advertIsActive: {},
   });
 
-  const board =
-    typeof window !== "undefined" && document.querySelector("#board");
-  console.log("board", board);
-
   useEffect(() => {
     const handleRouteChange = () => {
       // board && board.scrollIntoView({
@@ -52,7 +48,6 @@ export default function Menu({
       //   block: "end",
       //   inline: "nearest",
       // });
-      console.log("route change");
     };
     router.events.on("routeChangeStart", handleRouteChange);
     return () => {
@@ -140,7 +135,7 @@ export default function Menu({
                   {t("funding")}
                 </a>
               </Link> */}
-              <Link href="/about#board" scroll={true}>
+              <Link href="/about#board" passHref scroll={false} legacyBehavior>
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {

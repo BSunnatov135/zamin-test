@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
   const router = useRouter();
-  console.log(item);
-  console.log("routerProjects", router);
   return (
     <div className={styles.item} key={item.guid}>
       <Link

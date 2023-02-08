@@ -34,9 +34,12 @@ const DataPickerInput = forwardRef((props, ref) => {
 });
 
 const CRangePicker = ({ value = [null, null], onChange }) => {
+  var date = new Date()
+  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  var lastDay = new Date(date.getMonth() + 1, 0);
   return (
     <div>
-      {console.log(value)}
+      {console.log(lastDay)}
       <ReactDatePicker
         selected={value[0]}
         onChange={onChange}
