@@ -2,8 +2,9 @@ import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
 import dynamic from "next/dynamic";
+import Board from "./Board";
 
-const Board = dynamic(() => import("./Board"));
+// const Board = dynamic(() => import("./Board"));
 
 export default function About() {
   const { t } = useTranslation("about");
@@ -39,7 +40,9 @@ export default function About() {
             </div>
           </div>
         </div>
-        <Board id="board" />
+        <div id="board">
+          <Board />
+        </div>
       </Container>
     </>
   );

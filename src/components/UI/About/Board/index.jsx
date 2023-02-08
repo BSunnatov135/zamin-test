@@ -4,7 +4,7 @@ import styles from "../style.module.scss";
 export default function Board() {
   const { t } = useTranslation("about");
   return (
-    <div id="board">
+    <div>
       <h2 className={styles.boardTitle}>{t("board")} </h2>
       <div className={styles.boardWrapper}>
         <div className={styles.boardItem}>

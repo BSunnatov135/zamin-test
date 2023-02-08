@@ -36,6 +36,7 @@ const DataPickerInput = forwardRef((props, ref) => {
 const CRangePicker = ({ value = [null, null], onChange }) => {
   return (
     <div>
+      {console.log(value)}
       <ReactDatePicker
         selected={value[0]}
         onChange={onChange}
@@ -45,7 +46,8 @@ const CRangePicker = ({ value = [null, null], onChange }) => {
         showPopperArrow={false}
         dateFormat="dd.MM.yyyy"
         locale="ru"
-        monthsShown={2}
+        monthsShown={1}
+        showMonthYearPicker
         customInput={<DataPickerInput />}
       />
     </div>
