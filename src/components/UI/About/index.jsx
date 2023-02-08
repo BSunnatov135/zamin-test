@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 
-// const Board = dynamic(() => import("./Board"));
 
 export default function About() {
   const { t } = useTranslation("about");
@@ -55,15 +54,15 @@ export default function About() {
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
               <img src="/images/sphere1.jpeg"></img>
-              <p>{item[0]?.[`${lang}_name`]}</p>
+              <p>{item?.[0][`${lang}_name`]}</p>
             </div>
             <div className={styles.sphereItem}>
               <img src="/images/sphere2.jpeg"></img>
-              <p>{item[1]?.[`${lang}_name`]} </p>
+              <p>{item?.[1][`${lang}_name`]} </p>
             </div>
             <div className={styles.sphereItem}>
               <img src="/images/sphere3.jpeg"></img>
-              <p>{item[2]?.[`${lang}_name`]} </p>
+              <p>{item?.[2][`${lang}_name`]} </p>
             </div>
           </div>
         </div>

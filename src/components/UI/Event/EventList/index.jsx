@@ -43,7 +43,7 @@ export default function EventPage() {
         setData((prev) => [...prev, ...events?.data?.response]);
       }
     }
-    else {
+    else if (events?.data?.count === 0) {
       setHasMore(false);
       setData([]);
     }
