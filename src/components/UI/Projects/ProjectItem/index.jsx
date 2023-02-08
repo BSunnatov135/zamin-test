@@ -11,13 +11,7 @@ export default function ProjectItem({ item }) {
   console.log("routerProjects", router);
   return (
     <div className={styles.item} key={item.guid}>
-      <Link
-        href={
-          router.asPath.includes("projects")
-            ? `/projects/${item.guid}`
-            : `/project-info/${item.guid}`
-        }
-      >
+      <Link href={`/project-info/${item.guid}`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
             {item[`${lang}_photo`] ? (

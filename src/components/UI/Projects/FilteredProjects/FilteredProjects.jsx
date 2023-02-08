@@ -17,11 +17,13 @@ function FilteredProjects() {
       spheres_id: router.query.id,
     },
   });
-
+  console.log(`sphere`, sphere);
   return (
     <Container>
       <div className={styles.main}>
-        <h2 className={styles.sectionTitle}>{sphere?.data.response[0].spheres_id_data?.[`${lang}_name`]}</h2>
+        <h2 className={styles.sectionTitle}>
+          {sphere?.data.response[0]?.spheres_id_data?.[`${lang}_name`]}
+        </h2>
         <div className={styles.list}>
           {sphere?.data?.response?.map((item) => (
             <ProjectItem key={item.guid} item={item} />
