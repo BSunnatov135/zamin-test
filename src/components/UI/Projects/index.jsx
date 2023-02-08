@@ -7,30 +7,48 @@ import useProjects from "services/projects";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
+import { getProjects } from "services/projects";
+import { useState } from "react";
 
 export default function Projects(sphere) {
+  const [projects, setProjects] = useState([]);
   const { t } = useTranslation("common");
   const router = useRouter();
-  const { projects } = useProjects({
-    projectParams: {
-      offset: 0,
-      limit: 3,
-    },
-  });
+  // const { projects } = useProjects({
+  //   projectParams: {
+  //     offset: 0,
+  //     limit: 3,
+  //   },
+  // });
+
+  function getAllData(values) {
+    return Promise.all(
+      values.map((value) => {
+        return getProjects(value.data)
+          .then((res) => res.data.response[0])
+          .catch((err) => console.log("err", err));
+      })
+    );
+  }
 
   const { spheres } = useSpheres({
     sphereParams: {
       offset: 0,
       limit: 3,
     },
+    onSuccess: (res) => {
+      const values = res.data.response?.map((item) => ({
+        data: {
+          spheres_id: item.guid,
+          offset: 0,
+          limit: 1,
+        },
+      }));
+      getAllData(values).then((result) => {
+        setProjects(result);
+      });
+    },
   });
-  // const { charitySphere } = useSpheres({
-  //   dataSphere: {
-  //     offset: 0,
-  //     limit: 1,
-  //     spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
-  //   },
-  // });
 
   return (
     <Container>
@@ -90,9 +108,11 @@ export default function Projects(sphere) {
             </Link>
           </div>
           <div className={styles.list}>
-            {projects?.data?.response?.map((item) => (
-              <ProjectItem key={item.guid} item={item} />
-            ))}
+            {projects.length > 0
+              ? projects?.map((item) => (
+                  <ProjectItem key={item.guid} item={item} />
+                ))
+              : null}
           </div>
           {/* <div className={styles.button}>
         <Button>Все проекты</Button>
