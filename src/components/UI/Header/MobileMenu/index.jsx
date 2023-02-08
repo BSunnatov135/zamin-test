@@ -227,7 +227,6 @@ export default function MobileMenu({
         })}
       >
         <a
-          href="#"
           onClick={(e) => {
             setActiveLink(null);
           }}
@@ -236,28 +235,24 @@ export default function MobileMenu({
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
-            <Link scroll={false} href={data.href} passHref>
+            <div key={data.title} scroll={false}>
               <>
                 {data.title != `${t("sns")}` ? (
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleLinks(e, data.key);
-                    }}
-                    dangerouslySetInnerHTML={{
-                      __html: data.title,
-                    }}
-                    href={data.href}
-                  />
+                  <Link href={data.href}>
+                    <a
+                      dangerouslySetInnerHTML={{
+                        __html: data.title,
+                      }}
+                      onClick={(e) => {
+                        handleLinks(e, data.key);
+                      }}
+                    ></a>
+                  </Link>
                 ) : (
                   <div>
                     <a
                       onClick={(e) => {
                         handleLinks(e, data.key);
-                        e.preventDefault();
-                      }}
-                      dangerouslySetInnerHTML={{
-                        __html: data.title,
                       }}
                     />
                     <div className={styles.snsButtons}>
@@ -286,7 +281,7 @@ export default function MobileMenu({
                   </div>
                 )}
               </>
-            </Link>
+            </div>
           ))}
       </div>
     </div>

@@ -14,7 +14,7 @@
   "achievement_women": "Cards were given to needy women",
   "advert_title": "Announcements",
   "event_title": "Events",
-  "helppeople_title": "What spheres do we help in",
+  "helppeople_title": "Areas we cover",
   "projects_title": "Projects we are proud of",
   "projects_motto": "Helping people",
   "about_fond": "About fond",
@@ -53,6 +53,8 @@
   "surname": "Surname",
   "middle_name": "Middle name",
   "birthdate": "Date of birth",
+  "EcoSchool": "Eco Schools ",
+  "fee": "FEE Foundation for environment education",
   "enter_name": "Enter your name",
   "enter_surname": "Enter your surname",
   "enter_middlename": "Enter your middle name",
@@ -92,5 +94,10 @@
   "make_donation": "Donate",
   "success": "Success",
   "success_th": "Thanks to your donation.",
-  "to_home": "Return to the homepage"
+  "to_home": "Return to the homepage",
+  "health": "Ministry of Health",
+  "yia": "Youth Affairs Agency",
+  "unicef": "UNICEF",
+  "school": "Caring school UchimZnaem",
+  "unece": "UNECE"
 }

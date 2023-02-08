@@ -24,7 +24,7 @@
       padding: 22px 18px;
     }
     & > a,
-    div {
+    > div {
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       display: flex;
       padding: 22px 0px 22px 18px;
@@ -87,7 +87,6 @@
     }
   }
 }
-
 
 .headerLight {
   margin-top: -20px;
