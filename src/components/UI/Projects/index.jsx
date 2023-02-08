@@ -1,7 +1,6 @@
 import { Container } from "@mui/material";
 import Link from "next/link";
 import styles from "./style.module.scss";
-import HeartIcon from "assests/icons/heart.svg";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import ProjectItem from "./ProjectItem";
 import useProjects from "services/projects";
@@ -18,6 +17,14 @@ export default function Projects(sphere) {
       limit: 3,
     },
   });
+
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
+  console.log(spheres);
   // const { charitySphere } = useSpheres({
   //   dataSphere: {
   //     offset: 0,
@@ -33,12 +40,6 @@ export default function Projects(sphere) {
         <div className={styles.main}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
-              <p>
-                <span>
-                  <HeartIcon />
-                </span>
-                {t("projects_motto")}
-              </p>
               <p className={styles.title}>{t("projects_title")}</p>
               <p className={styles.responsiveTitle}>{t("projects")}</p>
             </div>
@@ -76,12 +77,6 @@ export default function Projects(sphere) {
         <div className={styles.main}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
-              <p>
-                <span>
-                  <HeartIcon />
-                </span>
-                {t("projects_motto")}
-              </p>
               <p className={styles.title}>{t("projects_title")}</p>
               <p className={styles.responsiveTitle}>{t("projects")}</p>
             </div>

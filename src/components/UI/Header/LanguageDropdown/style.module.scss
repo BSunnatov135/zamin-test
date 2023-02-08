@@ -1,11 +1,6 @@
 @import "styles/unit.scss";
 @import url("/public/fonts/font.css");
 
-.container {
-  @media screen and (max-width: 700px) {
-    display: none !important;
-  }
-}
 .popover {
   width: 198px;
   padding: 16px;

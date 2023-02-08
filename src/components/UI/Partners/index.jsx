@@ -23,9 +23,11 @@ import useTranslation from "next-translate/useTranslation";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import React from "react";
+import Health from "/public/logos/Health.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <div className={styles.next} onClick={onClick}>
       <PrevArrow />
@@ -43,6 +45,7 @@ function SamplePrevArrow(props) {
 }
 
 export default function Partners() {
+  const { lang } = useTranslation();
   const { t } = useTranslation("common");
   let settings = {
     dots: false,
@@ -107,8 +110,16 @@ export default function Partners() {
         </div>
         <div className={styles.item}>
           <div id="unicef">
-            <Unicef className={styles.desktopIcon} />
-            <ResUnicef className={styles.mobileIcon} />
+            <img
+              src="/logos/Unicef.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Unicef.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
           </div>
           <ReactTooltip
             anchorId="unicef"
@@ -191,6 +202,67 @@ export default function Partners() {
             anchorId="ecoschool"
             place="bottom"
             content={t("EcoSchool")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="fee">
+            <img
+              src="/logos/FEE.jpeg"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Tree.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="fee"
+            place="bottom"
+            content={t("tree")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="health">
+            <img
+              src="/logos/Health.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Health.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="health"
+            place="bottom"
+            content={t("tree")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="yia">
+            <img
+              src={`/logos/Yia${lang}.png`}
+              width={"100%"}
+              flex={"1"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src={`/logos/Yia${lang}.png`}
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="health"
+            place="bottom"
+            content={t("tree")}
             className={styles.popover}
           />
         </div>

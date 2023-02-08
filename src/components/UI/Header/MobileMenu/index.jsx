@@ -14,7 +14,13 @@ import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import useAdverts from "services/advert";
 
-export default function MobileMenu({ open, handleClose, handleLogin, size }) {
+export default function MobileMenu({
+  open,
+  handleClose,
+  handleLogin,
+  size,
+  menuRef,
+}) {
   const [activeLink, setActiveLink] = useState(null);
   const { t, lang } = useTranslation("common");
 
@@ -47,28 +53,14 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
       handleClose();
     }
   };
-  const langs = [
-    {
-      key: "ru",
-      label: "Ру",
-    },
-    {
-      key: "uz",
-      label: "O’zb",
-    },
 
-    {
-      key: "en",
-      label: "En",
-    },
-  ];
   const items = [
     {
       title: `${t("about_fond")}`,
       key: "fond",
       children: [
         {
-          title: `${t("about_fond")}`,
+          title: `${t("about")}`,
           href: "/about",
         },
         // {
@@ -160,9 +152,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
       {!activeLink && (
         <div className={styles.box}>
           <a
-            href="#"
             onClick={(e) => {
-              e.preventDefault();
               setActiveLink(1);
             }}
             key={items[0].key}
@@ -172,9 +162,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
           </a>
           {isActive?.data == "true" && <a href="/news">{items[1].title}</a>}
           <a
-            href="#"
             onClick={(e) => {
-              e.preventDefault();
               setActiveLink(3);
             }}
             key={items[2].key}
@@ -183,9 +171,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
             <RightArrow />
           </a>
           <a
-            href="#"
             onClick={(e) => {
-              e.preventDefault();
               setActiveLink(4);
             }}
             key={items[3].key}
@@ -194,9 +180,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
             <RightArrow />
           </a>
           <a
-            href="#"
             onClick={(e) => {
-              e.preventDefault();
               setActiveLink(5);
             }}
             key={items[4].key}
@@ -215,7 +199,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
             {items[5].title}
             <RightArrow />
           </a> */}
-          <div>
+          {/* <div>
             <p className={styles.language}>{t("language")}</p>
             <ul className={styles.languageWrapper}>
               {langs.map((item) => (
@@ -233,7 +217,7 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       )}
 
@@ -245,7 +229,6 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
         <a
           href="#"
           onClick={(e) => {
-            e.preventDefault();
             setActiveLink(null);
           }}
         >
@@ -253,30 +236,30 @@ export default function MobileMenu({ open, handleClose, handleLogin, size }) {
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
-            <Link
-              href={data.href}
-              key={data.title}
-              scroll={false}
-              passHref
-              legacyBehavior
-            >
+            <Link scroll={false} href={data.href} passHref>
               <>
                 {data.title != `${t("sns")}` ? (
                   <a
-                    onClick={(e) => handleLinks(e, data.key)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLinks(e, data.key);
+                    }}
                     dangerouslySetInnerHTML={{
                       __html: data.title,
                     }}
                     href={data.href}
-                  ></a>
+                  />
                 ) : (
                   <div>
                     <a
-                      onClick={(e) => handleLinks(e, data.key)}
+                      onClick={(e) => {
+                        handleLinks(e, data.key);
+                        e.preventDefault();
+                      }}
                       dangerouslySetInnerHTML={{
                         __html: data.title,
                       }}
-                    ></a>
+                    />
                     <div className={styles.snsButtons}>
                       <a
                         href="https://www.instagram.com/zaminfoundation/"
