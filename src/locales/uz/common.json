@@ -12,7 +12,7 @@
   "achievement_operation": "Yillik koxlear implantatsiya operatsiyalari",
   "achievement_projects": "Yo'lga qo'yilgan loyihalar",
   "achievement_women": "Ehtiyojmand ayollarga berilgan kartalar",
-  "advert_title": "E`lonlar",
+  "advert_title": "E`lon",
   "event_title": "Tadbirlar",
   "helppeople_title": "Biz qamrab olgan sohalar",
   "projects_title": "Biz faxrlanadigan loyihalar",
@@ -108,5 +108,6 @@
   "health": "Sog‘liqni saqlash vazirligi",
   "yia": "Yoshlar ishlari agentligi",
   "school": "\"УчимЗнаем\" mehrli maktabi",
-  "unece": "BMT Yevropa iqtisodiy komissiyasi"
+  "unece": "BMT Yevropa iqtisodiy komissiyasi",
+  "placeholder": "Oraliqni tanlang"
 }

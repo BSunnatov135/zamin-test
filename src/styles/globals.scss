@@ -357,7 +357,10 @@ a {
 .react-datepicker__month .react-datepicker__quarter-text {
   display: inline-block;
   width: 4rem;
-  margin: 2px;
+  margin: 4px;
+  padding: 2px;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 .react-datepicker__input-time-container {
@@ -953,6 +956,8 @@ a {
 
 .react-datepicker__header {
   background-color: #fff !important;
+  font-size: 22px;
+  padding-top: 0;
 }
 
 .react-datepicker__current-month {
