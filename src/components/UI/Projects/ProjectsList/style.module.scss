@@ -6,11 +6,25 @@
   @media screen and (max-width: 600px) {
     padding: 24px 0;
   }
-  .sectionTitle {
-    font-weight: 500 !important;
-    font-size: 36px !important;
-    line-height: 49px;
-    font-family: "Noto Serif" !important;
+  .mainHead {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .options {
+    transition: 0.8s;
+    position: relative;
+    .select {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid lightgray;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
   }
   .list {
     display: grid;
@@ -26,5 +40,14 @@
     display: flex;
     justify-content: center;
     margin-top: 32px;
+  }
+}
+
+.popover {
+  .option {
+    margin-top: 12px;
+  }
+  .option:first-child {
+    margin-top: 0;
   }
 }
