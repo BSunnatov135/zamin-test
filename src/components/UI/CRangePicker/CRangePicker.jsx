@@ -1,19 +1,19 @@
 import { forwardRef } from "react";
 import ReactDatePicker, { registerLocale } from "react-datepicker";
+import uz from "date-fns/locale/uz";
 import ru from "date-fns/locale/ru";
+import en from "date-fns/locale/en-US";
 import { TextField, InputAdornment } from "@mui/material";
 import { ArrowIcon } from "/public/icons/icons";
 import CloseIcon from "@mui/icons-material/Close";
 import useTranslation from "next-translate/useTranslation";
 
-registerLocale("ru", ru);
-
 const DataPickerInput = forwardRef((props, ref) => {
   const handleReload = (e) => {
     window.location.reload();
   };
-  const { t } = useTranslation("common")
-  const placeholder = t("placeholder")
+  const { t } = useTranslation("common");
+  const placeholder = t("placeholder");
   return (
     <TextField
       variant="standard"
@@ -37,14 +37,13 @@ const DataPickerInput = forwardRef((props, ref) => {
 });
 
 const CRangePicker = ({ value, onChange }) => {
-  var date = new Date()
-  var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-  var lastDay = new Date(date.getMonth() + 1, 0);
+  let { lang } = useTranslation();
+  registerLocale("uz", uz);
+  registerLocale("ru", ru);
+  registerLocale("en", en);
   return (
     <div>
-      {console.log(lastDay)}
       <ReactDatePicker
-      style={{fontSize: '30px'}}
         selected={value[0]}
         onChange={onChange}
         startDate={value[0]}
@@ -52,7 +51,7 @@ const CRangePicker = ({ value, onChange }) => {
         selectsRange
         showPopperArrow={false}
         dateFormat="MM.yyyy"
-        locale="ru"
+        locale={`${lang}`}
         monthsShown={1}
         showMonthYearPicker
         customInput={<DataPickerInput />}
