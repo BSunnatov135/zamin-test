@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 
-
 export default function About() {
   const { t } = useTranslation("about");
   const { lang } = useTranslation();
@@ -14,15 +13,15 @@ export default function About() {
 
   useEffect(() => {
     const boardElement =
-      typeof window != "undefined" && document.getElementById("board");
+      typeof window != "undefined" &&
+      router.asPath.includes("#board") &&
+      document.getElementById("board");
     setTimeout(() => {
-      if (router.asPath.includes("#board")) {
-        boardElement.scrollIntoView({
-          behavior: "smooth",
-          block: "end",
-          inline: "nearest",
-        });
-      }
+      boardElement?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
     }, 100);
   }, []);
 
