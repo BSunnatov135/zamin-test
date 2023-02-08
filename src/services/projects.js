@@ -45,3 +45,8 @@ const useProjects = ({ projectParams, projectId, sliderProps }) => {
 };
 
 export default useProjects;
+
+export const getProjects = (data) =>
+  request.post("/v1/object/get-list/website_projects", {
+    data,
+  });

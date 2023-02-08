@@ -21,7 +21,7 @@ import FaceBookHeader from "assests/icons/FaceBookHeader.svg";
 export default function Menu({
   open,
   menuRef,
-  handleClose,
+  handleClose = () => {},
   handleLogin,
   size,
 }) {

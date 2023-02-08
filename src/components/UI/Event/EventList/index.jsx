@@ -22,20 +22,20 @@ export default function EventPage() {
   const { t } = useTranslation("common");
 
   const params = {
-    $gte: datePicker[0] && format(datePicker[0], "yyyy-MM-dd"),
-    $lt: datePicker[1] && format(datePicker[1], "yyyy-MM-dd"),
+    $gte: datePicker[0] && format(datePicker?.[0] || new Date(), "yyyy-MM-dd"),
+    $lt: datePicker[1] && format(datePicker?.[1] || new Date(), "yyyy-MM-dd"),
   };
 
   const { events } = useEvents({
     eventParams: {
-      date: params.$gte ? params : undefined,
+      date: params.$gte && params.$lt ? params : undefined,
       offset: (currentPage - 1) * 6,
       limit: 6,
     },
   });
 
   const ResponseData = () => {
-    if (events?.data?.response) {
+    if (events?.data?.response.length) {
       if (!events?.data?.response?.length) return setHasMore(false);
       if (currentPage == 1) {
         setData(events?.data?.response);
@@ -43,7 +43,7 @@ export default function EventPage() {
         setData((prev) => [...prev, ...events?.data?.response]);
       }
     }
-    if (events?.data?.count <= 0) {
+    else {
       setHasMore(false);
       setData([]);
     }
@@ -58,7 +58,19 @@ export default function EventPage() {
       <div className={styles.main}>
         <div className={styles.title}>
           <h2 className={styles.sectionTitle}>{t("event_title")}</h2>
-          <CRangePicker value={datePicker} onChange={setDatePicker} />
+          <CRangePicker
+            value={datePicker}
+            onChange={(val) => {
+              const data = val[1];
+              const lastDayOfMonth = new Date(
+                data?.getFullYear(),
+                data?.getMonth() + 1,
+                0
+              );
+              console.log(val[1]);
+              setDatePicker([val[0], val[1] === null ? null : lastDayOfMonth]);
+            }}
+          />
         </div>
 
         {data?.length > 0 && (
