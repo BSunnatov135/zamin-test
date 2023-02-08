@@ -4,11 +4,13 @@ import useTranslation from "next-translate/useTranslation";
 import Board from "./Board";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import useSpheres from "services/spheres";
 
 // const Board = dynamic(() => import("./Board"));
 
 export default function About() {
   const { t } = useTranslation("about");
+  const { lang } = useTranslation();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,6 +27,14 @@ export default function About() {
     }, 100);
   }, []);
 
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
+  console.log(spheres);
+  const item = spheres?.data?.response;
   return (
     <>
       <h2 className={styles.title}>{t("about")}</h2>
@@ -45,15 +55,15 @@ export default function About() {
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
               <img src="/images/sphere1.jpeg"></img>
-              <p>{t("environment")}</p>
+              <p>{item[0]?.[`${lang}_name`]}</p>
             </div>
             <div className={styles.sphereItem}>
               <img src="/images/sphere2.jpeg"></img>
-              <p>{t("innovation")} </p>
+              <p>{item[1]?.[`${lang}_name`]} </p>
             </div>
             <div className={styles.sphereItem}>
               <img src="/images/sphere3.jpeg"></img>
-              <p>{t("program")} </p>
+              <p>{item[2]?.[`${lang}_name`]} </p>
             </div>
           </div>
         </div>
