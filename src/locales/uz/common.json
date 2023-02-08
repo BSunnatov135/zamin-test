@@ -95,13 +95,18 @@
   "to_home": "Asosiy sahifaga qaytish",
   "med": "Respublika ixtisoslashtirilgan pediatriya ilmiy-amaliy tibbiyot markazi (RIPIATM)",
   "water": "«O‘zsuvta’minot» AJ",
-  "unicef": "YUNISЕF (UNICEF)",
+  "unicef": "YUNISЕF",
   "hydro": "Gidrometeorologiya xizmati agentligi (O‘zgidromet)",
   "FAO": "FAO",
-  "tree": "O‘zbekiston Respublikasi Tabiat resurslari vazirlig",
+  "tree": "O‘zbekiston Respublikasi Tabiat resurslari vazirligi",
   "UNDP": "BMT Taraqqiyot dasturi (UNDP)",
   "edu": "O‘zbekiston Respublikasi Maktabgacha va maktab ta’limi vazirligi (MMTV)",
   "UNEP": "YUNЕP (UNEP)",
-  "EcoSchool": "FEE Foundation for environment education Eco Schools ",
-  "greenkey": "Green Key"
+  "EcoSchool": "Eco Schools ",
+  "fee": "FEE Foundation for environment education",
+  "greenkey": "Green Key",
+  "health": "Sog‘liqni saqlash vazirligi",
+  "yia": "Yoshlar ishlari agentligi",
+  "school": "\"УчимЗнаем\" mehrli maktabi",
+  "unece": "BMT Yevropa iqtisodiy komissiyasi"
 }
