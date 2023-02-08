@@ -49,16 +49,6 @@ export default function Projects(sphere) {
       });
     },
   });
-<<<<<<< HEAD
-=======
-  // const { charitySphere } = useSpheres({
-  //   dataSphere: {
-  //     offset: 0,
-  //     limit: 1,
-  //     spheres_id: `954b354c-037c-4e9a-b9f3-4cb9057c9e1c`,
-  //   },
-  // });
->>>>>>> bfd4329be6d92d4ebc50a03121d75ede84ddb26c
 
   return (
     <Container>
