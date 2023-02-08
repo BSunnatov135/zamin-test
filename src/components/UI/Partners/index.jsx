@@ -27,7 +27,7 @@ import Health from "/public/logos/Health.svg";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-  const { lang } = useTranslation();
+
   return (
     <div className={styles.next} onClick={onClick}>
       <PrevArrow />
@@ -45,6 +45,7 @@ function SamplePrevArrow(props) {
 }
 
 export default function Partners() {
+  const { lang } = useTranslation();
   const { t } = useTranslation("common");
   let settings = {
     dots: false,
@@ -109,8 +110,16 @@ export default function Partners() {
         </div>
         <div className={styles.item}>
           <div id="unicef">
-            <Unicef className={styles.desktopIcon} />
-            <ResUnicef className={styles.mobileIcon} />
+            <img
+              src="/logos/Unicef.png"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Unicef.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
           </div>
           <ReactTooltip
             anchorId="unicef"
@@ -237,14 +246,15 @@ export default function Partners() {
           />
         </div>
         <div className={styles.item}>
-          <div id="health">
+          <div id="yia">
             <img
-              src="/logos/Health.png"
-              height={"72px"}
+              src={`/logos/Yia${lang}.png`}
+              width={"100%"}
+              flex={"1"}
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/Health.png"
+              src={`/logos/Yia${lang}.png`}
               height={"56px"}
               className={styles.mobileIcon}
             />

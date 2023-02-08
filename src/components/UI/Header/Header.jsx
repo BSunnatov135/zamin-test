@@ -29,8 +29,7 @@ export default function Header() {
   const ref = useRef();
   useOnClickOutside(ref, () => setOpen(false));
   //////////
-  const menuBlock =
-    typeof window !== "undefined" && document.getElementById("menu");
+
   const listenScrollEvent = () => {
     if (window.scrollY < 80) {
       setSize(false);

@@ -17,6 +17,14 @@ export default function Projects(sphere) {
       limit: 3,
     },
   });
+
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
+  console.log(spheres);
   // const { charitySphere } = useSpheres({
   //   dataSphere: {
   //     offset: 0,

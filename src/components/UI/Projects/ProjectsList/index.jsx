@@ -13,19 +13,20 @@ export default function ProjectsPage() {
       limit: 100,
     },
   });
-  const { charitySphere } = useSpheres({
-    dataSphere: {
+
+  const { spheres } = useSpheres({
+    sphereParams: {
       offset: 0,
       limit: 3,
-      spheres_id: "954b354c-037c-4e9a-b9f3-4cb9057c9e1c",
     },
   });
+  console.log("spheres", spheres);
   return (
     <Container>
       <div className={styles.main}>
         <h2 className={styles.sectionTitle}>{t("all_projects")}</h2>
         <div className={styles.list}>
-          {projects?.data?.response?.map((item) => (
+          {spheres?.data?.response?.map((item) => (
             <ProjectItem key={item.guid} item={item} />
           ))}
         </div>

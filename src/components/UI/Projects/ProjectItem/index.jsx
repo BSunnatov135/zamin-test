@@ -2,12 +2,22 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { DefaultImage } from "/public/icons/icons";
+import { useRouter } from "next/router";
 
 export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
+  const router = useRouter();
+  console.log(item);
+  console.log("routerProjects", router);
   return (
-    <div className={styles.item} key={item.id}>
-      <Link href={`/project-info/${item.guid}`}>
+    <div className={styles.item} key={item.guid}>
+      <Link
+        href={
+          router.asPath.includes("projects")
+            ? `/projects/${item.guid}`
+            : `/project-info/${item.guid}`
+        }
+      >
         <a className={styles.item__content}>
           <div className={styles.img}>
             {item[`${lang}_photo`] ? (
