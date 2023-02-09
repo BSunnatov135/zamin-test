@@ -17,17 +17,15 @@ export default function About() {
   const router = useRouter();
 
   useEffect(() => {
-    const boardElement =
-      typeof window != "undefined" &&
-      router.asPath.includes("#board") &&
-      document.getElementById("board");
     setTimeout(() => {
+      const boardElement =
+        router.asPath.includes("#board") && document.getElementById("board");
       boardElement?.scrollIntoView({
         behavior: "smooth",
         block: "end",
         inline: "nearest",
       });
-    }, 100);
+    }, 500);
   }, []);
 
   const { spheres } = useSpheres({
