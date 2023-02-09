@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./style.module.scss";
 import BtnSlider from "./BtnSlider/BtnSlider";
 import { useMemo } from "react";
+import LeftArrow from "assests/icons/goLeft.svg";
+import Link from "next/link";
 
 export default function Slider({ data, title }) {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -31,12 +33,17 @@ export default function Slider({ data, title }) {
   console.log("currentData", currentData);
   return (
     <>
-      <h2
-        className={styles.sectionTitle}
-        dangerouslySetInnerHTML={{
-          __html: title,
-        }}
-      />
+      <div className={styles.titleWrapper}>
+        <Link href="javascript:history.back()" passHref>
+          <LeftArrow className={styles.leftArrow} width="25" height="23" />
+        </Link>
+        <h2
+          className={styles.sectionTitle}
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        />
+      </div>
       {currentData &&
         (newArr.length > 1 ? (
           <>

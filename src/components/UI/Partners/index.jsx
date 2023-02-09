@@ -179,6 +179,26 @@ export default function Partners() {
           />
         </div>
         <div className={styles.item}>
+          <div id="fee">
+            <img
+              src="/logos/FEE.jpeg"
+              height={"72px"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src="/logos/Tree.png"
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="fee"
+            place="bottom"
+            content={t("fee")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
           <div id="ecoschool">
             <img
               src="/logos/EcoSchool.png"
@@ -199,22 +219,22 @@ export default function Partners() {
           />
         </div>
         <div className={styles.item}>
-          <div id="fee">
+          <div id="greenkey">
             <img
-              src="/logos/FEE.jpeg"
+              src="/logos/GreenKey.png"
               height={"72px"}
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/Tree.png"
+              src="/logos/GreenKey.png"
               height={"56px"}
               className={styles.mobileIcon}
             />
           </div>
           <ReactTooltip
-            anchorId="fee"
+            anchorId="greenkey"
             place="bottom"
-            content={t("fee")}
+            content={t("greenkey")}
             className={styles.popover}
           />
         </div>
@@ -277,26 +297,6 @@ export default function Partners() {
             anchorId="school"
             place="bottom"
             content={t("school")}
-            className={styles.popover}
-          />
-        </div>
-        <div className={styles.item}>
-          <div id="greenkey">
-            <img
-              src="/logos/GreenKey.png"
-              height={"72px"}
-              className={styles.desktopIcon}
-            />
-            <img
-              src="/logos/GreenKey.png"
-              height={"56px"}
-              className={styles.mobileIcon}
-            />
-          </div>
-          <ReactTooltip
-            anchorId="greenkey"
-            place="bottom"
-            content={t("greenkey")}
             className={styles.popover}
           />
         </div>

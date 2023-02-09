@@ -60,7 +60,7 @@
   "middle_name": "Middle name",
   "birthdate": "Date of birth",
   "EcoSchool": "Eco Schools ",
-  "fee": "FEE Foundation for environment education",
+  "fee": "Foundation for environment education (FEE)",
   "enter_name": "Enter your name",
   "enter_surname": "Enter your surname",
   "enter_middlename": "Enter your middle name",
@@ -106,5 +106,7 @@
   "unicef": "UNICEF",
   "school": "Caring school UchimZnaem",
   "unece": "UNECE",
+  "FAO": "FAO",
   "placeholder": "Choose period"
+
 }
