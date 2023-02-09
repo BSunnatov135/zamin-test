@@ -30,7 +30,7 @@ export default function About() {
         });
         // scrollRef.current.scrollIntoView();
       }
-    }, 200);
+    }, 500);
   }, []);
   const { spheres } = useSpheres({
     sphereParams: {
