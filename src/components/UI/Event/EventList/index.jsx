@@ -49,7 +49,11 @@ export default function EventPage() {
   };
 
   useEffect(() => {
-    ResponseData();
+    if (data?.length === events?.data?.count) {
+      setHasMore(false);
+    } else {
+      ResponseData();
+    }
   }, [events?.data?.response, currentPage]);
 
   return (

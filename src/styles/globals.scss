@@ -1,5 +1,7 @@
 @import "unit";
 @import url("../../public/fonts/font.css");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 :root {
   --primary-color: #09999a;
@@ -1020,11 +1022,12 @@ a {
 }
 
 .react-datepicker {
-  background-color: #fdf6f6;
+  background-color: #ffffff;
   padding: 12px;
   font-size: 12px !important;
   border-radius: 6px;
   border: none !important;
+  right: 7%;
   box-shadow: 0px 0px 1px rgba(26, 32, 36, 0.32),
     0px 12px 24px rgba(91, 104, 113, 0.24);
 }
@@ -1132,3 +1135,47 @@ a {
 }
 
 // ------------------datePicker------------------------------
+
+#infoSlider {
+  .slick-slide {
+    width: 100%;
+  }
+  .slick-dots {
+    bottom: rem(-25);
+    @media (max-width: 768px) {
+      bottom: rem(-5);
+    }
+  }
+  .slick-dots li.slick-active button:before {
+    color: var(--primary-color);
+    opacity: 1;
+  }
+  .slick-dots li button:before {
+    font-size: rem(16);
+    @media (max-width: 768px) {
+      font-size: rem(11);
+    }
+  }
+
+  .slick-dots li {
+    margin: 0;
+  }
+  .slick-prev {
+    height: auto;
+    width: auto;
+    left: rem(10);
+    z-index: 3;
+    &::before {
+      display: none !important;
+    }
+  }
+  .slick-next {
+    height: auto;
+    width: auto;
+    right: rem(10);
+    z-index: 3;
+    &::before {
+      display: none !important;
+    }
+  }
+}

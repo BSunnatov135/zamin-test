@@ -1,33 +1,37 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
+import Board from "./Board";
 
 import dynamic from "next/dynamic";
 
-const Board = dynamic(() => import("./Board"), {
-  ssr: false,
-});
+// const Board = dynamic(() => import("./Board"), {
+//   ssr: false,
+// });
 
 export default function About() {
   const { t } = useTranslation("about");
   const { lang } = useTranslation();
   const router = useRouter();
-
+  const scrollRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      const boardElement =
-        router.asPath.includes("#board") && document.getElementById("board");
-      boardElement?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
-    }, 500);
+      if (router.asPath.includes("#board")) {
+        const section = document.querySelector(`#board`);
+        window.scrollTo({
+          top:
+            section.getBoundingClientRect().top +
+            document.documentElement.scrollTop -
+            60,
+          behavior: "smooth",
+        });
+        // scrollRef.current.scrollIntoView();
+      }
+    }, 200);
   }, []);
-
   const { spheres } = useSpheres({
     sphereParams: {
       offset: 0,
@@ -52,23 +56,23 @@ export default function About() {
           <p>{t("name")}</p>
         </div>
         <div id="sphere">
-          <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
+          <h2 className={styles.sphereTitle}>{t("helppeople_title")}</h2>
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere1.jpeg"></img>
+              <img src={spheres?.data?.response[0]?.photo}></img>
               <p>{spheres?.data?.response[0]?.[`${lang}_name`]}</p>
             </div>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere2.jpeg"></img>
+              <img src={spheres?.data?.response[1]?.photo}></img>
               <p>{spheres?.data?.response[1]?.[`${lang}_name`]} </p>
             </div>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere3.jpeg"></img>
+              <img src={spheres?.data?.response[2]?.photo}></img>
               <p>{spheres?.data?.response[2]?.[`${lang}_name`]} </p>
             </div>
           </div>
         </div>
-        <div id="board">
+        <div ref={scrollRef} id="board">
           <Board />
         </div>
       </Container>
