@@ -1,21 +1,37 @@
 @import "styles/unit.scss";
 
-.sectionTitle {
-  color: #000000;
-  font-weight: 500 !important;
-  font-size: 36px !important;
-  line-height: 49px;
-  font-family: "Noto Serif" !important;
-  margin: 80px auto 50px auto;
-  text-align: center;
-  width: 1024px;
-  max-width: 100%;
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
 
-  @media screen and (max-width: 600px) {
-    margin: 32px auto 24px auto;
-    font-size: 24px !important;
-    line-height: 32px;
-    padding: 0 16px;
+  .sectionTitle {
+    color: #000000;
+    font-weight: 500 !important;
+    font-size: 36px !important;
+    line-height: 49px;
+    font-family: "Noto Serif" !important;
+    margin: 80px auto 50px auto;
+    text-align: center;
+    width: 1024px;
+    max-width: 100%;
+
+    @media screen and (max-width: 600px) {
+      margin: 32px auto 24px auto;
+      font-size: 24px !important;
+      line-height: 32px;
+      padding: 0 16px;
+    }
+  }
+
+  .leftArrow {
+    position: absolute;
+    left: 9.5%;
+    cursor: pointer;
+
+    path {
+      fill: #000000;
+    }
   }
 }
 .sliderWrapper {

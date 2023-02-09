@@ -42,15 +42,18 @@ export default function EventPage() {
       } else {
         setData((prev) => [...prev, ...events?.data?.response]);
       }
-    }
-    else if (events?.data?.count === 0) {
+    } else if (events?.data?.count === 0) {
       setHasMore(false);
       setData([]);
     }
   };
 
   useEffect(() => {
-    ResponseData();
+    if (data?.length === events?.data?.count) {
+      setHasMore(false);
+    } else {
+      ResponseData();
+    }
   }, [events?.data?.response, currentPage]);
 
   return (
