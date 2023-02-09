@@ -11,7 +11,7 @@ export default function Layout({ children }) {
     // }}
     >
       <Header />
-      <main>{children}</main>
+      <main style={{ minHeight: "calc(100vh - 375px)" }}>{children}</main>
       <Footer />
     </div>
   );

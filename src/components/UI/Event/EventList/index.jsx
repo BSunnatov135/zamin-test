@@ -113,6 +113,13 @@ export default function EventPage() {
             )}
           </InfiniteScroll>
         )}
+        {/* {data.length > 0 && (
+          <div className={styles.list}>
+            {data?.map((item) => (
+              <EventItem key={item?.guid} item={item} />
+            ))}
+          </div>
+        )} */}
       </div>
     </Container>
   );

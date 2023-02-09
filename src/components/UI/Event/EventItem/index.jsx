@@ -27,6 +27,8 @@ export default function EventItem({ item }) {
                 __html: item?.[`${lang}_description`],
               }}
             />
+          </div>
+          <span className={styles.more}>
             <Link
               href={`/events-info/${item.guid}?from=events`}
               styles={styles.body__link}
@@ -35,7 +37,7 @@ export default function EventItem({ item }) {
                 {t("more")} <ArrowRight />
               </a>
             </Link>
-          </div>
+          </span>
         </div>
       </a>
     </Link>
