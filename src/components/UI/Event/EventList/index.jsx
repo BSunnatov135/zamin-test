@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Pagination, PaginationItem } from "@mui/material";
 import styles from "./style.module.scss";
 import EventItem from "../EventItem";
 import ArrowDownIcon from "assests/icons/arrowDown.svg";
@@ -12,6 +12,8 @@ import { Skeleton } from "@mui/material";
 import CRangePicker from "components/UI/CRangePicker/CRangePicker";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
+import MobileEvent from "./MobileEvent";
+import useWindowSize from "hooks/useWindowSize";
 
 export default function EventPage() {
   const [datePicker, setDatePicker] = useState([null, null]);
@@ -20,6 +22,7 @@ export default function EventPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
+  const windowSize = useWindowSize();
 
   const params = {
     $gte: datePicker[0] && format(datePicker?.[0] || new Date(), "yyyy-MM-dd"),
@@ -76,42 +79,84 @@ export default function EventPage() {
           />
         </div>
 
-        {data?.length > 0 && (
-          <InfiniteScroll
-            dataLength={data?.length || 0}
-            style={{ overflow: "visible" }}
-            hasMore={hasMore}
-            next={() => setCurrentPage((pre) => ++pre)}
-            loader={
-              hasMore && (
-                <div className={styles.skeletonWrapper}>
-                  <div className={styles.skeletonItem}>
-                    <Skeleton variant="rectangle" width="100%" height="50px" />
-                    <Skeleton variant="rectangle" width="100%" height="130px" />
-                    <Skeleton variant="rectangle" width="212px" height="24px" />
+        {windowSize.width > 768 ? (
+          data?.length > 0 && (
+            <InfiniteScroll
+              dataLength={data?.length || 0}
+              style={{ overflow: "visible" }}
+              hasMore={hasMore}
+              next={() => setCurrentPage((pre) => ++pre)}
+              loader={
+                hasMore && (
+                  <div className={styles.skeletonWrapper}>
+                    <div className={styles.skeletonItem}>
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="50px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="130px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="212px"
+                        height="24px"
+                      />
+                    </div>
+                    <div className={styles.skeletonItem}>
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="50px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="130px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="212px"
+                        height="24px"
+                      />
+                    </div>
+                    <div className={styles.skeletonItem}>
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="50px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="100%"
+                        height="130px"
+                      />
+                      <Skeleton
+                        variant="rectangle"
+                        width="212px"
+                        height="24px"
+                      />
+                    </div>
                   </div>
-                  <div className={styles.skeletonItem}>
-                    <Skeleton variant="rectangle" width="100%" height="50px" />
-                    <Skeleton variant="rectangle" width="100%" height="130px" />
-                    <Skeleton variant="rectangle" width="212px" height="24px" />
-                  </div>
-                  <div className={styles.skeletonItem}>
-                    <Skeleton variant="rectangle" width="100%" height="50px" />
-                    <Skeleton variant="rectangle" width="100%" height="130px" />
-                    <Skeleton variant="rectangle" width="212px" height="24px" />
-                  </div>
+                )
+              }
+            >
+              {data.length > 0 && (
+                <div className={styles.list}>
+                  {data?.map((item) => (
+                    <EventItem key={item?.guid} item={item} />
+                  ))}
                 </div>
-              )
-            }
-          >
-            {data.length > 0 && (
-              <div className={styles.list}>
-                {data?.map((item) => (
-                  <EventItem key={item?.guid} item={item} />
-                ))}
-              </div>
-            )}
-          </InfiniteScroll>
+              )}
+            </InfiniteScroll>
+          )
+        ) : (
+          <>
+            <MobileEvent params={params} data={data} />
+          </>
         )}
       </div>
     </Container>

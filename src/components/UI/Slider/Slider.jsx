@@ -1,14 +1,13 @@
 import React, { useRef, useState } from "react";
 import styles from "./style.module.scss";
-import BtnSlider from "./BtnSlider/BtnSlider";
-import { useMemo } from "react";
 import Slider from "react-slick";
 import LeftArrow from "/src/assests/icons/leftArrow.svg";
+import GoLeft from "/src/assests/icons/goLeft.svg";
 import RightArrow from "/src/assests/icons/rightCarouselArrow.svg";
 import { Container } from "@mui/material";
+import Link from "next/link";
 
 export default function InfoSlider({ data, title }) {
-  const sliderRef = useRef();
   const settings = {
     dots: true,
     speed: 500,
@@ -30,7 +29,7 @@ export default function InfoSlider({ data, title }) {
   // };
   // const prevSlide = () => {
   //   if (slideIndex !== 1) {
-  //     setSlideIndex(slideIndex - 1);
+  //     setSlideIndex(slideIndex - 1);LeftArrow
   //   } else if (slideIndex === 1) {
   //     setSlideIndex(data.length);
   //   }
@@ -43,12 +42,17 @@ export default function InfoSlider({ data, title }) {
   console.log("data", data);
   return (
     <>
-      <h2
-        className={styles.sectionTitle}
-        dangerouslySetInnerHTML={{
-          __html: title,
-        }}
-      />
+      <div className={styles.titleWrapper}>
+        <Link href="javascript:history.back()" passHref>
+          <GoLeft className={styles.leftArrow} width="25" height="23" />
+        </Link>
+        <h2
+          className={styles.sectionTitle}
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        />
+      </div>
       {data.length > 1 ? (
         <Container>
           <div className={styles.sliderWrapper}>
