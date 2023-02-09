@@ -42,8 +42,7 @@ export default function EventPage() {
       } else {
         setData((prev) => [...prev, ...events?.data?.response]);
       }
-    }
-    else if (events?.data?.count === 0) {
+    } else if (events?.data?.count === 0) {
       setHasMore(false);
       setData([]);
     }
@@ -110,6 +109,13 @@ export default function EventPage() {
             )}
           </InfiniteScroll>
         )}
+        {/* {data.length > 0 && (
+          <div className={styles.list}>
+            {data?.map((item) => (
+              <EventItem key={item?.guid} item={item} />
+            ))}
+          </div>
+        )} */}
       </div>
     </Container>
   );
