@@ -122,3 +122,10 @@
     row-gap: 16px;
   }
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: rem(50) 0;
+}
