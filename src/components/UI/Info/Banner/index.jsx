@@ -8,15 +8,10 @@ export default function Banner({ item }) {
       <h2
         className={styles.sectionTitle}
         dangerouslySetInnerHTML={{
-          __html: item?.[`${lang}_name`],
+          __html: item?.[`${lang}_name`] || item?.[`${lang}_header`],
         }}
       />
-      <h2
-        className={styles.sectionTitle}
-        dangerouslySetInnerHTML={{
-          __html: item?.[`${lang}_header`],
-        }}
-      />
+
       <div className={styles.banner}>
         <img
           className={styles.banner__main_img}

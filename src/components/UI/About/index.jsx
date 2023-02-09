@@ -56,7 +56,7 @@ export default function About() {
           <p>{t("name")}</p>
         </div>
         <div id="sphere">
-          <h2 className={styles.sphereTitle}>{t("spheres")}</h2>
+          <h2 className={styles.sphereTitle}>{t("helppeople_title")}</h2>
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
               <img src="/images/sphere1.jpeg"></img>
