@@ -38,3 +38,6 @@ const useSpheres = ({
 };
 
 export default useSpheres;
+
+export const getSphere = (data) =>
+  request.post(`/v1/object/get-list/website_projects`, { data });

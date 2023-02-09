@@ -37,16 +37,18 @@ export default function Projects(sphere) {
       limit: 3,
     },
     onSuccess: (res) => {
-      const values = res.data.response?.map((item) => ({
-        data: {
-          spheres_id: item.guid,
-          offset: 0,
-          limit: 1,
-        },
-      }));
-      getAllData(values).then((result) => {
-        setProjects(result);
-      });
+      if (!router?.asPath.includes("info")) {
+        const values = res.data.response?.map((item) => ({
+          data: {
+            spheres_id: item.guid,
+            offset: 0,
+            limit: 1,
+          },
+        }));
+        getAllData(values).then((result) => {
+          setProjects(result);
+        });
+      }
     },
   });
 
