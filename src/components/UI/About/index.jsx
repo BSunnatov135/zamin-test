@@ -55,15 +55,15 @@ export default function About() {
           <h2 className={styles.sphereTitle}>{t("helppeople_title")}</h2>
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere1.jpeg"></img>
+              <img src={spheres?.data?.response[0]?.photo}></img>
               <p>{spheres?.data?.response[0]?.[`${lang}_name`]}</p>
             </div>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere2.jpeg"></img>
+              <img src={spheres?.data?.response[1]?.photo}></img>
               <p>{spheres?.data?.response[1]?.[`${lang}_name`]} </p>
             </div>
             <div className={styles.sphereItem}>
-              <img src="/images/sphere3.jpeg"></img>
+              <img src={spheres?.data?.response[2]?.photo}></img>
               <p>{spheres?.data?.response[2]?.[`${lang}_name`]} </p>
             </div>
           </div>
