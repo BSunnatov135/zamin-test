@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "./style.module.scss";
 import BtnSlider from "./BtnSlider/BtnSlider";
 import { useMemo } from "react";
 import Slider from "react-slick";
+import LeftArrow from "/src/assests/icons/leftArrow.svg";
+import RightArrow from "/src/assests/icons/rightCarouselArrow.svg";
+import { Container } from "@mui/material";
 
 export default function InfoSlider({ data, title }) {
+  const sliderRef = useRef();
   const settings = {
     dots: true,
-    arrows: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <RightArrow />,
+    prevArrow: <LeftArrow />,
   };
   // const [slideIndex, setSlideIndex] = useState(1);
 
@@ -45,79 +49,68 @@ export default function InfoSlider({ data, title }) {
           __html: title,
         }}
       />
-      {data &&
-        (data.length > 1 ? (
-          <>
-            {/* <div className={styles.containerSlider}>
-              {data.map((obj, index) => {
-                return (
-                  <>
-                    <div
-                      key={obj.id}
-                      className={
-                        slideIndex === index + 1
-                          ? `${styles.slide} ${styles.active_anim}`
-                          : styles.slide
-                      }
-                    >
-                      {currentData?.type?.toLowerCase() === "mp4" ? (
-                        <video
-                          loop
-                          playsInline
-                          autoPlay
-                          muted
-                          controls
-                          height={"100%"}
-                        >
-                          <source
-                            src={currentData?.file_link}
-                            type="video/mp4"
-                          />
-                        </video>
-                      ) : (
-                        <img src={currentData?.file_link} />
-                      )}
-                    </div>
-                  </>
-                );
-              })}
-
-              <BtnSlider moveSlide={nextSlide} direction={"next"} />
-              <BtnSlider moveSlide={prevSlide} direction={"prev"} />
+      {data.length > 1 ? (
+        <Container>
+          <div className={styles.sliderWrapper}>
+            <div id="infoSlider">
+              <Slider {...settings} className={styles.containerSlider}>
+                {data?.map((item) =>
+                  item?.file_link?.toLowerCase().includes("mp4") ? (
+                    <video loop playsInline autoPlay muted controls>
+                      <source src={item?.file_link} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={item.file_link} />
+                  )
+                )}
+              </Slider>
             </div>
-            <div className={styles.sliderDotsWrapper}>
-              {data.map((_, index) => (
-                <div
-                  className={`${styles.sliderDots} ${
-                    index === slideIndex && styles.active
-                  }`}
-                  key={`dots-${index}`}
-                />
-              ))}
-            </div> */}
-            <Slider {...settings} className={styles.containerSlider}></Slider>
-          </>
-        ) : data.length === 1 ? (
-          <div className={styles.singleElement}>
-            {data?.type?.toLowerCase() === "mp4" ? (
-              <video
-                loop
-                playsInline
-                autoPlay
-                muted
-                controls
-                height={"100%"}
-                className={styles.singleElement}
-              >
-                <source src={data?.file_link} type="video/mp4" />
-              </video>
-            ) : (
-              <img src={data.file_link} className={styles.singleElement} />
-            )}
+            {/* <SampleNextArrow
+              styles={styles}
+              onClick={() => sliderRef.current.slickNext()}
+            />
+            <SamplePrevArrow
+              styles={styles}
+              onClick={() => sliderRef.current.slickPrev()}
+            /> */}
           </div>
-        ) : (
-          {}
-        ))}
+        </Container>
+      ) : data.length === 1 ? (
+        <div className={styles.singleElement}>
+          {data?.type?.toLowerCase() === "mp4" ? (
+            <video
+              loop
+              playsInline
+              autoPlay
+              muted
+              controls
+              height={"100%"}
+              className={styles.singleElement}
+            >
+              <source src={data?.[0]?.file_link} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={data?.[0]?.file_link} className={styles.singleElement} />
+          )}
+        </div>
+      ) : (
+        {}
+      )}
     </>
   );
 }
+// export function SampleNextArrow({ styles, onClick }) {
+//   return (
+//     <div className={styles.nextArrow} onClick={onClick}>
+//       <RightArrow />
+//     </div>
+//   );
+// }
+
+// export function SamplePrevArrow({ styles, onClick }) {
+//   return (
+//     <div className={styles.prevArrow} onClick={onClick}>
+//       <LeftArrow />
+//     </div>
+//   );
+// }
