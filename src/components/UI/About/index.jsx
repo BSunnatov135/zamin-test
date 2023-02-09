@@ -1,10 +1,15 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import Board from "./Board";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
+
+import dynamic from "next/dynamic";
+
+const Board = dynamic(() => import("./Board"), {
+  ssr: false,
+});
 
 export default function About() {
   const { t } = useTranslation("about");
