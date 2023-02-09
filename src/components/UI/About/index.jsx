@@ -1,33 +1,37 @@
 import { Container } from "@mui/material";
 import styles from "./style.module.scss";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
+import Board from "./Board";
 
 import dynamic from "next/dynamic";
 
-const Board = dynamic(() => import("./Board"), {
-  ssr: false,
-});
+// const Board = dynamic(() => import("./Board"), {
+//   ssr: false,
+// });
 
 export default function About() {
   const { t } = useTranslation("about");
   const { lang } = useTranslation();
   const router = useRouter();
-
+  const scrollRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      const boardElement =
-        router.asPath.includes("#board") && document.getElementById("board");
-      boardElement?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
-    }, 500);
+      if (router.asPath.includes("#board")) {
+        const section = document.querySelector(`#board`);
+        window.scrollTo({
+          top:
+            section.getBoundingClientRect().top +
+            document.documentElement.scrollTop -
+            60,
+          behavior: "smooth",
+        });
+        // scrollRef.current.scrollIntoView();
+      }
+    }, 200);
   }, []);
-
   const { spheres } = useSpheres({
     sphereParams: {
       offset: 0,
@@ -68,7 +72,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div id="board">
+        <div ref={scrollRef} id="board">
           <Board />
         </div>
       </Container>
