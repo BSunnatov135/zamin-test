@@ -285,7 +285,6 @@ export default function Footer() {
                 info@zaminfoundation.uz
               </a>
             </Link>
-            <p className={styles.subtitle}>{t("sns")}</p>
             <div className={styles.accordionIcons}>
               <div className={styles.SocialIcons}>
                 <a href="https://www.instagram.com/zaminfoundation/">
