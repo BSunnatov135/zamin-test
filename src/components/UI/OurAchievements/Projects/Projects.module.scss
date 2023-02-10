@@ -1,6 +1,10 @@
 @import "styles/unit.scss";
 
 .root {
-  padding: rem(24);
-  background: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .projects {
+    padding: rem(24);
+    background: #fff;
+  }
 }
