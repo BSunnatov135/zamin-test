@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import classNames from "classnames";
 import { useEffect } from "react";
 import Link from "next/link";
@@ -135,7 +135,13 @@ export default function Menu({
                   {t("funding")}
                 </a>
               </Link> */}
-              <Link href="/about#board" passHref scroll={false} legacyBehavior>
+              <Link
+                href="/about#board"
+                passHref
+                scroll={false}
+                legacyBehavior
+                path
+              >
                 <a
                   className={styles.box_bottom}
                   onClick={(e) => {
@@ -184,12 +190,10 @@ export default function Menu({
                 </a>
               </Link>
               {isActive?.data == "true" && (
-                <Link href="/">
+                <Link href="/#news" passHref legacyBehavior scroll={false} path>
                   <a
                     onClick={(e) => {
-                      e.preventDefault();
                       handleClose(e);
-                      handleRouterActions("advert");
                     }}
                   >
                     {t("advert_title")}

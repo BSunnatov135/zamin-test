@@ -122,17 +122,17 @@ export default function MobileMenu({
         },
       ],
     },
-    {
-      title: `${t("cabinet")}`,
-      key: "cabinet",
-      children: [
-        {
-          title: `${t("login")}`,
-          href: "/",
-          key: "login",
-        },
-      ],
-    },
+    // {
+    //   title: `${t("cabinet")}`,
+    //   key: "cabinet",
+    //   children: [
+    //     {
+    //       title: `${t("login")}`,
+    //       href: "/",
+    //       key: "login",
+    //     },
+    //   ],
+    // },
   ];
 
   const renderLabel = (data) => {
@@ -259,7 +259,7 @@ export default function MobileMenu({
             {items[3].title}
             <RightArrow />
           </a>
-          <a
+          {/* <a
             onClick={(e) => {
               setActiveLink(5);
             }}
@@ -267,7 +267,7 @@ export default function MobileMenu({
           >
             {items[4].title}
             <RightArrow />
-          </a>
+          </a> */}
           {/* <a
             href="#"
             onClick={(e) => {
