@@ -190,8 +190,8 @@ export default function Menu({
                     onClick={(e) => {
                       e.preventDefault();
                       handleClose(e);
-                      handleRouterActions("advert");
                     }}
+                    href="/"
                   >
                     {t("advert_title")}
                   </a>

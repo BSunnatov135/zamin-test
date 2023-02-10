@@ -29,32 +29,33 @@ export default function Advert() {
       is_news: true,
     },
   });
+
   const fullDate = () => {
     try {
       const res = format(
-        new Date(events?.data?.response?.[0].date),
+        new Date(events?.data?.response[0]?.date),
         "dd.MM.yyyy"
       );
       return res;
     } catch (err) {}
   };
-  console.log(events?.data?.response?.[0].date);
-  console.log("event", events);
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
   const adversContainerRef = useRef(null);
-  const dispatch = useDispatch();
   useEffect(() => {
-    if (adversContainerRef?.current?.offsetTop) {
-      setTimeout(() => {
-        dispatch(setScrollRefAdverts(adversContainerRef.current.offsetTop));
-      }, 0);
-    }
-  }, [adversContainerRef?.current?.offsetTop]);
+    setTimeout(() => {
+      if (router.asPath.includes("#advert")) {
+        adversContainerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 500);
+  }, []);
 
   return (
-    <Container>
+    <Container id="news" ref={adversContainerRef}>
       {isActive.data == "true" && (
         <div className={styles.main}>
           <div className={styles.header}>
@@ -68,7 +69,7 @@ export default function Advert() {
               </a>
             </Link> */}
           </div>
-          <div className={styles.list} ref={adversContainerRef}>
+          <div className={styles.list}>
             {/* {adverts?.data?.response?.map((item) => (
               <div key={item.guid} className={styles.item}>
                 <div className={styles.header}>
