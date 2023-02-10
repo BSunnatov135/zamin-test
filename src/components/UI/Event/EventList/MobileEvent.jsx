@@ -1,6 +1,7 @@
 import React from "react";
 import { Pagination, PaginationItem } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
 import { useStylesPagination } from "./styles";
 import styles from "./style.module.scss";
@@ -41,7 +42,10 @@ function MobileEvent({ data, params }) {
         page={page}
         onChange={handleChange}
         renderItem={(item) => (
-          <PaginationItem components={{ next: ArrowForwardIcon }} {...item} />
+          <PaginationItem
+            components={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+            {...item}
+          />
         )}
       />
     </div>
