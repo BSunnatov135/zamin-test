@@ -9,10 +9,7 @@ function OurAchievemnts() {
     <main className={cls.main}>
       <Container className={cls.container}>
         <h1 className={cls.title}>Наши достижения</h1>
-        <div className={cls.row}>
-          <Projects />
-          <div></div>
-        </div>
+        <Projects />
       </Container>
 
       <div style={{ marginTop: "200px" }}>

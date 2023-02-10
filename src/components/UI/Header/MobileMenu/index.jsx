@@ -35,6 +35,8 @@ export default function MobileMenu({
     advertIsActive: {},
   });
 
+  console.log("isac==>", isActive);
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -73,10 +75,6 @@ export default function MobileMenu({
           href: "/about#board",
         },
       ],
-    },
-    {
-      title: `${t("advert_title")}`,
-      key: "ads",
     },
     {
       title: `${t("projects")}`,
@@ -118,6 +116,10 @@ export default function MobileMenu({
           title: `${t("event_title")}`,
           href: "/event",
         },
+        {
+          title: `${t("advert_title")}`,
+          href: "/news",
+        },
       ],
     },
     {
@@ -132,6 +134,76 @@ export default function MobileMenu({
       ],
     },
   ];
+
+  const renderLabel = (data) => {
+    if (data.title == t("sns")) console.log("Heellooooo");
+    switch (data.title) {
+      case t("sns"): {
+        return (
+          <div>
+            <a
+              onClick={(e) => {
+                handleLinks(e, data.key);
+              }}
+            />
+            <div className={styles.snsButtons}>
+              <a
+                href="https://www.instagram.com/zaminfoundation/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <InstaLight />
+              </a>
+              <a
+                href="https://www.facebook.com/zaminfoundation"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FacebookLight />
+              </a>
+              <a
+                href="https://t.me/zaminfoundation"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <TelegramLight />
+              </a>
+            </div>
+          </div>
+        );
+      }
+      case t("advert_title"): {
+        return (
+          isActive?.data === "true" && (
+            <Link href={data.href}>
+              <a
+                dangerouslySetInnerHTML={{
+                  __html: data.title,
+                }}
+                onClick={(e) => {
+                  handleLinks(e, data.key);
+                }}
+              ></a>
+            </Link>
+          )
+        );
+      }
+      default: {
+        return (
+          <Link href={data.href}>
+            <a
+              dangerouslySetInnerHTML={{
+                __html: data.title,
+              }}
+              onClick={(e) => {
+                handleLinks(e, data.key);
+              }}
+            ></a>
+          </Link>
+        );
+      }
+    }
+  };
 
   return (
     <div
@@ -160,7 +232,15 @@ export default function MobileMenu({
             {items[0].title}
             <RightArrow />
           </a>
-          {isActive?.data == "true" && <a href="/news">{items[1].title}</a>}
+          <a
+            onClick={(e) => {
+              setActiveLink(2);
+            }}
+            key={items[1].key}
+          >
+            {items[1].title}
+            <RightArrow />
+          </a>
           <a
             onClick={(e) => {
               setActiveLink(3);
@@ -235,52 +315,16 @@ export default function MobileMenu({
         </a>
         {activeLink &&
           items[activeLink - 1].children.map((data) => (
-            <div key={data.title} scroll={false}>
-              <>
-                {data.title != `${t("sns")}` ? (
-                  <Link href={data.href}>
-                    <a
-                      dangerouslySetInnerHTML={{
-                        __html: data.title,
-                      }}
-                      onClick={(e) => {
-                        handleLinks(e, data.key);
-                      }}
-                    ></a>
-                  </Link>
-                ) : (
-                  <div>
-                    <a
-                      onClick={(e) => {
-                        handleLinks(e, data.key);
-                      }}
-                    />
-                    <div className={styles.snsButtons}>
-                      <a
-                        href="https://www.instagram.com/zaminfoundation/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <InstaLight />
-                      </a>
-                      <a
-                        href="https://www.facebook.com/zaminfoundation"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FacebookLight />
-                      </a>
-                      <a
-                        href="https://t.me/zaminfoundation"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <TelegramLight />
-                      </a>
-                    </div>
-                  </div>
-                )}
-              </>
+            <div
+              key={data.title}
+              scroll={false}
+              className={
+                data.title === t("advert_title") &&
+                isActive.data === "false" &&
+                styles.noBorder
+              }
+            >
+              <>{renderLabel(data)}</>
             </div>
           ))}
       </div>
