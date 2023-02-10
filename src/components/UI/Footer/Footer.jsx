@@ -46,10 +46,6 @@ export default function Footer() {
       path === "/" ? scrollTo(eventsRef) : router.push("/event");
     }
 
-    if (status === "advert") {
-      path === "/" ? scrollTo(advertsRef) : router.push("/news");
-    }
-
     function scrollTo(where) {
       scrollToRef(0, where - 100);
     }
@@ -125,12 +121,12 @@ export default function Footer() {
                 </a>
               </Link>
               {isActive?.data == "true" && (
-                <Link href="/">
+                <Link href="#advert">
                   <a
                     onClick={(e) => {
                       e.preventDefault();
-                      handleRouterActions("advert");
                     }}
+                    href="#advert"
                   >
                     {t("advert_title")}
                   </a>

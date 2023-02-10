@@ -1,19 +1,15 @@
 import { Container, Pagination, PaginationItem } from "@mui/material";
 import styles from "./style.module.scss";
 import EventItem from "../EventItem";
-import ArrowDownIcon from "assests/icons/arrowDown.svg";
-import { Popover } from "@mui/material";
 import { useState, useEffect } from "react";
-import CheckIcon from "@mui/icons-material/Check";
 import useEvents from "services/events";
 import useTranslation from "next-translate/useTranslation";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { Skeleton } from "@mui/material";
 import CRangePicker from "components/UI/CRangePicker/CRangePicker";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
-import MobileEvent from "./MobileEvent";
-import useWindowSize from "hooks/useWindowSize";
+import { useStylesPagination } from "./styles";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function EventPage() {
   const [datePicker, setDatePicker] = useState([null, null]);
@@ -22,7 +18,8 @@ export default function EventPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
-  const windowSize = useWindowSize();
+  const classPagination = useStylesPagination();
+  const [page, setPage] = useState(1);
 
   const params = {
     $gte: datePicker[0] && format(datePicker?.[0] || new Date(), "yyyy-MM-dd"),
@@ -32,31 +29,31 @@ export default function EventPage() {
   const { events } = useEvents({
     eventParams: {
       date: params.$gte && params.$lt ? params : undefined,
-      offset: (currentPage - 1) * 6,
+      offset: (page - 1) * 6,
       limit: 6,
     },
   });
 
+  console.log("events", events);
   const ResponseData = () => {
-    if (events?.data?.response.length) {
-      if (!events?.data?.response?.length) return setHasMore(false);
+    if (events?.data?.count) {
       if (currentPage == 1) {
         setData(events?.data?.response);
       } else {
         setData((prev) => [...prev, ...events?.data?.response]);
       }
-    } else if (events?.data?.count === 0) {
-      setHasMore(false);
-      setData([]);
     }
   };
 
+  const countData = events?.data?.count;
+  const responseData = events?.data?.response;
+
+  const handleChange = (_, value) => {
+    setPage(value);
+  };
+
   useEffect(() => {
-    if (data?.length === events?.data?.count) {
-      setHasMore(false);
-    } else {
-      ResponseData();
-    }
+    ResponseData();
   }, [events?.data?.response, currentPage]);
 
   return (
@@ -78,86 +75,27 @@ export default function EventPage() {
             }}
           />
         </div>
-
-        {windowSize.width > 768 ? (
-          data?.length > 0 && (
-            <InfiniteScroll
-              dataLength={data?.length || 0}
-              style={{ overflow: "visible" }}
-              hasMore={hasMore}
-              next={() => setCurrentPage((pre) => ++pre)}
-              loader={
-                hasMore && (
-                  <div className={styles.skeletonWrapper}>
-                    <div className={styles.skeletonItem}>
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="50px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="130px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="212px"
-                        height="24px"
-                      />
-                    </div>
-                    <div className={styles.skeletonItem}>
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="50px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="130px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="212px"
-                        height="24px"
-                      />
-                    </div>
-                    <div className={styles.skeletonItem}>
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="50px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="100%"
-                        height="130px"
-                      />
-                      <Skeleton
-                        variant="rectangle"
-                        width="212px"
-                        height="24px"
-                      />
-                    </div>
-                  </div>
-                )
-              }
-            >
-              {data.length > 0 && (
-                <div className={styles.list}>
-                  {data?.map((item) => (
-                    <EventItem key={item?.guid} item={item} />
-                  ))}
-                </div>
-              )}
-            </InfiniteScroll>
-          )
-        ) : (
-          <>
-            <MobileEvent params={params} data={data} />
-          </>
-        )}
+        <div>
+          {responseData?.length > 0 && (
+            <div className={styles.list}>
+              {responseData?.map((item) => (
+                <EventItem key={item?.guid} item={item} />
+              ))}
+            </div>
+          )}
+          <Pagination
+            className={`${styles.pagination} ${classPagination.root}`}
+            count={Math.ceil(countData / 6)}
+            page={page}
+            onChange={handleChange}
+            renderItem={(item) => (
+              <PaginationItem
+                components={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+                {...item}
+              />
+            )}
+          />
+        </div>
       </div>
     </Container>
   );

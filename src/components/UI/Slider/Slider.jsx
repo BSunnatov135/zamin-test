@@ -44,7 +44,7 @@ export default function InfoSlider({ data, title }) {
     <>
       <div className={styles.titleWrapper}>
         <Link href="javascript:history.back()" passHref>
-          <GoLeft className={styles.leftArrow} width="25" height="23" />
+          <GoLeft className={styles.leftArrow} width="25" height="21" />
         </Link>
         <h2
           className={styles.sectionTitle}

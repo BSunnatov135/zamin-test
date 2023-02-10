@@ -44,32 +44,73 @@
 
   .list {
     width: 100%;
-    display: flex;
-    overflow-x: auto;
-    flex-wrap: wrap;
-    gap: 24px;
     margin-top: 32px;
-    @media screen and (max-width: 960px) {
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      width: 100%;
-      scrollbar-width: none;
-      &::-webkit-scrollbar {
-        display: none;
-      }
-    }
     .item {
-      display: flex;
-      width: calc(100% / 3 - 16px);
+      height: auto;
+      width: 100%;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      .itemInfo {
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+        display: none;
+        z-index: 99;
+        padding: 20px;
+        width: 70%;
+        filter: brightness(1);
 
-      @media screen and (max-width: 960px) {
-        min-width: 306px;
+        > p:first-child {
+          font-weight: 700;
+          font-size: 23px;
+          line-height: 25px;
+          font-family: "Noto Serif";
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          @media screen and (max-width: 600px) {
+            font-size: 16px;
+            line-height: 18px;
+            row-gap: 6px;
+          }
+        }
+
+        > p:nth-child(2) {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+          font-family: "Noto Sans";
+          letter-spacing: -1;
+          margin-top: 9px;
+          @media screen and (max-width: 600px) {
+            font-size: 13px;
+          }
+        }
       }
-      flex-direction: column;
-      padding: 24px 16px;
-      background-color: #fff;
 
-      overflow: hidden;
+      &:hover {
+        .itemInfo {
+          display: block;
+        }
+
+        &:after {
+          content: " ";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(transparent, #0c0a0a);
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+      img {
+        max-height: 600px;
+        object-fit: cover;
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
       .header {
         padding-bottom: 12px;
         border-bottom: 1px solid #c4c4c4;

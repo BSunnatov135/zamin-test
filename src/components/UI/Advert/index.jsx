@@ -8,46 +8,69 @@ import { useEffect, useRef } from "react";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setScrollRefAdverts } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import useEvents from "services/events";
+import { format } from "date-fns";
+import { useRouter } from "next/router";
 
 export default function Advert() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
+  const router = useRouter();
   const { adverts } = useAdverts({
     advertParams: {
       offset: 0,
       limit: 6,
     },
   });
+  const { events } = useEvents({
+    eventParams: {
+      offset: 0,
+      limit: 1,
+      is_news: true,
+    },
+  });
+
+  const fullDate = () => {
+    try {
+      const res = format(
+        new Date(events?.data?.response[0]?.date),
+        "dd.MM.yyyy"
+      );
+      return res;
+    } catch (err) {}
+  };
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
   const adversContainerRef = useRef(null);
-  const dispatch = useDispatch();
   useEffect(() => {
-    if (adversContainerRef?.current?.offsetTop) {
-      setTimeout(() => {
-        dispatch(setScrollRefAdverts(adversContainerRef.current.offsetTop));
-      }, 0);
-    }
-  }, [adversContainerRef?.current?.offsetTop]);
+    setTimeout(() => {
+      if (router.asPath.includes("#news")) {
+        adversContainerRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 500);
+  }, []);
 
   return (
     <Container>
       {isActive.data == "true" && (
-        <div className={styles.main}>
+        <div className={styles.main} id="news" ref={adversContainerRef}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
               <p className={styles.title}>{t("advert_title")}</p>
             </div>
 
-            <Link href="/news">
+            {/* <Link href="/news">
               <a className={styles.link}>
                 {t("all")} <ArrowRightIcon />
               </a>
-            </Link>
+            </Link> */}
           </div>
-          <div className={styles.list} ref={adversContainerRef}>
-            {adverts?.data?.response?.map((item) => (
+          <div className={styles.list}>
+            {/* {adverts?.data?.response?.map((item) => (
               <div key={item.guid} className={styles.item}>
                 <div className={styles.header}>
                   <Link href={`/news-info/${item.guid}?from=news`}>
@@ -75,7 +98,25 @@ export default function Advert() {
                   </a>
                 </Link>
               </div>
-            ))}
+            ))} */}
+            <div
+              className={styles.item}
+              onClick={() =>
+                router.push(
+                  `/events-info/${events?.data?.response?.[0].guid}?from=events`
+                )
+              }
+            >
+              <img src={events?.data?.response?.[0][`${lang}_poster`]} />
+              <div className={styles.itemInfo}>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: events?.data?.response?.[0][`${lang}_header`],
+                  }}
+                ></p>
+                <p>{fullDate()}</p>
+              </div>
+            </div>
           </div>
         </div>
       )}
