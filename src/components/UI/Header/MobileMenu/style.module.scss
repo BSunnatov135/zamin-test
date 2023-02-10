@@ -31,6 +31,7 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 18px;
+
       @include align-items-center;
       justify-content: space-between;
       .languageWrapper {
@@ -60,7 +61,9 @@
         }
       }
     }
-
+    .noBorder {
+      display: none;
+    }
     transform: translateX(0);
     &.links {
       transform: translateX(100vw);
