@@ -108,24 +108,7 @@ export default function Footer() {
                 <Spheres key={item.guid} item={item} id={item.guid} />
               ))}
             </div>
-            {isActive?.data == "true" && (
-              <div className={styles.box}>
-                <p className={styles.subtitle}>
-                  {t("advert_title")}
-                  <DropIcon />
-                </p>
-                <Link href="/">
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleRouterActions("advert");
-                    }}
-                  >
-                    {t("advert_title")}
-                  </a>
-                </Link>
-              </div>
-            )}
+
             <div className={styles.box}>
               <p className={styles.subtitle}>
                 {t("media")}
@@ -141,6 +124,18 @@ export default function Footer() {
                   {t("event_title")}
                 </a>
               </Link>
+              {isActive?.data == "true" && (
+                <Link href="/">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleRouterActions("advert");
+                    }}
+                  >
+                    {t("advert_title")}
+                  </a>
+                </Link>
+              )}
               {/* <Link href="/gallery">
                 <a>{t("gallery")}</a>
               </Link> */}
@@ -221,33 +216,6 @@ export default function Footer() {
               </AccordionDetails>
             </Accordion>
 
-            {isActive?.data == "true" && (
-              <Accordion className={styles.accordion}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                  className={styles.accordionSummary}
-                >
-                  <Typography>
-                    <a
-                      className={styles.summaryContent}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleRouterActions("advert");
-                      }}
-                    >
-                      {t("advert_title")}
-                    </a>
-                  </Typography>
-                </AccordionSummary>
-
-                <AccordionDetails className={styles.accordionDetails}>
-                  <Typography>{t("advert_title")}</Typography>
-                </AccordionDetails>
-              </Accordion>
-            )}
-
             <Accordion className={styles.accordion}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -272,7 +240,20 @@ export default function Footer() {
                     {t("event_title")}
                   </a>
                 </Typography>
-                <Typography>{t("gallery")}</Typography>
+                {isActive?.data == "true" && (
+                  <Typography>
+                    {" "}
+                    <a
+                      className={styles.summaryContent}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleRouterActions("advert");
+                      }}
+                    >
+                      {t("advert_title")}
+                    </a>
+                  </Typography>
+                )}
               </AccordionDetails>
             </Accordion>
           </div>
