@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import Board from "./Board";
 
-import dynamic from "next/dynamic";
-
 // const Board = dynamic(() => import("./Board"), {
 //   ssr: false,
 // });
@@ -20,18 +18,14 @@ export default function About() {
   useEffect(() => {
     setTimeout(() => {
       if (router.asPath.includes("#board")) {
-        const section = document.querySelector(`#board`);
-        window.scrollTo({
-          top:
-            section.getBoundingClientRect().top +
-            document.documentElement.scrollTop -
-            60,
+        scrollRef.current.scrollIntoView({
           behavior: "smooth",
+          block: "start",
         });
-        // scrollRef.current.scrollIntoView();
       }
     }, 500);
   }, []);
+
   const { spheres } = useSpheres({
     sphereParams: {
       offset: 0,
