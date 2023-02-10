@@ -147,7 +147,14 @@ export default function Menu({
               </Link>
               <p className={styles.title}>{t("projects")}</p>
               {spheres?.data?.response?.map((item) => (
-                <Projects key={item?.guid} item={item} id={item.guid} />
+                <Projects
+                  key={item?.guid}
+                  item={item}
+                  id={item.guid}
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                />
               ))}
             </div>
             <div className={styles.box}>
@@ -177,6 +184,19 @@ export default function Menu({
                   {t("event_title")}
                 </a>
               </Link>
+              {isActive?.data == "true" && (
+                <Link href="/">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClose(e);
+                      handleRouterActions("advert");
+                    }}
+                  >
+                    {t("advert_title")}
+                  </a>
+                </Link>
+              )}
               {/* <Link href="/gallery">
                 <a
                   className={styles.box_bottom}
@@ -187,24 +207,13 @@ export default function Menu({
                   {t("gallery")}
                 </a>
               </Link> */}
-              {isActive?.data == "true" && (
-                <>
-                  <p className={classNames(styles.title, styles.topMargin)}>
-                    {t("advert_title")}
-                  </p>
-                  <Link href="/">
-                    <a
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleClose(e);
-                        handleRouterActions("advert");
-                      }}
-                    >
-                      {t("advert_title")}
-                    </a>
-                  </Link>
-                </>
-              )}
+              {/* ( */}
+              {/* <>
+                <p className={classNames(styles.title, styles.topMargin)}>
+                  {t("advert_title")}
+                </p>
+              </>
+              )} */}
             </div>
             <div className={styles.box}>
               <p className={styles.title}>{t("contacts")}</p>
