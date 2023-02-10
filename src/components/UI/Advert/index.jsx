@@ -45,7 +45,7 @@ export default function Advert() {
   const adversContainerRef = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      if (router.asPath.includes("#advert")) {
+      if (router.asPath.includes("#news")) {
         adversContainerRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
@@ -55,9 +55,9 @@ export default function Advert() {
   }, []);
 
   return (
-    <Container id="news" ref={adversContainerRef}>
+    <Container>
       {isActive.data == "true" && (
-        <div className={styles.main}>
+        <div className={styles.main} id="news" ref={adversContainerRef}>
           <div className={styles.header}>
             <div className={styles.leftElement}>
               <p className={styles.title}>{t("advert_title")}</p>
