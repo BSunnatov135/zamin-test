@@ -115,7 +115,7 @@ export default function Partners() {
             />
           </div>
           <ReactTooltip
-            anchorId="unicef"
+            aсоюзы в русском языкеnchorId="unicef"
             place="bottom"
             content={t("unicef")}
             className={styles.popover}
@@ -130,6 +130,28 @@ export default function Partners() {
             anchorId="hydro"
             place="bottom"
             content={t("hydro")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="yia">
+            <img
+              src={`/logos/Yoshlar.png`}
+              // width={"100%"}
+              height="86px"
+              flex={"1"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src={`/logos/Yoshlar.png`}
+              height={"63px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="yia"
+            place="bottom"
+            content={t("yia")}
             className={styles.popover}
           />
         </div>
@@ -186,7 +208,7 @@ export default function Partners() {
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/Tree.png"
+              src="/logos/FEE.jpeg"
               height={"56px"}
               className={styles.mobileIcon}
             />
@@ -195,6 +217,27 @@ export default function Partners() {
             anchorId="fee"
             place="bottom"
             content={t("fee")}
+            className={styles.popover}
+          />
+        </div>
+        <div className={styles.item}>
+          <div id="school">
+            <img
+              src={`/logos/school${lang}.png`}
+              height={"60px"}
+              flex={"1"}
+              className={styles.desktopIcon}
+            />
+            <img
+              src={`/logos/resschool${lang}.png`}
+              height={"56px"}
+              className={styles.mobileIcon}
+            />
+          </div>
+          <ReactTooltip
+            anchorId="school"
+            place="bottom"
+            content={t("school")}
             className={styles.popover}
           />
         </div>
@@ -259,56 +302,14 @@ export default function Partners() {
           />
         </div>
         <div className={styles.item}>
-          <div id="yia">
-            <img
-              src={`/logos/Yia${lang}.png`}
-              width={"100%"}
-              flex={"1"}
-              className={styles.desktopIcon}
-            />
-            <img
-              src={`/logos/Yia${lang}.png`}
-              height={"56px"}
-              className={styles.mobileIcon}
-            />
-          </div>
-          <ReactTooltip
-            anchorId="yia"
-            place="bottom"
-            content={t("yia")}
-            className={styles.popover}
-          />
-        </div>
-        <div className={styles.item}>
-          <div id="school">
-            <img
-              src={`/logos/school${lang}.png`}
-              height={"60px"}
-              flex={"1"}
-              className={styles.desktopIcon}
-            />
-            <img
-              src={`/logos/resschool${lang}.png`}
-              height={"56px"}
-              className={styles.mobileIcon}
-            />
-          </div>
-          <ReactTooltip
-            anchorId="school"
-            place="bottom"
-            content={t("school")}
-            className={styles.popover}
-          />
-        </div>
-        <div className={styles.item}>
           <div id="unece">
             <img
-              src="/logos/unece.png"
-              height={"60px"}
+              src="/logos/UNECE.png"
+              height={"80px"}
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/unece.png"
+              src="/logos/UNECE.png"
               height={"56px"}
               className={styles.mobileIcon}
             />
