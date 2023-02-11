@@ -119,6 +119,62 @@
 
 @media (max-width: 768px) {
   .root {
+    margin-top: 30px;
     grid-template-columns: 1fr;
+    .projects {
+      padding: rem(12);
+      h1 {
+        text-align: center;
+        font-size: rem(24);
+        line-height: rem(32);
+      }
+      .tabs {
+        padding: rem(20) 0 rem(20);
+        .tab {
+          svg {
+            width: rem(13);
+          }
+          p {
+            text-align: center;
+            font-weight: 500;
+            font-size: rem(10);
+            line-height: rem(14);
+          }
+        }
+      }
+    }
+    .body {
+      .sphere,
+      .activeSphere {
+        padding: rem(8);
+        .name {
+          p {
+            max-width: rem(250) !important;
+            @media (max-width: 500px) {
+              max-width: rem(150) !important;
+            }
+          }
+          strong {
+            font-weight: 400 !important;
+            font-size: rem(12) !important;
+            line-height: rem(16) !important;
+          }
+        }
+        .sphereBtn {
+          padding: rem(6);
+          height: 32px;
+          p {
+            font-weight: 400 !important;
+            font-size: 12px !important;
+            line-height: 16px !important;
+          }
+          span {
+            svg {
+              width: rem(15);
+            }
+          }
+        }
+      }
+    }
   }
 }

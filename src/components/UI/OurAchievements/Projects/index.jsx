@@ -28,9 +28,6 @@ function Projects() {
   const spheresRes = spheres?.data?.response;
   const sphereRes = sphere?.data?.response;
 
-  // console.log("spheresRes", spheresRes);
-  // console.log("sphereRes", sphereRes);
-
   useEffect(() => {
     if (spheresRes) {
       setDataSphere(spheresRes[0]?.guid);
@@ -40,6 +37,7 @@ function Projects() {
   useEffect(() => {
     if (sphereRes) {
       setActiveSphere(sphereRes[0]?.guid);
+      setActiveProjects(sphereRes[0]?.achievements_map_ids_data);
     }
   }, [sphere]);
 

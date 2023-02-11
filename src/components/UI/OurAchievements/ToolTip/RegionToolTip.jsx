@@ -17,7 +17,7 @@ export default function RegionTooltip({ position, region, align }) {
         transform: position ? "scale(1)" : "scale(0)",
       }}
     >
-      <span className={cls.title}>{t(region)}</span>
+      <span className={cls.title}>{region ? t(region) : ""}</span>
     </div>
   );
 }
