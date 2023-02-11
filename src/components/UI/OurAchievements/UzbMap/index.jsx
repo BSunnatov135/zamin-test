@@ -339,7 +339,7 @@ function UzbMap({ data = [] }) {
           strokeWidth="1.822"
           strokeLinecap="round"
           strokeLinejoin="round"
-          onMouseEnter={() => findPosition("tashkent", 12, "right")}
+          onMouseEnter={() => findPosition("tashkent", 13, "right")}
           onMouseLeave={mouseOut}
         />
       </svg>

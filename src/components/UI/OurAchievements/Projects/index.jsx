@@ -97,7 +97,7 @@ function Projects() {
                         router.push(`/project-info/${el.guid}`);
                       }}
                     >
-                      Подробнее
+                      {t("more")}
                     </p>
                     <span>
                       <KeyboardArrowRightIcon />
