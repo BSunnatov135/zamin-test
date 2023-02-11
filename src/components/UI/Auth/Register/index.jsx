@@ -4,7 +4,6 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "@mui/material/Button";
 import ZInput from "components/UI/FormElements/ZInput";
 import { useRef, useState } from "react";
-import CheckIcon from "/src/assests/icons/checkIcon.svg";
 import CountDown from "../RegCountdown/countDown";
 import InputMaskCustom from "components/UI/FormElements/InputMask";
 import { useForm } from "react-hook-form";
@@ -14,7 +13,7 @@ import { setUser } from "store/authSlice/authSlice";
 import { useDispatch } from "react-redux";
 import useTranslation from "next-translate/useTranslation";
 
-const statuses = ["initial", "code", "gender"];
+const statuses = ["initial", "code", "register"];
 
 export default function RegisterForm({ open, handleClose, openLogin }) {
   const [state, setState] = useState({
@@ -29,20 +28,22 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     watch,
     formState: { errors },
   } = useForm();
-  const [toggle, setToggle] = useState("male");
+
   const { t } = useTranslation("common");
   const [status, setStatus] = useState(statuses[0]);
   const dispatch = useDispatch();
   const { signUp, sendCode, verifyUser } = useAuth({
     signupQueryProps: {
-      onSuccess: () => {
+      onSuccess: (value) => {
         setStatus(statuses[0]);
+        dispatch(setUser(value.data.response));
         handleClose();
         reset();
       },
     },
     sendCodeQueryProps: {
       onSuccess: (value) => {
+        // dispatch(userDataInstallments(value?.data));
         setState((prev) => ({
           ...prev,
           smsId: value.data.sms_id,
@@ -53,9 +54,10 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     },
     verifyUserQueryProps: {
       onSuccess: (value) => {
-        dispatch(setUser(value.data.client_platform));
+        // here platform id
         setStatus(statuses[2]);
         reset();
+        handleClose();
       },
     },
     verifyParams: {
@@ -67,7 +69,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
   const resendCode = () => {
     sendCode.mutate({
       client_type: "SITE_USER",
-      recipient: `+998${watch("phone").replace(/[- )(]/g, "")}`,
+      recipient: `${watch("phone").replace(/[- )(]/g, "")}`,
       text: "Код подтверждения",
     });
   };
@@ -75,25 +77,31 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
     if (status === "initial") {
       sendCode.mutate({
         client_type: "SITE_USER",
-        recipient: `+998${data.phone.replace(/[- )(]/g, "")}`,
+        recipient: `${data.phone.replace(/[- )(]/g, "")}`,
         text: "Код подтверждения",
       });
       return;
     }
     if (status === "code") {
-      console.log("data===>", data);
       verifyUser.mutate(otpCredentials);
+      handleClose();
       return;
     }
     signUp.mutate({
       data: {
         ...data,
-        gender: [toggle],
+        phone: `${watch("phone").replace(/[- )(]/g, "")}`,
         user_types_id: "8bc9ec1b-e619-4b49-a592-8a0d2379995d",
         birth_date: new Date(data.birth_date),
       },
+      onSuccess: (value) => {
+        handleClose();
+        setStatus[0];
+        reset();
+      },
     });
-    console.log("nomer:", data);
+    handleClose();
+    reset();
   };
   return (
     <>
@@ -110,7 +118,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
             <CloseIcon />
           </div>
           <div className={cls.title}>
-            <h2>{t("register")}</h2>
+            <h2>{t("register_title")}</h2>
           </div>
           <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
             {status === "initial" && (
@@ -118,7 +126,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 control={control}
                 name="phone"
                 label={t("phone")}
-                mask="(99) 999-99-99"
+                mask="+\9\9\8 99 999 99 99"
                 maskchar={null}
                 alwaysShowMask={false}
                 placeholder={t("enter_number")}
@@ -131,7 +139,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   name="phone"
                   control={control}
                   label={t("phone")}
-                  mask="(99) 999-99-99"
+                  mask="+\9\9\8 99 999 99 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}
@@ -154,14 +162,14 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                 <CountDown seconds={59} resendCode={resendCode} />
               </>
             )}
-            {status === "gender" && (
+            {status === "register" && (
               <div className={cls.inputWrapper}>
                 <InputMaskCustom
                   className={cls.displayNone}
                   name="phone"
                   control={control}
                   label={t("phone")}
-                  mask="(99) 999-99-99"
+                  mask="+\9\9\8 99 999 99 99"
                   maskchar={null}
                   alwaysShowMask={false}
                   placeholder={t("enter_number")}
@@ -239,36 +247,15 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                     errors.hasOwnProperty("birth_date") ? cls.borderRed : " "
                   }
                 />
-                <div className={cls.genderChooseLabel}>
-                  <label>{t("choose_gender")}</label>
-                  <div
-                    className={cls.genderChoose}
-                    register={register}
-                    name="gender"
-                  >
-                    <div
-                      className={cls.gender}
-                      onClick={() => setToggle("male")}
-                    >
-                      {t("male")} {toggle === "male" && <CheckIcon />}
-                    </div>
-                    <div
-                      className={cls.gender}
-                      onClick={() => setToggle("female")}
-                    >
-                      {t("female")} {toggle === "female" && <CheckIcon />}
-                    </div>
-                  </div>
-                </div>
               </div>
             )}
             <Button type="submit" className={cls.button}>
-              Подтвердить
+              {t("confirm")}
             </Button>
           </form>
           <div className={cls.register}>
             <p>
-              Уже с нами?{" "}
+              {t("with_us")}{" "}
               <a
                 href="#"
                 onClick={(e) => {
@@ -276,7 +263,7 @@ export default function RegisterForm({ open, handleClose, openLogin }) {
                   handleClose(e);
                 }}
               >
-                Войдите
+                {t("login")}
               </a>
             </p>
           </div>

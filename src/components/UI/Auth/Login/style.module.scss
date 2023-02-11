@@ -1,4 +1,5 @@
 @import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 .box {
   width: 418px;
   background: #fff;
@@ -34,12 +35,18 @@
     display: flex;
     flex-direction: column;
     row-gap: 12px;
+    .input {
+      margin-bottom: 12px;
+    }
     .codeError {
       color: red !important;
       margin-top: -12px;
     }
     .button {
       margin-top: 20px !important;
+    }
+    .name {
+      margin-top: 12px;
     }
     .borderRed {
       input {

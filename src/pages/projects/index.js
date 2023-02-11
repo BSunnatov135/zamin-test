@@ -1,11 +1,11 @@
-import SEO from 'components/SEO'
-import ProjectsList from 'components/UI/Projects/ProjectsList'
+import SEO from "components/SEO";
+import ProjectList from "components/UI/Projects/ProjectsList";
 
 export default function Home() {
   return (
     <>
       <SEO />
-      <ProjectsList />
+      <ProjectList />
     </>
-  )
+  );
 }

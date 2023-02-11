@@ -1,12 +1,13 @@
 @import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .menu {
-  position: absolute;
-  height: calc(100vh - 62px);
+  position: fixed;
+  height: 100vh;
   background-color: #fff;
   width: 100%;
   overflow-x: hidden;
-  z-index: 99;
+  z-index: 100;
   transition: all 0.4s ease-in-out;
   transform: translateY(-94vh);
   opacity: 0;
@@ -19,15 +20,49 @@
   .box {
     padding: 0 16px;
     height: 100%;
-    a {
-      display: flex;
+    & > a {
       padding: 22px 18px;
+    }
+    & > a,
+    > div {
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      padding: 22px 0px 22px 18px;
       font-weight: 500;
       font-size: 16px;
       line-height: 18px;
+
       @include align-items-center;
       justify-content: space-between;
+      .languageWrapper {
+        display: flex;
+        column-gap: 12px;
+        li {
+          list-style: none;
+          padding: 4px 16px;
+          background: #eef0f2;
+          border-radius: 16px;
+        }
+        .chosen {
+          background: #09999a;
+          color: #ffffff;
+        }
+      }
+      .snsButtons {
+        display: flex;
+        column-gap: 12px;
+        padding: 0;
+        border: none;
+        svg {
+          transform: none !important;
+          path {
+            stroke: transparent !important;
+          }
+        }
+      }
+    }
+    .noBorder {
+      display: none;
     }
     transform: translateX(0);
     &.links {
@@ -54,4 +89,8 @@
       max-width: 100%;
     }
   }
+}
+
+.headerLight {
+  margin-top: -20px;
 }

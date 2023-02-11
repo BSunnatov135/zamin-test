@@ -5,17 +5,17 @@
   }
   input {
     border: 1px solid #cfcfcf;
+    margin-bottom: 12px;
+    &:first-child {
+      margin-top: 12px;
+    }
 
     &.fullWidth {
       width: 100%;
     }
-    &.small {
-    }
     &.medium {
       padding: 12px;
       height: 48px;
-    }
-    &.large {
     }
     &,
     &::placeholder {

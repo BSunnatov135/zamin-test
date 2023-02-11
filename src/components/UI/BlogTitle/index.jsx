@@ -6,7 +6,11 @@ export default function BlogTitle({ title, link }) {
   return (
     <div className={styles.header}>
       <div className={styles.leftElement}>
-        <p>{title}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: title,
+          }}
+        />
       </div>
       {link && (
         <Link href={link.path || "/"}>

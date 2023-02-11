@@ -1,4 +1,5 @@
 @import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .item {
   cursor: pointer;
@@ -10,7 +11,7 @@
     max-width: 100%;
   }
   .img {
-    height: 290px;
+    flex: 1;
   }
   &:hover {
     .img {
@@ -21,6 +22,9 @@
   }
   .img {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
       transition: all 0.4s ease-in-out;
       width: 100%;
@@ -33,13 +37,14 @@
     overflow: hidden;
     padding: 16px 12px 24px;
     background-color: #fff;
+    flex: 1;
     @media screen and (max-width: 600px) {
       height: auto;
     }
     .name {
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 28px;
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 30px;
       margin-bottom: 8px;
       overflow: hidden;
       display: -webkit-box;
@@ -48,10 +53,13 @@
       opacity: 0.8;
     }
     .description {
+      max-height: 100px;
+      overflow: hidden;
       p {
         font-family: "Noto Sans" !important;
-        font-size: 16px;
-        line-height: 180%;
+        font-weight: 300 !important;
+        font-size: 16px !important;
+        line-height: 24px;
         color: #2d2d2d;
         opacity: 0.8;
         overflow: hidden;

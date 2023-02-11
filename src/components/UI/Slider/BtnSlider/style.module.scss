@@ -1,0 +1,37 @@
+.btnSlide {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f1f1f1;
+  border: 1px solid rgba(34, 34, 34, 0.287);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  img {
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+  }
+}
+.prev {
+  background: transparent;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-60%);
+  border: none;
+  @media screen and (max-width: 400px) {
+    left: 0;
+  }
+}
+.next {
+  border: none;
+  background: transparent;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-60%);
+  @media screen and (max-width: 400px) {
+    right: 0;
+  }
+}

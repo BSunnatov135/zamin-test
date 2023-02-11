@@ -38,7 +38,7 @@ export default function LanguageDropdown() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <>
+    <div className={styles.container}>
       <p onClick={handleClick}>
         <span>{lang === "ru" ? "Рус" : lang === "en" ? "Eng" : `O'zb`}</span>
         <ArrowDownIcon />
@@ -67,6 +67,6 @@ export default function LanguageDropdown() {
           ))}
         </ul>
       </Popover>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,56 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+.container {
+  max-width: 1216px;
+  margin: auto;
+  padding: 16px;
+  margin-top: 66px;
+  @media screen and (max-width: 800px) {
+    margin-top: 40px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-top: 24px;
+  }
+  .title {
+    font-family: "Noto Serif";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 0.326451px;
+    padding-bottom: 34px;
+    @media screen and (max-width: 600px) {
+      padding-bottom: 24px;
+    }
+  }
+  .flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 24px;
+    margin-bottom: 66px;
+    .item {
+      max-width: 50%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      @media screen and (min-width: 600px) {
+        flex: 1;
+      }
+      @media screen and (max-width: 600px) {
+        max-width: 100%;
+      }
+      &:nth-child(3n) {
+        flex: auto;
+        width: 100%;
+        max-width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

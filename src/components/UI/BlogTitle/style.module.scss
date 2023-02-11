@@ -1,4 +1,5 @@
 @import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .header {
   display: flex;
@@ -11,15 +12,15 @@
   .leftElement {
     p {
       &:first-child {
-        font-size: 16px;
-        line-height: 180%;
+        font-size: 16px !important;
+        line-height: 180% !important;
         span {
           display: flex;
         }
       }
       &:last-child {
-        font-weight: 600;
-        font-size: 32px;
+        font-weight: 600 !important;
+        font-size: 32px !important;
         line-height: 44px;
       }
     }

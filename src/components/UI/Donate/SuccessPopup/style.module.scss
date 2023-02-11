@@ -1,0 +1,63 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+.box {
+  width: 418px;
+  background: #fff;
+  display: flex;
+  padding: 24px;
+  row-gap: 24px;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: "Noto Sans" !important;
+  align-items: center;
+
+  .closeIcon {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    svg {
+      fill: #9a9b9b;
+    }
+  }
+  .successLogo {
+    margin-top: 56px;
+    width: fit-content;
+  }
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px;
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      font-family: "Noto Serif";
+    }
+    p {
+      color: #9a9b9b;
+      font-size: 20px;
+      line-height: 28px;
+      font-family: "Noto Sans";
+    }
+  }
+  & > a {
+    width: 100%;
+    cursor: pointer;
+    button {
+      width: 100%;
+      background-color: var(--primary-color);
+      outline: none;
+      border: none;
+      padding: 14px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}

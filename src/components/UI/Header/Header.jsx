@@ -6,7 +6,7 @@ import AccessIcon from "assests/icons/access.svg";
 import CloseIcon from "assests/icons/close.svg";
 import LanguageDropdown from "./LanguageDropdown";
 import Menu from "./Menu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRef } from "react";
 import useOnClickOutside from "hooks/useOnClickOutside";
 import classNames from "classnames";
@@ -20,6 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const { t } = useTranslation("common");
+  const [size, setSize] = useState(false);
   const handleLogin = (event) => {
     event && event.preventDefault();
     setOpenLogin((prev) => !prev);
@@ -27,15 +28,42 @@ export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const ref = useRef();
   useOnClickOutside(ref, () => setOpen(false));
+  //////////
+
+  const listenScrollEvent = () => {
+    if (window.scrollY < 80) {
+      setSize(false);
+    } else if (window.scrollY > 80) {
+      setSize(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+
+    return () => window.removeEventListener("scroll", listenScrollEvent);
+  }, []);
+  //////////////
+
   return (
     <>
-      <header className={classNames(styles.header, { [styles.active]: open })}>
+      <header
+        className={
+          size
+            ? classNames(
+                styles.header,
+                { [styles.active]: open },
+                styles.headerLight
+              )
+            : classNames(styles.header, { [styles.active]: open })
+        }
+      >
         <Container>
           <div className={styles.box}>
             <div
               className={styles.menu}
               onClick={() => {
-                if (window.innerWidth < 600) {
+                if (window.innerWidth < 700) {
                   setMobileMenu((prev) => !prev);
                 } else {
                   setOpen((prev) => !prev);
@@ -45,27 +73,40 @@ export default function Header() {
               {open || mobileMenu ? <CloseIcon /> : <MenuIcon />}
             </div>
             <Link href="/">
-              <a className={styles.logo}>
-                <Logo />
+              <a className={styles.logo} href="/">
+                <img
+                  src="/logos/logopic.png"
+                  width={"44px"}
+                  height={"44px"}
+                  className={styles.rotateImage}
+                />
+                <img src="/logos/logotext.png" height={"32px"} />
               </a>
             </Link>
             <Link href="/">
-              <a className={styles.resLogo}>
+              <a className={styles.resLogo} href="/">
                 <RestLogo />
               </a>
             </Link>
             <div className={styles.rightElement}>
-              <p
-                onClick={() => {
-                  console.log(
-                    document.getElementById("userwayAccessibilityIcon").click()
-                  );
-                }}
+              <div
+                // onClick={() => {
+                //   document.getElementById("userwayAccessibilityIcon").click();
+                // }}
+                id="openAccessibility"
+                tabIndex="0"
+                className={styles.accessibility}
               >
-                {t("accessibility")}
+                <p className={styles.accessibilityTitle}>
+                  {t("accessibility")}
+                </p>
                 <AccessIcon />
-              </p>
-              <LanguageDropdown />
+              </div>
+              <LanguageDropdown className={styles.LanguageDropdown} />
+              {/* <div className={styles.profileSets}>
+                <Profile />
+                <LogOutIcon />
+              </div> */}
             </div>
           </div>
         </Container>
@@ -76,11 +117,13 @@ export default function Header() {
         open={open}
         handleClose={() => setOpen((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
       <MobileMenu
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
       <LoginForm open={openLogin} handleClose={handleLogin} />
     </>

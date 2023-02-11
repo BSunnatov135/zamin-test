@@ -5,27 +5,39 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function EventItem({ item }) {
   const { lang } = useTranslation();
+
+  const { t } = useTranslation("common");
   return (
-    <Link href={`/info/${item.guid}`}>
+    <Link href={`/events-info/${item.guid}?from=events`}>
       <a>
         <div className={styles.item} key={item.img}>
           <div className={styles.img}>
-            <img src={item.poster} alt={item.header} />
+            <img src={item[`${lang}_poster`]} alt={item[`${lang}_header`]} />
           </div>
           <div className={styles.body}>
-            <p className={styles.body__title}>{item[`${lang}_header`]}</p>
+            <p
+              className={styles.body__title}
+              dangerouslySetInnerHTML={{
+                __html: item?.[`${lang}_header`],
+              }}
+            />
             <p
               className={styles.body__text}
               dangerouslySetInnerHTML={{
-                __html: item[`${lang}_description`],
+                __html: item?.[`${lang}_description`],
               }}
             />
-            <Link href={`/info/${item.guid}`} styles={styles.body__link}>
+          </div>
+          <span className={styles.more}>
+            <Link
+              href={`/events-info/${item.guid}?from=events`}
+              styles={styles.body__link}
+            >
               <a>
-                Подробнее <ArrowRight />
+                {t("more")} <ArrowRight />
               </a>
             </Link>
-          </div>
+          </span>
         </div>
       </a>
     </Link>

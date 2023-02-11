@@ -1,8 +1,10 @@
 @import "styles/_unit.scss";
+@import url("/public/fonts/font.css");
 
 .inputMaskWrapper {
   display: flex;
   flex-direction: column;
+
   label {
     display: block;
     margin-bottom: 8px;

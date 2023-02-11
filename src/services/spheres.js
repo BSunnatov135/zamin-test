@@ -9,12 +9,18 @@ const getSpheresFn = async (data) =>
 const getSphereFn = async (data) =>
   await request.post(`/v1/object/get-list/website_projects`, { data });
 
-const useSpheres = ({ sphereParams, dataSphere, sparesId } = {}) => {
+const useSpheres = ({
+  sphereParams,
+  dataSphere,
+  sparesId,
+  onSuccess = () => {},
+} = {}) => {
   const spheres = useQuery(
     ["GET_SPHERES", sphereParams],
     () => getSpheresFn(sphereParams),
     {
       enabled: !!sphereParams,
+      onSuccess,
     }
   );
   const sphere = useQuery(
@@ -32,3 +38,6 @@ const useSpheres = ({ sphereParams, dataSphere, sparesId } = {}) => {
 };
 
 export default useSpheres;
+
+export const getSphere = (data) =>
+  request.post(`/v1/object/get-list/website_projects`, { data });

@@ -6,9 +6,9 @@ import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import useSpheres from "services/spheres";
 import SphereItem from "./SphereItem";
-
 import { useMemo } from "react";
 import { useEffect } from "react";
+import { DefaultImage } from "/public/icons/icons";
 
 export default function HelpPeople() {
   const { t } = useTranslation("common");
@@ -39,7 +39,7 @@ export default function HelpPeople() {
       setDataSphere(spheres?.data?.response[0]?.guid);
     }
   }, [spheres]);
-  console.log(sphere?.data);
+
   return (
     <Container>
       <div className={styles.main}>
@@ -50,29 +50,39 @@ export default function HelpPeople() {
               <div className={styles.header}>
                 {spheres?.data?.response?.map((item, i) => (
                   <div
+                    key={item.guid}
                     onClick={(e) => {
                       e.preventDefault();
                       hanldeClick(item);
                     }}
+                    className={styles.wrapper}
                   >
                     <SphereItem
                       key={item.guid}
                       item={item}
                       className={
-                        dataSphere?.includes(item.guid) ? styles.active : ""
+                        dataSphere?.includes(item.guid)
+                          ? `${styles.active} ${styles.item}`
+                          : styles.item
                       }
                     />
                   </div>
                 ))}
               </div>
               <div className={styles.body}>
-                <h3>{data?.[`${lang}_name`]}</h3>
+                <h3
+                  className={styles.name}
+                  dangerouslySetInnerHTML={{
+                    __html: data?.[`${lang}_name`],
+                  }}
+                ></h3>
                 <p
+                  className={styles.description}
                   dangerouslySetInnerHTML={{
                     __html: data?.[`${lang}_description`],
                   }}
                 ></p>
-                <Link href="/">
+                <Link href={`/project-info/${data?.guid}`}>
                   <a>
                     {t("more")} <ArrowRight />
                   </a>
@@ -81,7 +91,13 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            <img src={data?.photo} />
+            {data?.[`${lang}_photo`] ? (
+              <img src={data?.[`${lang}_photo`]} alt="image" />
+            ) : (
+              <div className={styles.defaultWrapper}>
+                <DefaultImage />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -13,15 +13,54 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Logo from "assests/icons/logo.svg";
-import useTransition from "next-translate/useTranslation";
 import useTranslation from "next-translate/useTranslation";
+import useProjects from "services/projects";
+import Spheres from "../Header/Menu/ProjectItems/projects";
+import scrollToRef from "mixins/scrollToRef";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
+import useSpheres from "services/spheres";
+import useAdverts from "services/advert";
 
 export default function Footer() {
+  const dispatch = useDispatch();
+  const { spheres } = useSpheres({
+    sphereParams: {
+      offset: 0,
+      limit: 3,
+    },
+  });
+  const { isActive } = useAdverts({
+    advertIsActive: {},
+  });
   const { t } = useTranslation("common");
+  const router = useRouter();
+  const path = router.asPath;
+  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
+  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
+
+  function handleRouterActions(status) {
+    if (status === "event") {
+      path === "/" ? scrollTo(eventsRef) : router.push("/event");
+    }
+
+    function scrollTo(where) {
+      scrollToRef(0, where - 100);
+    }
+    function scrrollHome() {
+      router.push("/", undefined, { scroll: false });
+    }
+    dispatch(setScrollSectionName(status));
+  }
+
   return (
     <Box
       sx={{
         background: "#000",
+        bottom: "auto",
+        width: "100%",
       }}
     >
       <Container>
@@ -35,19 +74,24 @@ export default function Footer() {
                 {t("about_fond")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
-              <Link href="/">
-                <a className={styles.link}>{t("creation")}</a>
+              <Link href="/about">
+                <a className={styles.link}>{t("about")}</a>
               </Link>
-              <Link href="/">
+              {/* <Link href="/">
                 <a>{t("mission")}</a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              {/* <Link href="/about#sphere" scroll={false} passHref legacyBehavior>
                 <a>{t("activity")}</a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              {/* <Link href="/">
                 <a>{t("funding")}</a>
-              </Link>
-              <Link href="/">
+              </Link> */}
+              <Link
+                href="/about#board"
+                passHref={true}
+                scroll={false}
+                legacyBehavior
+              >
                 <a>{t("trust")}</a>
               </Link>
             </div>
@@ -56,41 +100,46 @@ export default function Footer() {
                 {t("projects")}
                 <DropIcon onClick={() => setOpen((prev) => !prev)} />
               </p>
-              <Link href="/">
-                <a>{t("environment")}</a>
-              </Link>
-              <Link href="/">
-                <a>{t("innovation")}</a>
-              </Link>
-              <Link href="/">
-                <a>{t("program")}</a>
-              </Link>
+              {spheres?.data?.response?.map((item) => (
+                <Spheres key={item.guid} item={item} id={item.guid} />
+              ))}
             </div>
-            <div className={styles.box}>
-              <p className={styles.subtitle}>
-                {t("advert_title")}
-                <DropIcon />
-              </p>
-              <Link href="/">
-                <a>{t("advert_title")}</a>
-              </Link>
-            </div>
+
             <div className={styles.box}>
               <p className={styles.subtitle}>
                 {t("media")}
                 <DropIcon />
               </p>
               <Link href="/">
-                <a>{t("event_title")}</a>
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleRouterActions("event");
+                  }}
+                >
+                  {t("event_title")}
+                </a>
               </Link>
-              <Link href="/">
+              {isActive?.data == "true" && (
+                <Link href="#advert">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                    href="#advert"
+                  >
+                    {t("advert_title")}
+                  </a>
+                </Link>
+              )}
+              {/* <Link href="/gallery">
                 <a>{t("gallery")}</a>
-              </Link>
+              </Link> */}
             </div>
             <div className={styles.box}>
               <p className={styles.subtitle}>{t("contact")}</p>
-              <Link href="/">
-                <a>
+              <Link href="mailto:info@zaminfoundation.uz">
+                <a href="mailto:info@zaminfoundation.uz">
                   <GmailIcon />
                   info@zaminfoundation.uz
                 </a>
@@ -121,11 +170,27 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("creation")}</Typography>
-                <Typography>{t("mission")}</Typography>
-                <Typography>{t("activity")}</Typography>
-                <Typography>{t("funding")}</Typography>
-                <Typography>{t("trust")}</Typography>
+                <Link href="/about">
+                  <Typography>{t("about")}</Typography>
+                </Link>
+                {/* <Typography>{t("mission")}</Typography> */}
+                {/* <Link
+                  href="/about#event"
+                  scroll={false}
+                  passHref
+                  legacyBehavior
+                >
+                  <Typography>{t("activity")}</Typography>
+                </Link> */}
+                {/* <Typography>{t("funding")}</Typography> */}
+                <Link
+                  href="/about#board"
+                  scroll={false}
+                  passHref
+                  legacyBehavior
+                >
+                  <Typography>{t("trust")}</Typography>
+                </Link>
               </AccordionDetails>
             </Accordion>
 
@@ -141,9 +206,9 @@ export default function Footer() {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("environment")} </Typography>
-                <Typography>{t("innovation")}</Typography>
-                <Typography>{t("program")}</Typography>
+                {spheres?.data?.response?.map((item) => (
+                  <Spheres key={item.guid} item={item} id={item.guid} />
+                ))}
               </AccordionDetails>
             </Accordion>
 
@@ -155,56 +220,87 @@ export default function Footer() {
                 className={styles.accordionSummary}
               >
                 <Typography className={styles.summaryContent}>
-                  {t("advert_title")}
+                  {t("media")}
                 </Typography>
               </AccordionSummary>
               <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("advert_title")}</Typography>
-              </AccordionDetails>
-            </Accordion>
-
-            <Accordion className={styles.accordion}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-                className={styles.accordionSummary}
-              >
-                <Typography className={styles.summaryContent}>Медиа</Typography>
-              </AccordionSummary>
-              <AccordionDetails className={styles.accordionDetails}>
-                <Typography>{t("event_title")}</Typography>
-                <Typography>{t("gallery")}</Typography>
+                <Typography>
+                  {" "}
+                  <a
+                    className={styles.summaryContent}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleRouterActions("event");
+                    }}
+                  >
+                    {t("event_title")}
+                  </a>
+                </Typography>
+                {isActive?.data == "true" && (
+                  <Typography>
+                    {" "}
+                    <a
+                      className={styles.summaryContent}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleRouterActions("advert");
+                      }}
+                    >
+                      {t("advert_title")}
+                    </a>
+                  </Typography>
+                )}
               </AccordionDetails>
             </Accordion>
           </div>
 
           <div className={styles.box}>
             <p className={styles.subtitle}>{t("contact")}</p>
-            <Link href="/">
-              <a>
+            <Link href="mailto:info@zaminfoundation.uz">
+              <a href="mailto:info@zaminfoundation.uz">
                 <GmailIcon />
                 info@zaminfoundation.uz
               </a>
             </Link>
-            <p className={styles.subtitle}>Соц-сети:</p>
             <div className={styles.accordionIcons}>
-              <Link href="/">
-                <div className={styles.SocialIcons}>
-                  <a href="https://www.instagram.com/zaminfoundation/" target="_blank"> <InstagramIcon /></a>
-                  <a href="https://www.facebook.com/zaminfoundation" target="_blank"> <FacebookIcon /></a>
-                  <a href="https://t.me/zaminfoundation" target="_blank"><TelegramIcon /></a>
-                </div>
-              </Link>
+              <div className={styles.SocialIcons}>
+                <a href="https://www.instagram.com/zaminfoundation/">
+                  <InstagramIcon />
+                </a>
+                <a href="https://www.facebook.com/zaminfoundation">
+                  <FacebookIcon />
+                </a>
+                <a href="https://t.me/zaminfoundation">
+                  <TelegramIcon />
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div className={styles.bottomElement}>
-          <p className={styles.subtitle}>©Zamin 2022. Все права защищены</p>
+          <p className={styles.subtitle}>{t("rights")}</p>
           <div className={styles.SocialIcons}>
-            <InstagramIcon />
-            <FacebookIcon />
-            <TelegramIcon />
+            <a
+              href="https://www.instagram.com/zaminfoundation/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href="https://www.facebook.com/zaminfoundation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FacebookIcon />
+            </a>
+            <a
+              href="https://t.me/zaminfoundation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TelegramIcon />
+            </a>
           </div>
         </div>
       </Container>

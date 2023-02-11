@@ -1,21 +1,13 @@
 @import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .main {
-  padding: 80px 0 80px;
+  padding: 80px 0 115px;
   .header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     .leftElement {
-      p {
-        &:first-child {
-          font-size: 16px;
-          line-height: 180%;
-          span {
-            display: flex;
-          }
-        }
-      }
       .title {
         font-weight: 600;
         font-size: 32px;
