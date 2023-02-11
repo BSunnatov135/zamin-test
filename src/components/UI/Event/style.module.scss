@@ -33,14 +33,14 @@
         padding: 20px;
         filter: brightness(1);
 
-        >p:first-child {
+        > p:first-child {
           font-weight: 600;
           font-size: 18px;
           line-height: 25px;
           font-family: "Noto Serif";
         }
 
-        >p:nth-child(2) {
+        > p:nth-child(2) {
           font-weight: 500;
           font-size: 16px;
           line-height: 19px;
@@ -91,8 +91,9 @@
     }
 
     .topElement {
+      // order: 2;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: 16px;
 
       @media screen and (max-width: 600px) {
@@ -102,8 +103,9 @@
     }
 
     .bottomElement {
+      // order: 1;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       column-gap: 16px;
 
       @media screen and (max-width: 600px) {
