@@ -107,6 +107,18 @@
   "school": "Caring school UchimZnaem",
   "unece": "UNECE",
   "FAO": "FAO",
-  "placeholder": "Choose period"
-
+  "placeholder": "Choose period",
+  "syrdarya": "Syrdarya region",
+  "tashkent": "Tashkent region",
+  "jizzakh": "Jizzakh region",
+  "bukhara": "Bukhara region",
+  "namangan": "Namangan region",
+  "andijan": "Andijan region",
+  "fergana": "Fergana region",
+  "surkhandarya": "Surkhandarya region",
+  "khorezm": "Khorezm region",
+  "kashkadarya": "Kashkhadarya region",
+  "karakalpak": "Karakalpak res.",
+  "navoi": "Navoi region",
+  "samarkand": "Samarkand region"
 }

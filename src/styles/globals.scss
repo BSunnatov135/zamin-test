@@ -1143,7 +1143,7 @@ a {
   .slick-dots {
     bottom: rem(-25);
     @media (max-width: 768px) {
-      bottom: rem(-5);
+      bottom: rem(-25);
     }
   }
   .slick-dots li.slick-active button:before {

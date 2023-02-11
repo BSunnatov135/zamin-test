@@ -35,7 +35,7 @@ export default function MobileMenu({
     advertIsActive: {},
   });
 
-  console.log("isac==>", isActive);
+  // console.log("isac==>", isActive);
 
   useEffect(() => {
     if (open) {
