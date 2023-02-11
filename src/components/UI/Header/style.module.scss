@@ -35,11 +35,12 @@
       left: calc(50% - 55px);
       .rotateImage {
         transition: transform 0.7s ease-in-out;
-        &:hover {
+      }
+      &:hover {
+        .rotateImage {
           transform: rotate(180deg);
         }
       }
-      
       @media screen and (max-width: 820px) {
         display: none;
       }
