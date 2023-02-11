@@ -154,7 +154,8 @@
               max-width: rem(150) !important;
             }
           }
-          strong {
+          strong,
+          p {
             font-weight: 400 !important;
             font-size: rem(12) !important;
             line-height: rem(16) !important;
