@@ -50,7 +50,7 @@ export default function HelpPeople() {
               <div className={styles.header}>
                 {spheres?.data?.response?.map((item, i) => (
                   <div
-                  key={item.guid}
+                    key={item.guid}
                     onClick={(e) => {
                       e.preventDefault();
                       hanldeClick(item);
@@ -71,10 +71,10 @@ export default function HelpPeople() {
               </div>
               <div className={styles.body}>
                 <h3
-                className={styles.name}
-                dangerouslySetInnerHTML={{
-                  __html: data?.[`${lang}_name`],
-                }}
+                  className={styles.name}
+                  dangerouslySetInnerHTML={{
+                    __html: data?.[`${lang}_name`],
+                  }}
                 ></h3>
                 <p
                   className={styles.description}
@@ -91,7 +91,13 @@ export default function HelpPeople() {
             </div>
           </div>
           <div className={styles.rightElement}>
-            {data?.[`${lang}_photo`] ? <img src={data?.[`${lang}_photo`]} alt="image" /> : <div className={styles.defaultWrapper}><DefaultImage/></div>}
+            {data?.[`${lang}_photo`] ? (
+              <img src={data?.[`${lang}_photo`]} alt="image" />
+            ) : (
+              <div className={styles.defaultWrapper}>
+                <DefaultImage />
+              </div>
+            )}
           </div>
         </div>
       </div>

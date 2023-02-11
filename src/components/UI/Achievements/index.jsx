@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowRightIcon } from "/public/icons/icons";
+import { useRouter } from "next/router";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -28,6 +29,7 @@ function SamplePrevArrow(props) {
 
 export default function Achievements() {
   const { lang } = useTranslation();
+  const router = useRouter();
 
   const { achievements } = useAchievements({
     achieveParams: {
@@ -43,7 +45,15 @@ export default function Achievements() {
       }}
     >
       <Container className={styles.main}>
-        <h2 className={styles.head}>{t("achievement_title")}</h2>
+        <h2
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            router.push("/achievements");
+          }}
+          className={styles.head}
+        >
+          {t("achievement_title")}
+        </h2>
         <Slider
           {...{
             dots: false,
@@ -107,7 +117,7 @@ export default function Achievements() {
           })}
         </Slider>
         <div className={styles.sliderNon}>
-        {achievements?.data?.response?.map((element) => {
+          {achievements?.data?.response?.map((element) => {
             return (
               <div key={element.guid} className={styles.item}>
                 <p

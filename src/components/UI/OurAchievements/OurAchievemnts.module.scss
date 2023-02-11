@@ -18,4 +18,19 @@
       column-gap: rem(20);
     }
   }
+  .achievements {
+    margin-top: rem(100);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    .container {
+      .title {
+        font-weight: 500;
+        font-size: rem(32);
+        line-height: rem(36);
+      }
+    }
+  }
 }
