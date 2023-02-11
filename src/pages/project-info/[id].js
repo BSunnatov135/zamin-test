@@ -1,11 +1,9 @@
 import SEO from "components/SEO";
 import Info from "components/UI/Info";
-import useEvents from "services/events";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import useProjects from "services/projects";
-import useSpheres from "services/spheres";
 
 export default function Home() {
   const router = useRouter();
@@ -21,14 +19,10 @@ export default function Home() {
     },
   });
 
-  const data = useMemo(() => {
-    return project?.data?.response ?? [];
-  }, [project]);
+  const data = project?.data?.response;
 
   const sliderData = useMemo(() => {
-    let currentData;
-
-    currentData = projectSlider?.data?.response
+    let currentData = projectSlider?.data?.response
       ? [
           {
             file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
@@ -38,13 +32,12 @@ export default function Home() {
       : [{ file_link: data?.[`${lang}_photo`] }];
 
     return currentData;
-  }, [projectSlider, lang]);
-
+  }, [projectSlider, lang, data]);
   return (
     <>
       <SEO />
       <Info
-        sliderData={sliderData ?? []}
+        sliderData={sliderData}
         data={data}
         title={
           data?.[`${lang}_name`]

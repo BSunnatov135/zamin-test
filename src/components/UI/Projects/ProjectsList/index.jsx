@@ -86,6 +86,7 @@ export default function ProjectsPage() {
             >
               {spheres.map((item, index) => (
                 <p
+                  key={index}
                   className={styles.option}
                   onClick={() => {
                     handleClose();

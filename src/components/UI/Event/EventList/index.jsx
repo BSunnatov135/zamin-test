@@ -34,7 +34,7 @@ export default function EventPage() {
     },
   });
 
-  console.log("events", events);
+  console.log("eventsevents", events?.data?.response);
   const ResponseData = () => {
     if (events?.data?.count) {
       if (currentPage == 1) {

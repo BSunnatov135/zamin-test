@@ -19,7 +19,6 @@ export default function Event() {
       limit: 5,
     },
   });
-
   const fullDate = (i) => {
     try {
       const res = format(
@@ -47,8 +46,7 @@ export default function Event() {
           link={{
             title: t("all"),
             path: "/event",
-          }
-        }
+          }}
         />
         <div className={styles.list} ref={eventsContainerRef}>
           <div className={styles.topElement}>

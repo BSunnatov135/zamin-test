@@ -64,7 +64,7 @@ export default function InfoSlider({ data, title }) {
                       <source src={item?.file_link} type="video/mp4" />
                     </video>
                   ) : (
-                    <img src={item.file_link} />
+                    <img src={item.file_link} alt="" />
                   )
                 )}
               </Slider>
