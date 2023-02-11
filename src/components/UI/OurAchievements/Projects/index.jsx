@@ -12,6 +12,7 @@ function Projects() {
   const { lang } = useTranslation();
   const [dataSphere, setDataSphere] = useState();
   const [activeSphere, setActiveSphere] = useState();
+  const [activeProjects, setActiveProjects] = useState([]);
   const router = useRouter();
   const { spheres, sphere } = useSpheres({
     sphereParams: {
@@ -26,6 +27,9 @@ function Projects() {
   });
   const spheresRes = spheres?.data?.response;
   const sphereRes = sphere?.data?.response;
+
+  // console.log("spheresRes", spheresRes);
+  // console.log("sphereRes", sphereRes);
 
   useEffect(() => {
     if (spheresRes) {
@@ -43,8 +47,9 @@ function Projects() {
     setDataSphere(e.guid);
   };
 
-  const handleSphere = (uuid) => {
-    setActiveSphere(uuid);
+  const handleSphere = (el) => {
+    setActiveSphere(el.guid);
+    setActiveProjects(el?.achievements_map_ids_data);
   };
 
   return (
@@ -72,7 +77,7 @@ function Projects() {
             ? sphereRes.map((el) => (
                 <div
                   onClick={() => {
-                    handleSphere(el.guid);
+                    handleSphere(el);
                   }}
                   key={el.guid}
                   className={
@@ -106,7 +111,7 @@ function Projects() {
         </div>
       </div>
 
-      <UzbMap />
+      <UzbMap data={activeProjects} />
     </div>
   );
 }

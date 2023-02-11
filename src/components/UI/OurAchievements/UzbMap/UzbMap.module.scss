@@ -2,10 +2,17 @@
 
 .root {
   position: relative;
+  .box {
+    svg {
+      width: 15px;
+      margin: 0;
+    }
+  }
   svg {
+    outline: none;
     margin-top: rem(50);
-    position: absolute;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
   }
 }

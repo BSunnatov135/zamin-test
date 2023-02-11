@@ -116,3 +116,9 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
+}
