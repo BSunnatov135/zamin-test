@@ -118,7 +118,7 @@ export default function MobileMenu({
         },
         {
           title: `${t("advert_title")}`,
-          href: "/news",
+          href: "/#news",
         },
       ],
     },

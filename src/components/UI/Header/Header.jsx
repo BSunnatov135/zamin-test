@@ -74,7 +74,13 @@ export default function Header() {
             </div>
             <Link href="/">
               <a className={styles.logo} href="/">
-                <Logo />
+                <img
+                  src="/logos/logopic.png"
+                  width={"44px"}
+                  height={"44px"}
+                  className={styles.rotateImage}
+                />
+                <img src="/logos/logotext.png" height={"32px"} />
               </a>
             </Link>
             <Link href="/">

@@ -47,8 +47,7 @@ export default function Event() {
           link={{
             title: t("all"),
             path: "/event",
-          }
-        }
+          }}
         />
         <div className={styles.list} ref={eventsContainerRef}>
           <div className={styles.topElement}>
@@ -88,6 +87,8 @@ export default function Event() {
                 <p>{fullDate(1)}</p>
               </div>
             </div>
+          </div>
+          <div className={styles.bottomElement}>
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
@@ -106,8 +107,6 @@ export default function Event() {
                 <p>{fullDate(2)}</p>
               </div>
             </div>
-          </div>
-          <div className={styles.bottomElement}>
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>

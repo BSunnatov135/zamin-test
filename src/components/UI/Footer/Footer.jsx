@@ -121,15 +121,8 @@ export default function Footer() {
                 </a>
               </Link>
               {isActive?.data == "true" && (
-                <Link href="#advert">
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                    }}
-                    href="#advert"
-                  >
-                    {t("advert_title")}
-                  </a>
+                <Link href="/#news" passHref>
+                  <a>{t("advert_title")}</a>
                 </Link>
               )}
               {/* <Link href="/gallery">
@@ -239,13 +232,7 @@ export default function Footer() {
                 {isActive?.data == "true" && (
                   <Typography>
                     {" "}
-                    <a
-                      className={styles.summaryContent}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleRouterActions("advert");
-                      }}
-                    >
+                    <a className={styles.summaryContent} href="/#news">
                       {t("advert_title")}
                     </a>
                   </Typography>
