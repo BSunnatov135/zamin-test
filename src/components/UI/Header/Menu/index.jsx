@@ -180,12 +180,11 @@ export default function Menu({
                 </a>
               </Link> */}
               <p className={styles.title}>{t("media")}</p>
-              <Link href="/event">
+              <Link href="/event" passHref>
                 <a
                   onClick={(e) => {
                     handleClose(e);
                   }}
-                  href="/event"
                 >
                   {t("event_title")}
                 </a>

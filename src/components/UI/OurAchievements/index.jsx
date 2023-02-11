@@ -12,7 +12,7 @@ function OurAchievemnts() {
         <Projects />
       </Container>
 
-      <div style={{ marginTop: "200px" }}>
+      <div className={cls.achievements}>
         <Achievements />
       </div>
     </main>

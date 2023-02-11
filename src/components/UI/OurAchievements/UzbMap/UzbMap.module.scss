@@ -1,4 +1,11 @@
 @import "styles/unit.scss";
 
 .root {
+  position: relative;
+  svg {
+    margin-top: rem(50);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
