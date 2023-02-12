@@ -52,7 +52,7 @@ export default function Home() {
       <Partners />
       <HelpPeople />
       <Event />
-      <div id='#news' ref={adversContainerRef}><Advert /></div>
+      <div id='#news' ref={adversContainerRef} style={{scrollMargin:'60px'}}><Advert /></div>
       <Achievements />
       {/* <Footer /> */}
     </>
