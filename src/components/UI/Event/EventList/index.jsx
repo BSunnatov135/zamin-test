@@ -34,7 +34,6 @@ export default function EventPage() {
     },
   });
 
-  console.log("eventsevents", events?.data?.response);
   const ResponseData = () => {
     if (events?.data?.count) {
       if (currentPage == 1) {
@@ -70,7 +69,6 @@ export default function EventPage() {
                 data?.getMonth() + 1,
                 0
               );
-              console.log(val[1]);
               setDatePicker([val[0], val[1] === null ? null : lastDayOfMonth]);
             }}
           />

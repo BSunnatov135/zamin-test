@@ -13,7 +13,6 @@ import { format } from "date-fns";
 import { useRouter } from "next/router";
 
 export default function Advert() {
-  const adversContainerRef = useRef(null);
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const router = useRouter();
@@ -43,8 +42,6 @@ export default function Advert() {
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
-
-  
 
   return (
     <Container>

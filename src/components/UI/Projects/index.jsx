@@ -26,7 +26,7 @@ export default function Projects(sphere) {
       values.map((value) => {
         return getProjects(value.data)
           .then((res) => res.data.response[0])
-          .catch((err) => console.log("err", err));
+          .catch((err) => console.error("err", err));
       })
     );
   }

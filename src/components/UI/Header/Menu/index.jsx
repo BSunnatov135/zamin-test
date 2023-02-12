@@ -190,7 +190,7 @@ export default function Menu({
                 </a>
               </Link>
               {isActive?.data == "true" && (
-                <Link href="/#news" passHref legacyBehavior scroll={false} path>
+                <Link href="/#news" passHref legacyBehavior path>
                   <a
                     onClick={(e) => {
                       handleClose(e);
