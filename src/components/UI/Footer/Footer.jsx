@@ -40,7 +40,7 @@ export default function Footer() {
   const path = router.asPath;
   const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
   const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
-
+  const year = new Date().getFullYear()
   function handleRouterActions(status) {
     if (status === "event") {
       path === "/" ? scrollTo(eventsRef) : router.push("/event");
@@ -265,7 +265,7 @@ export default function Footer() {
           </div>
         </div>
         <div className={styles.bottomElement}>
-          <p className={styles.subtitle}>{t("rights")}</p>
+          <p className={styles.subtitle}>© Zamin {year}. {t("rights")}</p>
           <div className={styles.SocialIcons}>
             <a
               href="https://www.instagram.com/zaminfoundation/"
