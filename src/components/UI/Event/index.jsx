@@ -19,7 +19,6 @@ export default function Event() {
       limit: 5,
     },
   });
-
   const fullDate = (i) => {
     try {
       const res = format(

@@ -2,11 +2,9 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import { DefaultImage } from "/public/icons/icons";
-import { useRouter } from "next/router";
 
 export default function ProjectItem({ item }) {
   const { lang } = useTranslation();
-  const router = useRouter();
   return (
     <div className={styles.item} key={item.guid}>
       <Link href={`/project-info/${item.guid}`}>

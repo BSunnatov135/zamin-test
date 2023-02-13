@@ -6,32 +6,26 @@ import Event from "components/UI/Event";
 import HelpPeople from "components/UI/HelpPeople";
 import Partners from "components/UI/Partners";
 import Projects from "components/UI/Projects";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import scrollToRef from "mixins/scrollToRef";
-import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
-import { useDispatch } from "react-redux";
 
 export default function Home() {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const advertsRef = useSelector((state) => state.scrollRef.advertsRef);
-  const eventsRef = useSelector((state) => state.scrollRef.eventsRef);
-  const scrollSectionName = useSelector(
-    (state) => state.scrollRef.scrollSectionName
-  );
-
+  const scrollRef = useRef(null);
+  const newsScroll = () => {
+    let current = scrollRef?.current;
+    router.asPath.includes("#news")
+      ? setTimeout(() => {
+          current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 500)
+      : null;
+  };
   useEffect(() => {
-    if (scrollSectionName === "advert" && advertsRef) {
-      scrollToRef(0, advertsRef - 100);
-    }
-
-    setTimeout(() => {
-      dispatch(setScrollSectionName(""));
-    }, 0);
-  }, [router, advertsRef, scrollSectionName, eventsRef]);
-
+    setTimeout(() => newsScroll(), 700);
+  }, []);
   return (
     <>
       <SEO />
@@ -41,7 +35,9 @@ export default function Home() {
       <Partners />
       <HelpPeople />
       <Event />
-      <Advert />
+      <div id="news" ref={scrollRef}>
+        <Advert />
+      </div>
       <Achievements />
       {/* <Footer /> */}
     </>

@@ -39,7 +39,6 @@ export default function InfoSlider({ data, title }) {
   //   data.filter((el) => el.file_link && newArr?.push(el));
   // }, [newArr, data]);
   // console.log("newArr", newArr);
-  console.log("data", data);
   return (
     <>
       <div className={styles.titleWrapper}>
@@ -64,7 +63,7 @@ export default function InfoSlider({ data, title }) {
                       <source src={item?.file_link} type="video/mp4" />
                     </video>
                   ) : (
-                    <img src={item.file_link} />
+                    <img src={item.file_link} alt="" />
                   )
                 )}
               </Slider>

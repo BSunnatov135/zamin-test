@@ -4,11 +4,12 @@ import uz from "date-fns/locale/uz";
 import ru from "date-fns/locale/ru";
 import en from "date-fns/locale/en-US";
 import { TextField, InputAdornment } from "@mui/material";
-import { ArrowIcon } from "/public/icons/icons";
 import CloseIcon from "@mui/icons-material/Close";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import useTranslation from "next-translate/useTranslation";
 
 const DataPickerInput = forwardRef((props, ref) => {
+  const { value } = props;
   const handleReload = (e) => {
     window.location.reload();
   };
@@ -23,11 +24,15 @@ const DataPickerInput = forwardRef((props, ref) => {
       InputProps={{
         endAdornment: (
           <InputAdornment position="start">
-            <CloseIcon
-              fontSize="small"
-              style={{ cursor: "pointer" }}
-              onClick={(e) => handleReload(e)}
-            />
+            {!value ? (
+              <CalendarMonthIcon />
+            ) : (
+              <CloseIcon
+                fontSize="small"
+                style={{ cursor: "pointer" }}
+                onClick={(e) => handleReload(e)}
+              />
+            )}
           </InputAdornment>
         ),
         disableUnderline: true,

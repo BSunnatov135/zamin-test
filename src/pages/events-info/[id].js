@@ -36,7 +36,7 @@ export default function Home() {
       : [{ file_link: data?.[`${lang}_poster`] }];
 
     return currentData;
-  }, [eventSlider, lang]);
+  }, [eventSlider, lang, data]);
 
   return (
     <>

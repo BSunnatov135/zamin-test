@@ -35,8 +35,6 @@ export default function MobileMenu({
     advertIsActive: {},
   });
 
-  // console.log("isac==>", isActive);
-
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -136,7 +134,6 @@ export default function MobileMenu({
   ];
 
   const renderLabel = (data) => {
-    if (data.title == t("sns")) console.log("Heellooooo");
     switch (data.title) {
       case t("sns"): {
         return (
