@@ -69,6 +69,7 @@ export default function EventPage() {
                 data?.getMonth() + 1,
                 0
               );
+              setPage(1);
               setDatePicker([val[0], val[1] === null ? null : lastDayOfMonth]);
             }}
           />
