@@ -16,19 +16,21 @@
     height: 150px;
 
     .popover {
-      font-weight: 400;
-      font-size: 12px;
+      font-weight: 300;
+      font-size: 16px;
       padding: 8px 12px;
-      line-height: 16px;
+      line-height: 24px;
       text-align: center;
-      color: #000;
+      color: #2d2d2d;
       background-color: #fff;
       max-width: 250px;
       height: fit-content;
       overflow: visible;
+      font-family: 'Noto Sans';
       z-index: 99999999;
       position: absolute;
       margin-top: -25px;
+      opacity: 0.8;
       border-radius: 6px;
     }
 

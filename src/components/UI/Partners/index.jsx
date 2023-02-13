@@ -115,7 +115,7 @@ export default function Partners() {
             />
           </div>
           <ReactTooltip
-            aсоюзы в русском языкеnchorId="unicef"
+            anchorId="unicef"
             place="bottom"
             content={t("unicef")}
             className={styles.popover}
