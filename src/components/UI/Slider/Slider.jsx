@@ -39,7 +39,6 @@ export default function InfoSlider({ data, title }) {
   //   data.filter((el) => el.file_link && newArr?.push(el));
   // }, [newArr, data]);
   // console.log("newArr", newArr);
-  console.log("data", data);
   return (
     <>
       <div className={styles.titleWrapper}>

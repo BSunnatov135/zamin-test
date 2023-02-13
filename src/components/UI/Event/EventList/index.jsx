@@ -13,13 +13,12 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function EventPage() {
   const [datePicker, setDatePicker] = useState([null, null]);
-  const [data, setData] = useState([]);
   const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
   const { t } = useTranslation("common");
   const classPagination = useStylesPagination();
   const [page, setPage] = useState(1);
+
+  const currentPage = +router.query.current || 1;
 
   const params = {
     $gte: datePicker[0] && format(datePicker?.[0] || new Date(), "yyyy-MM-dd"),
@@ -29,33 +28,17 @@ export default function EventPage() {
   const { events } = useEvents({
     eventParams: {
       date: params.$gte && params.$lt ? params : undefined,
-      offset: (page - 1) * 6,
+      offset: (currentPage - 1) * 6,
       limit: 6,
     },
   });
-
-  console.log("eventsevents", events?.data?.response);
-  const ResponseData = () => {
-    if (events?.data?.count) {
-      if (currentPage == 1) {
-        setData(events?.data?.response);
-      } else {
-        setData((prev) => [...prev, ...events?.data?.response]);
-      }
-    }
-  };
 
   const countData = events?.data?.count;
   const responseData = events?.data?.response;
 
   const handleChange = (_, value) => {
-    setPage(value);
+    router.push(`?current=${value}`);
   };
-
-  useEffect(() => {
-    ResponseData();
-  }, [events?.data?.response, currentPage]);
-
   return (
     <Container>
       <div className={styles.main}>
@@ -70,7 +53,7 @@ export default function EventPage() {
                 data?.getMonth() + 1,
                 0
               );
-              console.log(val[1]);
+              // setPage(1);
               setDatePicker([val[0], val[1] === null ? null : lastDayOfMonth]);
             }}
           />
@@ -86,7 +69,7 @@ export default function EventPage() {
           <Pagination
             className={`${styles.pagination} ${classPagination.root}`}
             count={Math.ceil(countData / 6)}
-            page={page}
+            page={currentPage}
             onChange={handleChange}
             renderItem={(item) => (
               <PaginationItem

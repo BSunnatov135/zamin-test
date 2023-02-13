@@ -17,7 +17,6 @@ function FilteredProjects() {
       spheres_id: router.query.id,
     },
   });
-  console.log(`sphere`, sphere);
   return (
     <Container>
       <div className={styles.main}>

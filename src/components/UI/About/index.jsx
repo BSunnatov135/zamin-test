@@ -32,7 +32,6 @@ export default function About() {
       limit: 3,
     },
   });
-  console.log(spheres);
 
   return (
     <>

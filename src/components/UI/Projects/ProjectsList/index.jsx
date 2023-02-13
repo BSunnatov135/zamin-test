@@ -31,7 +31,7 @@ export default function ProjectsPage() {
       values.map((value) => {
         return getSphere(value.data)
           .then((res) => res.data.response)
-          .catch((err) => console.log("err", err));
+          .catch((err) => console.error("err", err));
       })
     );
   }
