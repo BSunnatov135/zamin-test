@@ -1,9 +1,10 @@
+import classNames from "classnames";
 import useTranslation from "next-translate/useTranslation";
 import styles from "../style.module.scss";
 
 export default function Board() {
   const { t } = useTranslation("about");
-  const {lang} = useTranslation();
+  const { lang } = useTranslation();
   return (
     <div>
       <h2 className={styles.boardTitle}>{t("board")} </h2>
@@ -18,20 +19,56 @@ export default function Board() {
             </p> */}
         </div>
         <div className={styles.boardItem}>
-          <h6>{t("deputy_name")} </h6>
-          <p className={styles.position}>{t("deputy")} </p>
-          {lang === 'ru' || lang === 'uz'&& <br/>}
+          <h6
+            className={classNames(styles.name, {
+              [styles.enName]: lang === "en",
+            })}
+          >
+            {t("deputy_name")}{" "}
+          </h6>
+          <p
+            className={classNames(styles.position, {
+              [styles.deputy]: lang === "ru",
+            })}
+          >
+            {t("deputy")}{" "}
+          </p>
+
           <p>{t("deputy_job")}</p>
         </div>
         <div className={styles.boardItem}>
-          <h6>{t("member_name_1")} </h6> 
-          <p className={styles.position}>{t("member")} </p>
-          {lang === 'ru' || lang === 'uz'&& <br/>}
+          <h6
+            className={classNames(styles.name, {
+              [styles.enName]: lang === "en",
+            })}
+          >
+            {t("member_name_1")}{" "}
+          </h6>
+          <p
+            className={classNames(styles.position, {
+              [styles.deputy]: lang === "ru",
+            })}
+          >
+            {t("member")}{" "}
+          </p>
+
           <p>{t("member_1_job")}</p>
         </div>
         <div className={styles.boardItem}>
-          <h6>{t("member_name_2")} </h6>
-          <p className={styles.position}>{t("member")} </p>
+          <h6
+            className={classNames(styles.name, {
+              [styles.enName]: lang === "en",
+            })}
+          >
+            {t("member_name_2")}{" "}
+          </h6>
+          <p
+            className={classNames(styles.position, {
+              [styles.deputy]: lang === "ru",
+            })}
+          >
+            {t("member")}{" "}
+          </p>
           <p>{t("member_2_job")}</p>
         </div>
       </div>

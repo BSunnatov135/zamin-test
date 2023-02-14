@@ -19,21 +19,15 @@ export default function ProjectItem({ item }) {
           <div className={styles.body}>
             <p
               dangerouslySetInnerHTML={{
-                __html: item[`${lang}_name`],
+                __html: item[`${lang}_name`] ? item[`${lang}_name`] : item[`${lang}_header`],
               }}
-              className={styles.name}
-            />
-            <p
-              dangerouslySetInnerHTML={{
-                __html: item[`${lang}_header`],
-              }}
-              className={styles.name}
+              className={styles.body__title}
             />
             <p
               dangerouslySetInnerHTML={{
                 __html: item[`${lang}_description`],
               }}
-              className={styles.description}
+              className={styles.body__text}
             ></p>
           </div>
         </a>
