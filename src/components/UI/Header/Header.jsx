@@ -84,8 +84,14 @@ export default function Header() {
               </a>
             </Link>
             <Link href="/">
-              <a className={styles.resLogo} href="/">
-                <RestLogo />
+            <a className={styles.resLogo} href="/">
+                <img
+                  src="/logos/logopic.png"
+                  width={"36px"}
+                  height={"36px"}
+                
+                />
+                
               </a>
             </Link>
             <div className={styles.rightElement}>
