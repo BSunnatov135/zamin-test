@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./style.module.scss";
 import ArrowRightIcon from "assests/icons/arrowRight.svg";
 import ProjectItem from "./ProjectItem";
-import useProjects from "services/projects";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
@@ -14,12 +13,6 @@ export default function Projects(sphere) {
   const [projects, setProjects] = useState([]);
   const { t } = useTranslation("common");
   const router = useRouter();
-  // const { projects } = useProjects({
-  //   projectParams: {
-  //     offset: 0,
-  //     limit: 3,
-  //   },
-  // });
 
   function getAllData(values) {
     return Promise.all(
