@@ -15,13 +15,12 @@ export default function Info({ title, sliderData, data }) {
       spheres_id: data?.spheres_id,
     },
   });
-  const relatedData = data;
   return (
     <>
       <Slider data={sliderData ?? []} title={title} />
       <Content item={data ? data : {}} router={router} />
-      <RelatedEvents data={relatedData} />
-      {!queryFrom && <Projects sphere={sphere} data={data} />}
+      <RelatedEvents data={data} />
+      {queryFrom && <Projects sphere={sphere} data={data} />}
     </>
   );
 }

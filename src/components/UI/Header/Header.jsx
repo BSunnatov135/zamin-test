@@ -28,11 +28,11 @@ export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const ref = useRef();
   useOnClickOutside(ref, () => setOpen(false));
-  //////////
 
   const listenScrollEvent = () => {
     if (window.scrollY < 80) {
       setSize(false);
+      setOpen(false);
     } else if (window.scrollY > 80) {
       setSize(true);
     }
@@ -84,14 +84,8 @@ export default function Header() {
               </a>
             </Link>
             <Link href="/">
-            <a className={styles.resLogo} href="/">
-                <img
-                  src="/logos/logopic.png"
-                  width={"36px"}
-                  height={"36px"}
-                
-                />
-                
+              <a className={styles.resLogo} href="/">
+                <img src="/logos/logopic.png" width={"36px"} height={"36px"} />
               </a>
             </Link>
             <div className={styles.rightElement}>
