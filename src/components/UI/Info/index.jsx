@@ -2,6 +2,7 @@ import Content from "./Context";
 import Projects from "components/UI/Projects";
 import { useRouter } from "next/router";
 import Slider from "components/UI/Slider/Slider";
+import RelatedEvents from "components/UI/Event/RelatedEvents";
 import useSpheres from "services/spheres";
 
 export default function Info({ title, sliderData, data }) {
@@ -14,10 +15,12 @@ export default function Info({ title, sliderData, data }) {
       spheres_id: data?.spheres_id,
     },
   });
+  const relatedData = data;
   return (
     <>
       <Slider data={sliderData ?? []} title={title} />
       <Content item={data ? data : {}} router={router} />
+      <RelatedEvents data={relatedData} />
       {!queryFrom && <Projects sphere={sphere} data={data} />}
     </>
   );

@@ -20,6 +20,9 @@ export default function EventPage() {
 
   const currentPage = +router.query.current || 1;
 
+  useEffect(() => {
+    setPage(currentPage);
+  }, [currentPage]);
   const params = {
     $gte: datePicker[0] && format(datePicker?.[0] || new Date(), "yyyy-MM-dd"),
     $lt: datePicker[1] && format(datePicker?.[1] || new Date(), "yyyy-MM-dd"),
@@ -28,7 +31,7 @@ export default function EventPage() {
   const { events } = useEvents({
     eventParams: {
       date: params.$gte && params.$lt ? params : undefined,
-      offset: (currentPage - 1) * 6,
+      offset: (page - 1) * 6,
       limit: 6,
     },
   });
@@ -53,7 +56,7 @@ export default function EventPage() {
                 data?.getMonth() + 1,
                 0
               );
-              // setPage(1);
+              lastDayOfMonth ? setPage(1) : setPage(currentPage);
               setDatePicker([val[0], val[1] === null ? null : lastDayOfMonth]);
             }}
           />
@@ -69,7 +72,7 @@ export default function EventPage() {
           <Pagination
             className={`${styles.pagination} ${classPagination.root}`}
             count={Math.ceil(countData / 6)}
-            page={currentPage}
+            page={page}
             onChange={handleChange}
             renderItem={(item) => (
               <PaginationItem
