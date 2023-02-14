@@ -3,7 +3,7 @@ import useEvents from "services/events";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ArrowRightIcon } from "/public/icons/icons";
+import ArrowRightIcon from "/src/assests/icons/goLeft.svg";
 import styles from "./style.module.scss";
 import EventItem from "../EventItem";
 import Link from "next/link";
