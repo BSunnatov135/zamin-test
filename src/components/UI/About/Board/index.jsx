@@ -20,13 +20,13 @@ export default function Board() {
         <div className={styles.boardItem}>
           <h6>{t("deputy_name")} </h6>
           <p className={styles.position}>{t("deputy")} </p>
-          {lang === 'ru' || lang === 'uz'&& <br/>}
+      
           <p>{t("deputy_job")}</p>
         </div>
         <div className={styles.boardItem}>
           <h6>{t("member_name_1")} </h6> 
           <p className={styles.position}>{t("member")} </p>
-          {lang === 'ru' || lang === 'uz'&& <br/>}
+          
           <p>{t("member_1_job")}</p>
         </div>
         <div className={styles.boardItem}>

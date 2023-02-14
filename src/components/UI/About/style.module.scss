@@ -100,7 +100,15 @@
     font-size: 24px;
   }
 }
-
+.executiveBoardTitle {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  @media screen and (max-width: 820px) {
+    margin-top: 64px;
+    font-size: 24px;
+  }
+}
 .boardWrapper {
   display: flex;
   gap: 24px;
