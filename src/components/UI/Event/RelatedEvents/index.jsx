@@ -32,7 +32,7 @@ export default function RelatedEvents(data) {
   const { t } = useTranslation("common");
   return (
     <Container>
-      <h2 className={styles.title}>{t("event_title")}</h2>
+      <h2 className={styles.title}>{t("event_title_related")}</h2>
       <Slider
         {...{
           dots: false,
