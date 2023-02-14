@@ -19,7 +19,7 @@ export default function Info({ title, sliderData, data }) {
     <>
       <Slider data={sliderData ?? []} title={title} />
       <Content item={data ? data : {}} router={router} />
-      <RelatedEvents data={data} />
+      {data?.$website_events_ids_data?.length && <RelatedEvents data={data} />}
       {queryFrom && <Projects sphere={sphere} data={data} />}
     </>
   );
