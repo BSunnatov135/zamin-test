@@ -15,11 +15,14 @@ export default function Info({ title, sliderData, data }) {
       spheres_id: data?.spheres_id,
     },
   });
+
   return (
     <>
       <Slider data={sliderData ?? []} title={title} />
       <Content item={data ? data : {}} router={router} />
-      {data?.$website_events_ids_data?.length && <RelatedEvents data={data} />}
+      {data?.$website_events_ids_data?.length > 1 ? (
+        <RelatedEvents data={data} />
+      ) : null}
       {queryFrom && <Projects sphere={sphere} data={data} />}
     </>
   );
