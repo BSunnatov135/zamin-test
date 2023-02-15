@@ -3,7 +3,7 @@ import useEvents from "services/events";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ArrowRightIcon } from "/public/icons/icons";
+import ArrowRightIcon from "/src/assests/icons/goLeft.svg";
 import styles from "./style.module.scss";
 import EventItem from "../EventItem";
 import Link from "next/link";
@@ -32,7 +32,7 @@ export default function RelatedEvents(data) {
   const { t } = useTranslation("common");
   return (
     <Container>
-      <h2 className={styles.title}>{t("event_title")}</h2>
+      <h2 className={styles.title}>{t("event_title_related")}</h2>
       <Slider
         {...{
           dots: false,
