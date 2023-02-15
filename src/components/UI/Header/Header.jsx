@@ -13,8 +13,7 @@ import classNames from "classnames";
 import MobileMenu from "./MobileMenu";
 import LoginForm from "../Auth/Login";
 import useTranslation from "next-translate/useTranslation";
-import Logo from "/public/logos/logo.svg";
-import RestLogo from "/public/logos/resLogo.svg";
+import SearchIcon from "/src/assests/icons/searchIcon.svg";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -72,19 +71,20 @@ export default function Header() {
             >
               {open || mobileMenu ? <CloseIcon /> : <MenuIcon />}
             </div>
-            <Link href="/">
-              <a className={styles.logo} href="/">
+            <Link href="/" passHref>
+              <a className={styles.logo}>
                 <img
                   src="/logos/logopic.png"
                   width={"44px"}
                   height={"44px"}
                   className={styles.rotateImage}
+                  alt=""
                 />
                 <img src="/logos/logotext.png" height={"32px"} />
               </a>
             </Link>
-            <Link href="/">
-              <a className={styles.resLogo} href="/">
+            <Link href="/" passHref>
+              <a className={styles.resLogo}>
                 <img src="/logos/logopic.png" width={"36px"} height={"36px"} />
               </a>
             </Link>
@@ -103,6 +103,11 @@ export default function Header() {
                 <AccessIcon />
               </div>
               <LanguageDropdown className={styles.LanguageDropdown} />
+              <Link href="/search" passHref>
+                <a className={styles.searchIcon}>
+                  <SearchIcon />
+                </a>
+              </Link>
               {/* <div className={styles.profileSets}>
                 <Profile />
                 <LogOutIcon />

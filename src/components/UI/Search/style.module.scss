@@ -1,0 +1,25 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+.form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+
+  .searchInput {
+    width: 50%;
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #e6e6e6;
+    border: none;
+    font-size: 18px;
+
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+
+}

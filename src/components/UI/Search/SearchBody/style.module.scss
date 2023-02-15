@@ -1,0 +1,32 @@
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  .card {
+    background-color: hsl(0, 0%, 92%);
+    height: 250px;
+    overflow-y: hidden;
+
+    padding: {
+      top: 15px;
+      right: 10px;
+      bottom: 15px;
+      left: 10px;
+    }
+
+    margin: 10px;
+    border-radius: 10px;
+
+    .title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .description {
+      display: -webkit-box;
+      overflow: hidden;
+    }
+  }
+}
