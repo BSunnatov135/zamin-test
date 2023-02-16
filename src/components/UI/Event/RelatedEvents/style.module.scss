@@ -124,10 +124,12 @@
 
     cursor: pointer;
     background-color: #fff;
-    height: 480px;
+    height: 465px;
     overflow: hidden;
     position: relative;
-
+    @media screen and (max-width: 768px) {
+      height: 430px;
+    }
     &:hover {
       .img {
         img {
@@ -161,11 +163,12 @@
     }
 
     .body {
+      // flex: 1;
       padding: 16px 12px;
-      height: 284px;
+      height: 100%;
       display: flex;
+  
       flex-direction: column;
-
       &__text {
         font-family: "Noto Sans" !important;
         font-weight: 300;
@@ -178,189 +181,186 @@
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
-        margin-top: auto;
-        margin-bottom: 50px;
       }
-
       &__title {
         font-weight: 500;
         font-size: 21px;
         line-height: 30px;
+        flex: 1;
         min-height: 100px;
         max-height: 150px;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
-
         @media (max-width: 768px) {
           max-height: 140px;
           font-size: 22px;
           line-height: 28px;
         }
       }
-    }
+    }}}
 
-    .more {
-      position: absolute;
-      left: 0px;
-      bottom: 0px;
-      z-index: 10;
-      padding: 15px;
-      display: block;
-      background: #fff;
-      width: 100%;
+//     .more {
+//       position: absolute;
+//       left: 0px;
+//       bottom: 0px;
+//       z-index: 10;
+//       padding: 15px;
+//       display: block;
+//       background: #fff;
+//       width: 100%;
 
-      a {
-        display: inline-flex;
-        align-items: center;
-        font-size: 16px;
-        line-height: 22px;
-        font-family: "Noto Sans" !important;
-        color: #333333;
-        column-gap: 5px;
-        flex: 1;
-        align-items: flex-end;
+//       a {
+//         display: inline-flex;
+//         align-items: center;
+//         font-size: 16px;
+//         line-height: 22px;
+//         font-family: "Noto Sans" !important;
+//         color: #333333;
+//         column-gap: 5px;
+//         flex: 1;
+//         align-items: flex-end;
 
-        svg {
-          transition: all 0.3s ease-in-out;
+//         svg {
+//           transition: all 0.3s ease-in-out;
 
-          path {
-            stroke: #333333;
-          }
-        }
-      }
-    }
-  }
-}
+//           path {
+//             stroke: #333333;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media (max-width: 786px) {
-  .slider {
-    height: 100%;
+// @media (max-width: 786px) {
+//   .slider {
+//     height: 100%;
 
-    padding: {
-      top: 40px;
-    }
+//     padding: {
+//       top: 40px;
+//     }
 
 
-    .item {
-      margin : {
-        left: 5px !important;
-        right: 5px !important;
-      }
+//     .item {
+//       margin : {
+//         left: 5px !important;
+//         right: 5px !important;
+//       }
 
-      cursor: pointer;
-      background-color: #fff;
-      height: 510px;
-      overflow: hidden;
-      position: relative;
+//       cursor: pointer;
+//       background-color: #fff;
+//       height: 510px;
+//       overflow: hidden;
+//       position: relative;
 
-      &:hover {
-        .img {
-          img {
-            transform: scale(1.1);
-          }
-        }
+//       &:hover {
+//         .img {
+//           img {
+//             transform: scale(1.1);
+//           }
+//         }
 
-        a {
-          svg {
-            transform: translateX(5px);
-          }
-        }
-      }
+//         a {
+//           svg {
+//             transform: translateX(5px);
+//           }
+//         }
+//       }
 
-      .img {
-        // flex: 1;
-        overflow: hidden;
+//       .img {
+//         // flex: 1;
+//         overflow: hidden;
 
-        img {
-          transition: all 0.4s ease-in-out;
-          width: 100%;
-          height: 100%;
-          height: 230px;
-          object-fit: cover;
-          aspect-ratio: 400 / 230;
+//         img {
+//           transition: all 0.4s ease-in-out;
+//           width: 100%;
+//           height: 100%;
+//           height: 230px;
+//           object-fit: cover;
+//           aspect-ratio: 400 / 230;
 
-          @media (max-width: 768px) {
-            height: 200px;
-          }
-        }
-      }
+//           @media (max-width: 768px) {
+//             height: 200px;
+//           }
+//         }
+//       }
 
-      .body {
-        padding: 16px 12px;
-        height: 284px;
-        display: flex;
-        flex-direction: column;
+//       .body {
+//         padding: 16px 12px;
+//         height: 284px;
+//         display: flex;
+//         flex-direction: column;
 
-        &__text {
-          font-family: "Noto Sans" !important;
-          font-weight: 300;
-          font-size: 16px;
-          line-height: 24px;
-          color: #2d2d2d;
-          opacity: 0.8;
-          height: 50px;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          margin-top: auto;
-          margin-bottom: 50px;
-        }
+//         &__text {
+//           font-family: "Noto Sans" !important;
+//           font-weight: 300;
+//           font-size: 16px;
+//           line-height: 24px;
+//           color: #2d2d2d;
+//           opacity: 0.8;
+//           height: 50px;
+//           overflow: hidden;
+//           display: -webkit-box;
+//           -webkit-line-clamp: 2;
+//           -webkit-box-orient: vertical;
+//           margin-top: auto;
+//           margin-bottom: 50px;
+//         }
 
-        &__title {
-          font-weight: 500;
-          font-size: 21px;
-          line-height: 30px;
-          min-height: 100px;
-          max-height: 150px;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 5;
-          -webkit-box-orient: vertical;
+//         &__title {
+//           font-weight: 500;
+//           font-size: 21px;
+//           line-height: 30px;
+//           min-height: 100px;
+//           max-height: 150px;
+//           overflow: hidden;
+//           display: -webkit-box;
+//           -webkit-line-clamp: 5;
+//           -webkit-box-orient: vertical;
 
-          @media (max-width: 768px) {
-            max-height: 140px;
-            font-size: 22px;
-            line-height: 28px;
-          }
-        }
-      }
+//           @media (max-width: 768px) {
+//             max-height: 140px;
+//             font-size: 22px;
+//             line-height: 28px;
+//           }
+//         }
+//       }
 
-      .more {
-        position: absolute;
-        left: 0px;
-        bottom: 0px;
-        z-index: 10;
-        padding: 15px;
-        display: block;
-        background: #fff;
-        width: 100%;
+//       .more {
+//         position: absolute;
+//         left: 0px;
+//         bottom: 0px;
+//         z-index: 10;
+//         padding: 15px;
+//         display: block;
+//         background: #fff;
+//         width: 100%;
 
-        a {
-          display: inline-flex;
-          align-items: center;
-          font-size: 16px;
-          line-height: 22px;
-          font-family: "Noto Sans" !important;
-          color: #333333;
-          column-gap: 5px;
-          flex: 1;
-          align-items: flex-end;
+//         a {
+//           display: inline-flex;
+//           align-items: center;
+//           font-size: 16px;
+//           line-height: 22px;
+//           font-family: "Noto Sans" !important;
+//           color: #333333;
+//           column-gap: 5px;
+//           flex: 1;
+//           align-items: flex-end;
 
-          svg {
-            transition: all 0.3s ease-in-out;
+//           svg {
+//             transition: all 0.3s ease-in-out;
 
-            path {
-              stroke: #333333;
-            }
-          }
-        }
-      }
-    }
-  }
-}
+//             path {
+//               stroke: #333333;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 @media screen and (max-width: 600px) {
   .slider {
     padding-top: 60px;

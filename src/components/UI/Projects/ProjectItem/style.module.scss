@@ -73,31 +73,5 @@
       }
     }
   }
-  .more {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    z-index: 10;
-    padding: 15px;
-    display: block;
-    background: #fff;
-    width: 100%;
-    a {
-      display: inline-flex;
-      align-items: center;
-      font-size: 16px;
-      line-height: 22px;
-      font-family: "Noto Sans" !important;
-      color: #333333;
-      column-gap: 5px;
-      flex: 1;
-      align-items: flex-end;
-      svg {
-        transition: all 0.3s ease-in-out;
-        path {
-          stroke: #333333;
-        }
-      }
-    }
-  }
+  
 }
