@@ -102,12 +102,12 @@ export default function Header() {
                 </p>
                 <AccessIcon />
               </div>
-              <LanguageDropdown className={styles.LanguageDropdown} />
               <Link href="/search" passHref>
                 <a className={styles.searchIcon}>
                   <SearchIcon />
                 </a>
               </Link>
+              <LanguageDropdown className={styles.LanguageDropdown} />
               {/* <div className={styles.profileSets}>
                 <Profile />
                 <LogOutIcon />
