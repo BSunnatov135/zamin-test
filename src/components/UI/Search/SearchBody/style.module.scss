@@ -21,7 +21,6 @@
     width: 100%;
 
     .card {
-      width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -98,7 +97,6 @@
       width: 100%;
 
       .card {
-        width: 100%;
         display: flex;
         flex-direction: column-reverse;
         justify-content: space-between;
@@ -107,8 +105,6 @@
         margin: 0;
         margin-bottom: 15px;
         padding: 14px 15px 16px 15px;
-        // padding-bottom: 16px;
-
         background-color: #fff;
 
         .image {

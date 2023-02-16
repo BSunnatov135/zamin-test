@@ -40,9 +40,22 @@ export default function SearchBody({ data }) {
   return (
     <Container className={styles.container}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+        <Box
+          sx={{
+            borderBottom: 1,
+            borderColor: "divider",
+          }}
+        >
+          <TabList
+            onChange={handleChange}
+            aria-label="lab API tabs example"
+            sx={{
+              "& .Mui-selected": { color: "#09999A" },
+              "& .MuiTabs-indicator": { backgroundColor: "#09999A" },
+            }}
+          >
             <Tab
+              sx={{}}
               className={styles.tabName}
               label={t("find_projects")}
               value="1"
