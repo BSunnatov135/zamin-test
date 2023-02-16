@@ -23,7 +23,7 @@ export default function Info({ title, sliderData, data }) {
       {data?.$website_events_ids_data?.length > 1 ? (
         <RelatedEvents data={data} />
       ) : null}
-      {queryFrom && <Projects sphere={sphere} data={data} />}
+      {/* {queryFrom && <Projects sphere={sphere} data={data} />} */}
     </>
   );
 }

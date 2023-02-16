@@ -1,99 +1,94 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
 .next {
   cursor: pointer;
   position: absolute;
-  top: 57%;
-  transform: translate(0, -50%);
-  right: -85px;
+  // top: 57%;
+  // transform: translate(0, -50%);
+  // right: -85px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  top: -3.1%;
-  right: 6%;
-  width: 40px;
+  align-items: flex-end;
+  top: -40px;
+  right: 0;
   height: 40px;
-  border: 2px solid #1b9c9f;
-  border-radius: 50%;
   transition: .4s ease all;
-
+@media screen and (max-width:600px) {
+  top: 0;
+}
   svg {
     transform: rotate(180deg);
-    width: 17px;
 
+    &:hover {
     path {
-      fill: #1b9c9f;
-    }
+      stroke: var(--primary-color);
+    }}
   }
 
-  &:active {
-    background-color: #64bbc0;
-  }
+  // @media (max-width: 550px) {
+  //   width: 35px;
+  //   height: 35px;
+  // }
 
-  @media (max-width: 550px) {
-    width: 35px;
-    height: 35px;
-  }
-
-  @media (max-width: 400px) {
-    top: 2.9%;
-  }
+  // @media (max-width: 400px) {
+  //   top: 2.9%;
+  // }
 }
 
 .prev {
   cursor: pointer;
   position: absolute;
-  transform: translate(0, -50%);
-  transform: rotate(0deg);
+  // transform: translate(0, -50%);
+  
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   z-index: 100;
-  top: -6.5%;
-  left: 88%;
-  width: 40px;
+  top: -40px;
+  right: 48px;
   height: 40px;
   border-radius: 50%;
   transition: .4s ease all;
-  border: 2px solid #1b9c9f;
-
+  @media screen and (max-width:600px) {
+    top: 0;
+    left: 0;
+    right: auto;
+  }
   svg {
-    width: 17px;
-
-    path {
-      fill: #1b9c9f;
-    }
+    &:hover {
+      path {
+        stroke: var(--primary-color);
+      }}
   }
 
-  &:active {
-    background-color: #64bbc0;
-  }
+  // @media (max-width: 1600px) {
+  //   left: 84%;
+  // }
 
-  @media (max-width: 1600px) {
-    left: 84%;
-  }
+  // @media (max-width: 1100px) {
+  //   left: 84%;
+  // }
 
-  @media (max-width: 1100px) {
-    left: 84%;
-  }
+  // @media (max-width: 900px) {
+  //   left: 82%;
+  // }
 
-  @media (max-width: 900px) {
-    left: 82%;
-  }
+  // @media (max-width: 768px) {
+  //   left: 78%;
+  // }
 
-  @media (max-width: 768px) {
-    left: 78%;
-  }
+  // @media (max-width: 550px) {
+  //   left: 76%;
+  //   top: -6%;
+  //   width: 35px;
+  //   height: 35px;
+  // }
 
-  @media (max-width: 550px) {
-    left: 76%;
-    top: -6%;
-    width: 35px;
-    height: 35px;
-  }
-
-  @media (max-width: 400px) {
-    left: 68%;
-    top: 0%;
-  }
+  // @media (max-width: 400px) {
+  //   left: 68%;
+  //   top: 0%;
+  // }
 }
 
 .title {
@@ -364,5 +359,10 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width: 600px) {
+  .slider {
+    padding-top: 60px;
   }
 }
