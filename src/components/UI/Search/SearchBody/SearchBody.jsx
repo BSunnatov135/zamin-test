@@ -9,6 +9,7 @@ import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 import useEvents from "services/events";
 import useProjects from "services/projects";
+import Link from "next/link";
 
 export default function SearchBody({ data }) {
   const [value, setValue] = useState("1");
@@ -76,56 +77,69 @@ export default function SearchBody({ data }) {
         ) : null}
         <TabPanel value="1" className={styles.cards}>
           {projects?.data?.response.map((event) => (
-            <div key={event.guid} className={styles.card}>
-              <div>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: event?.[`${lang}_name`],
-                  }}
-                  className={styles.title}
-                ></p>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: event?.[`${lang}_description`],
-                  }}
-                  className={styles.description}
-                ></p>
-              </div>
-              <img
-                className={styles.image}
-                src={event?.[`${lang}_photo`]}
-                alt={event.guid}
-                width="170"
-                // height="150"
-              />
-            </div>
+            <Link
+              key={event.guid}
+              className={styles.card}
+              href={`/projects-info/${event.guid}?from=events`}
+              passHref
+            >
+              <a className={styles.card}>
+                <div className={styles.textWrapper}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_name`],
+                    }}
+                    className={styles.title}
+                  ></p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_description`],
+                    }}
+                    className={styles.description}
+                  ></p>
+                </div>
+                <img
+                  className={styles.image}
+                  src={event?.[`${lang}_photo`]}
+                  alt={event.guid}
+                  width="170"
+                  // height="150"
+                />
+              </a>
+            </Link>
           ))}
         </TabPanel>
         <TabPanel value="2" className={styles.cards}>
           {events?.data?.response.map((event) => (
-            <div key={event.guid} className={styles.card}>
-              <div>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: event?.[`${lang}_header`],
-                  }}
-                  className={styles.title}
-                ></p>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: event?.[`${lang}_description`],
-                  }}
-                  className={styles.description}
-                ></p>
-              </div>
-              <img
-                className={styles.image}
-                src={event?.[`${lang}_poster`]}
-                alt={event.guid}
-                width="170"
-                // height="150"
-              />
-            </div>
+            <Link
+              key={event.guid}
+              href={`/events-info/${event.guid}?from=events`}
+              passHref
+            >
+              <a className={styles.card}>
+                <div className={styles.textWrapper}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_header`],
+                    }}
+                    className={styles.title}
+                  ></p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_description`],
+                    }}
+                    className={styles.description}
+                  ></p>
+                </div>
+                <img
+                  className={styles.image}
+                  src={event?.[`${lang}_poster`]}
+                  alt={event.guid}
+                  width="170"
+                  // height="150"
+                />
+              </a>
+            </Link>
           ))}
         </TabPanel>
       </TabContext>
