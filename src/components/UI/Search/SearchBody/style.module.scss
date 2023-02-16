@@ -19,6 +19,8 @@
 
   .cards {
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 
     .card {
       display: flex;
@@ -29,6 +31,7 @@
       margin: 10px;
       padding-top: 24px;
       padding-bottom: 16px;
+      ;
 
       &:first-child {
         border: none;
