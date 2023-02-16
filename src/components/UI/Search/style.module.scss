@@ -9,13 +9,13 @@
   gap: 20px;
 
   .inputWrapper {
-    width: 50%;
+    width: 100%;
     position: relative;
 
     .searchInput {
       width: 100%;
       padding: 12px 17px;
-      background-color: #e6e6e6;
+      background-color: #f3f3f3;
       border: none;
       font-size: 16px;
 
@@ -27,7 +27,7 @@
 
     .closeIcon {
       position: absolute;
-      right: 1.5%;
+      right: 1.6%;
       top: 14px;
     }
   }

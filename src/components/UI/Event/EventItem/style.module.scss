@@ -9,6 +9,7 @@
   // height: 510px;
   overflow: hidden;
   position: relative;
+
   // flex-direction: column;
   &:hover {
     .img {
@@ -16,15 +17,18 @@
         transform: scale(1.1);
       }
     }
+
     a {
       svg {
         transform: translateX(5px);
       }
     }
   }
+
   .img {
     // flex: 1;
     overflow: hidden;
+
     img {
       transition: all 0.4s ease-in-out;
       width: 100%;
@@ -32,17 +36,20 @@
       height: 230px;
       object-fit: cover;
       aspect-ratio: 400 / 230;
+
       @media (max-width: 768px) {
         height: 200px;
       }
     }
   }
+
   .body {
     // flex: 1;
     padding: 16px 12px;
     height: 284px;
     display: flex;
     flex-direction: column;
+
     &__text {
       font-family: "Noto Sans" !important;
       font-weight: 300;
@@ -58,6 +65,7 @@
       margin-top: auto;
       margin-bottom: 50px;
     }
+
     &__title {
       font-weight: 500;
       font-size: 21px;
@@ -68,6 +76,7 @@
       display: -webkit-box;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
+
       @media (max-width: 768px) {
         max-height: 140px;
         font-size: 22px;
@@ -75,6 +84,7 @@
       }
     }
   }
+
   .more {
     position: absolute;
     left: 0px;
@@ -84,6 +94,7 @@
     display: block;
     background: #fff;
     width: 100%;
+
     a {
       display: inline-flex;
       align-items: center;
@@ -94,8 +105,10 @@
       column-gap: 5px;
       flex: 1;
       align-items: flex-end;
+
       svg {
         transition: all 0.3s ease-in-out;
+
         path {
           stroke: #333333;
         }
