@@ -122,5 +122,9 @@
   "navoi": "Navoi region",
   "samarkand": "Samarkand region",
   "tashkentcity": "Tashkent city",
-  "event_title_related": "Project events"
+  "event_title_related": "Project events",
+  "search_placeholder": "Search...",
+  "by_request": "For",
+  "find_results": " results",
+  "find_projects": "Projects"
 }

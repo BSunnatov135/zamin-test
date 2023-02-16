@@ -5,21 +5,39 @@
   margin-top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
   gap: 20px;
 
-  .searchInput {
+  .inputWrapper {
     width: 50%;
-    border-radius: 5px;
-    padding: 8px;
-    background-color: #e6e6e6;
-    border: none;
-    font-size: 18px;
+    position: relative;
 
-    &:focus {
+    .searchInput {
+      width: 100%;
+      padding: 12px 17px;
+      background-color: #e6e6e6;
       border: none;
-      outline: none;
+      font-size: 16px;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .closeIcon {
+      position: absolute;
+      right: 1.5%;
+      top: 14px;
     }
   }
 
+}
+
+@media (max-width:700px) {
+  .form {
+    .searchInput {
+      width: 80%;
+    }
+  }
 }
