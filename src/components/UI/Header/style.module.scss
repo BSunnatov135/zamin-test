@@ -122,14 +122,12 @@
         align-items: center;
         width: 40px;
         height: 40px;
-        border-radius: 20%;
-        background-color: rgb(221, 221, 221);
 
         &:active {
 
           svg {
             path {
-              fill: rgb(196, 196, 196);
+              stroke: rgb(196, 196, 196);
             }
           }
         }

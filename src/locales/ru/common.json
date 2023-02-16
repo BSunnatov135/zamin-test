@@ -124,5 +124,9 @@
   "navoi": "Навоийская область",
   "samarkand": "Самаркандская область",
   "tashkentcity": "г. Ташкент",
-  "event_title_related": "Мероприятия по проекту"
+  "event_title_related": "Мероприятия по проекту",
+  "search_placeholder": "Поиск...",
+  "by_request": "По запросу",
+  "find_results": " результатов",
+  "find_projects": "Проекты"
 }
