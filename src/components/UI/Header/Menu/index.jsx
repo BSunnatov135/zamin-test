@@ -17,6 +17,7 @@ import useAdverts from "services/advert";
 import TelegramHeader from "assests/icons/TelegramHeader.svg";
 import InstagramHeader from "assests/icons/InstagramHeader.svg";
 import FaceBookHeader from "assests/icons/FaceBookHeader.svg";
+import YoutubeIcon from "assests/icons/youtube.svg";
 
 export default function Menu({
   open,
@@ -254,6 +255,13 @@ export default function Menu({
                   rel="noopener noreferrer"
                 >
                   <TelegramHeader />
+                </a>
+                <a
+                  href="https://www.youtube.com/@zaminfoundation5308"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <YoutubeIcon/>
                 </a>
               </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
