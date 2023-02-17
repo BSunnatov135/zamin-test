@@ -22,7 +22,10 @@ export default function SearchBody({ data }) {
   const { events } = useEvents(
     data?.length >= 1
       ? {
-          eventParams: { [lang + "_header"]: data },
+          eventParams: {
+            [lang + "_header"]: data,
+            // [lang + "_description"]: data,
+          },
         }
       : {
           eventParams: { offset: 0, limit: 9 },
@@ -31,7 +34,10 @@ export default function SearchBody({ data }) {
   const { projects } = useProjects(
     data?.length >= 1
       ? {
-          projectParams: { [lang + "_name"]: data },
+          projectParams: {
+            [lang + "_name"]: data,
+            // [lang + "_description"]: data,
+          },
         }
       : {
           projectParams: { offset: 0, limit: 9 },
