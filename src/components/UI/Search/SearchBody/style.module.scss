@@ -1,5 +1,5 @@
 .container {
-  padding: 0;
+  padding: 0 !important;
 
   .byRequestBox {
     padding: {
@@ -19,6 +19,8 @@
 
   .cards {
     width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 
     .card {
       display: flex;
@@ -29,6 +31,7 @@
       margin: 10px;
       padding-top: 24px;
       padding-bottom: 16px;
+      ;
 
       &:first-child {
         border: none;
@@ -75,7 +78,7 @@
 
 @media (max-width: 700px) {
   .container {
-    width: 100%;
+    padding: 0;
 
     .byRequestBox {
       padding: {

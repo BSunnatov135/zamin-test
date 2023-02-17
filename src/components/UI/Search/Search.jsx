@@ -21,7 +21,12 @@ export default function Search() {
           className={styles.searchInput}
           value={inputValue}
         />
-        <XIcon className={styles.closeIcon} onClick={() => setInputValue("")} />
+        {inputValue?.length > 1 && (
+          <XIcon
+            className={styles.closeIcon}
+            onClick={() => setInputValue("")}
+          />
+        )}
       </div>
       <SearchBody data={searchDebounce} />
     </Container>

@@ -50,12 +50,12 @@ export default function SearchBody({ data }) {
             onChange={handleChange}
             aria-label="lab API tabs example"
             sx={{
-              "& .Mui-selected": { color: "#09999A" },
+              "& .MuiButtonBase-root.Mui-selected ": { color: "#09999A" },
               "& .MuiTabs-indicator": { backgroundColor: "#09999A" },
             }}
+            textColorPrimary="#09999A"
           >
             <Tab
-              sx={{}}
               className={styles.tabName}
               label={t("find_projects")}
               value="1"
@@ -93,7 +93,7 @@ export default function SearchBody({ data }) {
             <Link
               key={event.guid}
               className={styles.card}
-              href={`/projects-info/${event.guid}?from=events`}
+              href={`/project-info/${event.guid}?from=events`}
               passHref
             >
               <a className={styles.card}>
