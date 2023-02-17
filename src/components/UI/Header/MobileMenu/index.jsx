@@ -10,6 +10,7 @@ import useProjects from "services/projects";
 import InstaLight from "assests/icons/InstagramHeader.svg";
 import TelegramLight from "assests/icons/TelegramHeader.svg";
 import FacebookLight from "assests/icons/FaceBookHeader.svg";
+import YoutubeIcon from "assests/icons/youtube.svg";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import useAdverts from "services/advert";
@@ -164,6 +165,13 @@ export default function MobileMenu({
                 rel="noopener noreferrer"
               >
                 <TelegramLight />
+              </a>
+              <a
+                href="https://www.youtube.com/@zaminfoundation5308"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <YoutubeIcon />
               </a>
             </div>
           </div>

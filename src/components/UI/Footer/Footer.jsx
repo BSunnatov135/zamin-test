@@ -6,6 +6,7 @@ import GmailIcon from "assests/icons/gmail.svg";
 import TelegramIcon from "assests/icons/telegram.svg";
 import InstagramIcon from "assests/icons/instagram.svg";
 import FacebookIcon from "assests/icons/facebook.svg";
+import YoutubeIcon from "assests/icons/youtubeDark.svg";
 import DropIcon from "assests/icons/dropIcon.svg";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -260,6 +261,9 @@ export default function Footer() {
                 <a href="https://t.me/zaminfoundation">
                   <TelegramIcon />
                 </a>
+                <a href="https://www.youtube.com/@zaminfoundation5308">
+                  <YoutubeIcon />
+                </a>
               </div>
             </div>
           </div>
@@ -287,6 +291,13 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <TelegramIcon />
+            </a>
+            <a
+              href="https://www.youtube.com/@zaminfoundation5308"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YoutubeIcon />
             </a>
           </div>
         </div>
