@@ -6,8 +6,9 @@ import GoLeft from "/src/assests/icons/goLeft.svg";
 import RightArrow from "/src/assests/icons/rightCarouselArrow.svg";
 import { Container } from "@mui/material";
 import Link from "next/link";
+import classNames from "classnames";
 
-export default function InfoSlider({ data, title }) {
+export default function InfoSlider({ data, title, queryFrom }) {
   const settings = {
     dots: true,
     speed: 500,
@@ -16,6 +17,7 @@ export default function InfoSlider({ data, title }) {
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
   };
+  console.log('queryfrom', queryFrom)
   // const [slideIndex, setSlideIndex] = useState(1);
 
   // console.log("slideIndex", data);
@@ -53,10 +55,12 @@ export default function InfoSlider({ data, title }) {
         />
       </div>
       {data.length > 1 ? (
-        <Container>
-          <div className={styles.sliderWrapper}>
+        
+          <div className={styles.sliderWrapper} >
             <div id="infoSlider">
-              <Slider {...settings} className={styles.containerSlider}>
+              <Slider {...settings} className={classNames( {
+                [styles.containerSlider]: queryFrom == "events",
+              })}>
                 {data?.map((item) =>
                   item?.file_link?.toLowerCase().includes("mp4") ? (
                     <video loop playsInline autoPlay muted controls>
@@ -77,9 +81,11 @@ export default function InfoSlider({ data, title }) {
               onClick={() => sliderRef.current.slickPrev()}
             /> */}
           </div>
-        </Container>
+      
       ) : data.length === 1 ? (
-        <div className={styles.singleElement}>
+        <div  className={classNames(styles.singleElement, {
+          [styles.singleEventElement]: queryFrom == "events",
+        })}>
           {data?.type?.toLowerCase() === "mp4" ? (
             <video
               loop
@@ -88,12 +94,16 @@ export default function InfoSlider({ data, title }) {
               muted
               controls
               height={"100%"}
-              className={styles.singleElement}
+              className={classNames(styles.singleElement, {
+                [styles.singleEventElement]: queryFrom == "events",
+              })}
             >
               <source src={data?.[0]?.file_link} type="video/mp4" />
             </video>
           ) : (
-            <img src={data?.[0]?.file_link} className={styles.singleElement} />
+            <img src={data?.[0]?.file_link} className={classNames(styles.singleElement, {
+              [styles.singleEventElement]: queryFrom == "events",
+            })} />
           )}
         </div>
       ) : (
