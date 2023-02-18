@@ -85,11 +85,11 @@ export default function SearchBody({ data }) {
               </h2>
             )}
             <p className={styles.byRequestOption}>
-              {t("event_title")}: {projects?.data?.count}
+              {t("find_projects")}: {events?.data?.count}
               {t("find_results")}
             </p>
             <p className={styles.byRequestOption}>
-              {t("find_projects")}: {events?.data?.count}
+              {t("event_title")}: {projects?.data?.count}
               {t("find_results")}
             </p>
           </div>

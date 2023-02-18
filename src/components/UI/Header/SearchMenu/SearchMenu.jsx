@@ -27,7 +27,6 @@ export default function SearchMenu({ open }) {
     >
       <div className={styles.inputWrapper}>
         <input
-          autoComplete="false"
           onKeyDown={handleClick}
           type="text"
           id="id"
@@ -35,28 +34,26 @@ export default function SearchMenu({ open }) {
           onChange={(e) => setSearchValue(e.target.value)}
           className={styles.searchInput}
           value={searchValue}
+          autoComplete="off"
         />
-        {searchValue?.length > 1 && (
-          <XIcon
-            className={styles.closeIcon}
-            onClick={() => setSearchValue("")}
-          />
-        )}
+        <span className={searchValue ? styles.closeIcon : styles.notValued}>
+          <XIcon onClick={() => setSearchValue("")} />
+        </span>
+        <Link
+          href={
+            searchValue
+              ? {
+                  pathname: `/search`,
+                  query: { search: searchValue },
+                }
+              : { pathname: `/search` }
+          }
+        >
+          <a className={styles.searchBtn}>
+            <SearchIcon />
+          </a>
+        </Link>
       </div>
-      <Link
-        href={
-          searchValue
-            ? {
-                pathname: `/search`,
-                query: { search: searchValue },
-              }
-            : { pathname: `/search` }
-        }
-      >
-        <a className={styles.searchBtn}>
-          <SearchIcon />
-        </a>
-      </Link>
     </div>
   );
 }

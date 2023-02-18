@@ -4,7 +4,6 @@
 .form {
   margin-top: 70px;
   width: 100%;
-  // height: 20vh;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -16,14 +15,20 @@
   top: 0;
   right: 10;
   z-index: 1000;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+
+  &.closed {
+    display: none;
+  }
 
   .inputWrapper {
-    width: 60%;
+    width: 30%;
     position: relative;
     top: 15%;
-    margin: 30px 0;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
     .searchInput {
       width: 100%;
@@ -31,6 +36,9 @@
       background-color: #f3f3f3;
       border: none;
       font-size: 16px;
+      transition: 1s ease all;
+      cursor: pointer;
+      position: relative;
 
       &:focus {
         border: none;
@@ -39,44 +47,64 @@
     }
 
     .closeIcon {
-      position: absolute;
-      right: 1.6%;
-      top: 14px;
+      width: 43px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f3f3f3;
+      transition: 1s ease all;
     }
-  }
 
-  .searchBtn {
-    background-color: #09999a;
-    padding: 15px;
-    display: flex;
+    .notValued {
+      width: 43px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f3f3f3;
+      transition: 1s ease all;
 
-    svg {
-      path {
-        stroke: #fff;
+      svg {
+        path {
+          fill: #f3f3f3;
+        }
       }
     }
 
-    &:active {
+    .searchBtn {
+      background-color: #09999a;
+      width: 50px !important;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+
       svg {
         path {
-          stroke: #c5c5c5;
+          stroke: #fff;
+        }
+      }
+
+      &:active {
+        svg {
+          path {
+            stroke: #c5c5c5;
+          }
         }
       }
     }
   }
+
 }
 
 @media (max-width:700px) {
   .form {
     margin-top: 40px;
 
-    .searchInput {
+    .inputWrapper {
       width: 80%;
     }
   }
-}
-
-.closed {
-  display: none;
-  transition: 1s ease all;
 }
