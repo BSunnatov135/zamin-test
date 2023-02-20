@@ -1,15 +1,22 @@
 import styles from "./style.module.scss";
 import { Container, Typography } from "@mui/material";
 import useDebounce from "hooks/useDebounce";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBody from "./SearchBody/SearchBody";
 import useTranslation from "next-translate/useTranslation";
 import XIcon from "/src/assests/icons/close.svg";
+import { useRouter } from "next/router";
 
 export default function Search() {
-  const [inputValue, setInputValue] = useState();
   const { t } = useTranslation("common");
+  const router = useRouter();
+  const { search } = router.query;
+  const [inputValue, setInputValue] = useState(search);
   const searchDebounce = useDebounce(inputValue, 500);
+  useEffect(() => {
+    search !== inputValue && search ? router.push("/search") : null;
+  }, [inputValue, search]);
+
   return (
     <Container className={styles.form}>
       <div className={styles.inputWrapper}>
@@ -20,12 +27,12 @@ export default function Search() {
           onChange={(e) => setInputValue(e.target.value)}
           className={styles.searchInput}
           value={inputValue}
+          autoComplete="off"
         />
-        {inputValue?.length > 1 && (
-          <XIcon
-            className={styles.closeIcon}
-            onClick={() => setInputValue("")}
-          />
+        {inputValue?.length >= 1 && (
+          <span className={styles.closeIcon}>
+            <XIcon onClick={() => setInputValue("")} />
+          </span>
         )}
       </div>
       <SearchBody data={searchDebounce} />

@@ -14,12 +14,16 @@ import MobileMenu from "./MobileMenu";
 import LoginForm from "../Auth/Login";
 import useTranslation from "next-translate/useTranslation";
 import SearchIcon from "/src/assests/icons/searchIcon.svg";
+import SearchMenu from "./SearchMenu/SearchMenu";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const { t } = useTranslation("common");
   const [size, setSize] = useState(false);
+  const router = useRouter();
   const handleLogin = (event) => {
     event && event.preventDefault();
     setOpenLogin((prev) => !prev);
@@ -32,10 +36,14 @@ export default function Header() {
     if (window.scrollY < 80) {
       setSize(false);
       setOpen(false);
+      setOpenSearch(false);
     } else if (window.scrollY > 80) {
       setSize(true);
+      setOpenSearch(false);
     }
   };
+
+  useEffect(() => setOpenSearch(false), [router.asPath]);
 
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -102,11 +110,14 @@ export default function Header() {
                 </p>
                 <AccessIcon />
               </div>
-              <Link href="/search" passHref>
-                <a className={styles.searchIcon}>
-                  <SearchIcon />
-                </a>
-              </Link>
+              {/* <Link> */}
+              <a
+                className={styles.searchIcon}
+                onClick={() => setOpenSearch(!openSearch)}
+              >
+                <SearchIcon />
+              </a>
+              {/* </Link> */}
               <LanguageDropdown className={styles.LanguageDropdown} />
               {/* <div className={styles.profileSets}>
                 <Profile />
@@ -124,6 +135,7 @@ export default function Header() {
         handleLogin={handleLogin}
         size={size}
       />
+      <SearchMenu open={openSearch} size={size} className={styles.searchMenu} />
       <MobileMenu
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}

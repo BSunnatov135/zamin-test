@@ -27,7 +27,7 @@
 
     .closeIcon {
       position: absolute;
-      right: 1.6%;
+      right: 1%;
       top: 14px;
     }
   }
@@ -40,6 +40,10 @@
 
     .searchInput {
       width: 80%;
+    }
+
+    .closeIcon {
+      margin-right: 8px;
     }
   }
 }
