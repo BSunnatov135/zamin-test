@@ -39,6 +39,7 @@ export default function Header() {
       setOpenSearch(false);
     } else if (window.scrollY > 80) {
       setSize(true);
+      setOpenSearch(false);
     }
   };
 
@@ -134,7 +135,7 @@ export default function Header() {
         handleLogin={handleLogin}
         size={size}
       />
-      <SearchMenu open={openSearch} size={size} />
+      <SearchMenu open={openSearch} size={size} className={styles.searchMenu} />
       <MobileMenu
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}
