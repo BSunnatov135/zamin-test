@@ -28,6 +28,7 @@ export default function Search() {
           className={styles.searchInput}
           value={inputValue}
           autoComplete="off"
+          autoFocus
         />
         {inputValue?.length >= 1 && (
           <span className={styles.closeIcon}>

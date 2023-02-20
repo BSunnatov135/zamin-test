@@ -1,6 +1,6 @@
 import styles from "./style.module.scss";
 import { Container, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useTranslation from "next-translate/useTranslation";
 import XIcon from "/src/assests/icons/close.svg";
 import classNames from "classnames";
@@ -12,6 +12,7 @@ export default function SearchMenu({ open, setOpenSearch }) {
   const [searchValue, setSearchValue] = useState("");
   const { t } = useTranslation("common");
   const router = useRouter();
+  const inputRef = useRef();
 
   const handleClick = (event) => {
     if (event.keyCode === 13 && searchValue) {
@@ -20,6 +21,8 @@ export default function SearchMenu({ open, setOpenSearch }) {
       setOpenSearch(false);
     }
   };
+
+  useEffect(() => (open ? inputRef.current.focus() : null), [open]);
 
   return (
     <div
@@ -37,6 +40,7 @@ export default function SearchMenu({ open, setOpenSearch }) {
           className={styles.searchInput}
           value={searchValue}
           autoComplete="off"
+          ref={inputRef}
         />
         <span className={searchValue ? styles.closeIcon : styles.notValued}>
           <XIcon onClick={() => setSearchValue("")} />
