@@ -22,6 +22,7 @@ export default function Header() {
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogin, setOpenLogin] = useState(false);
   const { t } = useTranslation("common");
+  false;
   const [size, setSize] = useState(false);
   const router = useRouter();
   const handleLogin = (event) => {
@@ -43,14 +44,17 @@ export default function Header() {
     }
   };
 
-  useEffect(() => setOpenSearch(false), [router.asPath]);
+  useEffect(() => {
+    if (router.asPath.includes("/search")) {
+      setOpenSearch(false);
+    }
+  }, [router.asPath]);
 
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
 
     return () => window.removeEventListener("scroll", listenScrollEvent);
   }, []);
-  //////////////
 
   return (
     <>
@@ -135,7 +139,12 @@ export default function Header() {
         handleLogin={handleLogin}
         size={size}
       />
-      <SearchMenu open={openSearch} size={size} className={styles.searchMenu} />
+      <SearchMenu
+        open={openSearch}
+        setOpenSearch={setOpenSearch}
+        size={size}
+        className={styles.searchMenu}
+      />
       <MobileMenu
         open={mobileMenu}
         handleClose={() => setMobileMenu((prev) => !prev)}
