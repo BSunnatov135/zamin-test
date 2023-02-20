@@ -8,14 +8,16 @@ import { useRouter } from "next/router";
 import SearchIcon from "/src/assests/icons/searchIcon.svg";
 import Link from "next/link";
 
-export default function SearchMenu({ open }) {
-  const [searchValue, setSearchValue] = useState();
+export default function SearchMenu({ open, setOpenSearch }) {
+  const [searchValue, setSearchValue] = useState("");
   const { t } = useTranslation("common");
   const router = useRouter();
 
   const handleClick = (event) => {
     if (event.keyCode === 13 && searchValue) {
       router.push({ pathname: `/search`, query: { search: searchValue } });
+      setSearchValue("");
+      setOpenSearch(false);
     }
   };
 
@@ -50,7 +52,7 @@ export default function SearchMenu({ open }) {
           }
         >
           <a className={styles.searchBtn}>
-            <SearchIcon />
+            <SearchIcon onClick={() => setSearchValue("")} />
           </a>
         </Link>
       </div>

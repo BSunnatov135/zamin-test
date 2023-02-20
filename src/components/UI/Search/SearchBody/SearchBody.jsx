@@ -122,7 +122,6 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_photo`]}
                   alt={event.guid}
                   width="170"
-                  // height="150"
                 />
               </a>
             </Link>
@@ -155,7 +154,6 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_poster`]}
                   alt={event.guid}
                   width="170"
-                  // height="150"
                 />
               </a>
             </Link>
