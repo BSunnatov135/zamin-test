@@ -2,10 +2,12 @@ import styles from "./style.module.scss";
 import { Container, Link } from "@mui/material";
 import { ArrowRight } from "components/UI/svg";
 import useTranslation from "next-translate/useTranslation";
+import getVideoId from "get-video-id";
 
 export default function Banner({ contents, router, item }) {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
+  const video = getVideoId(`${item?.[`${lang}_utube_link`]}`)
   return (
     <Container>
       <div className={styles.main}>
@@ -21,6 +23,13 @@ export default function Banner({ contents, router, item }) {
             <ArrowRight />
           </Link>
         )} */}
+         {video.id && <iframe
+      width="887px"
+      height="498px"
+      src={`https://www.youtube.com/embed/${video.id}`}
+      allowFullScreen
+      title="Embedded youtube"
+    />}
       </div>
     </Container>
   );
