@@ -187,6 +187,7 @@ export default function MobileMenu({
                 }}
                 onClick={(e) => {
                   handleLinks(e, data.key);
+                  setActiveLink(null);
                 }}
               ></a>
             </Link>
@@ -202,6 +203,7 @@ export default function MobileMenu({
               }}
               onClick={(e) => {
                 handleLinks(e, data.key);
+                setActiveLink(null);
               }}
             ></a>
           </Link>
@@ -312,7 +314,7 @@ export default function MobileMenu({
         })}
       >
         <a
-          onClick={(e) => {
+          onClick={() => {
             setActiveLink(null);
           }}
         >
