@@ -13,6 +13,7 @@ export default function Donate() {
   const [input, setInput] = useState(false);
   const { lang } = useTranslation();
   const [isActive, setIsActive] = useState("50");
+  const [method, setMethod] = useState("payme");
   const types = ["all", "project"];
   // const [type, setType] = useState(types[0]);
   const userInfos = useSelector((state) => state.auth.user);
@@ -178,6 +179,43 @@ export default function Donate() {
                     </div>
                   )}
                 </>
+              </div>
+            </div>
+            <div className={styles.chooseAmount}>
+              <p>{t("payment_method")}</p>
+              <div className={styles.methodInputWrapper}>
+                <div
+                  className={styles.methodInput}
+                  onClick={() => {
+                    setMethod("payme");
+                  }}
+                >
+                  <div className={styles.methodName}>
+                    <img src="logos/payme.png" />
+                    <p>Payme</p>
+                  </div>
+                  <span
+                    className={classNames(styles.radio, {
+                      [styles.activeRadio]: method === "payme",
+                    })}
+                  />
+                </div>
+                <div
+                  className={styles.methodInput}
+                  onClick={() => {
+                    setMethod("click");
+                  }}
+                >
+                  <div className={styles.methodName}>
+                    <img src="logos/click.png" />
+                    <p>Click</p>
+                  </div>
+                  <span
+                    className={classNames(styles.radio, {
+                      [styles.activeRadio]: method === "click",
+                    })}
+                  />
+                </div>
               </div>
             </div>
             {/* <div className={styles.comments}>

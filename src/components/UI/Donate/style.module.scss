@@ -117,6 +117,44 @@
         color: #fff;
       }
     }
+    .methodInputWrapper {
+      display: flex;
+      column-gap: 10px;
+      .methodInput {
+        cursor: pointer;
+        display: flex;
+        width: 25%;
+        align-items: center;
+        justify-content: center;
+        background: #f6f8f9;
+        border-radius: 12px;
+        padding: 14px 16px;
+        justify-content: space-between;
+        .methodName {
+          display: flex;
+          column-gap: 8px;
+          justify-content: center;
+          align-items: center;
+          p {
+            font-size: 18px;
+            line-height: 24px;
+            font-family: "Noto Sans";
+          }
+        }
+        span {
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: #eef0f2;
+        }
+        .radio {
+          border: 1px solid #d5dadd;
+        }
+        .activeRadio {
+          border: 6px solid #5982e7;
+        }
+      }
+    }
     .chooseProject {
       display: flex;
       justify-content: space-between;
