@@ -43,6 +43,28 @@ export default function SearchBody({ data }) {
           projectParams: { offset: 0, limit: 9 },
         }
   );
+  /////////////////
+  const corEndingns = (count) => {
+    if (lang == "ru" && count) {
+      if (count == "11" || count == "12" || count == "13" || count == "14") {
+        return t("find_results") + "ов";
+      } else if (
+        count.slice(-1) == "2" ||
+        count.slice(-1) == "3" ||
+        count.slice(-1) == "4"
+      ) {
+        return t("find_results") + "а";
+      } else if (count.slice(-1) == "1") {
+        return t("find_results");
+      } else {
+        return t("find_results") + "ов";
+      }
+    } else {
+      return t("find_results");
+    }
+  };
+  /////////////////
+  // console.log(projects?.data?.count.toString().slice(-1));
   return (
     <Container className={styles.container}>
       <TabContext value={value}>
@@ -86,11 +108,11 @@ export default function SearchBody({ data }) {
             )}
             <p className={styles.byRequestOption}>
               {t("find_projects")}: {events?.data?.count}
-              {t("find_results")}
+              {corEndingns(events?.data?.count.toString())}
             </p>
             <p className={styles.byRequestOption}>
               {t("event_title")}: {projects?.data?.count}
-              {t("find_results")}
+              {corEndingns(projects?.data?.count.toString())}
             </p>
           </div>
         ) : null}
