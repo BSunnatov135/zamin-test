@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import Slider from "components/UI/Slider/Slider";
 import RelatedEvents from "components/UI/Event/RelatedEvents";
 import useSpheres from "services/spheres";
+import RelatedStories from "../Projects/RelatedStories";
+import useProjects from "services/projects";
 
 export default function Info({ title, sliderData, data }) {
   const router = useRouter();
@@ -15,15 +17,19 @@ export default function Info({ title, sliderData, data }) {
       spheres_id: data?.spheres_id,
     },
   });
-
+  const { projectStories } = useProjects({
+    storiesProps: {
+      website_projects_id: [data?.guid],
+    },
+  });
   return (
     <>
-      <Slider data={sliderData ?? []} title={title} queryFrom = {queryFrom}/>
+      <Slider data={sliderData ?? []} title={title} queryFrom={queryFrom} />
       <Content item={data ? data : {}} router={router} />
+      <RelatedStories data={projectStories?.data} />
       {data?.$website_events_ids_data?.length > 1 ? (
         <RelatedEvents data={data} />
       ) : null}
-      {/* {queryFrom && <Projects sphere={sphere} data={data} />} */}
     </>
   );
 }

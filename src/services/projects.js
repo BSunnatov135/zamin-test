@@ -14,7 +14,17 @@ const getSliderFn = async (data) =>
     data,
   });
 
-const useProjects = ({ projectParams, projectId, sliderProps }) => {
+const getStoriesFn = async (data) =>
+  await request.post("/v1/object/get-list/project_stories", {
+    data,
+  });
+
+const useProjects = ({
+  projectParams,
+  projectId,
+  sliderProps,
+  storiesProps,
+}) => {
   const projects = useQuery(
     ["GET_PROJECTS", projectParams],
     () => getProjectsFn(projectParams),
@@ -36,11 +46,19 @@ const useProjects = ({ projectParams, projectId, sliderProps }) => {
       enabled: !!sliderProps,
     }
   );
+  const projectStories = useQuery(
+    [`GET_PROJECT_STORIES`, storiesProps],
+    () => getStoriesFn(storiesProps),
+    {
+      enabled: !!storiesProps,
+    }
+  );
 
   return {
     projects: projects?.data,
     project: project?.data,
     projectSlider: projectSlider?.data,
+    projectStories: projectStories?.data,
   };
 };
 

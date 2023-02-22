@@ -1,0 +1,109 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+.slider {
+  display: block;
+  max-height: 434px;
+  position: relative;
+  overflow: visible;
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
+
+  .item {
+    background-color: #d16565;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 395px !important;
+    height: 434px;
+
+    margin: {
+      top: 40px;
+      left: 65px
+    }
+
+    .storyFile {}
+
+    .title p {
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+    }
+
+    .icon {
+      position: absolute;
+      bottom: 40%;
+      right: 40%;
+
+      svg {
+        rect {
+          width: 50px !important;
+        }
+      }
+    }
+  }
+}
+
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: -40px;
+  right: 0;
+  height: 40px;
+  transition: .4s ease all;
+
+  @media screen and (max-width:600px) {
+    top: 0;
+  }
+
+  svg {
+    transform: rotate(180deg);
+
+    &:hover {
+      path {
+        stroke: var(--primary-color);
+      }
+    }
+  }
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 100;
+  top: -40px;
+  right: 48px;
+  height: 40px;
+  border-radius: 50%;
+  transition: .4s ease all;
+
+  @media screen and (max-width:600px) {
+    top: 0;
+    left: 0;
+    right: auto;
+  }
+
+  svg {
+    &:hover {
+      path {
+        stroke: var(--primary-color);
+      }
+    }
+  }
+}

@@ -27,13 +27,14 @@
 .main {
   padding: 60px 0 116px;
   color: #fff;
+
   padding: {
     top: 60px;
     left: 90px;
     bottom: 116px;
     right: 90px
   }
-  
+
 
   @media screen and (max-width: 600px) {
     padding-bottom: 48px;
