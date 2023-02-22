@@ -80,9 +80,6 @@ export default function Projects(sphere) {
               <ProjectItem key={item.guid} item={item} />
             ))}
           </div>
-          {/* <div className={styles.button}>
-          <Button>Все проекты</Button>
-        </div> */}
         </div>
       ) : (
         <div className={styles.main}>
@@ -109,9 +106,6 @@ export default function Projects(sphere) {
                 ))
               : null}
           </div>
-          {/* <div className={styles.button}>
-        <Button>Все проекты</Button>
-      </div> */}
         </div>
       )}
     </Container>

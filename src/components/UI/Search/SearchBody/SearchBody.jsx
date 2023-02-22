@@ -15,35 +15,35 @@ export default function SearchBody({ data }) {
   const [value, setValue] = useState("1");
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
+  // Constant below: is using for sending and getting request by NAME from "Events"
   const { events } = useEvents(
     data?.length >= 1
       ? {
           eventParams: {
-            [lang + "_header"]: data,
-            // [lang + "_description"]: data,
+            [lang + "_description"]: data,
           },
         }
       : {
           eventParams: { offset: 0, limit: 9 },
         }
   );
+  // Constant below: is using for sending and getting request by NAME from "Projects"
   const { projects } = useProjects(
     data?.length >= 1
       ? {
           projectParams: {
-            [lang + "_name"]: data,
-            // [lang + "_description"]: data,
+            [lang + "_description"]: data,
           },
         }
       : {
           projectParams: { offset: 0, limit: 9 },
         }
   );
-  /////////////////
+  //This function below "corEndingns": is for checking count of data that is coming from "search value" and corrects the ending of russian result "результат=> результата => результатов"
   const corEndingns = (count) => {
     if (lang == "ru" && count) {
       if (count == "11" || count == "12" || count == "13" || count == "14") {
@@ -63,8 +63,7 @@ export default function SearchBody({ data }) {
       return t("find_results");
     }
   };
-  /////////////////
-  // console.log(projects?.data?.count.toString().slice(-1));
+
   return (
     <Container className={styles.container}>
       <TabContext value={value}>

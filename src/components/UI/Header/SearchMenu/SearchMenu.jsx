@@ -14,6 +14,7 @@ export default function SearchMenu({ open, setOpenSearch }) {
   const router = useRouter();
   const inputRef = useRef();
 
+  //Function below: is written for changing router.query and some States
   const handleClick = (event) => {
     if (event.keyCode === 13 && searchValue) {
       router.push({ pathname: `/search`, query: { search: searchValue } });
@@ -21,7 +22,7 @@ export default function SearchMenu({ open, setOpenSearch }) {
       setOpenSearch(false);
     }
   };
-
+  //useEffect below: responsible for autoFocus when the "SearchMenu" is opened
   useEffect(() => (open ? inputRef.current.focus() : null), [open]);
 
   return (

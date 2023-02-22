@@ -12,7 +12,11 @@ export default function Search() {
   const router = useRouter();
   const { search } = router.query;
   const [inputValue, setInputValue] = useState(search);
+
+  //useDebounce below: is a custom hook for request and getting value by sending arg1="inputValue" if it's not changed arg2="500ms"
   const searchDebounce = useDebounce(inputValue, 500);
+
+  //useEffect below: is responsible for changing router when from "/search" page changed input value
   useEffect(() => {
     search !== inputValue && search ? router.push("/search") : null;
   }, [inputValue, search]);

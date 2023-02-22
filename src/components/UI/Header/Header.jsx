@@ -33,6 +33,7 @@ export default function Header() {
   const ref = useRef();
   useOnClickOutside(ref, () => setOpen(false));
 
+  //Function below: tracks window scroll and narrows header`s height, closes "SearchMenu"
   const listenScrollEvent = () => {
     if (window.scrollY < 80) {
       setSize(false);
@@ -43,7 +44,7 @@ export default function Header() {
       setOpenSearch(false);
     }
   };
-
+  //useEffect below: tracks path of router and closes "SearchMenu" if it contains keyword="/search"
   useEffect(() => {
     if (router.asPath.includes("/search")) {
       setOpenSearch(false);
@@ -102,9 +103,6 @@ export default function Header() {
             </Link>
             <div className={styles.rightElement}>
               <div
-                // onClick={() => {
-                //   document.getElementById("userwayAccessibilityIcon").click();
-                // }}
                 id="openAccessibility"
                 tabIndex="0"
                 className={styles.accessibility}
