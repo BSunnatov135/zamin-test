@@ -71,6 +71,7 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 32px;
+    // margin-bottom: 80px;
   }
 }
 
@@ -134,9 +135,8 @@
   .slider {
     display: block;
     max-height: 434px;
+    overflow: hidden;
     position: relative;
-    overflow: visible;
-    max-width: 1281px;
     margin: 0 auto;
     margin-top: 0px;
     margin-bottom: 80px;
@@ -152,8 +152,8 @@
       overflow-y: hidden;
 
       margin: {
-        right: 0px;
-        left: 0px;
+        right: auto;
+        left: auto;
         top: 50px;
       }
 

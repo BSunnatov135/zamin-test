@@ -5,11 +5,13 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import useTranslation from "next-translate/useTranslation";
+import { useRouter } from "next/router";
 
 export default function StoriesModal({ open, data, handleClose }) {
   console.log(data[0]);
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
+  const router = useRouter();
 
   return (
     <div>
@@ -41,7 +43,17 @@ export default function StoriesModal({ open, data, handleClose }) {
                   __html: data[0]?.[`${lang}_description`],
                 }}
               ></p>
-              {/* <Button className={styles.button}>{t("more") + " ⇾"}</Button> */}
+              <Button
+                onClick={() =>
+                  router.push({
+                    pathname: `/stories`,
+                    query: { stories: data?.[0]?.guid },
+                  })
+                }
+                className={styles.button}
+              >
+                {t("more") + " ⇾"}
+              </Button>
             </div>
           </div>
         </Box>

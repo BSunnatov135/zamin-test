@@ -54,19 +54,24 @@ export default function RelatedStories({ data }) {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
           speed: 500,
+          // variableWidth: true,
+          // centerMode: true,
           slidesToShow: data?.response.length < 3 ? 1 : 3,
           slidesToScroll: 1,
           responsive: [
             {
               breakpoint: 900,
               settings: {
-                slidesToShow: 2,
+                centerMode: true,
+                slidesToShow: 1,
                 slidesToScroll: 1,
               },
             },
             {
               breakpoint: 600,
               settings: {
+                variableWidth: true,
+                centerMode: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
               },
