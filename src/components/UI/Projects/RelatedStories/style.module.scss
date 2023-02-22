@@ -1,57 +1,6 @@
 @import "styles/unit.scss";
 @import url("/public/fonts/font.css");
 
-.slider {
-  display: block;
-  max-height: 434px;
-  position: relative;
-  overflow: visible;
-  margin-top: 80px;
-  margin-bottom: 80px;
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
-
-  .item {
-    background-color: #d16565;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 395px !important;
-    height: 434px;
-
-    margin: {
-      top: 40px;
-      left: 65px
-    }
-
-    .storyFile {}
-
-    .title p {
-      font-weight: 700;
-      font-size: 18px;
-      color: #ffffff;
-      position: absolute;
-      bottom: 5%;
-      left: 10%;
-    }
-
-    .icon {
-      position: absolute;
-      bottom: 40%;
-      right: 40%;
-
-      svg {
-        rect {
-          width: 50px !important;
-        }
-      }
-    }
-  }
-}
-
 
 .next {
   cursor: pointer;
@@ -59,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  top: -40px;
+  top: -80px;
   right: 0;
   height: 40px;
   transition: .4s ease all;
@@ -87,7 +36,7 @@
   justify-content: center;
   align-items: flex-end;
   z-index: 100;
-  top: -40px;
+  top: -80px;
   right: 48px;
   height: 40px;
   border-radius: 50%;
@@ -103,6 +52,124 @@
     &:hover {
       path {
         stroke: var(--primary-color);
+      }
+    }
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  letter-spacing: 0.326451px;
+  margin-top: 32px;
+  margin-left: 16px;
+
+  // margin-bottom: 32px;
+  @media (max-width: 600px) {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.slider {
+  display: block;
+  max-height: 434px;
+  position: relative;
+  overflow: visible;
+  max-width: 1281px;
+  margin: 0 auto;
+  margin-top: 32px;
+  margin-bottom: 80px;
+
+  .item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 395px !important;
+    height: 434px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    margin: {
+      right: 16px;
+      left: 16px;
+      margin-bottom: 40px;
+    }
+
+    .storyFile {
+      height: 100%;
+      transform: translate(-25%, 0%);
+      overflow: hidden;
+    }
+
+    .name p {
+      font-weight: 700;
+      font-size: 18px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 5%;
+      left: 10%;
+    }
+
+    .icon {
+      position: absolute;
+      bottom: 40%;
+      right: 40%;
+
+      svg {
+        rect {
+          width: 50px !important;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .slider {
+    display: block;
+    max-height: 434px;
+    position: relative;
+    overflow: visible;
+    max-width: 1281px;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 80px;
+
+    .item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 395px !important;
+      height: 434px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+
+      margin: {
+        right: 0px;
+        left: 0px;
+        top: 50px;
+      }
+
+      .storyFile {
+        height: 100%;
+        transform: translate(-27.5%, 0%);
+        overflow: hidden;
+      }
+
+      .name p {
+        font-weight: 700;
+        font-size: 18px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 5%;
+        left: 10%;
       }
     }
   }
