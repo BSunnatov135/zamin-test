@@ -13,8 +13,9 @@ export default function Donate() {
   const [input, setInput] = useState(false);
   const { lang } = useTranslation();
   const [isActive, setIsActive] = useState("50");
+  const [method, setMethod] = useState("payme");
   const types = ["all", "project"];
-  const [type, setType] = useState(types[0]);
+  // const [type, setType] = useState(types[0]);
   const userInfos = useSelector((state) => state.auth.user);
   const [value, setValue] = useState(null);
   const [openSuccessPopup, setOpenSuccessPopup] = useState(false);
@@ -39,7 +40,8 @@ export default function Donate() {
       <div className={styles.container}>
         <h2 className={styles.title}>{t("donate_title")}</h2>
         <div className={styles.formWrapper}>
-          <div className={styles.typeWrapper}>
+          <p className={styles.item}>{t("donate_to_general_fund")}</p>
+          {/* <div className={styles.typeWrapper}>
             <p
               onClick={(e) => {
                 e.preventDefault();
@@ -84,8 +86,8 @@ export default function Donate() {
             >
               {t("donate_to_project")}
             </p>
-          </div>
-          <div style={{ width: "100%" }}>
+          </div> */}
+          {/* <div style={{ width: "100%" }}>
             {type === "project" && (
               <div
                 className={styles.chooseAmount}
@@ -104,7 +106,7 @@ export default function Donate() {
                 />
               </div>
             )}
-          </div>
+          </div> */}
           <>
             <div className={styles.chooseAmount}>
               <p>{t("select_amount")}</p>
@@ -179,15 +181,52 @@ export default function Donate() {
                 </>
               </div>
             </div>
-            <div className={styles.comments}>
+            <div className={styles.chooseAmount}>
+              <p>{t("payment_method")}</p>
+              <div className={styles.methodInputWrapper}>
+                <div
+                  className={styles.methodInput}
+                  onClick={() => {
+                    setMethod("payme");
+                  }}
+                >
+                  <div className={styles.methodName}>
+                    <img src="logos/payme.png" />
+                    <p>Payme</p>
+                  </div>
+                  <span
+                    className={classNames(styles.radio, {
+                      [styles.activeRadio]: method === "payme",
+                    })}
+                  />
+                </div>
+                <div
+                  className={styles.methodInput}
+                  onClick={() => {
+                    setMethod("click");
+                  }}
+                >
+                  <div className={styles.methodName}>
+                    <img src="logos/click.png" />
+                    <p>Click</p>
+                  </div>
+                  <span
+                    className={classNames(styles.radio, {
+                      [styles.activeRadio]: method === "click",
+                    })}
+                  />
+                </div>
+              </div>
+            </div>
+            {/* <div className={styles.comments}>
               <p>{t("comments")}</p>
               <form>
                 <textarea placeholder={t("comments")} width={"100%"}></textarea>
               </form>
-            </div>
+            </div> */}
           </>
         </div>
-        <div className={styles.formWrapper}>
+        {/* <div className={styles.formWrapper}>
           <h3 className={styles.formTitle}>{t("your_info")}</h3>
           <form className={styles.form} id="form">
             <div className={styles.formInput}>
@@ -247,7 +286,7 @@ export default function Donate() {
               />
             </div>
           </form>
-        </div>
+        </div> */}
         <div className={styles.submitButton}>
           <button type="submit" form="form">
             {t("make_donation")}
