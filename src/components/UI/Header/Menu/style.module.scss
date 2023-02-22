@@ -90,18 +90,29 @@
         margin-bottom: 40px;
       }
 
+      .donationWrapper {
+        margin-top: 40px;
       .donation {
-        margin-bottom: 40px;
+        
         font-weight: 600;
         display: flex;
         align-items: center;
         column-gap: 12px;
-
+        font-family: 'Noto Serif';
+        color: var(--primary-color);
         // font-family: 'Noto Sans';
-        &:last-child {
-          font-weight: 700;
+        svg {
+          path {
+            stroke:var(--primary-color) 
+          }
         }
-      }
+        &:hover {
+          svg {
+            transform: translateX(5px);
+          }
+        }
+
+      }}
 
       .marginBottom_24 {
         margin-bottom: 24px;
@@ -122,6 +133,7 @@
         align-items: center;
         column-gap: 12px;
       }
+      
     }
   }
 
