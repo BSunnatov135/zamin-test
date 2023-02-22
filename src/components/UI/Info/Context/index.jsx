@@ -7,7 +7,7 @@ import getVideoId from "get-video-id";
 export default function Banner({ contents, router, item }) {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
-  const video = getVideoId(`${item?.[`${lang}_utube_link`]}`)
+  const video = getVideoId(`${item?.[`${lang}_utube_link`]}`);
   return (
     <Container>
       <div className={styles.main}>
@@ -23,13 +23,13 @@ export default function Banner({ contents, router, item }) {
             <ArrowRight />
           </Link>
         )} */}
-         {video.id && <iframe
-      width="887px"
-      height="498px"
-      src={`https://www.youtube.com/embed/${video.id}`}
-      allowFullScreen
-      title="Embedded youtube"
-    />}
+        {video.id && (
+          <iframe
+            src={`https://www.youtube.com/embed/${video.id}`}
+            allowFullScreen
+            title="Embedded youtube"
+          />
+        )}
       </div>
     </Container>
   );
