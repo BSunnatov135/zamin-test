@@ -35,34 +35,35 @@
     //   align-items: center;
     //   grid-template-columns: 1fr 1fr;
     .item {
-      @media screen and (max-width: 600px) {
-        display: none;
-      }
+      // @media screen and (max-width: 600px) {
+      //   display: none;
+      // }
       cursor: pointer;
+      text-align: center;
       font-weight: 700;
       font-size: 24px;
       line-height: 28px;
     }
 
-    .resItem {
-      @media screen and (min-width: 601px) {
-        display: none;
-      }
-      cursor: pointer;
-      font-family: "Noto Serif";
-      text-align: center;
-      font-weight: 400;
-      font-size: 16px;
-      background-color: #f7f7f7;
-      align-self: stretch;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .chosen {
-      background-color: #fff;
-      font-weight: 500;
-    }
+    // .resItem {
+    //   @media screen and (min-width: 601px) {
+    //     display: none;
+    //   }
+    //   cursor: pointer;
+    //   font-family: "Noto Serif";
+    //   text-align: center;
+    //   font-weight: 400;
+    //   font-size: 16px;
+    //   background-color: #f7f7f7;
+    //   align-self: stretch;
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    // }
+    // .chosen {
+    //   background-color: #fff;
+    //   font-weight: 500;
+    // }
   }
   .chooseAmount {
     margin-top: 24px;

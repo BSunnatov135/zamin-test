@@ -266,6 +266,9 @@ export default function MobileMenu({
             {items[3].title}
             <RightArrow />
           </a>
+          <a>
+            <p className={styles.donation}> {t("donate")} <ArrowRight /></p>
+          </a>
           {/* <a
             onClick={(e) => {
               setActiveLink(5);

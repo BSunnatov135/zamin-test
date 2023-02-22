@@ -264,6 +264,19 @@ export default function Menu({
                   <YoutubeIcon/>
                 </a>
               </div>
+              <div className={styles.donationWrapper}>
+                  <Link href="/donate">
+                <a
+                  onClick={(e) => {
+                    handleClose(e);
+                  }}
+                >
+                  <p className={styles.donation}>
+                    {t("donate")} <ArrowRight />
+                  </p>
+                </a>
+              </Link>
+              </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 {t("cabinet")}
               </p>
