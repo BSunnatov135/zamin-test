@@ -39,6 +39,7 @@ export default function RelatedStories({ data }) {
   const handleClose = () => {
     setOpen(false);
   };
+  console.log(data?.respose?.uz_story_file.type);
 
   const filteredData = data?.response?.filter(
     (v, i, a) => a.findIndex((t) => t.guid === guId) === i

@@ -11,13 +11,31 @@ const getSliderFn = async (data) =>
   await request.post("/v1/object/get-list/file", {
     data,
   });
+const getSearchedEventFn = async (data) =>
+  await request.post("/v1/object/get-list/website_events", {
+    data,
+  });
 
-const useEvents = ({ eventParams, eventId, sliderProps }) => {
+const useEvents = ({
+  searchParams,
+  inputParams,
+  eventParams,
+  eventId,
+  sliderProps,
+}) => {
   const events = useQuery(
     ["GET_EVENTS", eventParams],
     () => getEventsFn(eventParams),
     {
       enabled: !!eventParams,
+    }
+  );
+
+  const searchEvents = useQuery(
+    ["GET_EVENTS", searchParams],
+    () => getSearchedEventFn(searchParams),
+    {
+      enabled: !!(searchParams && inputParams?.length >= 1),
     }
   );
 
@@ -40,7 +58,14 @@ const useEvents = ({ eventParams, eventId, sliderProps }) => {
     events: events?.data,
     event: event?.data,
     eventSlider: eventSlider?.data,
+    searchEvents: searchEvents?.data,
   };
 };
 
 export default useEvents;
+
+const obj = {
+  name: "name",
+};
+
+delete obj.name;
