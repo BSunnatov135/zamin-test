@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
+import ReactPlayer from "react-player";
 import useProjects from "services/projects";
 import styles from "./style.module.scss";
 
@@ -11,7 +12,19 @@ export default function StoriesInfo() {
   const { story } = useProjects({
     storyId: stories,
   });
-  console.log(story?.data?.response);
+  const fileTypes = (data) => {
+    if (
+      data?.includes("mkv") ||
+      data?.includes("mp4") ||
+      data?.includes("mov") ||
+      data?.includes("webm") ||
+      data?.includes("mpeg-4")
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <Container>
       <div className={styles.item}>
@@ -21,11 +34,18 @@ export default function StoriesInfo() {
             __html: story?.data?.response[`${lang}_header`],
           }}
         ></h2>
-        <video
-          className={styles.storyFile}
-          src={story?.data?.response[`${lang}_story_file`]}
-          controls
-        />
+        {fileTypes(story?.data?.response[`${lang}_story_file`]) === true ? (
+          <ReactPlayer
+            url={story?.data?.response[`${lang}_story_file`]}
+            className={styles.video}
+            controls
+          />
+        ) : (
+          <img
+            src={story?.data?.response[`${lang}_story_file`]}
+            alt={story?.guid}
+          />
+        )}
         <p
           className={styles.description}
           dangerouslySetInnerHTML={{

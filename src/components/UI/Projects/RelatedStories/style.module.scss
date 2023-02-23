@@ -89,10 +89,14 @@
       height: 434px;
       margin-top: 10px;
 
-      video {
-        height: 100%;
+      @media (max-width: 600px) {
+        height: 250px;
+      }
+
+      .video {
+        height: 100% !important;
         object-fit: cover;
-        width: 100%;
+        width: 100% !important;
       }
 
       .name p {
@@ -100,7 +104,7 @@
         font-size: 18px;
         color: #ffffff;
         position: absolute;
-        bottom: 5%;
+        bottom: 20%;
         left: 10%;
       }
 

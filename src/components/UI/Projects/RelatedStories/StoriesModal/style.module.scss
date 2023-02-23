@@ -4,21 +4,22 @@
   align-items: center;
 
   .Box {
-    width: 529px !important;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
     .item {
-
       position: relative;
+      transform: scale(1.4);
 
-      .storyFile {}
+      .storyFile {
+        width: 100% !important;
+      }
 
       .fileDescription {
         position: absolute;
-        bottom: 12%;
+        bottom: 16%;
         left: 2.5%;
         color: #ffffff;
 
@@ -39,9 +40,9 @@
         .description p {
           font-weight: 400;
           font-size: 18.7419px;
-          line-height: 27px;
+          line-height: 20px;
           color: #EEF0F2;
-          margin-bottom: 15px;
+          margin-bottom: 12px;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           line-clamp: 2;
@@ -52,10 +53,11 @@
         }
 
         .button {
-          padding: 11px;
+          padding: 5px;
           color: #2E2E2E;
           background-color: #fff;
-          font-weight: 900;
+          line-height: 18px;
+          font-weight: 600;
         }
       }
     }
@@ -64,16 +66,16 @@
 
 @media (max-width: 600px) {
   .Modal {
-
     .Box {
-      width: 100% !important;
+      max-width: 600px;
 
       .item {
 
         position: relative;
 
         .storyFile {
-          width: 100%;
+          width: 100% !important;
+          height: auto !important;
         }
 
         .fileDescription {
