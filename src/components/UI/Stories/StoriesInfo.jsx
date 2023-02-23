@@ -43,7 +43,7 @@ export default function StoriesInfo() {
         ) : (
           <img
             src={story?.data?.response[`${lang}_story_file`]}
-            alt={item.guid}
+            alt={story?.guid}
           />
         )}
         <p

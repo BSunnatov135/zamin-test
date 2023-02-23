@@ -105,12 +105,12 @@ export default function RelatedStories({ data }) {
                   className={styles.video}
                 />
               ) : (
-                <img src={item?.[`${lang}_story_file`]} alt={item.guid} />
+                <img src={item?.[`${lang}_story_file`]} alt={item?.guid} />
               )}
               <p
                 className={styles.name}
                 dangerouslySetInnerHTML={{
-                  __html: item[`${lang}_header`],
+                  __html: item?.[`${lang}_header`],
                 }}
               ></p>
               <span className={styles.icon}>
