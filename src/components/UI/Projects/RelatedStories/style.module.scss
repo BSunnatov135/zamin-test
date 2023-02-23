@@ -14,7 +14,8 @@
   transition: .4s ease all;
 
   @media screen and (max-width:600px) {
-    top: 0;
+    top: -8%;
+    right: 3%;
   }
 
   svg {
@@ -43,8 +44,8 @@
   transition: .4s ease all;
 
   @media screen and (max-width:600px) {
-    top: 0;
-    left: 0;
+    top: -8%;
+    left: 3%;
     right: auto;
   }
 
@@ -65,102 +66,33 @@
   margin-top: 32px;
   margin-left: 16px;
 
-  // margin-bottom: 32px;
   @media (max-width: 600px) {
     margin-left: 0px;
     font-weight: 600;
     font-size: 24px;
     line-height: 32px;
-    // margin-bottom: 80px;
   }
 }
 
 .slider {
-  display: block;
-  max-height: 434px;
-  position: relative;
-  overflow: visible;
-  max-width: 1281px;
-  margin: 0 auto;
-  margin-top: 32px;
-  margin-bottom: 80px;
 
-  .item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 395px !important;
-    height: 434px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  margin: 32px -8px 80px;
 
-    margin: {
-      right: 16px;
-      left: 16px;
-      margin-bottom: 40px;
-    }
-
-    .storyFile {
-      height: 100%;
-      transform: translate(-25%, 0%);
-      overflow: hidden;
-    }
-
-    .name p {
-      font-weight: 700;
-      font-size: 18px;
-      color: #ffffff;
-      position: absolute;
-      bottom: 5%;
-      left: 10%;
-    }
-
-    .icon {
-      position: absolute;
-      bottom: 40%;
-      right: 40%;
-
-      svg {
-        rect {
-          width: 50px !important;
-        }
-      }
-    }
-  }
-}
-
-
-@media (max-width: 600px) {
-  .slider {
-    display: block;
-    max-height: 434px;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
-    margin-top: 0px;
-    margin-bottom: 80px;
+  .slide {
+    padding: 0 8px;
 
     .item {
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 395px !important;
       height: 434px;
-      overflow-x: hidden;
-      overflow-y: hidden;
+      margin-top: 10px;
 
-      margin: {
-        right: auto;
-        left: auto;
-        top: 50px;
-      }
-
-      .storyFile {
+      video {
         height: 100%;
-        transform: translate(-27.5%, 0%);
-        overflow: hidden;
+        object-fit: cover;
+        width: 100%;
       }
 
       .name p {
@@ -170,6 +102,27 @@
         position: absolute;
         bottom: 5%;
         left: 10%;
+      }
+
+      .icon {
+        position: absolute;
+        bottom: 40%;
+        right: 40%;
+        cursor: pointer;
+
+        svg {
+          transition: 0.4s ease-in-out all;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          path {
+            &:active {
+              fill: #cccccc;
+            }
+          }
+        }
       }
     }
   }

@@ -27,14 +27,28 @@
           font-size: 24.0968px;
           line-height: 27px;
           margin-bottom: 8px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          box-orient: vertical;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
-        .description {
+        .description p {
           font-weight: 400;
           font-size: 18.7419px;
           line-height: 27px;
           color: #EEF0F2;
           margin-bottom: 15px;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          box-orient: vertical;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .button {

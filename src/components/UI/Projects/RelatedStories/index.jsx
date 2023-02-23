@@ -44,7 +44,7 @@ export default function RelatedStories({ data }) {
     (v, i, a) => a.findIndex((t) => t.guid === guId) === i
   );
   return (
-    <Container style={{ maxWidth: "1281px" }}>
+    <Container>
       <h2 className={styles.title}>{t("stories")}</h2>
       <Slider
         {...{
@@ -54,24 +54,19 @@ export default function RelatedStories({ data }) {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
           speed: 500,
-          // variableWidth: true,
-          // centerMode: true,
-          slidesToShow: data?.response.length < 3 ? 1 : 3,
+          slidesToShow: 3,
           slidesToScroll: 1,
           responsive: [
             {
               breakpoint: 900,
               settings: {
-                centerMode: true,
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1,
               },
             },
             {
               breakpoint: 600,
               settings: {
-                variableWidth: true,
-                centerMode: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
               },
@@ -81,27 +76,25 @@ export default function RelatedStories({ data }) {
         className={styles.slider}
       >
         {data?.response.map((item, index) => (
-          <div
-            className={styles.item}
-            key={index}
-            onClick={() => {
-              setGuId(item.guid);
-              handleOpen();
-            }}
-          >
-            <video
-              className={styles.storyFile}
-              src={item?.[`${lang}_story_file`]}
-            />
-            <p
-              className={styles.name}
-              dangerouslySetInnerHTML={{
-                __html: item[`${lang}_header`],
+          <div key={index} className={styles.slide}>
+            <div
+              className={styles.item}
+              onClick={() => {
+                setGuId(item.guid);
+                handleOpen();
               }}
-            ></p>
-            <span className={styles.icon}>
-              <Play />
-            </span>
+            >
+              <video src={item?.[`${lang}_story_file`]} />
+              <p
+                className={styles.name}
+                dangerouslySetInnerHTML={{
+                  __html: item[`${lang}_header`],
+                }}
+              ></p>
+              <span className={styles.icon}>
+                <Play />
+              </span>
+            </div>
           </div>
         ))}
       </Slider>
