@@ -8,11 +8,25 @@ import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
 
 export default function StoriesModal({ open, data, handleClose }) {
-  console.log(data[0]);
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   const router = useRouter();
-
+  //data?.response?.[`${lang}_story_file`]
+  let string = "asdbs.jpeg";
+  const types = [" mp4", "mov", "avi", "flv", "mkv", "webm", "mpeg-4"];
+  const fileTypes = (data) => {
+    if (
+      data?.includes("mkv") ||
+      data?.includes("mp4") ||
+      data?.includes("mov") ||
+      data?.includes("webm") ||
+      data?.includes("mpeg-4")
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <div>
       <Modal
@@ -24,12 +38,16 @@ export default function StoriesModal({ open, data, handleClose }) {
       >
         <Box className={styles.Box}>
           <div className={styles.item} key={data[0]?.guid}>
-            <video
-              className={styles.storyFile}
-              src={data[0]?.[`${lang}_story_file`]}
-              autoPlay
-              controls
-            />
+            {fileTypes(data?.response?.[`${lang}_story_file`]) === true ? (
+              <video
+                className={styles.storyFile}
+                src={data[0]?.[`${lang}_story_file`]}
+                autoPlay
+                controls
+              />
+            ) : (
+              <img src={data[0]?.[`${lang}_story_file`]} alt={data[0]?.guid} />
+            )}
             <div className={styles.fileDescription}>
               <h3
                 className={styles.name}

@@ -18,32 +18,27 @@ export default function SearchBody({ data }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  // Constant below: is using for sending and getting request by NAME from "Events"
-  const { events } = useEvents(
-    data?.length >= 1
-      ? {
-          eventParams: {
-            [lang + "_description"]: data,
-          },
-        }
-      : {
-          eventParams: { offset: 0, limit: 9 },
-        }
-  );
+  const { events } = useEvents({
+    eventParams: { offset: 0 },
+  });
   // Constant below: is using for sending and getting request by NAME from "Projects"
-  const { projects } = useProjects(
-    data?.length >= 1
-      ? {
-          projectParams: {
-            [lang + "_description"]: data,
-          },
-        }
-      : {
-          projectParams: { offset: 0, limit: 9 },
-        }
-  );
-  //This function below "corEndingns": is for checking count of data that is coming from "search value" and corrects the ending of russian result "результат=> результата => результатов"
+  const { projects } = useProjects({
+    projectParams: { offset: 0 },
+  });
+  /////
+  const { searchEvents } = useEvents({
+    searchParams: {
+      [lang + "_description"]: data,
+    },
+    inputParams: data,
+  });
+  const { searchProjects } = useProjects({
+    searchParams: {
+      [lang + "_description"]: data,
+    },
+    inputParams: data,
+  });
+
   const corEndingns = (count) => {
     if (lang == "ru" && count) {
       if (count == "11" || count == "12" || count == "13" || count == "14") {
@@ -82,15 +77,16 @@ export default function SearchBody({ data }) {
             }}
             textColorPrimary="#09999A"
           >
+            <Tab className={styles.tabName} label={t("all")} value="1" />
             <Tab
               className={styles.tabName}
               label={t("find_projects")}
-              value="1"
+              value="2"
             />
             <Tab
               className={styles.tabName}
               label={t("event_title")}
-              value="2"
+              value="3"
             />
           </TabList>
         </Box>
@@ -106,12 +102,12 @@ export default function SearchBody({ data }) {
               </h2>
             )}
             <p className={styles.byRequestOption}>
-              {t("find_projects")}: {projects?.data?.count}
-              {corEndingns(events?.data?.count.toString())}
+              {t("find_projects")}: {searchProjects?.data?.count}
+              {corEndingns(searchProjects?.data?.count.toString())}
             </p>
             <p className={styles.byRequestOption}>
-              {t("event_title")}: {events?.data?.count}
-              {corEndingns(projects?.data?.count.toString())}
+              {t("event_title")}: {searchEvents?.data?.count}
+              {corEndingns(searchEvents?.data?.count.toString())}
             </p>
           </div>
         ) : null}
@@ -147,9 +143,72 @@ export default function SearchBody({ data }) {
               </a>
             </Link>
           ))}
+          {events?.data?.response.map((event) => (
+            <Link
+              key={event.guid}
+              href={`/events-info/${event.guid}?from=events`}
+              passHref
+            >
+              <a className={styles.card}>
+                <div className={styles.textWrapper}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_header`],
+                    }}
+                    className={styles.title}
+                  ></p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_description`],
+                    }}
+                    className={styles.description}
+                  ></p>
+                </div>
+                <img
+                  className={styles.image}
+                  src={event?.[`${lang}_poster`]}
+                  alt={event.guid}
+                  width="170"
+                />
+              </a>
+            </Link>
+          ))}
         </TabPanel>
         <TabPanel value="2" className={styles.cards}>
-          {events?.data?.response.map((event) => (
+          {searchProjects?.data?.response.map((event) => (
+            <Link
+              key={event.guid}
+              className={styles.card}
+              href={`/project-info/${event.guid}?from=events`}
+              passHref
+            >
+              <a className={styles.card}>
+                <div className={styles.textWrapper}>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_name`],
+                    }}
+                    className={styles.title}
+                  ></p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: event?.[`${lang}_description`],
+                    }}
+                    className={styles.description}
+                  ></p>
+                </div>
+                <img
+                  className={styles.image}
+                  src={event?.[`${lang}_photo`]}
+                  alt={event.guid}
+                  width="170"
+                />
+              </a>
+            </Link>
+          ))}
+        </TabPanel>
+        <TabPanel value="3" className={styles.cards}>
+          {searchEvents?.data?.response.map((event) => (
             <Link
               key={event.guid}
               href={`/events-info/${event.guid}?from=events`}

@@ -6,6 +6,10 @@ const getProjectsFn = async (data) =>
     data,
   });
 
+const getSearchProjectsFn = async (data) =>
+  await request.post("/v1/object/get-list/website_projects", {
+    data,
+  });
 const getProjectFn = async (id) =>
   await request.get(`/v1/object/website_projects/${id}`);
 
@@ -28,12 +32,21 @@ const useProjects = ({
   sliderProps,
   storiesProps,
   storyId,
+  searchParams,
+  inputParams,
 }) => {
   const projects = useQuery(
     ["GET_PROJECTS", projectParams],
     () => getProjectsFn(projectParams),
     {
       enabled: !!projectParams,
+    }
+  );
+  const searchProjects = useQuery(
+    ["GET_PROJECTS", searchParams],
+    () => getProjectsFn(searchParams),
+    {
+      enabled: !!(searchParams && inputParams?.length >= 1),
     }
   );
   const project = useQuery(
@@ -71,6 +84,7 @@ const useProjects = ({
     projectSlider: projectSlider?.data,
     projectStories: projectStories?.data,
     story: story?.data,
+    searchProjects: searchProjects?.data,
   };
 };
 
