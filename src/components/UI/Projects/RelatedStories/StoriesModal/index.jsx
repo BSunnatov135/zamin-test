@@ -28,7 +28,6 @@ export default function StoriesModal({ open, data, handleClose }) {
       return false;
     }
   };
-  console.log("================================", data?.response);
   return (
     <div>
       <Modal
