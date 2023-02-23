@@ -13,10 +13,11 @@
     font-weight: 600;
     font-size: 32px;
     line-height: 38px;
-    @media screen and (max-width: 540px) {
+    @media screen and (max-width: 600px) {
       padding-top: 38px;
       font-size: 24px;
-      padding-bottom: 28px;
+      line-height: 32px;
+      padding-bottom: 12px;
     }
   }
   .formWrapper {
@@ -43,6 +44,11 @@
       font-weight: 700;
       font-size: 24px;
       line-height: 28px;
+      @media screen and (max-width: 600px) {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 27px;
+      }
     }
 
     // .resItem {
@@ -105,6 +111,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        // @media screen and (max-width: 600px) {
+        //   &:last-child {
+        //     flex: 0;
+        //   }
+        //   &:nth-child(4) {
+        //     flex: 0;
+        //   }
+        // }
 
         p {
           font-family: "Noto Sans";
@@ -119,12 +133,15 @@
       }
     }
     .methodInputWrapper {
-      display: flex;
-      column-gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+      gap: 16px;
+      @media screen and (max-width: 600px) {
+        grid-template-columns: 100%;
+      }
       .methodInput {
         cursor: pointer;
         display: flex;
-        width: 25%;
         align-items: center;
         justify-content: center;
         background: #f6f8f9;
