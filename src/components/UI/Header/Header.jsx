@@ -96,8 +96,15 @@ export default function Header() {
                 <img src="/logos/logotext.png" height={"32px"} />
               </a>
             </Link>
-            <Link href="/" passHref>
-              <a className={styles.resLogo}>
+            <Link
+              href="/"
+              passHref
+              onClick={() => setMobileMenu((prev) => !prev)}
+            >
+              <a
+                className={styles.resLogo}
+                onClick={() => setMobileMenu(false)}
+              >
                 <img src="/logos/logopic.png" width={"36px"} height={"36px"} />
               </a>
             </Link>
