@@ -191,7 +191,7 @@ export default function Donate() {
                   }}
                 >
                   <div className={styles.methodName}>
-                    <img src="logos/payme.png" />
+                    <img src="/logos/payme.png" />
                     <p>Payme</p>
                   </div>
                   <span
@@ -207,7 +207,7 @@ export default function Donate() {
                   }}
                 >
                   <div className={styles.methodName}>
-                    <img src="logos/click.png" />
+                    <img src="/logos/click.png" />
                     <p>Click</p>
                   </div>
                   <span
