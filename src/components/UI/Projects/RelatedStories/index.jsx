@@ -8,6 +8,7 @@ import useTranslation from "next-translate/useTranslation";
 import styles from "./style.module.scss";
 import Play from "assests/icons/videoPlay.svg";
 import { useState } from "react";
+import StoriesModal from "./StoriesModal";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -29,10 +30,22 @@ function SamplePrevArrow(props) {
 
 export default function RelatedStories({ data }) {
   const { lang } = useTranslation();
+  const { t } = useTranslation("common");
   const [guId, setGuId] = useState();
-  // console.log("guIdguIdguId", guId);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const filteredData = data?.response?.filter(
+    (v, i, a) => a.findIndex((t) => t.guid === guId) === i
+  );
   return (
     <Container>
+      <h2 className={styles.title}>{t("stories")}</h2>
       <Slider
         {...{
           dots: false,
@@ -41,7 +54,7 @@ export default function RelatedStories({ data }) {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
           speed: 500,
-          slidesToShow: data?.response.length < 3 ? 1 : 3,
+          slidesToShow: 3,
           slidesToScroll: 1,
           responsive: [
             {
@@ -63,25 +76,34 @@ export default function RelatedStories({ data }) {
         className={styles.slider}
       >
         {data?.response.map((item, index) => (
-          <div className={styles.item} key={index}>
-            <video
-              className={styles.storyFile}
-              src={item?.[`${lang}_story_file`]}
-              style={{ width: "395px", height: "100%" }}
-              // controls
-            />
-            <p
-              className={styles.title}
-              dangerouslySetInnerHTML={{
-                __html: item[`${lang}_header`],
+          <div key={index} className={styles.slide}>
+            <div
+              className={styles.item}
+              onClick={() => {
+                setGuId(item.guid);
+                handleOpen();
               }}
-            ></p>
-            <span className={styles.icon} onClick={() => setGuId(item.guid)}>
-              <Play />
-            </span>
+            >
+              <video src={item?.[`${lang}_story_file`]} />
+              <p
+                className={styles.name}
+                dangerouslySetInnerHTML={{
+                  __html: item[`${lang}_header`],
+                }}
+              ></p>
+              <span className={styles.icon}>
+                <Play />
+              </span>
+            </div>
           </div>
         ))}
       </Slider>
+      <StoriesModal
+        open={open}
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        data={filteredData}
+      />
     </Container>
   );
 }

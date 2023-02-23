@@ -19,11 +19,15 @@ const getStoriesFn = async (data) =>
     data,
   });
 
+const getStoryFn = async (id) =>
+  await request.get(`/v1/object/project_stories/${id}`);
+
 const useProjects = ({
   projectParams,
   projectId,
   sliderProps,
   storiesProps,
+  storyId,
 }) => {
   const projects = useQuery(
     ["GET_PROJECTS", projectParams],
@@ -53,12 +57,20 @@ const useProjects = ({
       enabled: !!storiesProps,
     }
   );
+  const story = useQuery(
+    [`GET_PROJECT_${storyId}`, storyId],
+    () => getStoryFn(storyId),
+    {
+      enabled: !!storyId,
+    }
+  );
 
   return {
     projects: projects?.data,
     project: project?.data,
     projectSlider: projectSlider?.data,
     projectStories: projectStories?.data,
+    story: story?.data,
   };
 };
 

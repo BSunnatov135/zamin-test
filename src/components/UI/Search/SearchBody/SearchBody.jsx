@@ -15,7 +15,7 @@ export default function SearchBody({ data }) {
   const [value, setValue] = useState("1");
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
@@ -106,11 +106,11 @@ export default function SearchBody({ data }) {
               </h2>
             )}
             <p className={styles.byRequestOption}>
-              {t("find_projects")}: {events?.data?.count}
+              {t("find_projects")}: {projects?.data?.count}
               {corEndingns(events?.data?.count.toString())}
             </p>
             <p className={styles.byRequestOption}>
-              {t("event_title")}: {projects?.data?.count}
+              {t("event_title")}: {events?.data?.count}
               {corEndingns(projects?.data?.count.toString())}
             </p>
           </div>
