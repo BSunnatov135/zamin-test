@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import useTranslation from "next-translate/useTranslation";
 import { useRouter } from "next/router";
+import ReactPlayer from "react-player";
 
 export default function StoriesModal({ open, data, handleClose }) {
   const { lang } = useTranslation();
@@ -27,6 +28,7 @@ export default function StoriesModal({ open, data, handleClose }) {
       return false;
     }
   };
+  console.log("================================", data?.response);
   return (
     <div>
       <Modal
@@ -38,15 +40,18 @@ export default function StoriesModal({ open, data, handleClose }) {
       >
         <Box className={styles.Box}>
           <div className={styles.item} key={data[0]?.guid}>
-            {fileTypes(data?.response?.[`${lang}_story_file`]) === true ? (
-              <video
+            {fileTypes(data?.[0]?.[`${lang}_story_file`]) === true ? (
+              <ReactPlayer
                 className={styles.storyFile}
-                src={data[0]?.[`${lang}_story_file`]}
-                autoPlay
+                url={data[0]?.[`${lang}_story_file`]}
                 controls
               />
             ) : (
-              <img src={data[0]?.[`${lang}_story_file`]} alt={data[0]?.guid} />
+              <img
+                src={data[0]?.[`${lang}_story_file`]}
+                alt={data[0]?.guid}
+                className={styles.storyFile}
+              />
             )}
             <div className={styles.fileDescription}>
               <h3

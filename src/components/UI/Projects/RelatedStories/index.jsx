@@ -9,6 +9,8 @@ import styles from "./style.module.scss";
 import Play from "assests/icons/videoPlay.svg";
 import { useState } from "react";
 import StoriesModal from "./StoriesModal";
+import React from "react";
+import ReactPlayer from "react-player";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -44,6 +46,19 @@ export default function RelatedStories({ data }) {
   const filteredData = data?.response?.filter(
     (v, i, a) => a.findIndex((t) => t.guid === guId) === i
   );
+  const fileTypes = (data) => {
+    if (
+      data?.includes("mkv") ||
+      data?.includes("mp4") ||
+      data?.includes("mov") ||
+      data?.includes("webm") ||
+      data?.includes("mpeg-4")
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <Container>
       <h2 className={styles.title}>{t("stories")}</h2>
@@ -85,7 +100,14 @@ export default function RelatedStories({ data }) {
                 handleOpen();
               }}
             >
-              <video src={item?.[`${lang}_story_file`]} />
+              {fileTypes(item?.[`${lang}_story_file`]) === true ? (
+                <ReactPlayer
+                  url={item?.[`${lang}_story_file`]}
+                  className={styles.video}
+                />
+              ) : (
+                <img src={item?.[`${lang}_story_file`]} alt={item.guid} />
+              )}
               <p
                 className={styles.name}
                 dangerouslySetInnerHTML={{
