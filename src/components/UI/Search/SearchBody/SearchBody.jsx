@@ -18,26 +18,42 @@ export default function SearchBody({ data }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const { events } = useEvents({
-    eventParams: { offset: 0 },
-  });
+  const { events } = useEvents(
+    data?.length >= 1
+      ? {
+          eventParams: {
+            [lang + "_description"]: data,
+          },
+        }
+      : {
+          eventParams: { offset: 0, limit: 5 },
+        }
+  );
   // Constant below: is using for sending and getting request by NAME from "Projects"
-  const { projects } = useProjects({
-    projectParams: { offset: 0 },
-  });
+  const { projects } = useProjects(
+    data?.length >= 1
+      ? {
+          projectParams: {
+            [lang + "_description"]: data,
+          },
+        }
+      : {
+          projectParams: { offset: 0, limit: 5 },
+        }
+  );
   /////
-  const { searchEvents } = useEvents({
-    searchParams: {
-      [lang + "_description"]: data,
-    },
-    inputParams: data,
-  });
-  const { searchProjects } = useProjects({
-    searchParams: {
-      [lang + "_description"]: data,
-    },
-    inputParams: data,
-  });
+  // const { searchEvents } = useEvents({
+  //   searchParams: {
+  //     [lang + "_description"]: data,
+  //   },
+  //   inputParams: data,
+  // });
+  // const { searchProjects } = useProjects({
+  //   searchParams: {
+  //     [lang + "_description"]: data,
+  //   },
+  //   inputParams: data,
+  // });
 
   const corEndingns = (count) => {
     if (lang == "ru" && count) {
@@ -102,12 +118,12 @@ export default function SearchBody({ data }) {
               </h2>
             )}
             <p className={styles.byRequestOption}>
-              {t("find_projects")}: {searchProjects?.data?.count}
-              {corEndingns(searchProjects?.data?.count.toString())}
+              {t("find_projects")}: {projects?.data?.count}
+              {corEndingns(projects?.data?.count.toString())}
             </p>
             <p className={styles.byRequestOption}>
-              {t("event_title")}: {searchEvents?.data?.count}
-              {corEndingns(searchEvents?.data?.count.toString())}
+              {t("event_title")}: {events?.data?.count}
+              {corEndingns(events?.data?.count.toString())}
             </p>
           </div>
         ) : null}
@@ -175,7 +191,7 @@ export default function SearchBody({ data }) {
           ))}
         </TabPanel>
         <TabPanel value="2" className={styles.cards}>
-          {searchProjects?.data?.response.map((event) => (
+          {projects?.data?.response.map((event) => (
             <Link
               key={event.guid}
               className={styles.card}
@@ -208,7 +224,7 @@ export default function SearchBody({ data }) {
           ))}
         </TabPanel>
         <TabPanel value="3" className={styles.cards}>
-          {searchEvents?.data?.response.map((event) => (
+          {events?.data?.response.map((event) => (
             <Link
               key={event.guid}
               href={`/events-info/${event.guid}?from=events`}
