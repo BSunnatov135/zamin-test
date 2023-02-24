@@ -161,6 +161,7 @@
             font-family: "Noto Sans";
           }
         }
+
         span {
           width: 24px;
           height: 24px;
@@ -173,6 +174,9 @@
         .activeRadio {
           border: 6px solid #5982e7;
         }
+      }
+      .methodChosen {
+        border: 1px solid var(--primary-color);
       }
     }
     .chooseProject {

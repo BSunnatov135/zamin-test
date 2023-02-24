@@ -185,7 +185,9 @@ export default function Donate() {
               <p>{t("payment_method")}</p>
               <div className={styles.methodInputWrapper}>
                 <div
-                  className={styles.methodInput}
+                  className={classNames(styles.methodInput, {
+                    [styles.methodChosen]: method === "payme",
+                  })}
                   onClick={() => {
                     setMethod("payme");
                   }}
@@ -201,7 +203,9 @@ export default function Donate() {
                   />
                 </div>
                 <div
-                  className={styles.methodInput}
+                  className={classNames(styles.methodInput, {
+                    [styles.methodChosen]: method === "click",
+                  })}
                   onClick={() => {
                     setMethod("click");
                   }}
