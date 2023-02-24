@@ -67,10 +67,8 @@
 @media (max-width: 600px) {
   .Modal {
     .Box {
-      max-width: 600px;
-
       .item {
-
+        transform: scale(1);
         position: relative;
 
         .storyFile {
