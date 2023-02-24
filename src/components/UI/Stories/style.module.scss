@@ -1,10 +1,10 @@
 .item {
   margin-top: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  // width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
   padding: 0 10px;
 
   .name p {
@@ -15,13 +15,15 @@
     margin-bottom: 30px;
   }
 
-  .storyFile {
-    width: 80%;
+  .video {
+    width: 100%;
+    margin: 0 auto;
     margin-bottom: 30px;
   }
 
   .description {
-    width: 80%;
+    width: 70%;
+    margin: 0 auto;
     font-weight: 300;
     font-size: 18px;
     line-height: 30px;
@@ -41,8 +43,9 @@
       margin-bottom: 20px;
     }
 
-    .storyFile {
-      width: 100%;
+    .video {
+      width: 100% !important;
+      height: 100% !important;
       margin-bottom: 20px;
     }
 
