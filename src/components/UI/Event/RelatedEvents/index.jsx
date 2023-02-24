@@ -1,11 +1,9 @@
 import { Container } from "@mui/material";
-import useEvents from "services/events";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ArrowRightIcon from "/src/assests/icons/goLeft.svg";
 import styles from "./style.module.scss";
-import EventItem from "../EventItem";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 
@@ -27,7 +25,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function RelatedEvents(data) {
+export default function RelatedEvents({ data }) {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   return (
@@ -41,7 +39,12 @@ export default function RelatedEvents(data) {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
           speed: 500,
-          slidesToShow: 3,
+          slidesToShow:
+            data?.$website_events_ids_data?.length === 1
+              ? 1
+              : null || data?.$website_events_ids_data?.length === 2
+              ? 2
+              : 3,
           slidesToScroll: 1,
           responsive: [
             {
@@ -62,15 +65,15 @@ export default function RelatedEvents(data) {
         }}
         className={styles.slider}
       >
-        {data?.data?.$website_events_ids_data?.map((item, index) => {
+        {data?.$website_events_ids_data?.map((item, index) => {
           return (
             <Link key={index} href={`/events-info/${item.guid}?from=events`}>
               <a>
                 <div className={styles.item} key={item.img}>
                   <div className={styles.img}>
                     <img
-                      src={item[`${lang}_poster`]}
-                      alt={item[`${lang}_header`]}
+                      src={item?.[`${lang}_poster`]}
+                      alt={item?.[`${lang}_header`]}
                     />
                   </div>
                   <div className={styles.body}>
