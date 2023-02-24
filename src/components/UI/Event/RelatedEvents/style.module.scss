@@ -80,6 +80,10 @@
     bottom: 40px;
   }
 
+  @media (max-width: 600px) {
+    padding-top: 20px;
+  }
+
   .item {
     margin : {
       left: 7px;
@@ -167,11 +171,5 @@
         }
       }
     }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .slider {
-    padding-top: 60px;
   }
 }
