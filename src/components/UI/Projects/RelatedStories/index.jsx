@@ -113,9 +113,11 @@ export default function RelatedStories({ data }) {
                   __html: item?.[`${lang}_header`],
                 }}
               ></p>
-              <span className={styles.icon}>
-                <Play />
-              </span>
+              {fileTypes(item?.[`${lang}_story_file`]) === true ? (
+                <span className={styles.icon}>
+                  <Play />
+                </span>
+              ) : null}
             </div>
           </div>
         ))}

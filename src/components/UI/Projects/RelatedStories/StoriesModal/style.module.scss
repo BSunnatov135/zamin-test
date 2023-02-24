@@ -20,8 +20,9 @@
       .fileDescription {
         position: absolute;
         bottom: 16%;
-        left: 2.5%;
+        left: 1.7%;
         color: #ffffff;
+        transform: scale(.8);
 
         .name {
           font-weight: 700;
@@ -81,6 +82,7 @@
           bottom: -50%;
           left: 2.5%;
           color: #ffffff;
+          transform: scale(.9);
 
           .name {
             font-weight: 700;
