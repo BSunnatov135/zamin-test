@@ -60,7 +60,6 @@
         left: 56px;
         height: 36px;
         align-items: center;
-
       }
 
       @media screen and (min-width: 821px) {
@@ -93,7 +92,7 @@
         .accessibilityTitle {
           display: none;
 
-          @media screen and (max-width: 400px) {
+          @media screen and (max-width: 600px) {
             max-width: 115px;
             text-align: center;
           }
@@ -101,11 +100,10 @@
 
         &:hover {
           .accessibilityTitle {
-            @media screen and (max-width: 400px) {
+            display: block;
+            @media screen and (max-width: 600px) {
               display: none;
             }
-
-            display: block;
           }
         }
       }
@@ -125,7 +123,6 @@
         cursor: pointer;
 
         &:active {
-
           svg {
             path {
               stroke: rgb(196, 196, 196);

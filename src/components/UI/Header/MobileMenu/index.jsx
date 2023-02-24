@@ -17,7 +17,7 @@ import useAdverts from "services/advert";
 
 export default function MobileMenu({
   open,
-  handleClose,
+  handleClose = () => {},
   handleLogin,
   size,
   menuRef,
@@ -214,6 +214,7 @@ export default function MobileMenu({
 
   return (
     <div
+      ref={menuRef}
       className={
         size
           ? classNames(
