@@ -69,7 +69,8 @@ export default function RelatedStories({ data }) {
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
           speed: 500,
-          slidesToShow: 3,
+          slidesToShow:
+            data?.count === 1 ? 1 : null || data?.count === 2 ? 2 : 3,
           slidesToScroll: 1,
           responsive: [
             {
@@ -105,7 +106,11 @@ export default function RelatedStories({ data }) {
                   className={styles.video}
                 />
               ) : (
-                <img src={item?.[`${lang}_story_file`]} alt={item?.guid} />
+                <img
+                  src={item?.[`${lang}_story_file`]}
+                  alt={item?.guid}
+                  className={styles.video}
+                />
               )}
               <p
                 className={styles.name}

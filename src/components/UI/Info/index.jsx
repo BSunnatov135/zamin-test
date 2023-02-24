@@ -29,7 +29,7 @@ export default function Info({ title, sliderData, data }) {
       {projectStories?.data.count >= 1 && (
         <RelatedStories data={projectStories?.data} />
       )}
-      {data?.$website_events_ids_data?.length > 1 ? (
+      {data?.$website_events_ids_data?.length >= 1 ? (
         <RelatedEvents data={data} />
       ) : null}
     </>
