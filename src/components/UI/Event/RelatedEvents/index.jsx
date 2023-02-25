@@ -6,6 +6,7 @@ import ArrowRightIcon from "/src/assests/icons/goLeft.svg";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import classNames from "classnames";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -66,10 +67,18 @@ export default function RelatedEvents({ data }) {
         className={styles.slider}
       >
         {data?.$website_events_ids_data?.map((item, index) => {
+          console.log();
           return (
             <Link key={index} href={`/events-info/${item.guid}?from=events`}>
               <a>
-                <div className={styles.item} key={item.img}>
+                <div
+                  className={
+                    data?.$website_events_ids_data?.length === 1
+                      ? classNames(styles.item, styles.lessItem)
+                      : styles.item
+                  }
+                  keyitem={item.img}
+                >
                   <div className={styles.img}>
                     <img
                       src={item?.[`${lang}_poster`]}
