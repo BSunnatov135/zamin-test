@@ -94,11 +94,8 @@
       flex-direction: column;
       justify-content: center;
 
-      // @media (max-width: 600px) {
-      //   height: 250px;
-      // }
-
       div {
+        max-height: 400px !important;
         height: 400px !important;
         overflow-y: hidden;
 
@@ -110,6 +107,11 @@
             object-fit: cover;
 
           }
+        }
+
+        img {
+          height: 100%;
+          object-fit: cover;
         }
 
         @media (max-width: 600px) {
