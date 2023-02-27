@@ -11,19 +11,18 @@
 
     .item {
       position: relative;
-      transform: scale(1.4);
+      width: 60% !important;
 
       .storyFile {
         width: 100% !important;
-        height: 434px !important;
+        height: 100% !important;
       }
 
       .fileDescription {
-        position: absolute;
-        bottom: 13%;
-        left: -8.4%;
         color: #ffffff;
-        transform: scale(.8);
+        position: absolute;
+        bottom: 12%;
+        padding: 0 20px;
 
         .name {
           font-weight: 700;
@@ -76,8 +75,8 @@
   .Modal {
     .Box {
       .item {
-        transform: scale(.95);
         position: relative;
+        width: 97% !important;
 
         .storyFile {
           width: 100% !important;
@@ -89,7 +88,7 @@
           bottom: -40%;
           left: -2%;
           color: #ffffff;
-          transform: scale(.9);
+          padding: 0 0 0 10px;
 
           .name {
             font-weight: 700;

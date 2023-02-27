@@ -102,20 +102,21 @@ export default function RelatedStories({ data }) {
                 handleOpen();
               }}
             >
-              {fileTypes(item?.[`${lang}_story_file`]) === true ? (
-                <ReactPlayer
-                  url={item?.[`${lang}_story_file`]}
-                  className={styles.video}
-                />
-              ) : item?.[`${lang}_story_file`].length>0 ?
+              <div>
+                {fileTypes(item?.[`${lang}_story_file`]) === true ? (
+                  <ReactPlayer
+                    url={item?.[`${lang}_story_file`]}
+                    className={styles.video}
+                  />
+                ) : item?.[`${lang}_story_file`].length>0 ?
                 
                 <img
                   src={item?.[`${lang}_story_file`]}
                   alt={item?.guid}
                   className={styles.video}
                 />
-               : <DefaultImage className={styles.video}/>
-              }
+               : <DefaultImage className={styles.video}/>}
+              </div>
               <p
                 className={styles.name}
                 dangerouslySetInnerHTML={{
