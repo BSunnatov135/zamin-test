@@ -101,7 +101,11 @@
         object-fit: cover;
         width: 100% !important;
       }
-
+      svg {
+        height: 420px !important;
+        object-fit: cover;
+        width: 100% !important;
+      };
       .name p {
         font-weight: 700;
         font-size: 18px;

@@ -11,6 +11,7 @@ import { useState } from "react";
 import StoriesModal from "./StoriesModal";
 import React from "react";
 import ReactPlayer from "react-player";
+import { DefaultImage } from "/public/icons/icons";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -58,6 +59,7 @@ export default function RelatedStories({ data }) {
       return false;
     }
   };
+  console.log('dat', data);
   return (
     <Container>
       <h2 className={styles.title}>{t("stories")}</h2>
@@ -105,13 +107,15 @@ export default function RelatedStories({ data }) {
                   url={item?.[`${lang}_story_file`]}
                   className={styles.video}
                 />
-              ) : (
+              ) : item?.[`${lang}_story_file`].length>0 ?
+                
                 <img
                   src={item?.[`${lang}_story_file`]}
                   alt={item?.guid}
                   className={styles.video}
                 />
-              )}
+               : <DefaultImage className={styles.video}/>
+              }
               <p
                 className={styles.name}
                 dangerouslySetInnerHTML={{
