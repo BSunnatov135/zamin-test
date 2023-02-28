@@ -300,11 +300,12 @@
     display: flex;
     justify-content: right;
     margin-bottom: 86px;
-    button {
+    a {
       padding: 14px 28px;
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
+      font-family: "Noto Sans";
       color: #fff;
       background-color: var(--primary-color);
       border: none;
