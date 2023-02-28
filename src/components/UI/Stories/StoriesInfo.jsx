@@ -35,8 +35,8 @@ export default function StoriesInfo() {
           }}
         ></h2>
         {fileTypes(story?.data?.response[`${lang}_story_file`]) === true ? (
-          <ReactPlayer
-            url={story?.data?.response[`${lang}_story_file`]}
+          <video
+            src={story?.data?.response[`${lang}_story_file`]}
             className={styles.video}
             controls
           />

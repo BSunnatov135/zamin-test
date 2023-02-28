@@ -4,23 +4,20 @@
   padding: 0 10px;
 
   .name p {
-    width: 70%;
-    letter-spacing: 1px;
-    margin: 0 auto;
-    font-weight: 900;
-    font-size: 26px;
-    line-height: 28px;
+    color: #000;
+    font-weight: 500!important;
+    font-size: 36px!important;
+    line-height: 49px;
+    font-family: "Noto Serif"!important;
+    margin: 80px auto 50px;
     text-align: center;
-    margin-bottom: 30px;
+    
   }
 
   .video {
     margin: 0 auto;
     padding-bottom: 30px;
-
-    video {
-      width: auto !important;
-    }
+    max-width: 100%;
   }
 
   img {
@@ -30,13 +27,15 @@
   }
 
   .description {
-    width: 90%;
-    margin: 0 auto;
+    font-family: 'Noto Sans'!important;
+    color: #000;
+    margin: auto;
+    padding-bottom: 80px;
+  p {
     font-weight: 300;
     font-size: 18px;
     line-height: 30px;
-    text-align: left;
-    margin-bottom: 30px;
+  }
   }
 }
 
@@ -46,33 +45,20 @@
     padding: 0 5px;
 
     .name p {
-      width: 95%;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      letter-spacing: .6px;
-      margin-bottom: 20px;
+      font-size: 24px !important;
+      line-height: 32px;
+      margin: 48px auto 24px;
     }
 
     .video {
       width: 100% !important;
       height: 100% !important;
     }
-
-
     img {
       width: 100%;
       display: block;
       margin: 0 auto;
       padding-bottom: 30px;
-    }
-
-
-    .description {
-      width: 100%;
-      margin-bottom: 20px;
-      font-size: 16px;
-      line-height: 25px;
     }
   }
 }
