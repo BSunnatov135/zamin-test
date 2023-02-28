@@ -8,6 +8,10 @@ export const requestAuth = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL_V2,
 });
 
+export const requestDonation = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL_V3,
+});
+
 const errorHandler = (error) => {
   if (error && error.response) {
   }

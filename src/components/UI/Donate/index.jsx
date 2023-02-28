@@ -7,29 +7,63 @@ import { useSelector } from "react-redux";
 import UncontrolledSelect from "./SelectSum";
 import InputMask from "react-input-mask";
 import SuccessPopup from "./SuccessPopup";
+import useDonation from "services/donation";
+import useDebounce2 from "hooks/useDebounce2";
 
 export default function Donate() {
   const { t } = useTranslation("common");
   const [input, setInput] = useState(false);
   const { lang } = useTranslation();
-  const [isActive, setIsActive] = useState("50");
+  const [amount, setAmount] = useState("50000");
   const [method, setMethod] = useState("payme");
   const types = ["all", "project"];
   // const [type, setType] = useState(types[0]);
   const userInfos = useSelector((state) => state.auth.user);
+  const [redirectUrl, setRedirectUrl] = useState("");
   const [value, setValue] = useState(null);
   const [openSuccessPopup, setOpenSuccessPopup] = useState(false);
   const addSpace = (num) =>
     num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   const removeNonNumeric = (num) => num.toString().replace(/[^0-9]/g, "");
-  const handleChange = (event) =>
+  const handleChange = (event) => {
     setValue(addSpace(removeNonNumeric(event.target.value)));
+  };
+  const handleAnotherSum = useDebounce2((value) => {
+    setAmount(value.replace(/\s/g, ""));
+  }, 500);
   const { projects } = useProjects({
     projectParams: {
       offset: 0,
       limit: 100,
     },
   });
+  const currentDate = new Date();
+
+  const { donate } = useDonation({
+    donationProps: {
+      onSuccess: (value) => {
+        setRedirectUrl(value?.data?.data);
+        console.log("vale", value?.data?.data);
+      },
+    },
+  });
+
+  function hanldePostMethod() {
+    donate.mutate({
+      amount: +amount,
+      date: currentDate.toISOString(),
+      platform: method,
+    });
+  }
+
+  useEffect(() => {
+    console.log("amount", amount);
+    if (amount) hanldePostMethod();
+  }, [method, amount]);
+
+  console.log("date", currentDate.toISOString());
+  console.log(amount);
+  console.log(method);
   const handleSuccessPopup = (event) => {
     event && event.preventDefault();
     setOpenSuccessPopup((prev) => !prev);
@@ -113,44 +147,48 @@ export default function Donate() {
               <div className={styles.amountButtons}>
                 <div
                   onClick={() => {
-                    setIsActive("50");
+                    setAmount("50000");
+                    setValue("");
                     setInput(false);
                   }}
                   className={classNames(styles.amountItem, {
-                    [styles.active]: isActive === "50",
+                    [styles.active]: amount === "50000",
                   })}
                 >
                   <p>50 000 {t("sum")}</p>
                 </div>
                 <div
                   onClick={() => {
-                    setIsActive("200");
+                    setAmount("200000");
+                    setValue("");
                     setInput(false);
                   }}
                   className={classNames(styles.amountItem, {
-                    [styles.active]: isActive === "200",
+                    [styles.active]: amount === "200000",
                   })}
                 >
                   <p>200 000 {t("sum")}</p>
                 </div>
                 <div
                   onClick={() => {
-                    setIsActive("300");
+                    setAmount("300000");
+                    setValue("");
                     setInput(false);
                   }}
                   className={classNames(styles.amountItem, {
-                    [styles.active]: isActive === "300",
+                    [styles.active]: amount === "300000",
                   })}
                 >
                   <p>300 000 {t("sum")}</p>
                 </div>{" "}
                 <div
                   onClick={() => {
-                    setIsActive("500");
+                    setAmount("500000");
+                    setValue("");
                     setInput(false);
                   }}
                   className={classNames(styles.amountItem, {
-                    [styles.active]: isActive === "500",
+                    [styles.active]: amount === "500000",
                   })}
                 >
                   <p>500 000 {t("sum")}</p>
@@ -158,7 +196,10 @@ export default function Donate() {
                 <>
                   {input ? (
                     <input
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        handleChange(e);
+                        handleAnotherSum(e.target.value);
+                      }}
                       type="text"
                       className={styles.sumInput}
                       placeholder={t("enter_amount")}
@@ -168,11 +209,10 @@ export default function Donate() {
                   ) : (
                     <div
                       onClick={() => {
-                        setIsActive("other");
                         setInput(true);
                       }}
                       className={classNames(styles.amountItem, {
-                        [styles.active]: isActive === "other",
+                        [styles.active]: method === "other",
                       })}
                     >
                       <p>{t("other_amount")}</p>
@@ -292,9 +332,9 @@ export default function Donate() {
           </form>
         </div> */}
         <div className={styles.submitButton}>
-          <button type="submit" form="form">
+          <a href={redirectUrl} target="_blank">
             {t("make_donation")}
-          </button>
+          </a>
         </div>
         {/* <button
           style={{ padding: "2px" }}
