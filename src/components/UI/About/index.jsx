@@ -6,10 +6,6 @@ import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import Board from "./Board";
 
-// const Board = dynamic(() => import("./Board"), {
-//   ssr: false,
-// });
-
 export default function About() {
   const { t } = useTranslation("about");
   const { lang } = useTranslation();

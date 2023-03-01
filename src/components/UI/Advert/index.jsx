@@ -1,13 +1,7 @@
 import { Container } from "@mui/material";
-import Link from "next/link";
 import styles from "./style.module.scss";
-import ArrowRight from "assests/icons/narrowRight.svg";
 import useAdverts from "services/advert";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useRef } from "react";
-import ArrowRightIcon from "assests/icons/arrowRight.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { setScrollRefAdverts } from "store/scrollFunctionSlice/scrollFunctionSlice";
 import useEvents from "services/events";
 import { format } from "date-fns";
 import { useRouter } from "next/router";
@@ -42,7 +36,6 @@ export default function Advert() {
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
-
   return (
     <Container>
       {isActive.data == "true" && (
@@ -51,43 +44,8 @@ export default function Advert() {
             <div className={styles.leftElement}>
               <p className={styles.title}>{t("advert_title")}</p>
             </div>
-
-            {/* <Link href="/news">
-              <a className={styles.link}>
-                {t("all")} <ArrowRightIcon />
-              </a>
-            </Link> */}
           </div>
           <div className={styles.list}>
-            {/* {adverts?.data?.response?.map((item) => (
-              <div key={item.guid} className={styles.item}>
-                <div className={styles.header}>
-                  <Link href={`/news-info/${item.guid}?from=news`}>
-                    <a>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: item?.[`${lang}_header`],
-                        }}
-                      />
-                    </a>
-                  </Link>
-                </div>
-                <div className={styles.body}>
-                  <p
-                    className={styles.description}
-                    dangerouslySetInnerHTML={{
-                      __html: item?.[`${lang}_description`],
-                    }}
-                  ></p>
-                </div>
-                <Link href={`/news-info/${item.guid}?from=news`}>
-                  <a className={styles.link}>
-                    {t("more")}
-                    <ArrowRight />
-                  </a>
-                </Link>
-              </div>
-            ))} */}
             <div
               className={styles.item}
               onClick={() =>

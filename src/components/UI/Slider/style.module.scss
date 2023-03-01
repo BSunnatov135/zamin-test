@@ -32,7 +32,7 @@
   overflow: visible;
 }
 .eventSlider {
-  @media screen and (min-width:1600px) {
+  @media screen and (min-width: 1600px) {
     max-width: 1570px;
   }
 }
@@ -79,7 +79,6 @@
     }
 
     .leftArrow {
-      top: 9.5%;
       left: 4%;
     }
   }
