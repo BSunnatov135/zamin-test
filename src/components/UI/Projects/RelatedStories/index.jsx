@@ -59,7 +59,7 @@ export default function RelatedStories({ data }) {
       return false;
     }
   };
-  console.log('dat', data);
+ 
   return (
     <Container>
       <h2 className={styles.title}>{t("stories")}</h2>

@@ -31,7 +31,7 @@ export default function RelatedEvents({ data }) {
   const { lang } = useTranslation();
   const { t } = useTranslation("common");
   const singleItemData = data?.$website_events_ids_data[0];
-  console.log(data?.$website_events_ids_data[0]);
+
   return (
     <Container>
       <h2 className={styles.title}>{t("event_title_related")}</h2>

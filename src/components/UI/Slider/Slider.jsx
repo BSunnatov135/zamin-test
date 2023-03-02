@@ -17,7 +17,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
   };
-  console.log('queryfrom', queryFrom)
+ 
   // const [slideIndex, setSlideIndex] = useState(1);
 
   // console.log("slideIndex", data);

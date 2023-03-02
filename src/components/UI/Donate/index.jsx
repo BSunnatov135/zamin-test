@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import useProjects from "services/projects";
 import { useSelector } from "react-redux";
-import UncontrolledSelect from "./SelectSum";
-import InputMask from "react-input-mask";
+// import UncontrolledSelect from "./SelectSum";
+// import InputMask from "react-input-mask";
 import SuccessPopup from "./SuccessPopup";
 import useDonation from "services/donation";
 import useDebounce2 from "hooks/useDebounce2";
@@ -43,7 +43,7 @@ export default function Donate() {
     donationProps: {
       onSuccess: (value) => {
         setRedirectUrl(value?.data?.data);
-        console.log("vale", value?.data?.data);
+        
       },
     },
   });
@@ -57,13 +57,9 @@ export default function Donate() {
   }
 
   useEffect(() => {
-    console.log("amount", amount);
+    
     if (amount) hanldePostMethod();
   }, [method, amount]);
-
-  console.log("date", currentDate.toISOString());
-  console.log(amount);
-  console.log(method);
   const handleSuccessPopup = (event) => {
     event && event.preventDefault();
     setOpenSuccessPopup((prev) => !prev);
