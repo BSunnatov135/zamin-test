@@ -14,10 +14,9 @@ import TelegramIcon from "assests/icons/telegram.svg";
 import InstagramIcon from "assests/icons/instagram.svg";
 import FacebookIcon from "assests/icons/facebook.svg";
 import YoutubeIcon from "assests/icons/youtubeDark.svg";
-import scrollToRef from "mixins/scrollToRef";
 import { useRouter } from "next/router";
 
-export default function MobileAccordion(handleRouterActions) {
+export default function MobileAccordion({ handleRouterActions = () => {} }) {
   const { t } = useTranslation("common");
   const router = useRouter();
   const path = router.asPath;
@@ -30,19 +29,7 @@ export default function MobileAccordion(handleRouterActions) {
   const { isActive } = useAdverts({
     advertIsActive: {},
   });
-  function handleRouterActions(status) {
-    if (status === "event") {
-      path === "/" ? scrollTo(eventsRef) : router.push("/event");
-    }
 
-    function scrollTo(where) {
-      scrollToRef(0, where - 100);
-    }
-    function scrrollHome() {
-      router.push("/", undefined, { scroll: false });
-    }
-    dispatch(setScrollSectionName(status));
-  }
   return (
     <div className={styles.accordionContainer}>
       <div className={styles.accordionWrapper}>

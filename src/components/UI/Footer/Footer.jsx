@@ -18,7 +18,7 @@ import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
 import useSpheres from "services/spheres";
 import useAdverts from "services/advert";
-import MobileAccordion from "./Accordion";
+import MobileAccordion from "./MobileAccordion";
 
 export default function Footer() {
   const dispatch = useDispatch();
@@ -136,7 +136,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <MobileAccordion />
+        <MobileAccordion handleRouterActions={handleRouterActions} />
 
         <div className={styles.bottomElement}>
           <p className={styles.subtitle}>

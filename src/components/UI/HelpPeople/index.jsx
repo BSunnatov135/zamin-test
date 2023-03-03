@@ -29,7 +29,7 @@ export default function HelpPeople() {
   const data = useMemo(() => {
     return sphere?.data?.response[0];
   }, [sphere]);
-
+  console.log("data", data);
   const hanldeClick = (e) => {
     setDataSphere([e.guid]);
   };
@@ -82,9 +82,9 @@ export default function HelpPeople() {
                     __html: data?.[`${lang}_description`],
                   }}
                 ></p>
-                <Link href={`/project-info/${data?.guid}`}>
+                <Link href={`/projects/${data?.spheres_id}`}>
                   <a>
-                    {t("more")} <ArrowRight />
+                    {t("all_projects")} <ArrowRight />
                   </a>
                 </Link>
               </div>

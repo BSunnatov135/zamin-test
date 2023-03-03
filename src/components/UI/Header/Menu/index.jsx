@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { setScrollSectionName } from "store/scrollFunctionSlice/scrollFunctionSlice";
-import { useState } from "react";
 import useAdverts from "services/advert";
 import TelegramHeader from "assests/icons/TelegramHeader.svg";
 import InstagramHeader from "assests/icons/InstagramHeader.svg";
@@ -261,21 +260,21 @@ export default function Menu({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <YoutubeIcon/>
+                  <YoutubeIcon />
                 </a>
               </div>
               <div className={styles.donationWrapper}>
-                  <Link href="/donate">
-                <a
-                  onClick={(e) => {
-                    handleClose(e);
-                  }}
-                >
-                  <p className={styles.donation}>
-                    {t("donate")} <ArrowRight />
-                  </p>
-                </a>
-              </Link>
+                <Link href="/donate">
+                  <a
+                    onClick={(e) => {
+                      handleClose(e);
+                    }}
+                  >
+                    <p className={styles.donation}>
+                      {t("donate")} <ArrowRight />
+                    </p>
+                  </a>
+                </Link>
               </div>
               {/* <p className={`${styles.title} ${styles.marginBottom_24}`}>
                 {t("cabinet")}
