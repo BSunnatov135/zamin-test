@@ -1,7 +1,6 @@
 @import "styles/unit.scss";
 @import url("/public/fonts/font.css");
 
-
 .next {
   cursor: pointer;
   position: absolute;
@@ -21,7 +20,6 @@
   transform: translate(0, -50%);
   left: -40px;
   transform: rotate(180deg);
-
 }
 
 .main {
@@ -32,9 +30,8 @@
     top: 60px;
     left: 90px;
     bottom: 116px;
-    right: 90px
+    right: 90px;
   }
-
 
   @media screen and (max-width: 600px) {
     padding-bottom: 48px;
@@ -45,23 +42,27 @@
       bottom: 32px;
       right: 16px;
     }
-
-    ;
   }
-
-  .head {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 44px;
+  .sectionTitle {
+    display: flex;
     margin-bottom: 58px;
-
+    align-items: center;
+    justify-content: space-between;
     @media screen and (max-width: 600px) {
       margin-bottom: 24px;
-      font-size: 24px;
-      line-height: 35px;
+    }
+
+    .head {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 44px;
+
+      @media screen and (max-width: 600px) {
+        font-size: 24px;
+        line-height: 35px;
+      }
     }
   }
-
   .slider {
     display: block;
     max-height: 75px;
@@ -155,7 +156,7 @@
         line-height: 44px;
         text-align: left;
         margin-bottom: 8px;
-        font-family: 'Noto Serif';
+        font-family: "Noto Serif";
       }
 
       .desc {

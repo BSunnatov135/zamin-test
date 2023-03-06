@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowRightIcon } from "/public/icons/icons";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useRouter } from "next/router";
 
 function SampleNextArrow(props) {
@@ -45,15 +46,20 @@ export default function Achievements() {
       }}
     >
       <Container className={styles.main}>
-        <h2
-          style={{ cursor: "pointer" }}
-          onClick={() => {
-            router.push("/achievements");
-          }}
-          className={styles.head}
-        >
-          {t("achievement_title")}
-        </h2>
+        <div className={styles.sectionTitle}>
+          <h2 className={styles.head}>{t("achievement_title")}</h2>
+          <p
+            style={{ cursor: "pointer", display: "flex" }}
+            onClick={() => {
+              router.push("/achievements");
+            }}
+          >
+            {t("more")}{" "}
+            <span>
+              <KeyboardArrowRightIcon />
+            </span>
+          </p>
+        </div>
         <Slider
           {...{
             dots: false,
@@ -62,7 +68,7 @@ export default function Achievements() {
             prevArrow: <SamplePrevArrow />,
             infinite: true,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [
               {
