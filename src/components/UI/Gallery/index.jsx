@@ -23,6 +23,10 @@ export default function Gallery() {
                   ? item.gallery_file
                   : item.file_id_data?.file_link
               }
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = "/images/default.svg";
+              }}
             />
           </div>
         ))}

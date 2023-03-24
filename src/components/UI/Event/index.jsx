@@ -58,7 +58,13 @@ export default function Event() {
                 )
               }
             >
-              <img src={events?.data?.response?.[0][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response?.[0][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
@@ -76,7 +82,13 @@ export default function Event() {
                 )
               }
             >
-              <img src={events?.data?.response?.[1][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response?.[1][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
@@ -96,7 +108,13 @@ export default function Event() {
                 )
               }
             >
-              <img src={events?.data?.response?.[2][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response?.[2][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
@@ -114,7 +132,13 @@ export default function Event() {
                 )
               }
             >
-              <img src={events?.data?.response?.[3][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response?.[3][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
@@ -132,7 +156,13 @@ export default function Event() {
                 )
               }
             >
-              <img src={events?.data?.response?.[4][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response?.[4][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{

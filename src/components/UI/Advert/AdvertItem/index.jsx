@@ -9,7 +9,14 @@ export default function AdvertItem({ item }) {
       <Link href={`/news-info/${item?.guid}?from=news`}>
         <a className={styles.item__content}>
           <div className={styles.img}>
-            <img src={item[`${lang}_photo`]} alt={item[`${lang}_name`]} />
+            <img
+              src={item[`${lang}_photo`]}
+              alt={item[`${lang}_name`]}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = "/images/default.svg";
+              }}
+            />
           </div>
           <div className={styles.body}>
             <p

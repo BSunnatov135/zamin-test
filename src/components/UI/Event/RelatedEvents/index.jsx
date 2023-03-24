@@ -87,6 +87,10 @@ export default function RelatedEvents({ data }) {
                       <img
                         src={item?.[`${lang}_poster`]}
                         alt={item?.[`${lang}_header`]}
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null;
+                          currentTarget.src = "/images/default.svg";
+                        }}
                       />
                     </div>
                     <div className={styles.body}>

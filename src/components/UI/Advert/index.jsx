@@ -54,7 +54,13 @@ export default function Advert() {
                 )
               }
             >
-              <img src={events?.data?.response[0][`${lang}_poster`]} />
+              <img
+                src={events?.data?.response[0][`${lang}_poster`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{

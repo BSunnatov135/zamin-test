@@ -10,7 +10,14 @@ export default function ProjectItem({ item }) {
       <a>
         <div className={styles.item} key={item.img}>
           <div className={styles.img}>
-            <img src={item[`${lang}_photo`]} alt={item[`${lang}_header`]} />
+            <img
+              src={item[`${lang}_photo`]}
+              alt={item[`${lang}_header`]}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = "/images/default.svg";
+              }}
+            />
           </div>
           <div className={styles.body}>
             <p

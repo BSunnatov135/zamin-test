@@ -48,15 +48,33 @@ export default function About() {
           <h2 className={styles.sphereTitle}>{t("helppeople_title")}</h2>
           <div className={styles.spheresWrapper}>
             <div className={styles.sphereItem}>
-              <img src={spheres?.data?.response[0]?.photo}></img>
+              <img
+                src={spheres?.data?.response[0]?.photo}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              ></img>
               <p>{spheres?.data?.response[0]?.[`${lang}_name`]}</p>
             </div>
             <div className={styles.sphereItem}>
-              <img src={spheres?.data?.response[1]?.photo}></img>
+              <img
+                src={spheres?.data?.response[1]?.photo}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              ></img>
               <p>{spheres?.data?.response[1]?.[`${lang}_name`]} </p>
             </div>
             <div className={styles.sphereItem}>
-              <img src={spheres?.data?.response[2]?.photo}></img>
+              <img
+                src={spheres?.data?.response[2]?.photo}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              ></img>
               <p>{spheres?.data?.response[2]?.[`${lang}_name`]} </p>
             </div>
           </div>

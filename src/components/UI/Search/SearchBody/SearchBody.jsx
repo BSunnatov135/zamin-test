@@ -155,6 +155,10 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_photo`]}
                   alt={event.guid}
                   width="170"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/images/default.svg";
+                  }}
                 />
               </a>
             </Link>
@@ -185,6 +189,10 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_poster`]}
                   alt={event.guid}
                   width="170"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/images/default.svg";
+                  }}
                 />
               </a>
             </Link>
@@ -218,6 +226,10 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_photo`]}
                   alt={event.guid}
                   width="170"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/images/default.svg";
+                  }}
                 />
               </a>
             </Link>
@@ -250,6 +262,10 @@ export default function SearchBody({ data }) {
                   src={event?.[`${lang}_poster`]}
                   alt={event.guid}
                   width="170"
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/images/default.svg";
+                  }}
                 />
               </a>
             </Link>

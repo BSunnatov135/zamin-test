@@ -17,7 +17,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
   };
- 
+
   // const [slideIndex, setSlideIndex] = useState(1);
 
   // console.log("slideIndex", data);
@@ -55,24 +55,33 @@ export default function InfoSlider({ data, title, queryFrom }) {
         />
       </div>
       {data.length > 1 ? (
-        
-          <div className={styles.sliderWrapper} >
-            <div id="infoSlider">
-              <Slider {...settings} className={classNames( {
+        <div className={styles.sliderWrapper}>
+          <div id="infoSlider">
+            <Slider
+              {...settings}
+              className={classNames({
                 [styles.containerSlider]: queryFrom == "events",
-              })}>
-                {data?.map((item) =>
-                  item?.file_link?.toLowerCase().includes("mp4") ? (
-                    <video loop playsInline autoPlay muted controls>
-                      <source src={item?.file_link} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={item.file_link} alt="" />
-                  )
-                )}
-              </Slider>
-            </div>
-            {/* <SampleNextArrow
+              })}
+            >
+              {data?.map((item) =>
+                item?.file_link?.toLowerCase().includes("mp4") ? (
+                  <video loop playsInline autoPlay muted controls>
+                    <source src={item?.file_link} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={item.file_link}
+                    alt=""
+                    onError={({ currentTarget }) => {
+                      currentTarget.onerror = null;
+                      currentTarget.src = "/images/default.svg";
+                    }}
+                  />
+                )
+              )}
+            </Slider>
+          </div>
+          {/* <SampleNextArrow
               styles={styles}
               onClick={() => sliderRef.current.slickNext()}
             />
@@ -80,12 +89,13 @@ export default function InfoSlider({ data, title, queryFrom }) {
               styles={styles}
               onClick={() => sliderRef.current.slickPrev()}
             /> */}
-          </div>
-      
+        </div>
       ) : data.length === 1 ? (
-        <div  className={classNames(styles.singleElement, {
-          [styles.singleEventElement]: queryFrom == "events",
-        })}>
+        <div
+          className={classNames(styles.singleElement, {
+            [styles.singleEventElement]: queryFrom == "events",
+          })}
+        >
           {data?.type?.toLowerCase() === "mp4" ? (
             <video
               loop
@@ -101,9 +111,16 @@ export default function InfoSlider({ data, title, queryFrom }) {
               <source src={data?.[0]?.file_link} type="video/mp4" />
             </video>
           ) : (
-            <img src={data?.[0]?.file_link} className={classNames(styles.singleElement, {
-              [styles.singleEventElement]: queryFrom == "events",
-            })} />
+            <img
+              src={data?.[0]?.file_link}
+              className={classNames(styles.singleElement, {
+                [styles.singleEventElement]: queryFrom == "events",
+              })}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = "/images/default.svg";
+              }}
+            />
           )}
         </div>
       ) : (

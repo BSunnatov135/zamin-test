@@ -6,6 +6,7 @@ import RelatedEvents from "components/UI/Event/RelatedEvents";
 import useSpheres from "services/spheres";
 import RelatedStories from "../Projects/RelatedStories";
 import useProjects from "services/projects";
+import ProjectStats from "../Projects/ProjectStats";
 
 export default function Info({ title, sliderData, data }) {
   const router = useRouter();
@@ -22,10 +23,12 @@ export default function Info({ title, sliderData, data }) {
       website_projects_id: [data?.guid],
     },
   });
+  console.log(router);
   return (
     <>
       <Slider data={sliderData ?? []} title={title} queryFrom={queryFrom} />
       <Content item={data ? data : {}} router={router} />
+      {router?.asPath.includes("project") && <ProjectStats router={router} />}
       {projectStories?.data.count >= 1 && (
         <RelatedStories data={projectStories?.data} />
       )}

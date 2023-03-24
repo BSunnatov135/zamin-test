@@ -92,7 +92,14 @@ export default function HelpPeople() {
           </div>
           <div className={styles.rightElement}>
             {data?.[`${lang}_photo`] ? (
-              <img src={data?.[`${lang}_photo`]} alt="image" />
+              <img
+                src={data?.[`${lang}_photo`]}
+                alt="image"
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
             ) : (
               <div className={styles.defaultWrapper}>
                 <DefaultImage />

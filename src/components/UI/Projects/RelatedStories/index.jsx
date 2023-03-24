@@ -59,7 +59,7 @@ export default function RelatedStories({ data }) {
       return false;
     }
   };
- 
+
   return (
     <Container>
       <h2 className={styles.title}>{t("stories")}</h2>
@@ -108,14 +108,19 @@ export default function RelatedStories({ data }) {
                     url={item?.[`${lang}_story_file`]}
                     className={styles.video}
                   />
-                ) : item?.[`${lang}_story_file`].length>0 ?
-                
-                <img
-                  src={item?.[`${lang}_story_file`]}
-                  alt={item?.guid}
-                  className={styles.video}
-                />
-               : <DefaultImage className={styles.video}/>}
+                ) : item?.[`${lang}_story_file`].length > 0 ? (
+                  <img
+                    src={item?.[`${lang}_story_file`]}
+                    alt={item?.guid}
+                    className={styles.video}
+                    onError={({ currentTarget }) => {
+                      currentTarget.onerror = null;
+                      currentTarget.src = "/images/default.svg";
+                    }}
+                  />
+                ) : (
+                  <DefaultImage className={styles.video} />
+                )}
               </div>
               <p
                 className={styles.name}

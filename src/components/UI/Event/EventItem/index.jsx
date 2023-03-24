@@ -12,7 +12,14 @@ export default function EventItem({ item }) {
       <a>
         <div className={styles.item} key={item.img}>
           <div className={styles.img}>
-            <img src={item[`${lang}_poster`]} alt={item[`${lang}_header`]} />
+            <img
+              src={item[`${lang}_poster`]}
+              alt={item[`${lang}_header`]}
+              onError={({ currentTarget }) => {
+                currentTarget.onerror = null;
+                currentTarget.src = "/images/default.svg";
+              }}
+            />
           </div>
           <div className={styles.body}>
             <p

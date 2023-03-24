@@ -17,6 +17,10 @@ export default function Banner({ item }) {
           className={styles.banner__main_img}
           src={item[`${lang}_photo`] || item[`${lang}_poster`]}
           alt={item?.[`${lang}_name`]}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = "/images/default.svg";
+          }}
         />
       </div>
     </>

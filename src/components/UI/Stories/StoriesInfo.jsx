@@ -44,6 +44,10 @@ export default function StoriesInfo() {
           <img
             src={story?.data?.response[`${lang}_story_file`]}
             alt={story?.guid}
+            onError={({ currentTarget }) => {
+              currentTarget.onerror = null;
+              currentTarget.src = "/images/default.svg";
+            }}
           />
         )}
         <p

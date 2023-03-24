@@ -50,6 +50,10 @@ export default function StoriesModal({ open, data, handleClose }) {
                 src={data[0]?.[`${lang}_story_file`]}
                 alt={data[0]?.guid}
                 className={styles.storyFile}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
               />
             )}
             <div className={styles.fileDescription}>
