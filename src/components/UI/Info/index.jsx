@@ -28,7 +28,7 @@ export default function Info({ title, sliderData, data }) {
     <>
       <Slider data={sliderData ?? []} title={title} queryFrom={queryFrom} />
       <Content item={data ? data : {}} router={router} />
-      {router?.asPath.includes("project") && <ProjectStats router={router} />}
+      {/* {router?.asPath.includes("project") && <ProjectStats router={router} />} */}
       {projectStories?.data.count >= 1 && (
         <RelatedStories data={projectStories?.data} />
       )}
