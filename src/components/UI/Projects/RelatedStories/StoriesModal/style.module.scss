@@ -1,0 +1,118 @@
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .Box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .item {
+      position: relative;
+      width: 60% !important;
+
+      .storyFile {
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .fileDescription {
+        color: #ffffff;
+        position: absolute;
+        bottom: 12%;
+        padding: 0 20px;
+
+        .name {
+          font-weight: 700;
+          font-size: 24.0968px;
+          line-height: 27px;
+          margin-bottom: 8px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          box-orient: vertical;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .description {
+          height: 20px;
+          overflow: hidden;
+          margin-bottom: 12px;
+        }
+
+        .description p {
+          height: 20px;
+          font-weight: 400;
+          font-size: 18.7419px;
+          line-height: 20px;
+          color: #EEF0F2;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          line-clamp: 1;
+          box-orient: vertical;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .button {
+          padding: 5px;
+          color: #2E2E2E;
+          background-color: #fff;
+          line-height: 18px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Modal {
+    .Box {
+      .item {
+        position: relative;
+        width: 97% !important;
+
+        .storyFile {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .fileDescription {
+          position: absolute;
+          bottom: -40%;
+          left: -2%;
+          color: #ffffff;
+          padding: 0 0 0 10px;
+
+          .name {
+            font-weight: 700;
+            font-size: 20.0968px;
+            line-height: auto;
+            margin-bottom: 6px;
+          }
+
+          .description {
+            font-weight: 400;
+            font-size: 17.7419px;
+            line-height: 27px;
+            color: #EEF0F2;
+            margin-bottom: 8px;
+          }
+
+          .button {
+            padding: 7px;
+            color: #2E2E2E;
+            background-color: #fff;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+  }
+}

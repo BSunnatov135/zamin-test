@@ -1,0 +1,85 @@
+@import "styles/unit.scss";
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+
+  .sectionTitle {
+    color: #000000;
+    font-weight: 500 !important;
+    font-size: 36px !important;
+    line-height: 49px;
+    font-family: "Noto Serif" !important;
+    margin: 80px auto 50px auto;
+    text-align: center;
+    width: 1024px;
+    max-width: 100%;
+  }
+
+  .leftArrow {
+    position: absolute;
+    left: 9.5%;
+    cursor: pointer;
+
+    path {
+      fill: #000000;
+    }
+  }
+}
+
+.sliderWrapper {
+  position: relative;
+  overflow: visible;
+}
+.eventSlider {
+  @media screen and (min-width: 1600px) {
+    max-width: 1570px;
+  }
+}
+.containerSlider {
+  max-width: 1024px;
+  // max-height: 576px;
+  margin: auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+  img {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  video {
+    object-fit: contain;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .containerSlider {
+    margin: 24px 10px 0;
+  }
+}
+
+.singleElement {
+  width: 100%;
+
+  margin: auto;
+  object-fit: cover;
+  opacity: 1;
+}
+.singleEventElement {
+  max-width: 1024px;
+}
+@media screen and (max-width: 600px) {
+  .titleWrapper {
+    .sectionTitle {
+      margin: 48px auto 24px auto;
+      font-size: 24px !important;
+      line-height: 32px;
+      padding: 0 16px;
+    }
+
+    .leftArrow {
+      left: 4%;
+    }
+  }
+}

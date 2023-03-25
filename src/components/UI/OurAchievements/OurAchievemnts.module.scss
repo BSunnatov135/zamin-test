@@ -1,0 +1,36 @@
+@import "styles/unit.scss";
+
+.main {
+  padding: rem(40) 0 0;
+  .container {
+    .title {
+      text-align: center;
+      font-weight: 600;
+      font-size: rem(40);
+      line-height: rem(54);
+      letter-spacing: 0.326451px;
+    }
+    .row {
+      margin-top: rem(78);
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: rem(20);
+    }
+  }
+  .achievements {
+    margin-top: rem(100);
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    .container {
+      .title {
+        font-weight: 500;
+        font-size: rem(32);
+        line-height: rem(36);
+      }
+    }
+  }
+}

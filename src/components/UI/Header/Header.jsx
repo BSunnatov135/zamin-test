@@ -1,72 +1,137 @@
-import { Container } from '@mui/material'
-import Link from 'next/link'
-import styles from './style.module.scss'
-import MenuIcon from 'assests/icons/menu.svg'
-import AccessIcon from 'assests/icons/access.svg'
-import CloseIcon from 'assests/icons/close.svg'
-import LanguageDropdown from './LanguageDropdown'
-import Menu from './Menu'
-import { useState } from 'react'
-import { useRef } from 'react'
-import useOnClickOutside from 'hooks/useOnClickOutside'
-import { PersonalVideoTwoTone } from '@mui/icons-material'
-import classNames from 'classnames'
-import MobileMenu from './MobileMenu'
-import LoginForm from '../Auth/Login'
+import { Container } from "@mui/material";
+import Link from "next/link";
+import styles from "./style.module.scss";
+import MenuIcon from "assests/icons/menu.svg";
+import AccessIcon from "assests/icons/access.svg";
+import CloseIcon from "assests/icons/close.svg";
+import LanguageDropdown from "./LanguageDropdown";
+import Menu from "./Menu";
+import { useState, useEffect } from "react";
+import { useRef } from "react";
+import useOnClickOutside from "hooks/useOnClickOutside";
+import classNames from "classnames";
+import MobileMenu from "./MobileMenu";
+import LoginForm from "../Auth/Login";
+import useTranslation from "next-translate/useTranslation";
+import SearchIcon from "/src/assests/icons/searchIcon.svg";
+import SearchMenu from "./SearchMenu/SearchMenu";
+import { useRouter } from "next/router";
 
 export default function Header() {
-  const [open, setOpen] = useState(false)
-  const [openLogin, setOpenLogin] = useState(false)
-
+  const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
+  const { t } = useTranslation("common");
+  false;
+  const [size, setSize] = useState(false);
+  const router = useRouter();
   const handleLogin = (event) => {
-    event && event.preventDefault()
-    setOpenLogin((prev) => !prev)
-  }
-  const [mobileMenu, setMobileMenu] = useState(false)
-  const ref = useRef()
-  useOnClickOutside(ref, () => setOpen(false))
+    event && event.preventDefault();
+    setOpenLogin((prev) => !prev);
+  };
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const ref = useRef();
+  useOnClickOutside(ref, () => setOpen(false));
+
+  //Function below: tracks window scroll and narrows header`s height, closes "SearchMenu"
+  const listenScrollEvent = () => {
+    if (window.scrollY < 80) {
+      setSize(false);
+      setOpen(false);
+      setOpenSearch(false);
+    } else if (window.scrollY > 80) {
+      setSize(true);
+      setOpenSearch(false);
+    }
+  };
+  //useEffect below: tracks path of router and closes "SearchMenu" if it contains keyword="/search"
+  useEffect(() => {
+    if (router.asPath.includes("/search")) {
+      setOpenSearch(false);
+    }
+  }, [router.asPath]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+
+    return () => window.removeEventListener("scroll", listenScrollEvent);
+  }, []);
+
   return (
     <>
       <header
-        className={classNames(styles.header, {
-          [styles.active]: open
-        })}
+        className={
+          size
+            ? classNames(
+                styles.header,
+                { [styles.active]: open },
+                styles.headerLight
+              )
+            : classNames(styles.header, { [styles.active]: open })
+        }
       >
         <Container>
           <div className={styles.box}>
             <div
               className={styles.menu}
               onClick={() => {
-                if (window.innerWidth < 600) {
-                  setMobileMenu((prev) => !prev)
+                if (window.innerWidth < 700) {
+                  setMobileMenu((prev) => !prev);
                 } else {
-                  setOpen((prev) => !prev)
+                  setOpen((prev) => !prev);
                 }
               }}
             >
               {open || mobileMenu ? <CloseIcon /> : <MenuIcon />}
             </div>
-            <Link href='/'>
+            <Link href="/" passHref>
               <a className={styles.logo}>
-                <img src='/logos/logo.svg' alt='logo' />
+                <img
+                  src="/logos/logopic.png"
+                  width={"44px"}
+                  height={"44px"}
+                  className={styles.rotateImage}
+                  alt=""
+                />
+                <img src="/logos/logotext.png" height={"32px"} />
               </a>
             </Link>
-            <Link href='/'>
-              <a className={styles.resLogo}>
-              <img src='/logos/resLogo.svg' alt='logo' />
-              </a>
-              </Link>
-            <div className={styles.rightElement}>
-              <p
-                onClick={() => {
-                  console.log(
-                    document.getElementById('userwayAccessibilityIcon').click()
-                  )
-                }}
+            <Link
+              href="/"
+              passHref
+              onClick={() => setMobileMenu((prev) => !prev)}
+            >
+              <a
+                className={styles.resLogo}
+                onClick={() => setMobileMenu(false)}
               >
-                Доступность <AccessIcon />
-              </p>
-              <LanguageDropdown />
+                <img src="/logos/logopic.png" width={"36px"} height={"36px"} />
+              </a>
+            </Link>
+            <div className={styles.rightElement}>
+              <div
+                id="openAccessibility"
+                tabIndex="0"
+                className={styles.accessibility}
+              >
+                <p className={styles.accessibilityTitle}>
+                  {t("accessibility")}
+                </p>
+                <AccessIcon />
+              </div>
+              {/* <Link> */}
+              <a
+                className={styles.searchIcon}
+                onClick={() => setOpenSearch(!openSearch)}
+              >
+                <SearchIcon />
+              </a>
+              {/* </Link> */}
+              <LanguageDropdown className={styles.LanguageDropdown} />
+              {/* <div className={styles.profileSets}>
+                <Profile />
+                <LogOutIcon />
+              </div> */}
             </div>
           </div>
         </Container>
@@ -77,9 +142,21 @@ export default function Header() {
         open={open}
         handleClose={() => setOpen((prev) => !prev)}
         handleLogin={handleLogin}
+        size={size}
       />
-      <MobileMenu open={mobileMenu} handleClose={() => setMobileMenu((prev) => !prev)} handleLogin={handleLogin}/>
+      <SearchMenu
+        open={openSearch}
+        setOpenSearch={setOpenSearch}
+        size={size}
+        className={styles.searchMenu}
+      />
+      <MobileMenu
+        open={mobileMenu}
+        handleClose={() => setMobileMenu((prev) => !prev)}
+        handleLogin={handleLogin}
+        size={size}
+      />
       <LoginForm open={openLogin} handleClose={handleLogin} />
     </>
-  )
+  );
 }

@@ -1,52 +1,71 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 .box {
-    width: 418px;
-    background: #fff;
+  width: 418px;
+  background: #fff;
+  display: flex;
+  padding: 24px;
+  row-gap: 24px;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: "Noto Sans" !important;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+  .closeIcon {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
     display: flex;
-    padding: 24px;
-    row-gap: 24px;
+    justify-content: flex-end;
+    svg {
+      fill: #9a9b9b;
+    }
+  }
+  .title {
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 44px;
+      font-family: "Noto Serif" !important;
+    }
+  }
+  .form {
+    display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    border-radius: 0;
-    @media screen and (max-width:600px) {
-        width: 100%;
+    row-gap: 12px;
+    .input {
+      margin-bottom: 12px;
     }
-    .closeIcon {
-        cursor: pointer;
-        display: flex;
-        justify-content: flex-end;
-        svg {
-            fill: #9A9B9B;
-        }
+    .codeError {
+      color: red !important;
+      margin-top: -12px;
     }
-    .title {
-        h2 {
-            font-weight: 700;
-            font-size: 32px;
-            line-height: 44px;
-        }
+    .button {
+      margin-top: 20px !important;
     }
-    .form {
-        display: flex;
-        flex-direction: column;
-        row-gap: 12px;
+    .name {
+      margin-top: 12px;
     }
-    .forgotPassword {
-        a {
-            color:#1B5BF7;
-        }
+    .borderRed {
+      input {
+        border: 1px solid red !important;
+      }
     }
-    .register {
-        p{
-            text-align: center;
-            a {
-                color: #1B5BF7
-            }
-        }
+  }
+  .forgotPassword {
+    a {
+      color: #1b5bf7;
     }
-}
-.active {
-    display: block;
-}
-.closed {
-    display: none;
+  }
+  .register {
+    p {
+      color: #7f888f;
+      text-align: center;
+      a {
+        color: #1b5bf7;
+      }
+    }
+  }
 }

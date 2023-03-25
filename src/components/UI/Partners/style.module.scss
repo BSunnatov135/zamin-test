@@ -1,35 +1,105 @@
-@import 'styles/unit.scss';
+.slider {
+  padding: 0 25px;
+  max-height: 75px;
+  position: relative;
+  overflow: visible;
+  display: flex !important;
+  align-items: flex-start;
 
-.wrapper {
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .list {
-    display: grid;
-    grid-gap: 6px;
-    grid-template-columns: repeat(6, minmax(0,  1fr));
-    @media screen and (max-width:600px) {
-      grid-template-columns: repeat(6, 1fr);
+
+  .item {
+    display: flex !important;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: visible;
+    position: relative;
+    height: 150px;
+
+    .popover {
+      font-weight: 300;
+      font-size: 16px;
+      padding: 8px 12px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d2d2d;
+      background-color: #fff;
+      max-width: 250px;
+      height: fit-content;
+      overflow: visible;
+      font-family: 'Noto Sans';
+      z-index: 99999999;
+      position: absolute;
+      margin-top: -25px;
+      opacity: 0.8;
+      border-radius: 6px;
     }
-    .item {
-      height: 110px;
-      @include element-center;
-      &:nth-child(4) {
-        img {
-          height: 50px;
+
+    .mobileIcon {
+      mix-blend-mode: multiply;
+
+      @media screen and (min-width: 500px) {
+        display: none;
+      }
+    }
+
+    .desktopIcon {
+      mix-blend-mode: multiply;
+
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    svg {
+      background: #f7f7f7;
+
+      path {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    transform: translate(0, -50%);
+    right: 0;
+
+    svg {
+      transform: rotate(180deg);
+
+      &:hover {
+        path {
+          fill: #000;
         }
       }
-      @media screen and (max-width:600px) {
-        height: 70px;
+    }
+  }
 
+  .prev {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    transform: translate(0, -50%);
+    left: 0;
+
+    svg {
+      &:hover {
+        path {
+          fill: #000;
+        }
       }
-      img {
-        height: 80px;
-        object-fit: cover;
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .slider {
+    .item {
+      &:nth-child(even) {
+        width: 80% !important;
       }
     }
   }

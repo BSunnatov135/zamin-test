@@ -1,45 +1,65 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .main {
-  padding: 94px 80px;
-  border-bottom: 1px solid #CFCFCF;
-  @media screen and (max-width:820px) {
+  padding: 94px 0;
+  border-bottom: 1px solid #cfcfcf;
+
+  margin: 0 auto;
+  @media screen and (max-width: 820px) {
     padding: 32px 0px;
   }
-  .content {
-    &__title {
-        font-size: 20px;
-        color: #000000;
-        font-weight: 700;
-        margin-bottom: 10px;
-        @media screen and (max-width:600px) {
-          margin-bottom: 8px;
-        }
+  .description {
+    font-weight: 300;
+    font-size: 16px !important;
+    line-height: 24px;
+    font-family: "Noto Sans" !important;
+    color: #000000;
+    margin-top: 30px;
+    max-width: 887px;
+    margin: auto;
+
+    p {
+      font-family: "Noto Sans" !important;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 30px;
+      strong {
+        font-family: "Noto Serif" !important;
+        font-size: 21px;
+        line-height: 32px;
+        font-weight: 500;
+      }
     }
-    &__text {
-        font-size: 20px;
-        font-weight: 400;
-        color: #000000;
-        margin-bottom: 30px;
-        @media screen and (max-width:600px) {
-          font-size: 16px;
-          line-height: 150.2%;
-          margin-bottom: 12px;
-          &:last-child {
-            margin-bottom: 24px;
-          }
-        }
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+      margin-bottom: 12px;
+      &:last-child {
+        margin-bottom: 24px;
+      }
     }
   }
+  iframe {
+    margin: auto;
+    display: block;
+    margin-top: 80px;
+    width: 887px;
+
+    max-width: 100%;
+    aspect-ratio: 1.78;
+  }
   .link {
-    display: inline-flex;
+    max-width: 887px;
+    margin: auto;
+    display: flex;
     align-items: center;
-    gap: 5px;
+    margin-top: 24px;
+    text-decoration: none;
     cursor: pointer;
     span {
       font-size: 18px;
       font-weight: 700;
-      color: #09999A;
+      color: var(--primary-color);
     }
     &:hover {
       svg {

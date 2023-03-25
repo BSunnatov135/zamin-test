@@ -1,12 +1,28 @@
-import styles from './style.module.scss'
+import styles from "./style.module.scss";
+import useTranslation from "next-translate/useTranslation";
 
-export default function Banner() {
+export default function Banner({ item }) {
+  const { lang } = useTranslation();
   return (
     <>
-      <h2 className={styles.sectionTitle}>Автоматизация мониторинга загрязнения атмосферного воздуха</h2>
+      <h2
+        className={styles.sectionTitle}
+        dangerouslySetInnerHTML={{
+          __html: item?.[`${lang}_name`] || item?.[`${lang}_header`],
+        }}
+      />
+
       <div className={styles.banner}>
-        <img className={styles.banner__main_img} src='/images/moon.png' alt='moon' />
+        <img
+          className={styles.banner__main_img}
+          src={item[`${lang}_photo`] || item[`${lang}_poster`]}
+          alt={item?.[`${lang}_name`]}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = "/images/default.svg";
+          }}
+        />
       </div>
     </>
-  )
+  );
 }

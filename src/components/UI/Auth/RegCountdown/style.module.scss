@@ -1,10 +1,23 @@
 .countDown {
-    display: flex;
-    justify-content: center;
-    p{
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        letter-spacing: -0.38px;
-    }
+  display: flex;
+  justify-content: center;
+  p {
+    margin-bottom: -20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.38px;
+  }
+}
+.submitButton {
+  outline: none;
+  border: none;
+  background: none;
+  display: inline;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-decoration: underline;
+  margin-bottom: -16px;
 }

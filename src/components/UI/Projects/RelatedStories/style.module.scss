@@ -1,0 +1,174 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: -40px;
+  right: 0;
+  height: 40px;
+  transition: .4s ease all;
+
+  @media screen and (max-width:600px) {
+    top: -8%;
+    right: 3%;
+  }
+
+  svg {
+    transform: rotate(180deg);
+
+    &:hover {
+      path {
+        stroke: var(--primary-color);
+      }
+    }
+  }
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 100;
+  top: -40px;
+  right: 48px;
+  height: 40px;
+  border-radius: 50%;
+  transition: .4s ease all;
+
+  @media screen and (max-width:600px) {
+    top: -8%;
+    left: 3%;
+    right: auto;
+  }
+
+  svg {
+    &:hover {
+      path {
+        stroke: var(--primary-color);
+      }
+    }
+  }
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  letter-spacing: 0.326451px;
+  margin-top: 32px;
+  margin-bottom: 30px;
+
+  @media (max-width: 600px) {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.slider {
+  margin: 2px -8px 0px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #cfcfcf;
+
+  @media (max-width: 600px) {
+    margin: 20px -8px 20px;
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+
+  .slide {
+    padding: 0 8px;
+
+    .item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      div {
+        max-height: 400px !important;
+        height: 400px !important;
+        overflow-y: hidden;
+
+        .video {
+          width: 100% !important;
+          aspect-ratio: 1.91;
+
+          video {
+            object-fit: cover;
+
+          }
+        }
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+
+        @media (max-width: 600px) {
+          height: auto !important;
+
+          // .video {
+          //   video {
+          //     object-fit: cover;
+          //   }
+          // }
+        }
+      }
+
+      svg {
+        // background-color: #95D6A4;
+        // height: 420px !important;
+        object-fit: cover;
+        width: 100% !important;
+      };
+
+
+      .name p {
+        padding: 0 10px;
+        font-weight: 700;
+        font-size: 18px;
+        color: #ffffff;
+        position: absolute;
+        bottom: 10%;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        box-orient: vertical;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .icon {
+        position: absolute;
+        bottom: 40%;
+        right: 40%;
+        cursor: pointer;
+
+        svg {
+          transition: 0.4s ease-in-out all;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+
+          path {
+            &:active {
+              fill: #cccccc;
+            }
+          }
+        }
+      }
+    }
+  }
+}

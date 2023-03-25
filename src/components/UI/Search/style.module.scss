@@ -1,0 +1,49 @@
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
+
+.form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  .inputWrapper {
+    width: 100%;
+    position: relative;
+
+    .searchInput {
+      width: 100%;
+      padding: 12px 17px;
+      background-color: #f3f3f3;
+      border: none;
+      font-size: 16px;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+    }
+
+    .closeIcon {
+      position: absolute;
+      right: 1%;
+      top: 14px;
+    }
+  }
+
+}
+
+@media (max-width:700px) {
+  .form {
+    margin-top: 40px;
+
+    .searchInput {
+      width: 80%;
+    }
+
+    .closeIcon {
+      margin-right: 8px;
+    }
+  }
+}

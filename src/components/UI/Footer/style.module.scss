@@ -1,7 +1,7 @@
 .logo {
   width: 90px;
   padding-top: 32px;
-  @media screen and (min-width:600px) {
+  @media screen and (min-width: 600px) {
     display: none;
   }
 }
@@ -12,59 +12,75 @@
   color: #fff;
   padding-bottom: 32px;
   border-bottom: 1px solid rgba(222, 226, 230, 0.24);
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
-  
+
   .list {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    column-gap: 75.25px;
-    @media screen and (max-width:960px){
+    column-gap: 70px;
+    @media screen and (max-width: 1020px) {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media screen and (max-width: 960px) {
       // display: grid;
       // grid-template-columns: repeat(2, 1fr);
       // grid-template-rows: max-content;
       // row-gap: 30px;
       // align-items: baseline;;
+      display: flex;
       flex-wrap: wrap;
-      column-gap: 0;
+      column-gap: 10px;
       row-gap: 20px;
       .box {
         width: calc(50% - 24px);
       }
     }
+  }
+}
+
+.box {
+  .accordionIcons {
+    .SocialIcons {
+      display: flex;
+      column-gap: 12px;
+      svg path {
+        stroke: none;
+      }
     }
   }
-.box {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+
   a {
     color: #fff;
     display: flex;
-    font-family: 'Noto Sans';
+    font-family: "Noto Sans" !important;
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
     align-items: center;
     column-gap: 5px;
-    svg{
+    svg {
       width: 24px;
       &:last-child {
         width: 35px;
       }
     }
-    }
+  }
   p {
-    font-family: 'Noto Sans';
+    font-family: "Noto Sans" !important;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     color: #9a9b9b;
     svg {
       display: none;
-      cursor: pointer
+      cursor: pointer;
     }
   }
 }
@@ -72,11 +88,12 @@
   display: flex;
   justify-content: space-between;
   color: #fff;
-  font-family: 'Noto Sans';
+  font-family: "Noto Sans" !important;
+  font-weight: 300;
   font-size: 16px;
-  line-height: 180%;
+  line-height: 24px;
   padding: 32px 0 40px;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     padding: 16px 0;
   }
   .SocialIcons {
@@ -85,69 +102,58 @@
     svg {
       cursor: pointer;
     }
-    @media  screen and (max-width:600px) {
+    @media screen and (max-width: 600px) {
       display: none;
     }
   }
 }
-.displayNone {
-  display: none;
-}
-.display {
-  display: flex;
-  flex-direction: column;
-}
-.accordion {
-  padding: 0 !important;
-  margin: 0;
-  padding: 40px 0;
-  column-gap: 112px;
-  color: #fff;
-  background-color: #000;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(222, 226, 230, 0.24);
-  
-  svg {
-    path {
-      stroke: grey;
-    }
+
+.accordionContainer {
+  @media screen and (min-width: 600px) {
+    display: none;
   }
-  .accordionSummary {
-    padding: 0;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px; 
-    height: 64px;
-    .summaryContent {
+  .accordionWrapper {
+    margin-bottom: 30px;
+  }
+  .accordion {
+    padding: 0 !important;
+    margin: 0;
+    padding: 40px 0;
+    column-gap: 112px;
+    color: #fff;
+    background-color: #000;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(222, 226, 230, 0.24);
+
+    svg {
+      path {
+        stroke: grey;
+        fill: grey;
+      }
+    }
+    .accordionSummary {
+      padding: 0;
       font-weight: 500;
       font-size: 16px;
       line-height: 22px;
-      color: #9a9b9b;
-      font-family: 'Noto Sans';
-    }  
-  }
-  .accordionDetails {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    margin-bottom: 12px;
-    p {
-      color: #fff;
+      height: 64px;
+      .summaryContent {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #9a9b9b;
+        font-family: "Noto Sans" !important;
+      }
     }
-  }
-}
-.accordionContainer {
-  @media screen and (min-width:600px) {
-    display: none;
-  }
-}
-.accordionWrapper {
-  margin-bottom: 30px
-}
-.accordionIcons {
-  .SocialIcons {
-  display: flex;
-  column-gap: 12px;
+    .accordionDetails {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      row-gap: 12px;
+      margin-bottom: 12px;
+      p {
+        color: #fff;
+      }
+    }
   }
 }

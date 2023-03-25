@@ -1,0 +1,29 @@
+.root {
+  text-align: center;
+  .title {
+    margin-top: 24px;
+    font-weight: 800;
+    font-size: 200px;
+    line-height: 200px;
+    color: #09999a;
+  }
+  .text {
+    margin-top: 19px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    color: #727272;
+  }
+  .btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 24px;
+    background: #09999a;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    color: #fff;
+    margin-bottom: 117px;
+    cursor: pointer;
+  }
+}

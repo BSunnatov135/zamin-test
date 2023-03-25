@@ -1,82 +1,40 @@
-import Banner from './Banner'
-import Content from './Context'
-import Projects from 'components/UI/Projects'
-import { useRouter } from 'next/router'
+import Content from "./Context";
+import Projects from "components/UI/Projects";
+import { useRouter } from "next/router";
+import Slider from "components/UI/Slider/Slider";
+import RelatedEvents from "components/UI/Event/RelatedEvents";
+import useSpheres from "services/spheres";
+import RelatedStories from "../Projects/RelatedStories";
+import useProjects from "services/projects";
+import ProjectStats from "../Projects/ProjectStats";
 
-export default function Info() {
-  const router = useRouter()
-  const contents = [
-    {
-      title: '',
-      textList: [
-        {
-          text: 'Показатели преждевременной смерти от загрязненного воздуха постоянно растут. К 2019 году он составил 8.8 миллионов человек, увеличившись вдвое за 7 лет.'
-        },
-        {
-          text: `Загрязнение воздуха в большой степени — результат жизнедеятельности человека: промышленные предприятия, транспорт, сельское хозяйство, бытовые отходы. Не последнюю роль играют природные особенности нашего региона.`
-        },
-        {
-          text: 'Для решения проблемы загрязнения воздуха необходимо проделать трудоёмкий путь. '
-        }
-      ]
+export default function Info({ title, sliderData, data }) {
+  const router = useRouter();
+  const queryFrom = router?.query?.from;
+  const { sphere } = useSpheres({
+    dataSphere: {
+      offset: 0,
+      limit: 3,
+      spheres_id: data?.spheres_id,
     },
-    {
-      title: 'Первые ключевые шаги:',
-      textList: [
-        {
-          text: `- контроль за качеством воздуха и его воздействием на здоровье людей;• определение источников и степени загрязнения;`
-        },
-        {
-          text: `- разработка и реализация плана действий на местном, региональном и национальном уровнях.`
-        },
-        {
-          text: `Основные загрязнители воздуха — оксид углерода, оксиды азота, диоксид серы, аммиак, пыль. Чтобы автоматизировать и ускорить процесс определения их количества при поддержке фонда Zamin и UNEP был начат проект Центра гидрометеорологической службы по автоматизации процесса мониторинга.`
-        }
-      ]
+  });
+  const { projectStories } = useProjects({
+    storiesProps: {
+      website_projects_id: [data?.guid],
     },
-    {
-      title: 'В рамках проекта:',
-      textList: [
-        {
-          text: `- все региональные лаборатории Узгидромет были объединены в единую систему;`
-        },
-        {
-          text: `- запущена онлайн платформа (веб-сайт monitoring.meteo.uz и мобильное приложение AirUz);`
-        },
-        {
-          text: `- гармонизированы международные стандарты.`
-        },
-        {
-          text: `В Ташкенте уже установлены две автоматические станции мониторинга воздуха японской компании «Horiba» и проведены соответствующие обучающие семинары для специалистов.В 2021 году проект продолжается. Планируется увеличение оснащенности Узгидромета. Автоматические станции мониторинга воздуха должны появиться в каждом регионе республики. Продолжается интеграция системы в локальные и международные информационные системы.`
-        }
-      ]
-    },
-    {
-      title: 'Кто в первую очередь будет пользоваться этой информацией?',
-      textList: [
-        {
-          text: `- Узгидромет в части мониторинга загрязнения атмосферного воздуха, загрязнения поверхностных (естественных водотоков) вод, почв;`
-        },
-        {
-          text: `- Госкомэкологии для выявления источников загрязнения и принятия мер по снижению уровня загрязнения в природе; `
-        },
-        {
-          text: `-Минздрав при разработке санитарно-гигиенических нормативов;`
-        },
-        {
-          text: `- МЧС для устранения чрезвычайных ситуаций при экстремально высоком загрязнении природной среды;`
-        },
-        {
-          text: `-МВД в части выработки мер по оптимизации транспортного потока для снижения объема выхлопных газов.`
-        }
-      ]
-    }
-  ]
+  });
+  console.log(router);
   return (
     <>
-      <Banner />
-      <Content router={router} contents={contents} />
-      {!router.query.key && <Projects />}
+      <Slider data={sliderData ?? []} title={title} queryFrom={queryFrom} />
+      <Content item={data ? data : {}} router={router} />
+      {router?.asPath.includes("project") && <ProjectStats router={router} />}
+      {projectStories?.data.count >= 1 && (
+        <RelatedStories data={projectStories?.data} />
+      )}
+      {data?.$website_events_ids_data?.length >= 1 ? (
+        <RelatedEvents data={data} />
+      ) : null}
     </>
-  )
+  );
 }

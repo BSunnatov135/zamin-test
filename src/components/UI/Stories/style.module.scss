@@ -1,0 +1,64 @@
+.item {
+  margin-top: 50px;
+  width: 100%;
+  padding: 0 10px;
+
+  .name p {
+    color: #000;
+    font-weight: 500!important;
+    font-size: 36px!important;
+    line-height: 49px;
+    font-family: "Noto Serif"!important;
+    margin: 80px auto 50px;
+    text-align: center;
+    
+  }
+
+  .video {
+    margin: 0 auto;
+    padding-bottom: 30px;
+    max-width: 100%;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 30px;
+  }
+
+  .description {
+    font-family: 'Noto Sans'!important;
+    color: #000;
+    margin: auto;
+    padding-bottom: 80px;
+  p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
+  }
+  }
+}
+
+@media (max-width: 600px) {
+  .item {
+    margin-top: 40px;
+    padding: 0 5px;
+
+    .name p {
+      font-size: 24px !important;
+      line-height: 32px;
+      margin: 48px auto 24px;
+    }
+
+    .video {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+  }
+}

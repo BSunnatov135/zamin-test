@@ -1,0 +1,218 @@
+@import "styles/unit.scss";
+
+.root {
+  margin-top: rem(78);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .projects {
+    overflow: hidden;
+    padding: rem(24);
+    background: #fff;
+
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: rem(33) 0 rem(30);
+      box-shadow: inset 0px -1px 0px #e5e9eb;
+
+      .tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: rem(6);
+        cursor: pointer;
+
+        svg {
+          width: rem(17);
+        }
+
+        svg path {
+          fill: rgba(9, 153, 154, 0.6);
+        }
+
+        p {
+          font-weight: 500;
+          font-size: rem(12);
+          line-height: rem(16);
+          color: rgba(9, 153, 154, 0.6);
+        }
+      }
+
+      .activeTab {
+        svg path {
+          fill: #09999a;
+        }
+
+        p {
+          color: #09999a;
+        }
+      }
+    }
+
+    .body {
+      margin-top: rem(10);
+      display: flex;
+      flex-direction: column;
+      height: rem(328);
+      overflow-y: scroll;
+
+      .sphere,
+      .activeSphere {
+        transition: 0.2s all;
+        padding: rem(10);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        box-shadow: inset 0px -1px 0px #e5e9eb;
+
+        // &:last-child {
+        //   box-shadow: none;
+        // }
+        .name {
+          p {
+            max-width: rem(300);
+            overflow: hidden;
+            // display: -webkit-box;
+            // -webkit-line-clamp: 1;
+            // -webkit-box-orient: vertical;
+            // height: rem(30);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          strong {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+            font-size: rem(16);
+            line-height: rem(22);
+            opacity: 0.8;
+          }
+        }
+
+        .sphereBtn {
+          padding: rem(8);
+          background: #ffffff;
+          border: 1px solid #ededed;
+          height: 38px;
+          display: flex;
+          gap: rem(12);
+          align-items: center;
+
+          p {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: -0.38px;
+          }
+
+          span {
+            margin-top: rem(5);
+
+            svg {
+              width: rem(20);
+            }
+          }
+        }
+      }
+
+      .activeSphere {
+        background: #09999a;
+        color: white;
+
+        .sphereBtn {
+          background: #1cacad;
+          border: transparent;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:1000px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    margin-top: 30px;
+    grid-template-columns: 1fr;
+
+    .projects {
+      padding: rem(12);
+
+      h1 {
+        text-align: center;
+        font-size: rem(24);
+        line-height: rem(32);
+      }
+
+      .tabs {
+        padding: rem(20) 0 rem(20);
+
+        .tab {
+          svg {
+            width: rem(13);
+          }
+
+          p {
+            text-align: center;
+            font-weight: 500;
+            font-size: rem(10);
+            line-height: rem(14);
+          }
+        }
+      }
+    }
+
+    .body {
+
+      .sphere,
+      .activeSphere {
+        padding: rem(8);
+
+        .name {
+          p {
+            max-width: rem(250) !important;
+
+            @media (max-width: 500px) {
+              max-width: rem(150) !important;
+            }
+          }
+
+          strong,
+          p {
+            font-weight: 400 !important;
+            font-size: rem(12) !important;
+            line-height: rem(16) !important;
+          }
+        }
+
+        .sphereBtn {
+          padding: rem(6);
+          height: 32px;
+
+          p {
+            font-weight: 400 !important;
+            font-size: 12px !important;
+            line-height: 16px !important;
+          }
+
+          span {
+            svg {
+              width: rem(15);
+            }
+          }
+        }
+      }
+    }
+  }
+}

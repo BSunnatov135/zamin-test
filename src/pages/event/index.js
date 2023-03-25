@@ -1,15 +1,14 @@
-import SEO from 'components/SEO'
-import EventList from 'components/UI/Event/EventList'
-import { fetchMultipleUrls } from 'services/fetchMultipleUrls'
+import SEO from "components/SEO";
+import EventList from "components/UI/Event/EventList";
+import { fetchMultipleUrls } from "services/fetchMultipleUrls";
 
 export default function Home({ data }) {
-  // console.log(data)
   return (
     <>
       <SEO />
       <EventList />
     </>
-  )
+  );
 }
 
 // export async function getServerSideProps(context) {

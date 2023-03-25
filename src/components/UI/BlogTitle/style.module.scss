@@ -1,25 +1,26 @@
-@import 'styles/unit.scss';
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 32px;
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     margin-bottom: 24px;
   }
   .leftElement {
     p {
       &:first-child {
-        font-size: 16px;
-        line-height: 180%;
+        font-size: 16px !important;
+        line-height: 180% !important;
         span {
           display: flex;
         }
       }
       &:last-child {
-        font-weight: 600;
-        font-size: 32px;
+        font-weight: 600 !important;
+        font-size: 32px !important;
         line-height: 44px;
       }
     }
@@ -27,7 +28,7 @@
   a {
     font-size: 16px;
     line-height: 24px;
-    font-family: 'Noto Sans';
+    font-family: "Noto Sans" !important;
     @include align-items-center;
     column-gap: 4px;
     color: #000;
@@ -42,6 +43,5 @@
         transform: translateX(5px);
       }
     }
-    
   }
 }
