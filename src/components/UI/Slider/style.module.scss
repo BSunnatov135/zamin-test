@@ -30,6 +30,8 @@
 .sliderWrapper {
   position: relative;
   overflow: visible;
+  max-width: 1570px;
+  margin: auto;
 }
 .eventSlider {
   @media screen and (min-width: 1600px) {
@@ -61,7 +63,7 @@
 
 .singleElement {
   width: 100%;
-
+  max-width: 1570px;
   margin: auto;
   object-fit: cover;
   opacity: 1;
