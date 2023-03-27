@@ -13,7 +13,7 @@ import PrevArrow from "/src/assests/icons/slickLeft.svg";
 import ResGasLogo from "/public/logos/ResGasLogo.svg";
 import ResUNDP from "/public/logos/ResUNDP.svg";
 import ResFAO from "/public/logos/ResFao.svg";
-import ResHydro from "/public/ResHydro.svg";
+import ResHydro from "/public/logos/ResHydro.svg";
 import useTranslation from "next-translate/useTranslation";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
