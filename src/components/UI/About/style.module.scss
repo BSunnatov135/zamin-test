@@ -1,5 +1,5 @@
 @import "styles/unit.scss";
-@use "/public/fonts/font.css";
+@import url("/public/fonts/font.css");
 
 .title {
   margin: 72px auto 46px;
