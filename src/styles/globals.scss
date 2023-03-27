@@ -1,7 +1,7 @@
-@use "unit";
-@use url("../../public/fonts/font.css");
-@use "~slick-carousel/slick/slick.css";
-@use "~slick-carousel/slick/slick-theme.css";
+@import "unit";
+@import url("../../public/fonts/font.css");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 :root {
   --primary-color: #09999a;

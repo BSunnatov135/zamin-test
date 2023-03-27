@@ -1,5 +1,5 @@
 @use "styles/_unit.scss";
-@use url("/public/fonts/font.css");
+@import url("/public/fonts/font.css");
 
 .inputMaskWrapper {
   display: flex;

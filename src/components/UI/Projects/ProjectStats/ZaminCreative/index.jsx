@@ -8,7 +8,10 @@ export default function ZaminCreative() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.title}>Реализация проекта 2021-2023</h2>
-        <p className={styles.region}>Узбекистан</p>
+      </div>
+      <div className={styles.region}>
+        <img src="/images/location.png" alt="" />
+        <p>Узбекистан</p>
       </div>
       <div className={styles.svgWrapper}>
         <svg
@@ -805,6 +808,7 @@ export default function ZaminCreative() {
                 4*
               </span>
             </div>
+            <p className={styles.plan}>*Планируемые</p>
           </div>
         </div>
       </div>

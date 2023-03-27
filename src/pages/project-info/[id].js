@@ -7,37 +7,37 @@ import useProjects from "services/projects";
 
 export default function Home() {
   const router = useRouter();
-  // const { lang } = useTranslation();
-  // const id = router?.query?.id;
-  // const { project, projectSlider } = useProjects({
-  //   projectId: id,
-  //   sliderProps: {
-  //     shouldGet: false,
-  //     limit: 50,
-  //     offset: 0,
-  //     website_projects_id: id,
-  //   },
-  // });
+  const { lang } = useTranslation();
+  const id = router?.query?.id;
+  const { project, projectSlider } = useProjects({
+    projectId: id,
+    sliderProps: {
+      shouldGet: false,
+      limit: 50,
+      offset: 0,
+      website_projects_id: id,
+    },
+  });
 
-  // const data = project?.data?.response;
+  const data = project?.data?.response;
 
-  // const sliderData = useMemo(() => {
-  //   let currentData = projectSlider?.data?.response
-  //     ? [
-  //         {
-  //           file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
-  //         },
-  //         ...projectSlider?.data?.response,
-  //       ]
-  //     : [{ file_link: data?.[`${lang}_photo`] }];
+  const sliderData = useMemo(() => {
+    let currentData = projectSlider?.data?.response
+      ? [
+          {
+            file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
+          },
+          ...projectSlider?.data?.response,
+        ]
+      : [{ file_link: data?.[`${lang}_photo`] }];
 
-  //   return currentData;
-  // }, [projectSlider, lang, data]);
+    return currentData;
+  }, [projectSlider, lang, data]);
   return (
     <>
       <SEO />
-      <div>Info</div>
-      {/* <Info
+
+      <Info
         sliderData={sliderData}
         data={data}
         title={
@@ -45,7 +45,7 @@ export default function Home() {
             ? data?.[`${lang}_name`]
             : data?.[`${lang}_header`]
         }
-      /> */}
+      />
     </>
   );
 }

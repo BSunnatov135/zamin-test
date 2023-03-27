@@ -1,5 +1,5 @@
-@use "styles/unit.scss";
-@use url("/public/fonts/font.css");
+@import "styles/unit.scss";
+@import url("/public/fonts/font.css");
 
 .main {
   padding: 94px 0 80px;
