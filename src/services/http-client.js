@@ -2,14 +2,17 @@ import axios from "axios";
 import { QueryClient } from "react-query";
 export const request = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL_V1,
+  timeout: 15000,
 });
 
 export const requestAuth = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL_V2,
+  timeout: 15000,
 });
 
 export const requestDonation = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL_V3,
+  timeout: 15000,
 });
 
 const errorHandler = (error) => {
