@@ -1,5 +1,5 @@
-@import "styles/unit.scss";
-@import url("/public/fonts/font.css");
+@use "styles/unit.scss";
+@use url("/public/fonts/font.css");
 
 .form {
   margin-top: 100px;
@@ -31,10 +31,9 @@
       top: 14px;
     }
   }
-
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
   .form {
     margin-top: 40px;
 

@@ -1,6 +1,5 @@
-@import "styles/unit.scss";
-@import url("/public/fonts/font.css");
-
+@use "styles/unit.scss";
+@use url("/public/fonts/font.css");
 
 .next {
   cursor: pointer;
@@ -11,9 +10,9 @@
   top: -40px;
   right: 0;
   height: 40px;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     top: -8%;
     right: 3%;
   }
@@ -41,9 +40,9 @@
   right: 48px;
   height: 40px;
   border-radius: 50%;
-  transition: .4s ease all;
+  transition: 0.4s ease all;
 
-  @media screen and (max-width:600px) {
+  @media screen and (max-width: 600px) {
     top: -8%;
     left: 3%;
     right: auto;
@@ -105,7 +104,6 @@
 
           video {
             object-fit: cover;
-
           }
         }
 
@@ -130,8 +128,7 @@
         // height: 420px !important;
         object-fit: cover;
         width: 100% !important;
-      };
-
+      }
 
       .name p {
         padding: 0 10px;

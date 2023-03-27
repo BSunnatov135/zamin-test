@@ -1,5 +1,5 @@
-@import "styles/_unit.scss";
-@import url("/public/fonts/font.css");
+@use "styles/_unit.scss";
+@use url("/public/fonts/font.css");
 
 .inputMaskWrapper {
   display: flex;
@@ -14,7 +14,6 @@
     border: 1px solid #cfcfcf;
   }
 }
-
 
 .input {
   width: 100%;

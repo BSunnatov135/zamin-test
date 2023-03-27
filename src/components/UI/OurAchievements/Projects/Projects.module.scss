@@ -1,4 +1,4 @@
-@import "styles/unit.scss";
+@use "styles/unit.scss";
 
 .root {
   margin-top: rem(78);
@@ -135,7 +135,7 @@
   }
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .root {
     grid-template-columns: 1fr;
   }
@@ -174,7 +174,6 @@
     }
 
     .body {
-
       .sphere,
       .activeSphere {
         padding: rem(8);
