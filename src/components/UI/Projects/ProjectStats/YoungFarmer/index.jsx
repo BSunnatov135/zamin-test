@@ -3,14 +3,14 @@ import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import styles from "./style.module.scss";
 
-export default function ModernAssist() {
+export default function YoungFarmer() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [active, setActive] = useState(null);
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>{t("realisation")} 2020-2022</h2>
+        <h2 className={styles.title}>{t("realisation")} 2021-2023</h2>
       </div>
       <div className={styles.region}>
         <img src="/images/location.png" alt="" />
@@ -505,7 +505,7 @@ export default function ModernAssist() {
         </svg>
       </div>
       <div className={styles.statsWrapper}>
-        <h2>{t("institutions")}</h2>
+        <h2>{t("projectSchools")}</h2>
         <div className={styles.yearsWrapper}>
           <div className={styles.year}>
             <div
@@ -517,10 +517,10 @@ export default function ModernAssist() {
                 // e.preventDefault();
               }}
             >
-              <p>2020</p>
-              <span className={`${styles.badge} ${styles.blue}`}>3</span>
+              <p>2021</p>
+              <span className={`${styles.badge} ${styles.blue}`}>22</span>
             </div>
-            <div
+            {/* <div
               className={classNames(styles.item, {
                 [styles.itemActive]: active === "2022",
               })}
@@ -531,7 +531,7 @@ export default function ModernAssist() {
             >
               <p>2021</p>
               <span className={`${styles.badge} ${styles.darkBlue}`}>11</span>
-            </div>
+            </div> */}
             <div
               className={classNames(styles.item, {
                 [styles.itemActive]: active === "2023",
@@ -541,14 +541,14 @@ export default function ModernAssist() {
                 // e.preventDefault();
               }}
             >
-              <p>2022</p>
+              <p>2023</p>
               <span
                 className={`${styles.badge} ${styles.starBadge} ${styles.green}`}
               >
-                29
+                42*
               </span>
             </div>
-            {/* <p className={styles.plan}>*{t("plan")}</p> */}
+            <p className={styles.plan}>*{t("plan")}</p>
           </div>
         </div>
       </div>

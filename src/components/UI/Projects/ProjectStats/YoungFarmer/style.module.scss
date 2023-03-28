@@ -76,11 +76,11 @@
             color: #000;
           }
           .badge {
-            padding: 7px 22px 6px 13px;
+            padding: 7px 20px 6px 8px;
 
             background-repeat: no-repeat;
             font-weight: 600;
-            font-size: 32px;
+            font-size: 22px;
             line-height: 44px;
             color: #fff;
             position: absolute;
@@ -88,16 +88,17 @@
             right: 34px;
           }
           .starBadge {
-            padding: 10px 14px 3px 5px;
+            padding: 7px 12px 6px 4px;
           }
-          .yellow {
-            background-image: url(/images/statsicons/FFBD00.png);
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+            padding: 7px 20px 6px 8px;
           }
           .blue {
-            background-image: url(/images/statsicons/0EACAD.png);
+            background-image: url(/images/statsicons/0EA1E6.png);
           }
-          .red {
-            background-image: url(/images/statsicons/FF5865.png);
+          .green {
+            background-image: url(/images/statsicons/03C421.png);
           }
         }
         .plan {

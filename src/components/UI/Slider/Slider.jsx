@@ -12,6 +12,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
   const settings = {
     dots: true,
     speed: 500,
+    height: "800px",
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
@@ -76,6 +77,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
                       currentTarget.onerror = null;
                       currentTarget.src = "/images/default.svg";
                     }}
+                    height="100%"
                   />
                 )
               )}

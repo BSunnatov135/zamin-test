@@ -1,22 +1,35 @@
 .container {
-  background: #fff;
+  // background: #fff;
   padding: 60px 96px;
+  max-width: 1570px;
   position: relative;
+  margin: auto;
+
   .header {
     text-align: right;
     position: absolute;
-    right: 0;
-    padding: inherit;
-    top: 0;
+    right: 32px;
+
+    top: 60px;
     .title {
       font-weight: 600;
       font-size: 32px;
       line-height: 44px;
     }
-    .region {
-      color: #7f888f;
+  }
+  .region {
+    color: #7f888f;
+
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    column-gap: 8px;
+    p {
+      align-self: flex-end;
       font-weight: 600;
       font-size: 24px;
+      line-height: 24px;
       line-height: 36px;
     }
   }
@@ -35,6 +48,7 @@
     h2 {
       font-weight: 700;
       font-size: 24px;
+      width: 70%;
       line-height: 32px;
       margin-bottom: 23px;
     }
@@ -62,28 +76,35 @@
             color: #000;
           }
           .badge {
-            padding: 7px 22px 6px 13px;
+            padding: 7px 27px 6px 13px;
 
             background-repeat: no-repeat;
             font-weight: 600;
-            font-size: 32px;
+            font-size: 24px;
             line-height: 44px;
             color: #fff;
             position: absolute;
             top: -7px;
             right: 34px;
           }
-          .lightBlue {
-            background-image: url(/images/statsicons/0EA1E6.png);
+          .starBadge {
+            padding: 7px 20px 6px 8px;
+          }
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+            padding: 7px 20px 6px 8px;
           }
           .blue {
-            background-image: url(/images/statsicons/4559A6.png);
-            padding: 7px 13px 6px 4px;
+            background-image: url(/images/statsicons/0EA1E6.png);
           }
           .green {
             background-image: url(/images/statsicons/45A6A2.png);
-            padding: 7px 13px 6px 4px;
           }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
         }
         .itemActive {
           background-image: url(/images/bluebg.png);
