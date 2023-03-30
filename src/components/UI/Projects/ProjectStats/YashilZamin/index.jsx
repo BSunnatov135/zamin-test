@@ -8,7 +8,7 @@ import MapEn from "assests/icons/yazen.svg";
 import Bektemir from "assests/icons/bek.svg";
 import Chilanzar from "assests/icons/chil.svg";
 import Mirzo from "assests/icons/mir.svg";
-import Yunusabad from "assests/icons/topDark.svg";
+import Yunusabad from "assests/icons/topdark.svg";
 import Yangihayat from "assests/icons/y.svg";
 import SingleDark from "assests/icons/singledark.svg";
 import Yashnabad from "assests/icons/yash.svg";
