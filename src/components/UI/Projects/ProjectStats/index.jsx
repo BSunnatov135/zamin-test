@@ -2,6 +2,7 @@ import AtmosMonitor from "./AtmosMonitor";
 import EcoSchools from "./EcoSchools";
 import HosildorZamin from "./HosildorZamin";
 import ModernAssist from "./ModernAssist";
+import Screening from "./Screening";
 import styles from "./style.module.scss";
 import YashilZamin from "./YashilZamin";
 import YoungFarmer from "./YoungFarmer";
@@ -26,6 +27,8 @@ export default function ProjectStats(router) {
         <YashilZamin />
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
         <HosildorZamin />
+      ) : id === "74296db6-636f-49c4-831e-2f138a312008" ? (
+        <Screening />
       ) : (
         ""
       )}

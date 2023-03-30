@@ -1,0 +1,120 @@
+.container {
+  // background: #fff;
+  padding: 60px 96px;
+  max-width: 1570px;
+  position: relative;
+  margin: auto;
+
+  .header {
+    text-align: right;
+    position: absolute;
+    right: 32px;
+
+    top: 60px;
+    .title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+  .region {
+    color: #7f888f;
+
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    column-gap: 8px;
+    p {
+      align-self: flex-end;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 24px;
+      line-height: 36px;
+    }
+  }
+  .svgWrapper {
+    margin-right: 200px;
+    margin-left: auto;
+    margin-top: 50px;
+    width: max-content;
+    // position: absolute;
+  }
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: inherit;
+    bottom: 0;
+    left: 0;
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      width: 70%;
+      line-height: 32px;
+      margin-bottom: 23px;
+    }
+    .yearsWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .year {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          padding-top: 9px;
+          padding-bottom: 28px;
+          padding-left: 24px;
+          width: 220px;
+          background-image: url(/images/whitebg.png);
+          background-repeat: no-repeat;
+          position: relative;
+          cursor: pointer;
+          p {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 44px;
+            color: #000;
+          }
+          .badge {
+            padding: 21px 21px 21px 9px;
+
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            color: #fff;
+            position: absolute;
+            top: -7px;
+            right: 34px;
+          }
+          .starBadge {
+            padding: 12px 12px 12px 2px;
+            line-height: 33px;
+          }
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+          }
+          .blue {
+            background-image: url(/images/statsicons/9E78C2.png);
+          }
+          .green {
+            background-image: url(/images/statsicons/45A6A2.png);
+          }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        .itemActive {
+          background-image: url(/images/bluebg.png);
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
