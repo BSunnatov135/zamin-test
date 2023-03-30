@@ -1,5 +1,6 @@
 import AtmosMonitor from "./AtmosMonitor";
 import EcoSchools from "./EcoSchools";
+import HearingTreatment from "./HearingTreatment";
 import HosildorZamin from "./HosildorZamin";
 import ModernAssist from "./ModernAssist";
 import Sanitation from "./Sanitation";
@@ -42,6 +43,8 @@ export default function ProjectStats(router) {
         <ZaminEducation />
       ) : id === "f7eed81b-0af8-4c40-9c70-cda119a117b6" ? (
         <WantToHear />
+      ) : id === "f6f7515d-d595-4355-a95a-cd699ddfa255" ? (
+        <HearingTreatment />
       ) : (
         ""
       )}
