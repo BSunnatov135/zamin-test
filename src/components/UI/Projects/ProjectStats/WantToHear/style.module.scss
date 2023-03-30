@@ -1,0 +1,142 @@
+.container {
+  // background: #fff;
+  padding: 60px 96px;
+  max-width: 1570px;
+  position: relative;
+  margin: auto;
+
+  .header {
+    text-align: right;
+    position: absolute;
+    left: 0;
+    padding: inherit;
+    top: 0;
+    .title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+  .region {
+    color: #7f888f;
+
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    column-gap: 8px;
+    p {
+      align-self: flex-end;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 24px;
+      line-height: 36px;
+    }
+  }
+  .svgWrapper {
+    margin-top: 104px;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 140px;
+    // position: absolute;
+    .chartWrapper {
+      position: relative;
+      span {
+        position: absolute;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+      }
+      .number1 {
+        color: #0ea1e6;
+        bottom: 122px;
+        left: 170px;
+      }
+      .number2 {
+        color: #4559a6;
+        bottom: 15px;
+        left: 170px;
+      }
+    }
+  }
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    // padding: inherit;
+    bottom: -44px;
+    left: -83px;
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      max-width: 240px;
+      line-height: 32px;
+      margin-bottom: 23px;
+    }
+    .yearsWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .year {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          padding-top: 9px;
+          padding-bottom: 28px;
+          padding-left: 24px;
+          width: 220px;
+          background-image: url(/images/whitebg.png);
+          background-repeat: no-repeat;
+          position: relative;
+          cursor: pointer;
+          p {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 44px;
+            color: #000;
+          }
+          .badge {
+            width: 53px;
+            height: 57px;
+
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 44px;
+            color: #fff;
+            position: absolute;
+            top: -7px;
+            right: 34px;
+          }
+          .starBadge {
+            line-height: 33px;
+          }
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+          }
+          .blue {
+            background-image: url(/images/statsicons/0EA1E6.png);
+          }
+          .green {
+            background-image: url(/images/statsicons/45A6A2.png);
+          }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        .itemActive {
+          background-image: url(/images/bluebg.png);
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    bottom: -74px;
+  }
+}

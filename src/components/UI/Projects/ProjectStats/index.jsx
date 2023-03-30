@@ -5,10 +5,12 @@ import ModernAssist from "./ModernAssist";
 import Sanitation from "./Sanitation";
 import Screening from "./Screening";
 import styles from "./style.module.scss";
+import WantToHear from "./WantToHear";
 import YashilHimoya from "./YashilHimoya";
 import YashilZamin from "./YashilZamin";
 import YoungFarmer from "./YoungFarmer";
 import ZaminCreative from "./ZaminCreative";
+import ZaminEducation from "./ZaminEducation";
 
 export default function ProjectStats(router) {
   const id = router?.router.query.id;
@@ -36,6 +38,10 @@ export default function ProjectStats(router) {
         <Screening />
       ) : id === "0e925825-b25b-489e-aa00-a8d00871bbbd" ? (
         <Sanitation />
+      ) : id === "6b21ab55-f17b-46bb-9aeb-dbf2d7737837" ? (
+        <ZaminEducation />
+      ) : id === "f7eed81b-0af8-4c40-9c70-cda119a117b6" ? (
+        <WantToHear />
       ) : (
         ""
       )}
