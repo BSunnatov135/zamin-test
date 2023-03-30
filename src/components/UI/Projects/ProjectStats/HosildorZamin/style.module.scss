@@ -1,0 +1,179 @@
+.container {
+  // background: #fff;
+  padding: 60px 96px;
+  max-width: 1570px;
+  position: relative;
+  margin: auto;
+
+  .header {
+    text-align: left;
+    position: absolute;
+    max-width: 400px;
+    top: 60px;
+    .title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+  .region {
+    color: #7f888f;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    column-gap: 8px;
+    p {
+      align-self: flex-end;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 24px;
+      line-height: 36px;
+    }
+  }
+  .svgWrapper {
+    width: max-content;
+    margin-right: 90px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    svg {
+      position: absolute;
+      opacity: 0.3;
+      &:first-child {
+        position: static;
+        z-index: 0;
+        opacity: 1;
+      }
+    }
+    .topTrees {
+      top: -29px;
+      right: 56px;
+      opacity: 1;
+    }
+    .itemActive {
+      opacity: 1;
+    }
+    .bottomTrees {
+      bottom: 94px;
+      right: -2px;
+      z-index: 2;
+      opacity: 1;
+    }
+    .greenHouse {
+      top: 32px;
+      z-index: 1;
+      right: 88px;
+    }
+    .topBuilding {
+      top: 55px;
+      left: 60px;
+    }
+    .indoorPool {
+      top: 156px;
+      left: 97px;
+    }
+    .outdoorPool {
+      bottom: 218px;
+      right: 76px;
+    }
+    .resourceTech {
+      right: 200px;
+      bottom: 84px;
+    }
+    .resourceTechLeft {
+      bottom: 16px;
+      left: 116px;
+    }
+    .plants {
+      left: 117px;
+      top: 210px;
+      z-index: 2;
+    }
+  }
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: inherit;
+    bottom: 0;
+    left: 0;
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      width: 70%;
+      line-height: 32px;
+      margin-bottom: 23px;
+    }
+    .yearsWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .year {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          padding-top: 16px;
+          padding-bottom: 15px;
+          padding-left: 24px;
+          width: 494px;
+          height: 96px;
+          background-image: url(/images/bgWhite.png);
+          background-repeat: no-repeat;
+          position: relative;
+          cursor: pointer;
+          p {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            height: 64px;
+            margin-left: 40px;
+            display: flex;
+            align-items: center;
+            color: #000;
+            max-width: 70%;
+          }
+          .badge {
+            padding: 7px 27px 6px 13px;
+
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 44px;
+            color: #fff;
+            position: absolute;
+            top: -7px;
+            right: 34px;
+          }
+          .starBadge {
+            padding: 12px 12px 12px 2px;
+            line-height: 33px;
+          }
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+          }
+          .blue {
+            background-image: url(/images/statsicons/0EA1E6.png);
+          }
+          .green {
+            background-image: url(/images/statsicons/45A6A2.png);
+          }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        .itemActive {
+          background-image: url(/images/greenbg.png);
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

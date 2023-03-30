@@ -1,0 +1,120 @@
+.container {
+  // background: #fff;
+  padding: 60px 96px;
+  max-width: 1570px;
+  position: relative;
+  margin: auto;
+
+  .header {
+    text-align: right;
+    position: absolute;
+    right: 32px;
+
+    top: 60px;
+    .title {
+      font-weight: 600;
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
+  .region {
+    color: #7f888f;
+
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    display: flex;
+    column-gap: 8px;
+    p {
+      align-self: flex-end;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 24px;
+      line-height: 36px;
+    }
+  }
+  .svgWrapper {
+    display: flex;
+    justify-content: center;
+    margin-right: -200px;
+    // position: absolute;
+  }
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    padding: inherit;
+    bottom: 0;
+    left: 0;
+    h2 {
+      font-weight: 700;
+      font-size: 24px;
+      width: 70%;
+      line-height: 32px;
+      margin-bottom: 23px;
+    }
+    .yearsWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .year {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          width: 220px;
+          height: 147px;
+          width: 360px;
+          background-position-x: right;
+
+          background-image: url(/images/whitetreebg.png);
+          background-repeat: no-repeat;
+          position: relative;
+          cursor: pointer;
+          p {
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 44px;
+            color: #000;
+          }
+          .badge {
+            padding: 7px 20px 6px 8px;
+
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 44px;
+            color: #fff;
+            position: absolute;
+            top: -7px;
+            right: 34px;
+          }
+          .starBadge {
+            padding: 7px 12px 6px 4px;
+          }
+          .darkBlue {
+            background-image: url(/images/statsicons/4559A6.png);
+            padding: 7px 20px 6px 8px;
+          }
+          .blue {
+            background-image: url(/images/statsicons/0EA1E6.png);
+          }
+          .green {
+            background-image: url(/images/statsicons/03C421.png);
+          }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+        }
+        .itemActive {
+          background-image: url(/images/bluebg.png);
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
