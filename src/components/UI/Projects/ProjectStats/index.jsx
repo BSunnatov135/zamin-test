@@ -5,6 +5,7 @@ import ModernAssist from "./ModernAssist";
 import Sanitation from "./Sanitation";
 import Screening from "./Screening";
 import styles from "./style.module.scss";
+import YashilHimoya from "./YashilHimoya";
 import YashilZamin from "./YashilZamin";
 import YoungFarmer from "./YoungFarmer";
 import ZaminCreative from "./ZaminCreative";
@@ -25,7 +26,10 @@ export default function ProjectStats(router) {
       ) : id == "35177eda-212c-4573-a8f4-57072ada61f4" ? (
         <EcoSchools />
       ) : id === "3eb55c2c-ecb3-44eb-a8e9-a8f4ef27b597" ? (
-        <YashilZamin />
+        <>
+          <YashilZamin />
+          <YashilHimoya />
+        </>
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
         <HosildorZamin />
       ) : id === "74296db6-636f-49c4-831e-2f138a312008" ? (
