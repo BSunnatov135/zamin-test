@@ -1,58 +1,50 @@
 .container {
   // background: #fff;
-  padding: 60px 96px;
-  max-width: 1570px;
+  padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (max-width: 576px) {
+  @media screen and (min-width: 577px) {
     display: none;
   }
   .header {
-    text-align: right;
-    position: absolute;
-    right: 32px;
-
-    top: 60px;
+    text-align: left;
     .title {
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 44px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
     }
   }
   .region {
     color: #7f888f;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
     display: flex;
-    column-gap: 8px;
+    align-items: center;
+    column-gap: 4px;
+    img {
+      height: 20px;
+    }
     p {
       align-self: flex-end;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 24px;
-      line-height: 36px;
     }
   }
   .svgWrapper {
     display: flex;
-    justify-content: flex-end;
+    margin-top: 16px;
+    svg {
+      height: max-content;
+    }
     // position: absolute;
   }
   .statsWrapper {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    padding: inherit;
-    bottom: 0;
-    left: 0;
+    margin-top: 16px;
     h2 {
       font-weight: 700;
-      font-size: 24px;
-      width: 70%;
-      line-height: 32px;
-      margin-bottom: 23px;
+      font-size: 16px;
+      line-height: 24px;
     }
     .yearsWrapper {
       display: flex;
@@ -63,52 +55,55 @@
         flex-direction: column;
 
         .item {
-          padding-top: 9px;
-          padding-bottom: 28px;
-          padding-left: 24px;
-          width: 220px;
-          background-image: url(/images/whitebg.png);
+          padding-top: 14px;
+          padding-bottom: 3px;
+          padding-left: 20px;
+          margin-left: -20px;
+          width: 160px;
+          background-image: url(/images/whiteresbg.png);
           background-repeat: no-repeat;
           position: relative;
           cursor: pointer;
           p {
-            font-weight: 600;
-            font-size: 32px;
-            line-height: 44px;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 32px;
             color: #000;
           }
           .badge {
-            padding: 7px 22px 6px 13px;
+            padding: 1px 18px 1px 11px;
 
             background-repeat: no-repeat;
             font-weight: 600;
-            font-size: 32px;
-            line-height: 44px;
+            font-size: 16px;
+            line-height: 20px;
             color: #fff;
             position: absolute;
-            top: -7px;
+            top: 14px;
             right: 34px;
           }
           .starBadge {
-            padding: 10px 14px 3px 5px;
+            padding: 1px 14px 1px 7px;
           }
           .yellow {
-            background-image: url(/images/statsicons/FFBD00.png);
+            background-image: url(/images/statsicons/FFBD00res.png);
           }
           .blue {
-            background-image: url(/images/statsicons/0EACAD.png);
+            background-image: url(/images/statsicons/0EACDres.png);
           }
           .red {
-            background-image: url(/images/statsicons/FF5865.png);
+            background-image: url(/images/statsicons/FF5865res.png);
           }
         }
         .plan {
           font-weight: 700;
           font-size: 16px;
           line-height: 24px;
+          text-align: center;
+          margin-top: 16px;
         }
         .itemActive {
-          background-image: url(/images/bluebg.png);
+          background-image: url(/images/blueresbg.png);
           p {
             color: #fff;
           }

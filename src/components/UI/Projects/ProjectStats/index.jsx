@@ -11,6 +11,7 @@ import YashilHimoya from "./YashilHimoya";
 import YashilZamin from "./YashilZamin";
 import YoungFarmer from "./YoungFarmer";
 import ZaminCreative from "./ZaminCreative";
+import ZaminCreativeMobile from "./ZaminCreativeMobile";
 import ZaminEducation from "./ZaminEducation";
 
 export default function ProjectStats(router) {
@@ -19,7 +20,10 @@ export default function ProjectStats(router) {
   return (
     <>
       {id == "6898ff37-85ce-4e68-a0f1-7e8157da5df0" ? (
-        <ZaminCreative />
+        <>
+          <ZaminCreative />
+          <ZaminCreativeMobile />
+        </>
       ) : id == "a79936a1-bdd3-4126-bf69-89e2ecfe23ee" ? (
         <AtmosMonitor />
       ) : id == "f9a34f4a-ccd9-4f1c-9157-a665faf486ba" ? (
