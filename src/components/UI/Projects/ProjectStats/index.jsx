@@ -9,6 +9,7 @@ import ModernAssistMobile from "./ModernAssistMobile";
 import Sanitation from "./Sanitation";
 import SanitationMobile from "./SanitationMobile";
 import Screening from "./Screening";
+import ScreeningMobile from "./ScreeningMobile";
 import styles from "./style.module.scss";
 import WantToHear from "./WantToHear";
 import YashilHimoya from "./YashilHimoya";
@@ -57,7 +58,10 @@ export default function ProjectStats(router) {
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
         <HosildorZamin />
       ) : id === "74296db6-636f-49c4-831e-2f138a312008" ? (
-        <Screening />
+        <>
+          <Screening />
+          <ScreeningMobile />
+        </>
       ) : id === "0e925825-b25b-489e-aa00-a8d00871bbbd" ? (
         <>
           <Sanitation />

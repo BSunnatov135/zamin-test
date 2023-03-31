@@ -1,0 +1,116 @@
+.container {
+  // background: #fff;
+  padding: 30px 14px;
+  position: relative;
+  margin: auto;
+  @media screen and (min-width: 577px) {
+    display: none;
+  }
+  .header {
+    text-align: left;
+    .title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+  .region {
+    color: #7f888f;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    img {
+      height: 20px;
+    }
+    p {
+      align-self: flex-end;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+  .svgWrapper {
+    display: flex;
+    margin-top: 16px;
+    svg {
+      height: auto;
+      width: 100%;
+    }
+    // position: absolute;
+  }
+  .statsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    h2 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .yearsWrapper {
+      display: flex;
+      flex-direction: column;
+      row-gap: 15px;
+      .year {
+        display: flex;
+        flex-direction: column;
+
+        .item {
+          padding-top: 14px;
+          padding-bottom: 3px;
+          padding-left: 20px;
+          margin-left: -20px;
+          width: 160px;
+          background-image: url(/images/whiteresbg.png);
+          background-repeat: no-repeat;
+          position: relative;
+          cursor: pointer;
+          p {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 32px;
+            color: #000;
+          }
+          .badge {
+            padding: 1px 18px 1px 11px;
+
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 20px;
+            color: #fff;
+            position: absolute;
+            top: 14px;
+            right: 34px;
+          }
+          .starBadge {
+            padding: 1px 9px 1px 3px;
+          }
+          .yellow {
+            background-image: url(/images/statsicons/violetres.png);
+            padding: 1px 14px 1px 6px;
+          }
+          .blue {
+            background-image: url(/images/statsicons/0EA1E6res.png);
+          }
+          .red {
+            background-image: url(/images/statsicons/45A6A2res.png);
+          }
+        }
+        .plan {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          margin-top: 16px;
+        }
+        .itemActive {
+          background-image: url(/images/blueresbg.png);
+          p {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
