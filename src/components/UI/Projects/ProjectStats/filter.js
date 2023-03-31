@@ -66,6 +66,17 @@
     <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />{" "}
     <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />{" "}
   </filter>
+  <filter id="1B9C9F" x="-20" y="-20" width="245" height="250">
+    <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+    <feColorMatrix
+      result="matrixOut"
+      in="offOut"
+      type="matrix"
+      values=" 0.9 0 0 0 0 0 0.02 0 0 0 0 0 0.02 0 0 0 0 0 0.79 0"
+    />
+    <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+  </filter>
   //4559a6
   <filter id="4559A6" x="-20" y="-20" width="245" height="250">
     {" "}

@@ -1,4 +1,5 @@
 import AtmosMonitor from "./AtmosMonitor";
+import AtmosMonitorMobile from "./AtmosMonitorMobile";
 import EcoSchools from "./EcoSchools";
 import HearingTreatment from "./HearingTreatment";
 import HosildorZamin from "./HosildorZamin";
@@ -25,7 +26,10 @@ export default function ProjectStats(router) {
           <ZaminCreativeMobile />
         </>
       ) : id == "a79936a1-bdd3-4126-bf69-89e2ecfe23ee" ? (
-        <AtmosMonitor />
+        <>
+          <AtmosMonitor />
+          <AtmosMonitorMobile />
+        </>
       ) : id == "f9a34f4a-ccd9-4f1c-9157-a665faf486ba" ? (
         <ModernAssist />
       ) : id == "c10d7f60-0f07-45ef-bb40-0d444686b4f6" ? (
