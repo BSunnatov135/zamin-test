@@ -39,6 +39,11 @@
     display: flex;
     justify-content: flex-end;
     // position: absolute;
+    svg {
+      path {
+        transform: translate(0, 0);
+      }
+    }
   }
   .statsWrapper {
     display: flex;
