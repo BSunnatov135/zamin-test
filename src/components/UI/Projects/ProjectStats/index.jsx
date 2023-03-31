@@ -7,6 +7,7 @@ import HosildorZamin from "./HosildorZamin";
 import ModernAssist from "./ModernAssist";
 import ModernAssistMobile from "./ModernAssistMobile";
 import Sanitation from "./Sanitation";
+import SanitationMobile from "./SanitationMobile";
 import Screening from "./Screening";
 import styles from "./style.module.scss";
 import WantToHear from "./WantToHear";
@@ -58,7 +59,10 @@ export default function ProjectStats(router) {
       ) : id === "74296db6-636f-49c4-831e-2f138a312008" ? (
         <Screening />
       ) : id === "0e925825-b25b-489e-aa00-a8d00871bbbd" ? (
-        <Sanitation />
+        <>
+          <Sanitation />
+          <SanitationMobile />
+        </>
       ) : id === "6b21ab55-f17b-46bb-9aeb-dbf2d7737837" ? (
         <ZaminEducation />
       ) : id === "f7eed81b-0af8-4c40-9c70-cda119a117b6" ? (
