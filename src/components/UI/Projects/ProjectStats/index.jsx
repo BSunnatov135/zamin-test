@@ -12,6 +12,7 @@ import WantToHear from "./WantToHear";
 import YashilHimoya from "./YashilHimoya";
 import YashilZamin from "./YashilZamin";
 import YoungFarmer from "./YoungFarmer";
+import YoungFarmerMobile from "./YoungFarmerMobile";
 import ZaminCreative from "./ZaminCreative";
 import ZaminCreativeMobile from "./ZaminCreativeMobile";
 import ZaminEducation from "./ZaminEducation";
@@ -37,7 +38,10 @@ export default function ProjectStats(router) {
           <ModernAssistMobile />
         </>
       ) : id == "c10d7f60-0f07-45ef-bb40-0d444686b4f6" ? (
-        <YoungFarmer />
+        <>
+          <YoungFarmer />
+          <YoungFarmerMobile />
+        </>
       ) : id == "35177eda-212c-4573-a8f4-57072ada61f4" ? (
         <EcoSchools />
       ) : id === "3eb55c2c-ecb3-44eb-a8e9-a8f4ef27b597" ? (
