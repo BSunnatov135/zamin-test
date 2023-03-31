@@ -1,76 +1,70 @@
 .container {
   // background: #fff;
-  padding: 60px 96px;
-  max-width: 1570px;
+  padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (max-width: 576px) {
+  @media screen and (min-width: 577px) {
     display: none;
   }
   .header {
-    text-align: right;
-    position: absolute;
-    right: 32px;
-
-    top: 60px;
+    text-align: left;
     .title {
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 44px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
     }
   }
   .region {
     color: #7f888f;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
     display: flex;
-    column-gap: 8px;
+    align-items: center;
+    column-gap: 4px;
+    img {
+      height: 20px;
+    }
     p {
       align-self: flex-end;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 24px;
-      line-height: 36px;
     }
   }
   .svgWrapper {
     display: flex;
-    justify-content: flex-end;
+    margin-top: 16px;
+    svg {
+      height: auto;
+    }
     // position: absolute;
   }
   .statsWrapper {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    padding: inherit;
-    bottom: 0;
-    left: 0;
+    margin-top: 16px;
     h2 {
       font-weight: 700;
-      font-size: 24px;
-      width: 70%;
-      line-height: 32px;
-      margin-bottom: 23px;
+      font-size: 16px;
+      line-height: 24px;
     }
     .yearsWrapper {
       display: flex;
       flex-direction: column;
+
       row-gap: 15px;
       .year {
         display: flex;
         flex-direction: column;
-
+        row-gap: 10px;
         .item {
-          padding-top: 28px;
-          padding-bottom: 26px;
-          padding-left: 24px;
-          width: 315px;
-          background-image: url(/images/longwhitebg.png);
+          padding-top: 18px;
+          padding-bottom: 5px;
+          margin-left: -20px;
+          padding-left: 30px;
+
+          background-image: url(/images/statsicons/reswhitebg.png);
           background-repeat: no-repeat;
-          background-size: cover;
           position: relative;
+          background-size: cover;
           cursor: pointer;
           .robot {
             position: absolute;
@@ -100,43 +94,31 @@
             color: #000;
             text-transform: uppercase;
           }
+          a {
+            font-size: 8px;
+          }
           .badge {
-            padding: 7px 27px 6px 13px;
+            padding: 1px 18px 1px 11px;
 
             background-repeat: no-repeat;
             font-weight: 600;
-            font-size: 24px;
-            line-height: 44px;
+            font-size: 16px;
+            line-height: 20px;
             color: #fff;
             position: absolute;
-            top: -7px;
+            top: 14px;
             right: 34px;
           }
-          .starBadge {
-            padding: 12px 12px 12px 2px;
-            line-height: 33px;
-          }
-          .darkBlue {
-            background-image: url(/images/statsicons/4559A6.png);
-          }
-          .blue {
-            background-image: url(/images/statsicons/0EA1E6.png);
-          }
-          .green {
-            background-image: url(/images/statsicons/45A6A2.png);
-          }
-        }
-        .link {
-          padding-top: 12px;
-          padding-bottom: 20px;
         }
         .plan {
           font-weight: 700;
           font-size: 16px;
           line-height: 24px;
+          text-align: center;
+          margin-top: 16px;
         }
         .itemActive {
-          background-image: url(/images/longgreenbg.png);
+          background-image: url(/images/statsicons/reswhitechosen.png);
           p {
             color: #fff;
           }

@@ -19,6 +19,7 @@ import YoungFarmerMobile from "./YoungFarmerMobile";
 import ZaminCreative from "./ZaminCreative";
 import ZaminCreativeMobile from "./ZaminCreativeMobile";
 import ZaminEducation from "./ZaminEducation";
+import ZaminEducationMobile from "./ZaminEducationMobile";
 
 export default function ProjectStats(router) {
   const id = router?.router.query.id;
@@ -68,7 +69,10 @@ export default function ProjectStats(router) {
           <SanitationMobile />
         </>
       ) : id === "6b21ab55-f17b-46bb-9aeb-dbf2d7737837" ? (
-        <ZaminEducation />
+        <>
+          <ZaminEducation />
+          <ZaminEducationMobile />
+        </>
       ) : id === "f7eed81b-0af8-4c40-9c70-cda119a117b6" ? (
         <WantToHear />
       ) : id === "f6f7515d-d595-4355-a95a-cd699ddfa255" ? (
