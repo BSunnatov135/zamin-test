@@ -61,19 +61,42 @@
         flex-direction: column;
 
         .item {
-          padding-top: 9px;
-          padding-bottom: 28px;
+          padding-top: 28px;
+          padding-bottom: 26px;
           padding-left: 24px;
-          width: 220px;
-          background-image: url(/images/whitebg.png);
+          width: 315px;
+          background-image: url(/images/longwhitebg.png);
           background-repeat: no-repeat;
+          background-size: cover;
           position: relative;
           cursor: pointer;
-          p {
+          .robot {
+            position: absolute;
+            top: -9px;
+            right: 30px;
+          }
+          .robotWithKids {
+            position: absolute;
+            top: -5px;
+            right: 20px;
+          }
+          .robotCheck {
+            position: absolute;
+            top: -5px;
+            right: 20px;
+          }
+          .platform {
+            position: absolute;
+            top: 0;
+            right: 20px;
+          }
+          p,
+          a {
             font-weight: 600;
-            font-size: 32px;
-            line-height: 44px;
+            font-size: 12px;
+            line-height: 16px;
             color: #000;
+            text-transform: uppercase;
           }
           .badge {
             padding: 7px 27px 6px 13px;
@@ -101,13 +124,17 @@
             background-image: url(/images/statsicons/45A6A2.png);
           }
         }
+        .link {
+          padding-top: 12px;
+          padding-bottom: 20px;
+        }
         .plan {
           font-weight: 700;
           font-size: 16px;
           line-height: 24px;
         }
         .itemActive {
-          background-image: url(/images/bluebg.png);
+          background-image: url(/images/longgreenbg.png);
           p {
             color: #fff;
           }
