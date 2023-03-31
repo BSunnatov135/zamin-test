@@ -113,6 +113,9 @@
     }
     .yearsWrapper {
       display: flex;
+      scale: 0.8;
+      margin-left: -40px;
+      margin-top: -20px;
       flex-direction: column;
       row-gap: 15px;
       .year {
