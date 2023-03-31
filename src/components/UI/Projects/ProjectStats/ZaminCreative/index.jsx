@@ -863,7 +863,7 @@ export default function ZaminCreative() {
                     clip-rule="evenodd"
                     d="M653.999 512C663.387 512 670.861 519.962 670.998 529.781C671.196 543.942 654.608 552 653.999 552C653.343 552 637 542.495 637 529.781C637 519.961 644.61 512 653.999 512Z"
                     fill="#1B9C9F"
-                    filter={active && "drop-shadow(0px 0px 10px darkgreen)"}
+                    filter={active && "url(#1B9C9F)"}
                   />
                   <g clip-path="url(#clip3_12_22612)">
                     <rect
@@ -1303,10 +1303,35 @@ export default function ZaminCreative() {
                     clip-rule="evenodd"
                     d="M239.999 207C249.387 207 256.861 214.962 256.998 224.781C257.196 238.942 240.608 247 239.999 247C239.343 247 223 237.495 223 224.781C223 214.961 230.61 207 239.999 207Z"
                     fill="#FF5865"
-                    filter={
-                      active === "2023" && "drop-shadow(0px 0px 10px red)"
-                    }
+                    filter={active === "2023" && "url(#my-filter)"}
                   />
+                  <filter
+                    id="my-filter"
+                    x="-20"
+                    y="-20"
+                    width="245"
+                    height="250"
+                  >
+                    {" "}
+                    <feOffset
+                      result="offOut"
+                      in="SourceGraphic"
+                      dx="0"
+                      dy="0"
+                    />{" "}
+                    <feColorMatrix
+                      result="matrixOut"
+                      in="offOut"
+                      type="matrix"
+                      values=" 0.9 0 0 0 0 0 0.02 0 0 0 0 0 0.02 0 0 0 0 0 0.79 0"
+                    />{" "}
+                    <feGaussianBlur
+                      result="blurOut"
+                      in="matrixOut"
+                      stdDeviation="10"
+                    />{" "}
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />{" "}
+                  </filter>
                   <g clip-path="url(#clip1_5_25)">
                     <rect
                       x="228"
@@ -1333,7 +1358,7 @@ export default function ZaminCreative() {
                     fill="#FFBD00"
                     filter={
                       active === "2022" || active === "2023"
-                        ? "drop-shadow(0px 0px 10px orange)"
+                        ? "url(#FFBD00)"
                         : ""
                     }
                   />
@@ -1361,8 +1386,28 @@ export default function ZaminCreative() {
                     clip-rule="evenodd"
                     d="M651.999 518C661.387 518 668.861 525.962 668.998 535.781C669.196 549.942 652.608 558 651.999 558C651.343 558 635 548.495 635 535.781C635 525.961 642.61 518 651.999 518Z"
                     fill="#1B9C9F"
-                    filter={active && "drop-shadow(0px 0px 10px darkgreen)"}
+                    filter={active && "url(#1B9C9F)"}
                   />
+                  <filter id="1B9C9F" x="-20" y="-20" width="245" height="250">
+                    <feOffset
+                      result="offOut"
+                      in="SourceGraphic"
+                      dx="0"
+                      dy="0"
+                    />{" "}
+                    <feColorMatrix
+                      result="matrixOut"
+                      in="offOut"
+                      type="matrix"
+                      values=" 0.11 0 0 0 0 0 0.61 0 0 0 0 0 0.62 0 0 0 0 0 0.79 0"
+                    />
+                    <feGaussianBlur
+                      result="blurOut"
+                      in="matrixOut"
+                      stdDeviation="10"
+                    />{" "}
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />{" "}
+                  </filter>
                   <g clip-path="url(#clip3_5_25)">
                     <rect
                       x="640"
@@ -1389,10 +1434,31 @@ export default function ZaminCreative() {
                     fill="#FFBD00"
                     filter={
                       active === "2022" || active === "2023"
-                        ? "drop-shadow(0px 0px 10px orange)"
+                        ? "url(#FFBD00)"
                         : ""
                     }
                   />
+                  <filter id="FFBD00" x="-20" y="-20" width="245" height="250">
+                    {" "}
+                    <feOffset
+                      result="offOut"
+                      in="SourceGraphic"
+                      dx="0"
+                      dy="0"
+                    />{" "}
+                    <feColorMatrix
+                      result="matrixOut"
+                      in="offOut"
+                      type="matrix"
+                      values=" 1 0 0 0 0 0 0.74 0 0 0 0 0 0 0 0 0 0 0 0.79 0"
+                    />{" "}
+                    <feGaussianBlur
+                      result="blurOut"
+                      in="matrixOut"
+                      stdDeviation="10"
+                    />{" "}
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />{" "}
+                  </filter>
                   <g clip-path="url(#clip4_5_25)">
                     <rect
                       x="837"
