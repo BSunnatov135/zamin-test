@@ -4,6 +4,7 @@ import EcoSchools from "./EcoSchools";
 import HearingTreatment from "./HearingTreatment";
 import HosildorZamin from "./HosildorZamin";
 import ModernAssist from "./ModernAssist";
+import ModernAssistMobile from "./ModernAssistMobile";
 import Sanitation from "./Sanitation";
 import Screening from "./Screening";
 import styles from "./style.module.scss";
@@ -31,7 +32,10 @@ export default function ProjectStats(router) {
           <AtmosMonitorMobile />
         </>
       ) : id == "f9a34f4a-ccd9-4f1c-9157-a665faf486ba" ? (
-        <ModernAssist />
+        <>
+          <ModernAssist />
+          <ModernAssistMobile />
+        </>
       ) : id == "c10d7f60-0f07-45ef-bb40-0d444686b4f6" ? (
         <YoungFarmer />
       ) : id == "35177eda-212c-4573-a8f4-57072ada61f4" ? (

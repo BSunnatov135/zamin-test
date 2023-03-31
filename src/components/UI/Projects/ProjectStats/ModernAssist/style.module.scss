@@ -4,7 +4,9 @@
   max-width: 1570px;
   position: relative;
   margin: auto;
-
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
   .header {
     text-align: right;
     position: absolute;
