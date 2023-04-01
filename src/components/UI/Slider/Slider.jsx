@@ -17,8 +17,15 @@ export default function InfoSlider({ data, title, queryFrom }) {
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
   };
-
   // const [slideIndex, setSlideIndex] = useState(1);
 
   // console.log("slideIndex", data);
