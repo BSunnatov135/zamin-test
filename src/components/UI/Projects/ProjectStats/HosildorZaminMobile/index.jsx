@@ -5,18 +5,19 @@ import HosildorMap from "assests/icons/HosildorIcons/hosildorres.svg";
 import TopTrees from "assests/icons/HosildorIcons/trees1res.svg";
 import GreenHouse from "assests/icons/HosildorIcons/greenHouseres.svg";
 import BottomTreess from "assests/icons/HosildorIcons/trees2res.svg";
-import TopBuilding from "assests/icons/HosildorIcons/topBuilding.svg";
-import IndoorPool from "assests/icons/HosildorIcons/indoorPool.svg";
-import OutdoorPool from "assests/icons/HosildorIcons/outdoorPool.svg";
-import ResourceTech from "assests/icons/HosildorIcons/resourceTech.svg";
-import ResourceTechLeft from "assests/icons/HosildorIcons/resourceTech1.svg";
-import Plants from "assests/icons/HosildorIcons/plants.svg";
+import TopBuilding from "assests/icons/HosildorIcons/topBuildingres.svg";
+import IndoorPool from "assests/icons/HosildorIcons/indoorPoolres.svg";
+import OutdoorPool from "assests/icons/HosildorIcons/outdoorPoolres.svg";
+import ResourceTech from "assests/icons/HosildorIcons/resourceTechres.svg";
+import ResourceTechLeft from "assests/icons/HosildorIcons/resourceTech1res.svg";
+import Plants from "assests/icons/HosildorIcons/plantsres.svg";
 import styles from "./style.module.scss";
 
 export default function HosildorZaminMobile() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [active, setActive] = useState(null);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
