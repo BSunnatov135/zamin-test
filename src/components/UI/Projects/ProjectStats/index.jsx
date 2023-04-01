@@ -13,6 +13,7 @@ import ScreeningMobile from "./ScreeningMobile";
 import styles from "./style.module.scss";
 import WantToHear from "./WantToHear";
 import YashilHimoya from "./YashilHimoya";
+import YashilHimoyaMobile from "./YashilHimoyaMobile";
 import YashilZamin from "./YashilZamin";
 import YashilZaminMobile from "./YashilZaminMobile";
 import YoungFarmer from "./YoungFarmer";
@@ -56,7 +57,8 @@ export default function ProjectStats(router) {
         <>
           <YashilZamin />
           <YashilZaminMobile />
-          {/* <YashilHimoya /> */}
+          <YashilHimoya />
+          <YashilHimoyaMobile />
         </>
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
         <HosildorZamin />
