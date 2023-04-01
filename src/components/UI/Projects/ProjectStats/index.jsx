@@ -3,6 +3,7 @@ import AtmosMonitorMobile from "./AtmosMonitorMobile";
 import EcoSchools from "./EcoSchools";
 import EcoSchoolsMobile from "./EcoSchoolsMobile";
 import HearingTreatment from "./HearingTreatment";
+import HearingTreatmentMobile from "./HearingTreatmentMobile";
 import HosildorZamin from "./HosildorZamin";
 import HosildorZaminMobile from "./HosildorZaminMobile";
 import ModernAssist from "./ModernAssist";
@@ -88,7 +89,10 @@ export default function ProjectStats(router) {
           <WantToHearMobile />
         </>
       ) : id === "f6f7515d-d595-4355-a95a-cd699ddfa255" ? (
-        <HearingTreatment />
+        <>
+          <HearingTreatment />
+          <HearingTreatmentMobile />
+        </>
       ) : (
         ""
       )}
