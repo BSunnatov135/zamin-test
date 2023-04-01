@@ -26,71 +26,74 @@ export default function YashilZamin() {
         <img src="/images/location.png" alt="" />
         <p>{t("tashkentcity")}</p>
       </div>
+
       <div className={styles.svgWrapper}>
-        {lang === "ru" ? (
-          <MapRu />
-        ) : lang === "en" ? (
-          <MapEn />
-        ) : lang === "uz" ? (
-          <MapUz />
-        ) : (
-          ""
-        )}
-        <Bektemir
-          className={classNames(styles.bektemir, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <Chilanzar
-          className={classNames(styles.chilanzar, {
-            [styles.active]: active === "2023",
-          })}
-        />
-        <Mirzo
-          className={classNames(styles.mirzo, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <Yunusabad
-          className={classNames(styles.yunusabad, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <Yangihayat
-          className={classNames(styles.yangihayat, {
-            [styles.active]: active === "2023",
-          })}
-        />
-        <Yashnabad
-          className={classNames(styles.yashnabad, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <SingleDark
-          className={classNames(styles.single1, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <SingleDark
-          className={classNames(styles.single2, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <SingleDark
-          className={classNames(styles.single3, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <SingleDark
-          className={classNames(styles.single4, {
-            [styles.active]: active === "2022",
-          })}
-        />
-        <SingleDark
-          className={classNames(styles.single5, {
-            [styles.active]: active === "2022",
-          })}
-        />
+        <div>
+          {lang === "ru" ? (
+            <MapRu />
+          ) : lang === "en" ? (
+            <MapEn />
+          ) : lang === "uz" ? (
+            <MapUz />
+          ) : (
+            ""
+          )}
+          <Bektemir
+            className={classNames(styles.bektemir, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <Chilanzar
+            className={classNames(styles.chilanzar, {
+              [styles.active]: active === "2023",
+            })}
+          />
+          <Mirzo
+            className={classNames(styles.mirzo, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <Yunusabad
+            className={classNames(styles.yunusabad, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <Yangihayat
+            className={classNames(styles.yangihayat, {
+              [styles.active]: active === "2023",
+            })}
+          />
+          <Yashnabad
+            className={classNames(styles.yashnabad, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <SingleDark
+            className={classNames(styles.single1, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <SingleDark
+            className={classNames(styles.single2, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <SingleDark
+            className={classNames(styles.single3, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <SingleDark
+            className={classNames(styles.single4, {
+              [styles.active]: active === "2022",
+            })}
+          />
+          <SingleDark
+            className={classNames(styles.single5, {
+              [styles.active]: active === "2022",
+            })}
+          />
+        </div>
       </div>
       <div className={styles.statsWrapper}>
         <h2>{t("plantingArea")}</h2>

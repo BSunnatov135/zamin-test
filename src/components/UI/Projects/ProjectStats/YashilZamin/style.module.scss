@@ -13,11 +13,6 @@
     right: 32px;
 
     top: 60px;
-    .title {
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 44px;
-    }
   }
   .region {
     color: #7f888f;
@@ -41,6 +36,7 @@
     margin-right: 140px;
     margin-left: auto;
     position: relative;
+
     svg {
       position: absolute;
       opacity: 0.4;
@@ -106,6 +102,7 @@
     padding: inherit;
     bottom: 0;
     left: 0;
+
     h2 {
       font-weight: 700;
       font-size: 24px;

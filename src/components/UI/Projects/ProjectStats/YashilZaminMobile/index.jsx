@@ -2,18 +2,16 @@ import classNames from "classnames";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import styles from "./style.module.scss";
-import MapRu from "assests/icons/yazru.svg";
-import MapUz from "assests/icons/yazuz.svg";
-import MapEn from "assests/icons/yazen.svg";
-import Bektemir from "assests/icons/bek.svg";
-import Chilanzar from "assests/icons/chil.svg";
-import Mirzo from "assests/icons/mir.svg";
-import Yunusabad from "assests/icons/topdark.svg";
-import Yangihayat from "assests/icons/y.svg";
-import SingleDark from "assests/icons/singledark.svg";
-import Yashnabad from "assests/icons/yash.svg";
+import Map from "assests/icons/yashilzaminres.svg";
+import Bektemir from "assests/icons/bekres.svg";
+import Chilanzar from "assests/icons/chilres.svg";
+import Mirzo from "assests/icons/mirres.svg";
+import Yunusabad from "assests/icons/topdarkres.svg";
+import Yangihayat from "assests/icons/yres.svg";
+import SingleDark from "assests/icons/singledarkres.svg";
+import Yashnabad from "assests/icons/yashres.svg";
 
-export default function YashilZamin() {
+export default function YashilZaminMobile() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [active, setActive] = useState(null);
@@ -27,15 +25,7 @@ export default function YashilZamin() {
         <p>{t("tashkentcity")}</p>
       </div>
       <div className={styles.svgWrapper}>
-        {lang === "ru" ? (
-          <MapRu />
-        ) : lang === "en" ? (
-          <MapEn />
-        ) : lang === "uz" ? (
-          <MapUz />
-        ) : (
-          ""
-        )}
+        <Map />
         <Bektemir
           className={classNames(styles.bektemir, {
             [styles.active]: active === "2022",

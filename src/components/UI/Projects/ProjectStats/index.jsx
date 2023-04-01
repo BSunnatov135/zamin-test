@@ -14,6 +14,7 @@ import styles from "./style.module.scss";
 import WantToHear from "./WantToHear";
 import YashilHimoya from "./YashilHimoya";
 import YashilZamin from "./YashilZamin";
+import YashilZaminMobile from "./YashilZaminMobile";
 import YoungFarmer from "./YoungFarmer";
 import YoungFarmerMobile from "./YoungFarmerMobile";
 import ZaminCreative from "./ZaminCreative";
@@ -54,7 +55,8 @@ export default function ProjectStats(router) {
       ) : id === "3eb55c2c-ecb3-44eb-a8e9-a8f4ef27b597" ? (
         <>
           <YashilZamin />
-          <YashilHimoya />
+          <YashilZaminMobile />
+          {/* <YashilHimoya /> */}
         </>
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
         <HosildorZamin />
