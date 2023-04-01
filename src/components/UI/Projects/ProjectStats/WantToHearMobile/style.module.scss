@@ -1,80 +1,81 @@
 .container {
   // background: #fff;
-  padding: 60px 96px;
-  max-width: 1570px;
+  padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (max-width: 576px) {
+  @media screen and (min-width: 577px) {
     display: none;
   }
   .header {
-    text-align: right;
-    position: absolute;
-    left: 0;
-    padding: inherit;
-    top: 0;
+    text-align: left;
     .title {
-      font-weight: 600;
-      font-size: 32px;
-      line-height: 44px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
     }
   }
   .region {
     color: #7f888f;
-
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
     display: flex;
-    column-gap: 8px;
+    align-items: center;
+    column-gap: 4px;
+    img {
+      height: 20px;
+    }
     p {
       align-self: flex-end;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 18px;
       line-height: 24px;
-      line-height: 36px;
     }
   }
+  .svgTitle {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    margin-top: 16px;
+    max-width: 240px;
+    margin-bottom: 23px;
+  }
   .svgWrapper {
-    margin-top: 104px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     column-gap: 140px;
     // position: absolute;
+    svg {
+      width: 100%;
+      max-width: 343px;
+      margin: auto;
+      height: max-content;
+    }
     .chartWrapper {
+      max-width: 343px;
+      margin: auto;
       position: relative;
       span {
         position: absolute;
         font-weight: 600;
-        font-size: 32px;
-        line-height: 48px;
+        font-size: 16px;
+        line-height: 24px;
       }
       .number1 {
         color: #0ea1e6;
         bottom: 122px;
-        left: 170px;
+        left: 123px;
+        bottom: 85.5px;
       }
       .number2 {
         color: #4559a6;
-        bottom: 15px;
-        left: 170px;
+        bottom: 11.5px;
+        left: 123px;
       }
     }
   }
   .statsWrapper {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    // padding: inherit;
-    bottom: -44px;
-    left: -83px;
-    h2 {
-      font-weight: 700;
-      font-size: 24px;
-      max-width: 240px;
-      line-height: 32px;
-      margin-bottom: 23px;
-    }
     .yearsWrapper {
       display: flex;
       flex-direction: column;

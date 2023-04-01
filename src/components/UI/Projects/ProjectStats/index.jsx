@@ -13,6 +13,7 @@ import Screening from "./Screening";
 import ScreeningMobile from "./ScreeningMobile";
 import styles from "./style.module.scss";
 import WantToHear from "./WantToHear";
+import WantToHearMobile from "./WantToHearMobile";
 import YashilHimoya from "./YashilHimoya";
 import YashilHimoyaMobile from "./YashilHimoyaMobile";
 import YashilZamin from "./YashilZamin";
@@ -82,7 +83,10 @@ export default function ProjectStats(router) {
           <ZaminEducationMobile />
         </>
       ) : id === "f7eed81b-0af8-4c40-9c70-cda119a117b6" ? (
-        <WantToHear />
+        <>
+          <WantToHear />
+          <WantToHearMobile />
+        </>
       ) : id === "f6f7515d-d595-4355-a95a-cd699ddfa255" ? (
         <HearingTreatment />
       ) : (
