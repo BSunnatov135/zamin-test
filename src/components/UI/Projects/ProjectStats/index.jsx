@@ -4,6 +4,7 @@ import EcoSchools from "./EcoSchools";
 import EcoSchoolsMobile from "./EcoSchoolsMobile";
 import HearingTreatment from "./HearingTreatment";
 import HosildorZamin from "./HosildorZamin";
+import HosildorZaminMobile from "./HosildorZaminMobile";
 import ModernAssist from "./ModernAssist";
 import ModernAssistMobile from "./ModernAssistMobile";
 import Sanitation from "./Sanitation";
@@ -61,7 +62,10 @@ export default function ProjectStats(router) {
           <YashilHimoyaMobile />
         </>
       ) : id === "66c7707c-c22f-4eb3-9193-547f41cbc0b8" ? (
-        <HosildorZamin />
+        <>
+          <HosildorZamin />
+          <HosildorZaminMobile />
+        </>
       ) : id === "74296db6-636f-49c4-831e-2f138a312008" ? (
         <>
           <Screening />
