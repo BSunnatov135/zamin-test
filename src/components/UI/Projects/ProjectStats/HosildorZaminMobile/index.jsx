@@ -12,6 +12,7 @@ import ResourceTech from "assests/icons/HosildorIcons/resourceTechres.svg";
 import ResourceTechLeft from "assests/icons/HosildorIcons/resourceTech1res.svg";
 import Plants from "assests/icons/HosildorIcons/plantsres.svg";
 import styles from "./style.module.scss";
+import Arrow from "assests/icons/HosildorIcons/arrowres.svg";
 
 export default function HosildorZaminMobile() {
   const { t } = useTranslation("common");
@@ -29,6 +30,8 @@ export default function HosildorZaminMobile() {
       </div>
       <div className={styles.svgWrapper}>
         <HosildorMap />
+        <Arrow className={styles.topArrow} />
+        <Arrow className={styles.bottomArrow} />
         <TopTrees className={styles.topTrees} />
         <BottomTreess className={styles.bottomTrees} />
         <GreenHouse

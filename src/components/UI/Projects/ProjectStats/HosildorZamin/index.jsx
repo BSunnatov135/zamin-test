@@ -12,6 +12,7 @@ import OutdoorPool from "assests/icons/HosildorIcons/outdoorPool.svg";
 import ResourceTech from "assests/icons/HosildorIcons/resourceTech.svg";
 import ResourceTechLeft from "assests/icons/HosildorIcons/resourceTech1.svg";
 import Plants from "assests/icons/HosildorIcons/plants.svg";
+import Arrow from "assests/icons/HosildorIcons/arrow.svg";
 
 export default function HosildorZamin() {
   const { t } = useTranslation("common");
@@ -35,6 +36,8 @@ export default function HosildorZamin() {
             [styles.itemActive]: active === "greenhouse",
           })}
         />
+        <Arrow className={styles.topArrow} />
+        <Arrow className={styles.bottomArrow} />
         <TopBuilding
           className={classNames(styles.topBuilding, {
             [styles.itemActive]: active === "eduresource",

@@ -94,6 +94,18 @@
       top: 210px;
       z-index: 2;
     }
+    .topArrow {
+      left: 172px;
+      top: 102px;
+      opacity: 1;
+      z-index: 3;
+    }
+    .bottomArrow {
+      left: 130px;
+      top: 156px;
+      opacity: 1;
+      z-index: 3;
+    }
   }
   .statsWrapper {
     display: flex;

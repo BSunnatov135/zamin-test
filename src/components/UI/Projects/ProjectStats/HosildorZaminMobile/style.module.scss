@@ -32,7 +32,10 @@
   .svgWrapper {
     // display: flex;
     position: relative;
+    margin: auto;
     margin-top: 46px;
+
+    width: max-content;
     svg {
       position: absolute;
       opacity: 0.3;
@@ -85,6 +88,18 @@
       top: 102px;
       left: 66px;
       z-index: 2;
+    }
+    .topArrow {
+      top: 49px;
+      left: 92px;
+      opacity: 1;
+      z-index: 3;
+    }
+    .bottomArrow {
+      opacity: 1;
+      z-index: 3;
+      left: 72px;
+      top: 82px;
     }
     // position: absolute;
   }
