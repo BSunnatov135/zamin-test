@@ -31,8 +31,61 @@
   }
   .svgWrapper {
     // display: flex;
-    margin-top: 16px;
-
+    position: relative;
+    margin-top: 46px;
+    svg {
+      position: absolute;
+      opacity: 0.3;
+      &:first-child {
+        position: static;
+        z-index: 0;
+        opacity: 1;
+      }
+    }
+    .topTrees {
+      top: -15px;
+      right: 29px;
+      opacity: 1;
+    }
+    .itemActive {
+      opacity: 1;
+    }
+    .bottomTrees {
+      bottom: 49px;
+      right: -2px;
+      z-index: 2;
+      opacity: 1;
+    }
+    .greenHouse {
+      top: 17px;
+      z-index: 1;
+      right: 46px;
+    }
+    .topBuilding {
+      top: 28px;
+      left: 31px;
+    }
+    .indoorPool {
+      top: 81px;
+      left: 50px;
+    }
+    .outdoorPool {
+      bottom: 122px;
+      right: 43px;
+    }
+    .resourceTech {
+      right: 112px;
+      bottom: 47px;
+    }
+    .resourceTechLeft {
+      bottom: 9px;
+      left: 65px;
+    }
+    .plants {
+      top: 102px;
+      left: 66px;
+      z-index: 2;
+    }
     // position: absolute;
   }
   .statsWrapper {
@@ -67,6 +120,7 @@
           p {
             font-weight: 600;
             font-size: 16px;
+            margin-left: 15px;
             line-height: 22px;
             color: #000;
           }
