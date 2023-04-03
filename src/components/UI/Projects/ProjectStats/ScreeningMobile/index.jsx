@@ -10,7 +10,7 @@ export default function ScreeningMobile() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>{t("realisation")} 2020-2022</h2>
+        <h2 className={styles.title}>{t("realisation")} 2022-2023</h2>
       </div>
       <div className={styles.region}>
         <img src="/images/location.png" alt="" />
@@ -406,7 +406,7 @@ export default function ScreeningMobile() {
         </svg>
       </div>
       <div className={styles.statsWrapper}>
-        <h2>{t("studios")}</h2>
+        <h2>{t("medInstitutions")}</h2>
         <div className={styles.yearsWrapper}>
           <div className={styles.year}>
             <div
@@ -419,7 +419,7 @@ export default function ScreeningMobile() {
               }}
             >
               <p>2020</p>
-              <span className={`${styles.badge} ${styles.yellow}`}>16</span>
+              <span className={`${styles.badge} ${styles.yellow}`}>19</span>
             </div>
           </div>
         </div>

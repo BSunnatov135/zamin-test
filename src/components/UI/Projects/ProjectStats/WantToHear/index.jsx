@@ -11,7 +11,7 @@ export default function WantToHear() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>{t("realisation")} 2021-2023</h2>
+        <h2 className={styles.title}>{t("realisation")} 2021-2022</h2>
       </div>
       <div className={styles.region}>
         <img src="/images/location.png" alt="" />

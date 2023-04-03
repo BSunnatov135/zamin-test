@@ -17,6 +17,9 @@
   .region {
     color: #7f888f;
     display: flex;
+    bottom: 12px;
+    right: 12px;
+    position: absolute;
     align-items: center;
     column-gap: 4px;
     img {
@@ -111,10 +114,9 @@
         }
         .plan {
           font-weight: 700;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 24px;
-          text-align: center;
-          margin-top: 16px;
+          margin-top: 5px;
         }
         .itemActive {
           background-image: url(/images/blueresbg.png);

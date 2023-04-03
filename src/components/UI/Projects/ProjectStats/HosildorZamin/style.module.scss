@@ -4,8 +4,11 @@
   max-width: 1570px;
   position: relative;
   margin: auto;
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 768px) {
     display: none;
+  }
+  @media screen and (max-width: 1200px) {
+    padding: 60px 40px;
   }
   .header {
     text-align: left;
@@ -41,6 +44,9 @@
     display: flex;
     justify-content: center;
     position: relative;
+    @media screen and (max-width: 1200px) {
+      margin-right: 0;
+    }
     svg {
       position: absolute;
       opacity: 0.3;
@@ -111,7 +117,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    padding: inherit;
+    padding: 50px;
     bottom: 0;
     left: 0;
     h2 {

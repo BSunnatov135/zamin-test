@@ -18,6 +18,9 @@
     color: #7f888f;
     display: flex;
     align-items: center;
+    bottom: 12px;
+    right: 12px;
+    position: absolute;
     column-gap: 4px;
     img {
       height: 20px;
@@ -129,10 +132,9 @@
         }
         .plan {
           font-weight: 700;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 24px;
-          text-align: center;
-          margin-top: 16px;
+          margin-top: 5px;
         }
         .itemActive {
           background-image: url(/images/statsicons/reswhitechosen.png);

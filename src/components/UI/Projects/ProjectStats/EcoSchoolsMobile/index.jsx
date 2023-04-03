@@ -10,7 +10,7 @@ export default function EcoSchoolsMobile() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>{t("realisation")} 2020-2022</h2>
+        <h2 className={styles.title}>{t("realisation")} 2021-2023</h2>
       </div>
       <div className={styles.region}>
         <img src="/images/location.png" alt="" />
@@ -1043,7 +1043,7 @@ export default function EcoSchoolsMobile() {
         </svg>
       </div>
       <div className={styles.statsWrapper}>
-        <h2>{t("studios")}</h2>
+        <h2>{t("ecoSchools")}</h2>
         <div className={styles.yearsWrapper}>
           <div className={styles.year}>
             <div

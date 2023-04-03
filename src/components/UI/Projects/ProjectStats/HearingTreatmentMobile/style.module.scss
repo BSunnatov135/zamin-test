@@ -24,6 +24,9 @@
   }
   .region {
     color: #7f888f;
+    bottom: 12px;
+    right: 12px;
+    position: absolute;
     display: flex;
     align-items: center;
     column-gap: 4px;
@@ -139,8 +142,9 @@
         }
         .plan {
           font-weight: 700;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 24px;
+          margin-top: 5px;
         }
         .itemActive {
           background-image: url(/images/bluebg.png);

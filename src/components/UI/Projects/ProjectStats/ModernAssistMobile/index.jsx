@@ -597,7 +597,7 @@ export default function ModernAssistMobile() {
         </svg>
       </div>
       <div className={styles.statsWrapper}>
-        <h2>{t("studios")}</h2>
+        <h2>{t("institutions")}</h2>
         <div className={styles.yearsWrapper}>
           <div className={styles.year}>
             <div
