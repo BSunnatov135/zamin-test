@@ -3,7 +3,7 @@
   padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (min-width: 577px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
   .header {
@@ -32,8 +32,14 @@
   .svgWrapper {
     display: flex;
     margin-top: 16px;
+    @media screen and (min-width: 680px) {
+      justify-content: flex-end;
+    }
     svg {
       height: auto;
+      @media screen and (min-width: 680px) {
+        width: 358px;
+      }
     }
     // position: absolute;
   }
@@ -41,6 +47,12 @@
     display: flex;
     flex-direction: column;
     margin-top: 16px;
+    @media screen and (min-width: 680px) {
+      position: absolute;
+      top: 108px;
+      left: 20px;
+      width: 45%;
+    }
     h2 {
       font-weight: 700;
       font-size: 16px;
@@ -58,13 +70,18 @@
         .item {
           padding-top: 18px;
           padding-bottom: 5px;
+          width: 375px;
+          margin: auto;
+          height: 64px;
           margin-left: -20px;
           padding-left: 30px;
-
           background-image: url(/images/statsicons/reswhitebg.png);
           background-repeat: no-repeat;
           position: relative;
           background-size: cover;
+          @media screen and (min-width: 680px) {
+            height: auto;
+          }
           cursor: pointer;
           .robot {
             position: absolute;
