@@ -3,7 +3,7 @@
   padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (min-width: 577px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
   .header {
@@ -47,7 +47,7 @@
       width: 100%;
       max-width: 343px;
       margin: auto;
-      height: max-content;
+      height: auto;
     }
     .chartWrapper {
       max-width: 343px;
