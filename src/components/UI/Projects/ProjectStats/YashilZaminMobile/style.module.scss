@@ -3,7 +3,7 @@
   padding: 30px 14px;
   position: relative;
   margin: auto;
-  @media screen and (min-width: 577px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
   .header {
@@ -36,6 +36,9 @@
     position: relative;
     display: flex;
     margin-top: 16px;
+    @media screen and (min-width: 680px) {
+      margin-right: 50px;
+    }
     svg {
       position: absolute;
       opacity: 0.4;
@@ -98,6 +101,11 @@
     display: flex;
     flex-direction: column;
     margin-top: 16px;
+    @media screen and (min-width: 710px) {
+      position: absolute;
+      top: 108px;
+      left: 20px;
+    }
     h2 {
       font-weight: 700;
       font-size: 16px;
