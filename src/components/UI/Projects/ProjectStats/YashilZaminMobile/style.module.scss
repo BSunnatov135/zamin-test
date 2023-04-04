@@ -18,7 +18,7 @@
     color: #7f888f;
     display: flex;
     align-items: center;
-    bottom: 12px;
+    bottom: 45px;
     right: 12px;
     position: absolute;
     column-gap: 4px;
@@ -206,9 +206,11 @@
         }
         .plan {
           font-weight: 700;
-          font-size: 14px;
-          line-height: 24px;
+          font-size: 10px;
+          line-height: 14px;
           margin-top: 5px;
+          margin-left: 10px;
+          margin-top: -8px;
         }
         .itemActive {
           background-image: url(/images/greentreebgres.png);
