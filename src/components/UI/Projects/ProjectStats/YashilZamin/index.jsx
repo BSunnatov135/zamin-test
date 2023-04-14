@@ -40,7 +40,7 @@ export default function YashilZamin() {
           )}
           <Bektemir
             className={classNames(styles.bektemir, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <Chilanzar
@@ -50,12 +50,12 @@ export default function YashilZamin() {
           />
           <Mirzo
             className={classNames(styles.mirzo, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <Yunusabad
             className={classNames(styles.yunusabad, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <Yangihayat
@@ -65,32 +65,32 @@ export default function YashilZamin() {
           />
           <Yashnabad
             className={classNames(styles.yashnabad, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <SingleDark
             className={classNames(styles.single1, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <SingleDark
             className={classNames(styles.single2, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <SingleDark
             className={classNames(styles.single3, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <SingleDark
             className={classNames(styles.single4, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
           <SingleDark
             className={classNames(styles.single5, {
-              [styles.active]: active === "2022",
+              [styles.active]: active,
             })}
           />
         </div>
