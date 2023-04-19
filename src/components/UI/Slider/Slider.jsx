@@ -26,9 +26,10 @@ export default function InfoSlider({ data, title, queryFrom }) {
       },
     ],
   };
+
   // const [slideIndex, setSlideIndex] = useState(1);
 
-  // console.log("slideIndex", data);
+  console.log("slideIndex", data);
 
   // const nextSlide = () => {
   //   if (slideIndex < data.length) {

@@ -18,7 +18,7 @@ export default function Home() {
       website_projects_id: id,
     },
   });
-
+  console.log("projectSlider", project);
   const data = project?.data?.response;
 
   const sliderData = useMemo(() => {
@@ -28,6 +28,10 @@ export default function Home() {
             file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
           },
           ...projectSlider?.data?.response,
+
+          {
+            file_link: data?.[`${lang}_video`] && data?.[`${lang}_video`],
+          },
         ]
       : [{ file_link: data?.[`${lang}_photo`] }];
 
