@@ -80,10 +80,10 @@ export default function InfoSlider({ data, title, queryFrom }) {
                   <img
                     src={item.file_link}
                     alt=""
-                    onError={({ currentTarget }) => {
-                      currentTarget.onerror = null;
-                      currentTarget.src = "/images/default.svg";
-                    }}
+                    // onError={({ currentTarget }) => {
+                    //   currentTarget.onerror = null;
+                    //   currentTarget.src = "/images/default.svg";
+                    // }}
                     height="100%"
                   />
                 )
