@@ -25,7 +25,6 @@ export default function Event() {
     (event) => event.date <= currentDate.toISOString()
   );
 
-  console.log("newarr", eventsArray[0]);
   const fullDate = (i) => {
     try {
       const res = format(new Date(eventsArray?.[i].date), "dd.MM.yyyy");
