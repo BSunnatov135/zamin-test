@@ -16,15 +16,19 @@ export default function Event() {
   const { events } = useEvents({
     eventParams: {
       offset: 0,
-      limit: 5,
+      limit: 99,
     },
   });
+  const currentDate = new Date();
+
+  const eventsArray = events?.data?.response.filter(
+    (event) => event.date <= currentDate.toISOString()
+  );
+
+  console.log("newarr", eventsArray[0]);
   const fullDate = (i) => {
     try {
-      const res = format(
-        new Date(events?.data?.response?.[i].date),
-        "dd.MM.yyyy"
-      );
+      const res = format(new Date(eventsArray?.[i].date), "dd.MM.yyyy");
       return res;
     } catch (err) {}
   };
@@ -53,13 +57,11 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(
-                  `/events-info/${events?.data?.response?.[0].guid}?from=events`
-                )
+                router.push(`/events-info/${eventsArray?.[0].guid}?from=events`)
               }
             >
               <img
-                src={events?.data?.response?.[0][`${lang}_poster`]}
+                src={eventsArray?.[0][`${lang}_poster`]}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/images/default.svg";
@@ -68,7 +70,7 @@ export default function Event() {
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: events?.data?.response?.[0][`${lang}_header`],
+                    __html: eventsArray?.[0][`${lang}_header`],
                   }}
                 ></p>
                 <p>{fullDate(0)}</p>
@@ -77,13 +79,11 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(
-                  `/events-info/${events?.data?.response?.[1].guid}?from=events`
-                )
+                router.push(`/events-info/${eventsArray?.[1].guid}?from=events`)
               }
             >
               <img
-                src={events?.data?.response?.[1][`${lang}_poster`]}
+                src={eventsArray?.[1]?.[`${lang}_poster`]}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/images/default.svg";
@@ -92,7 +92,7 @@ export default function Event() {
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: events?.data?.response?.[1][`${lang}_header`],
+                    __html: eventsArray?.[1][`${lang}_header`],
                   }}
                 ></p>
                 <p>{fullDate(1)}</p>
@@ -103,13 +103,11 @@ export default function Event() {
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
-                router.push(
-                  `/events-info/${events?.data?.response?.[2].guid}?from=events`
-                )
+                router.push(`/events-info/${eventsArray?.[2].guid}?from=events`)
               }
             >
               <img
-                src={events?.data?.response?.[2][`${lang}_poster`]}
+                src={eventsArray?.[2][`${lang}_poster`]}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/images/default.svg";
@@ -118,7 +116,7 @@ export default function Event() {
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: events?.data?.response?.[2][`${lang}_header`],
+                    __html: eventsArray?.[2][`${lang}_header`],
                   }}
                 ></p>
                 <p>{fullDate(2)}</p>
@@ -127,13 +125,11 @@ export default function Event() {
             <div
               className={`${styles.item} ${styles.event}`}
               onClick={() =>
-                router.push(
-                  `/events-info/${events?.data?.response?.[3].guid}?from=events`
-                )
+                router.push(`/events-info/${eventsArray?.[3].guid}?from=events`)
               }
             >
               <img
-                src={events?.data?.response?.[3][`${lang}_poster`]}
+                src={eventsArray?.[3][`${lang}_poster`]}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/images/default.svg";
@@ -142,7 +138,7 @@ export default function Event() {
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: events?.data?.response?.[3][`${lang}_header`],
+                    __html: eventsArray?.[3][`${lang}_header`],
                   }}
                 ></p>
                 <p>{fullDate(3)}</p>
@@ -151,13 +147,11 @@ export default function Event() {
             <div
               className={styles.item}
               onClick={() =>
-                router.push(
-                  `/events-info/${events?.data?.response?.[4].guid}?from=events`
-                )
+                router.push(`/events-info/${eventsArray?.[4].guid}?from=events`)
               }
             >
               <img
-                src={events?.data?.response?.[4][`${lang}_poster`]}
+                src={eventsArray?.[4][`${lang}_poster`]}
                 onError={({ currentTarget }) => {
                   currentTarget.onerror = null;
                   currentTarget.src = "/images/default.svg";
@@ -166,7 +160,7 @@ export default function Event() {
               <div className={styles.itemInfo}>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: events?.data?.response?.[4][`${lang}_header`],
+                    __html: eventsArray?.[4][`${lang}_header`],
                   }}
                 ></p>
                 <p>{fullDate(4)}</p>
