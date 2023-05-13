@@ -244,12 +244,12 @@ export default function Partners() {
         <div className={styles.item}>
           <div id="ecoschool">
             <img
-              src="/logos/EcoSchool.png"
+              src="/logos/EcoSchools.png"
               height={"72px"}
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/EcoSchool.png"
+              src="/logos/EcoSchools.png"
               height={"56px"}
               className={styles.mobileIcon}
             />
