@@ -18,7 +18,6 @@
     "strictNullChecks": true,
     "noImplicitThis": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true
   },
   "include": ["./src"],

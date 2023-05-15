@@ -261,7 +261,7 @@ export default function Partners() {
             className={styles.popover}
           />
         </div>
-        <div className={styles.item}>
+        {/* <div className={styles.item}>
           <div id="greenkey">
             <img
               src="/logos/GreenKey.png"
@@ -280,7 +280,7 @@ export default function Partners() {
             content={t("greenkey")}
             className={styles.popover}
           />
-        </div>
+        </div> */}
         <div className={styles.item}>
           <div id="health">
             <img
