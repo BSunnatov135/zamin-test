@@ -72,22 +72,24 @@ export default function InfoSlider({ data, title, queryFrom }) {
                 [styles.containerSlider]: queryFrom == "events",
               })}
             >
-              {data?.map((item) =>
-                item?.file_link?.toLowerCase().includes("mp4") ? (
-                  <video loop playsInline autoPlay muted controls>
-                    <source src={item?.file_link} type="video/mp4" />
-                  </video>
-                ) : (
-                  <img
-                    src={item.file_link}
-                    alt=""
-                    onError={({ currentTarget }) => {
-                      currentTarget.onerror = null;
-                      currentTarget.src = "/images/default.svg";
-                    }}
-                    height="100%"
-                  />
-                )
+              {data?.map(
+                (item) =>
+                  item?.file_link !== "" &&
+                  (item?.file_link?.toLowerCase().includes("mp4") ? (
+                    <video loop playsInline autoPlay muted controls>
+                      <source src={item?.file_link} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={item.file_link}
+                      alt=""
+                      onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = "/images/default.svg";
+                      }}
+                      height="100%"
+                    />
+                  ))
               )}
             </Slider>
           </div>
