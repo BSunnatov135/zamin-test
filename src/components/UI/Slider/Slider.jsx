@@ -74,7 +74,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
             >
               {data?.map(
                 (item) =>
-                  item?.file_link !== "" &&
+                  item?.file_link &&
                   (item?.file_link?.toLowerCase().includes("mp4") ? (
                     <video loop playsInline autoPlay muted controls>
                       <source src={item?.file_link} type="video/mp4" />
