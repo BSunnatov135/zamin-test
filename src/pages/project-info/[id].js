@@ -18,6 +18,7 @@ export default function Home() {
       website_projects_id: id,
     },
   });
+  console.log("project", project);
   const data = project?.data?.response;
 
   const withCurrentLangData = useMemo(() => {

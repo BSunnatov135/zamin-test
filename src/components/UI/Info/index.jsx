@@ -23,7 +23,7 @@ export default function Info({ title, sliderData, data }) {
       website_projects_id: [data?.guid],
     },
   });
-  console.log(router);
+  console.log("a", sliderData);
   return (
     <>
       <Slider data={sliderData ?? []} title={title} queryFrom={queryFrom} />
