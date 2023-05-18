@@ -7,6 +7,7 @@ import RightArrow from "/src/assests/icons/rightCarouselArrow.svg";
 import { Container } from "@mui/material";
 import Link from "next/link";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 export default function InfoSlider({ data, title, queryFrom }) {
   const settings = {
@@ -26,6 +27,8 @@ export default function InfoSlider({ data, title, queryFrom }) {
       },
     ],
   };
+  const router = useRouter();
+  console.log("router", router);
 
   // const [slideIndex, setSlideIndex] = useState(1);
 

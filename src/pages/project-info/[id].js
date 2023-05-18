@@ -18,16 +18,37 @@ export default function Home() {
       website_projects_id: id,
     },
   });
-  console.log("projectSlider", project);
   const data = project?.data?.response;
 
+  const withCurrentLangData = useMemo(() => {
+    if (!projectSlider?.data?.response) return;
+    let newArray = [];
+
+    projectSlider.data.response.forEach((element) => {
+      let currentEl = element;
+      if (
+        !currentEl.name.includes("ru") &&
+        !currentEl.name.includes("en") &&
+        !currentEl.name.includes("uz")
+      ) {
+        newArray.push(currentEl);
+      }
+      if (currentEl.name.includes(lang)) {
+        newArray.push(currentEl);
+      }
+    });
+
+    return newArray;
+  }, [projectSlider, lang]);
+
   const sliderData = useMemo(() => {
-    let currentData = projectSlider?.data?.response
+    if (!withCurrentLangData?.length) return;
+    let currentData = withCurrentLangData
       ? [
           {
             file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
           },
-          ...projectSlider?.data?.response,
+          ...withCurrentLangData,
 
           {
             file_link: data?.[`${lang}_video`] && data?.[`${lang}_video`],
@@ -36,7 +57,8 @@ export default function Home() {
       : [{ file_link: data?.[`${lang}_photo`] }];
 
     return currentData;
-  }, [projectSlider, lang, data]);
+  }, [withCurrentLangData, lang, data]);
+
   return (
     <>
       <SEO />
