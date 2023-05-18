@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import ReactDatePicker, { registerLocale } from "react-datepicker";
-import oz from "date-fns/locale/oz";
+import uz from "date-fns/locale/uz";
 import ru from "date-fns/locale/ru";
 import en from "date-fns/locale/en-US";
 import { TextField, InputAdornment } from "@mui/material";
@@ -43,7 +43,7 @@ const DataPickerInput = forwardRef((props, ref) => {
 
 const CRangePicker = ({ value, onChange }) => {
   let { lang } = useTranslation();
-  registerLocale("oz", oz);
+  registerLocale("oz", uz);
   registerLocale("ru", ru);
   registerLocale("en", en);
   return (
