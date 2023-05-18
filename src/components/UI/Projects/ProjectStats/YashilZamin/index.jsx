@@ -33,7 +33,7 @@ export default function YashilZamin() {
             <MapRu />
           ) : lang === "en" ? (
             <MapEn />
-          ) : lang === "uz" ? (
+          ) : lang === "oz" ? (
             <MapUz />
           ) : (
             ""

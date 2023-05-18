@@ -108,7 +108,7 @@ export default function SearchBody({ data }) {
         </Box>
         {data?.length >= 1 ? (
           <div className={styles.byRequestBox}>
-            {lang !== "uz" ? (
+            {lang !== "oz" ? (
               <h2 className={styles.byRequestTitle}>
                 {t("by_request")} «{data}»
               </h2>

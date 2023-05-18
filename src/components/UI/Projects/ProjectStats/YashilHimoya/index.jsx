@@ -303,7 +303,7 @@ export default function YashilHimoya() {
               </clipPath>
             </defs>
           </svg>
-        ) : lang === "uz" ? (
+        ) : lang === "oz" ? (
           <svg
             width="715"
             height="728"

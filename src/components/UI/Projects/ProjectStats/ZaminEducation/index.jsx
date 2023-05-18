@@ -2951,7 +2951,7 @@ export default function ZaminEducation() {
               </clipPath>
             </defs>
           </svg>
-        ) : lang === "uz" ? (
+        ) : lang === "oz" ? (
           <svg
             width="1094"
             height="696"

@@ -1769,7 +1769,7 @@ export default function Sanitation() {
               </filter>
             </defs>
           </svg>
-        ) : lang === "uz" ? (
+        ) : lang === "oz" ? (
           <svg
             width="715"
             height="654"

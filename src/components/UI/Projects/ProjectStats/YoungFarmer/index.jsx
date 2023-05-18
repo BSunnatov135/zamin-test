@@ -1875,7 +1875,7 @@ export default function YoungFarmer() {
               </filter>
             </defs>
           </svg>
-        ) : lang === "uz" ? (
+        ) : lang === "oz" ? (
           <svg
             width="1094"
             height="696"
