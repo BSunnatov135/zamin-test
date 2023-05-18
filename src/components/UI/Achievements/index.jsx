@@ -37,7 +37,6 @@ export default function Achievements() {
       on_main: true,
     },
   });
-
   const { t } = useTranslation("common");
   return (
     <Box
