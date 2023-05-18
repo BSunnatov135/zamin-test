@@ -49,8 +49,8 @@ export default function Home() {
       withCurrentLangData[i].type === "png" ||
       withCurrentLangData[i].type === "jpeg"
     ) {
-      photosArray.push(withCurrentLangData[i]);
-    } else videosArray.push(withCurrentLangData[i]);
+      photosArray.unshift(withCurrentLangData[i]);
+    } else videosArray.unshift(withCurrentLangData[i]);
   }
   const sliderRawData = photosArray.concat(videosArray);
 
