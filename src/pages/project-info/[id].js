@@ -18,7 +18,6 @@ export default function Home() {
       website_projects_id: id,
     },
   });
-  console.log("project", project);
   const data = project?.data?.response;
 
   const withCurrentLangData = useMemo(() => {
@@ -30,7 +29,7 @@ export default function Home() {
       if (
         !currentEl.name.includes("ru") &&
         !currentEl.name.includes("en") &&
-        !currentEl.name.includes("uz")
+        !currentEl.name.includes("oz")
       ) {
         newArray.push(currentEl);
       }
@@ -42,14 +41,27 @@ export default function Home() {
     return newArray;
   }, [projectSlider, lang]);
 
+  let photosArray = [];
+  let videosArray = [];
+  for (let i = 0; i < withCurrentLangData?.length; i++) {
+    if (
+      withCurrentLangData[i].type === "jpg" ||
+      withCurrentLangData[i].type === "png" ||
+      withCurrentLangData[i].type === "jpeg"
+    ) {
+      photosArray.unshift(withCurrentLangData[i]);
+    } else videosArray.unshift(withCurrentLangData[i]);
+  }
+  const sliderRawData = photosArray.concat(videosArray);
+
   const sliderData = useMemo(() => {
-    if (!withCurrentLangData?.length) return;
-    let currentData = withCurrentLangData
+    if (!sliderRawData?.length) return;
+    let currentData = sliderRawData
       ? [
           {
             file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`],
           },
-          ...withCurrentLangData,
+          ...sliderRawData,
 
           {
             file_link: data?.[`${lang}_video`] && data?.[`${lang}_video`],
@@ -58,7 +70,7 @@ export default function Home() {
       : [{ file_link: data?.[`${lang}_photo`] }];
 
     return currentData;
-  }, [withCurrentLangData, lang, data]);
+  }, [sliderRawData, lang, data]);
 
   return (
     <>
