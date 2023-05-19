@@ -141,7 +141,7 @@ export default function YashilZamin() {
               <span
                 className={`${styles.badge} ${styles.starBadge} ${styles.green}`}
               >
-                19*
+                19
               </span>
               <img src="/images/statsicons/singlelight.png"></img>
               <div className={styles.treeCount}>
