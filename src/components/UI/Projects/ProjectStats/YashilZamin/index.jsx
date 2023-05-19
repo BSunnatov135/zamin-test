@@ -149,7 +149,7 @@ export default function YashilZamin() {
                 <span className={styles.lightTree}>{t("trees")}</span>
               </div>
             </div>
-            <p className={styles.plan}>*{t("plan")}</p>
+            {/* <p className={styles.plan}>*{t("plan")}</p> */}
           </div>
         </div>
       </div>
