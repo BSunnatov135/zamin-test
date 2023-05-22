@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const langs = [
   {
     key: "oz",
-    label: "O’zbekchа",
+    label: "O‘zbekchа",
   },
   {
     key: "ru",
