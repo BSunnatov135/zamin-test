@@ -71,7 +71,6 @@ export default function RelatedEvents({ data }) {
           className={styles.slider}
         >
           {data?.$website_events_ids_data?.map((item, index) => {
-            console.log();
             return (
               <Link key={index} href={`/events-info/${item.guid}?from=events`}>
                 <a>

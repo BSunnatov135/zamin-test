@@ -140,7 +140,7 @@ export default function Header() {
       <Menu
         menuRef={ref}
         open={open}
-        handleClose={() => setOpen((prev) => !prev)}
+        handleClose={() => setOpen(false)}
         handleLogin={handleLogin}
         size={size}
       />

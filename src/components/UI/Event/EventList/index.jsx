@@ -63,24 +63,26 @@ export default function EventPage() {
         </div>
         <div>
           {responseData?.length > 0 && (
+            <>
             <div className={styles.list}>
               {responseData?.map((item) => (
                 <EventItem key={item?.guid} item={item} />
               ))}
             </div>
-          )}
-          <Pagination
-            className={`${styles.pagination} ${classPagination.root}`}
-            count={Math.ceil(countData / 6)}
-            page={page}
-            onChange={handleChange}
-            renderItem={(item) => (
-              <PaginationItem
-                components={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
-                {...item}
+            <Pagination
+              className={`${styles.pagination} ${classPagination.root}`}
+              count={Math.ceil(countData / 6)}
+              page={page}
+              onChange={handleChange}
+              renderItem={(item) => (
+                <PaginationItem
+                  components={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+                  {...item}
+                />
+              )}
               />
-            )}
-          />
+            </>
+          )}
         </div>
       </div>
     </Container>

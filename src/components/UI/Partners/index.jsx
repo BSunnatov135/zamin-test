@@ -304,12 +304,14 @@ export default function Partners() {
         <div className={styles.item}>
           <div id="unece">
             <img
+             
+              minWidth={"80px"}
               src="/logos/unece.png"
               height={"80px"}
               className={styles.desktopIcon}
             />
             <img
-              src="/logos/nece.png"
+              src="/logos/unece.png"
               height={"56px"}
               className={styles.mobileIcon}
             />

@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
-import Slider from "react-slick";
+import SlickSlider from "react-slick";
 import LeftArrow from "/src/assests/icons/leftArrow.svg";
 import GoLeft from "/src/assests/icons/goLeft.svg";
 import RightArrow from "/src/assests/icons/rightCarouselArrow.svg";
@@ -17,6 +17,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
+    focus:true,
     responsive: [
       {
         breakpoint: 768,
@@ -26,6 +27,18 @@ export default function InfoSlider({ data, title, queryFrom }) {
       },
     ],
   };
+
+  // const sliderRef = useRef(null);
+  
+  // useEffect(() => {
+  //   const track = sliderRef.current?.innerSlider?.list?.querySelector('.slick-track');
+  //   const focusSlider = setTimeout(() => {
+  //     const slide = track?.querySelector('.slick-slide');
+  //     slide.focus();
+  //   }, 0);
+  //   return () => clearTimeout(focusSlider);
+  // }, []);
+
 
   // const [slideIndex, setSlideIndex] = useState(1);
 
@@ -53,10 +66,10 @@ export default function InfoSlider({ data, title, queryFrom }) {
   return (
     <>
       <div className={styles.titleWrapper}>
-        <Link href="javascript:history.back()" passHref>
+        <Link  href="javascript:history.back()" passHref>
           <GoLeft className={styles.leftArrow} width="25" height="21" />
         </Link>
-        <h2
+        <div
           className={styles.sectionTitle}
           dangerouslySetInnerHTML={{
             __html: title,
@@ -66,8 +79,9 @@ export default function InfoSlider({ data, title, queryFrom }) {
       {data.length > 1 ? (
         <div className={styles.sliderWrapper}>
           <div id="infoSlider">
-            <Slider
+            <SlickSlider
               {...settings}
+              // ref={sliderRef}
               className={classNames({
                 [styles.containerSlider]: queryFrom == "events",
               })}
@@ -91,7 +105,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
                     />
                   ))
               )}
-            </Slider>
+            </SlickSlider>
           </div>
           {/* <SampleNextArrow
               styles={styles}
