@@ -40,7 +40,7 @@ export default function LanguageDropdown() {
   return (
     <div className={styles.container}>
       <p onClick={handleClick}>
-        <span>{lang === "ru" ? "Рус" : lang === "en" ? "Eng" : `O'zb`}</span>
+        <span>{lang === "ru" ? "Рус" : lang === "en" ? "Eng" : `O‘zb`}</span>
         <ArrowDownIcon />
       </p>
       <Popover
