@@ -55,6 +55,7 @@ const CRangePicker = ({ value, onChange }) => {
         endDate={value[1]}
         selectsRange
         showPopperArrow={false}
+        maxDate={new Date()}
         dateFormat="MM.yyyy"
         locale={`${lang}`}
         monthsShown={1}

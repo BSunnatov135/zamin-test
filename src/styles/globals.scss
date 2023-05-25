@@ -1214,3 +1214,7 @@ a {
 .MuiButtonBase-root {
   text-transform: capitalize;
 }
+
+.react-datepicker__month--disabled{
+    visibility: hidden !important;
+}
