@@ -220,7 +220,7 @@ export default function Donate() {
             <div className={styles.chooseAmount}>
               <p>{t("payment_method")}</p>
               <div className={styles.methodInputWrapper}>
-                <div
+                {/* <div
                   className={classNames(styles.methodInput, {
                     [styles.methodChosen]: method === "payme",
                   })}
@@ -237,7 +237,7 @@ export default function Donate() {
                       [styles.activeRadio]: method === "payme",
                     })}
                   />
-                </div>
+                </div> */}
                 <div
                   className={classNames(styles.methodInput, {
                     [styles.methodChosen]: method === "click",
