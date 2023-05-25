@@ -81,7 +81,7 @@ export default function HelpPeople() {
                   dangerouslySetInnerHTML={{
                     __html: data?.[`${lang}_description`],
                   }}
-                ></p>
+                />
                 <Link href={`/projects/${data?.spheres_id}`}>
                   <a>
                     {t("all_projects")} <ArrowRight />
