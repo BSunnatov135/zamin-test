@@ -1,7 +1,9 @@
 import useTranslation from "next-translate/useTranslation";
 import styles from '../style.module.scss'
+import { useRouter } from "next/router";
 
 export default function EventCard({ item }) {
+    const router = useRouter()
     const fullDate = (date) => {
         try {
             const res = format(new Date(date), "dd.MM.yyyy");
