@@ -7,46 +7,48 @@ export default function EventItem({ item }) {
   const { lang } = useTranslation();
 
   const { t } = useTranslation("common");
+  const isVisible = item[`${lang}_poster`] && item[`${lang}_header`] && item?.[`${lang}_description`]
   return (
-    <Link href={`/events-info/${item.guid}?from=events`}>
-      <a>
-        <div className={styles.item} key={item.img}>
-          <div className={styles.img}>
-            <img
-              src={item[`${lang}_poster`]}
-              alt={item[`${lang}_header`]}
-              onError={({ currentTarget }) => {
-                currentTarget.onerror = null;
-                currentTarget.src = "/images/default.svg";
-              }}
-            />
+    isVisible ?
+      <Link href={`/events-info/${item.guid}?from=events`}>
+        <a>
+          <div className={styles.item} key={item.img}>
+            <div className={styles.img}>
+              <img
+                src={item[`${lang}_poster`]}
+                alt={item[`${lang}_header`]}
+                onError={({ currentTarget }) => {
+                  currentTarget.onerror = null;
+                  currentTarget.src = "/images/default.svg";
+                }}
+              />
+            </div>
+            <div className={styles.body}>
+              <p
+                className={styles.body__title}
+                dangerouslySetInnerHTML={{
+                  __html: item?.[`${lang}_header`],
+                }}
+              />
+              <p
+                className={styles.body__text}
+                dangerouslySetInnerHTML={{
+                  __html: item?.[`${lang}_description`],
+                }}
+              />
+            </div>
+            <span className={styles.more}>
+              <Link
+                href={`/events-info/${item.guid}?from=events`}
+                styles={styles.body__link}
+              >
+                <a>
+                  {t("more")} <ArrowRight />
+                </a>
+              </Link>
+            </span>
           </div>
-          <div className={styles.body}>
-            <p
-              className={styles.body__title}
-              dangerouslySetInnerHTML={{
-                __html: item?.[`${lang}_header`],
-              }}
-            />
-            <p
-              className={styles.body__text}
-              dangerouslySetInnerHTML={{
-                __html: item?.[`${lang}_description`],
-              }}
-            />
-          </div>
-          <span className={styles.more}>
-            <Link
-              href={`/events-info/${item.guid}?from=events`}
-              styles={styles.body__link}
-            >
-              <a>
-                {t("more")} <ArrowRight />
-              </a>
-            </Link>
-          </span>
-        </div>
-      </a>
-    </Link>
+        </a>
+      </Link> : <></>
   );
 }
