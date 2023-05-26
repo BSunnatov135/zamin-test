@@ -88,10 +88,14 @@ ingress:
         - host: "zaminfoundation.ngo"
           path: /
           servicePort: 80
+        - host: "www.zaminfoundation.ngo"
+          path: /
+          servicePort: 80
       tls:
         - secretName: frontend-tls-own-domain
           hosts:
             - "zaminfoundation.ngo"
+            - "www.zaminfoundation.ngo"
 
 resources:
   {}
