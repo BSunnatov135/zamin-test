@@ -20,7 +20,7 @@ function Projects() {
       limit: 5,
     },
     dataSphere: {
-      limit: 99,
+      limit: 9999,
       offset: 0,
       spheres_id: dataSphere,
     },

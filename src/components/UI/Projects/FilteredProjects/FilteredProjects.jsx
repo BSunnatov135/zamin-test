@@ -13,7 +13,7 @@ function FilteredProjects() {
   const { sphere } = useSpheres({
     dataSphere: {
       offset: 0,
-      limit: 99,
+      limit: 9999,
       spheres_id: router.query.id,
     },
   });

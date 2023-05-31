@@ -46,7 +46,7 @@ export default function ProjectsPage() {
         data: {
           spheres_id: item.guid,
           offset: 0,
-          limit: 99,
+          limit: 9999,
         },
       }));
       getAllData(values).then((result) => {

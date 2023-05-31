@@ -17,7 +17,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
     prevArrow: <LeftArrow />,
-    focus:true,
+    focus: true,
     responsive: [
       {
         breakpoint: 768,
@@ -29,7 +29,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
   };
 
   // const sliderRef = useRef(null);
-  
+
   // useEffect(() => {
   //   const track = sliderRef.current?.innerSlider?.list?.querySelector('.slick-track');
   //   const focusSlider = setTimeout(() => {
@@ -38,7 +38,6 @@ export default function InfoSlider({ data, title, queryFrom }) {
   //   }, 0);
   //   return () => clearTimeout(focusSlider);
   // }, []);
-
 
   // const [slideIndex, setSlideIndex] = useState(1);
 
@@ -66,7 +65,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
   return (
     <>
       <div className={styles.titleWrapper}>
-        <Link  href="javascript:history.back()" passHref>
+        <Link href="javascript:history.back()" passHref>
           <GoLeft className={styles.leftArrow} width="25" height="21" />
         </Link>
         <div
@@ -89,7 +88,8 @@ export default function InfoSlider({ data, title, queryFrom }) {
               {data?.map(
                 (item) =>
                   item?.file_link &&
-                  (item?.file_link?.toLowerCase().includes("mp4") ? (
+                  (item?.file_link?.toLowerCase().includes("mp4") ||
+                  item?.file_link?.toLowerCase().includes("mov") ? (
                     <video loop playsInline autoPlay muted controls>
                       <source src={item?.file_link} type="video/mp4" />
                     </video>
@@ -122,7 +122,8 @@ export default function InfoSlider({ data, title, queryFrom }) {
             [styles.singleEventElement]: queryFrom == "events",
           })}
         >
-          {data?.type?.toLowerCase() === "mp4" ? (
+          {data?.type?.toLowerCase() === "mp4" ||
+          item?.file_link?.toLowerCase().includes("mov") ? (
             <video
               loop
               playsInline

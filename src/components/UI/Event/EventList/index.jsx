@@ -37,8 +37,9 @@ export default function EventPage() {
   });
 
   const countData = events?.data?.count;
-  const responseData = events?.data?.response;
 
+  const responseData = events?.data?.response;
+  console.log("OUNTDAYA", responseData);
   const handleChange = (_, value) => {
     router.push(`?current=${value}`);
   };
@@ -64,22 +65,25 @@ export default function EventPage() {
         <div>
           {responseData?.length > 0 && (
             <>
-            <div className={styles.list}>
-              {responseData?.map((item) => (
-                <EventItem key={item?.guid} item={item} />
-              ))}
-            </div>
-            <Pagination
-              className={`${styles.pagination} ${classPagination.root}`}
-              count={Math.ceil(countData / 6)}
-              page={page}
-              onChange={handleChange}
-              renderItem={(item) => (
-                <PaginationItem
-                  components={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
-                  {...item}
-                />
-              )}
+              <div className={styles.list}>
+                {responseData?.map((item) => (
+                  <EventItem key={item?.guid} item={item} />
+                ))}
+              </div>
+              <Pagination
+                className={`${styles.pagination} ${classPagination.root}`}
+                count={Math.ceil(countData / 6)}
+                page={page}
+                onChange={handleChange}
+                renderItem={(item) => (
+                  <PaginationItem
+                    components={{
+                      previous: ArrowBackIcon,
+                      next: ArrowForwardIcon,
+                    }}
+                    {...item}
+                  />
+                )}
               />
             </>
           )}

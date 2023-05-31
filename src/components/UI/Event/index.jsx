@@ -13,7 +13,7 @@ export default function Event() {
   const { events } = useEvents({
     eventParams: {
       offset: 0,
-      limit: 99,
+      limit: 9999,
     },
   });
   const currentDate = new Date();
@@ -34,30 +34,30 @@ export default function Event() {
     }
   }, [eventsContainerRef?.current?.offsetTop]);
 
-  return (
-    eventsArray?.length ?
-      <Container Container >
-        <div className={styles.main}>
-          <BlogTitle
-            title={t("event_title")}
-            link={{
-              title: t("all"),
-              path: "/event",
-            }}
-          />
-          <div className={styles.list} ref={eventsContainerRef}>
-            <div className={styles.topElement}>
-              <EventCard item={eventsArray?.[0]} />
-              <EventCard item={eventsArray?.[1]} />
-            </div>
-            <div className={styles.bottomElement}>
-              <EventCard item={eventsArray?.[2]} />
-              <EventCard item={eventsArray?.[3]} />
-              <EventCard item={eventsArray?.[4]} />
-            </div>
+  return eventsArray?.length ? (
+    <Container Container>
+      <div className={styles.main}>
+        <BlogTitle
+          title={t("event_title")}
+          link={{
+            title: t("all"),
+            path: "/event",
+          }}
+        />
+        <div className={styles.list} ref={eventsContainerRef}>
+          <div className={styles.topElement}>
+            <EventCard item={eventsArray?.[0]} />
+            <EventCard item={eventsArray?.[1]} />
+          </div>
+          <div className={styles.bottomElement}>
+            <EventCard item={eventsArray?.[2]} />
+            <EventCard item={eventsArray?.[3]} />
+            <EventCard item={eventsArray?.[4]} />
           </div>
         </div>
-      </Container>
-      : <></>
+      </div>
+    </Container>
+  ) : (
+    <></>
   );
 }

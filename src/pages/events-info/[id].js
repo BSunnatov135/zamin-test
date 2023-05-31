@@ -22,22 +22,29 @@ export default function Home() {
   const data = useMemo(() => {
     return event?.data?.response ?? [];
   }, [event]);
-
+  console.log("eventsdata", data);
+  const fileLink = {
+    file_link: data?.[`${lang}_video_poster`],
+  };
   const sliderData = useMemo(() => {
     let currentData;
 
     currentData = eventSlider?.data?.response
       ? [
+          data?.[`${lang}_video_poster`] && fileLink,
           {
             file_link: data?.[`${lang}_poster`] && data?.[`${lang}_poster`],
           },
           ...eventSlider?.data?.response,
         ]
-      : [{ file_link: data?.[`${lang}_poster`] }];
+      : [
+          data?.[`${lang}_video_poster`] && fileLink,
+          { file_link: data?.[`${lang}_poster`] },
+        ];
 
     return currentData;
   }, [eventSlider, lang, data]);
-
+  console.log("slidedatandex", sliderData);
   return (
     <>
       <SEO />
