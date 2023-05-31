@@ -7,11 +7,11 @@ export default function AtmosMonitor() {
   const { t } = useTranslation("common");
   const { lang } = useTranslation();
   const [active, setActive] = useState(null);
-  const years=[
-    {id:"2021",year:"2021",count:2},
-    {id:"2022",year:"2022",count:8},
-    {id:"2023",year:"2023",count:"16*"}
-  ]
+  const years = [
+    { id: "2021", year: "2021", count: 2 },
+    { id: "2022", year: "2022", count: 8 },
+    { id: "2023", year: "2023", count: "16*" },
+  ];
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -1658,18 +1658,30 @@ export default function AtmosMonitor() {
         <h2>{t("autoStations")}</h2>
         <div className={styles.yearsWrapper}>
           <div className={styles.year}>
-            {years?.map(element => (    
+            {years?.map((element) => (
               <div
                 className={classNames(styles.item, {
                   [styles.itemActive]: active === element.year,
                 })}
                 onClick={(e) => {
-                  setActive((prev)=>prev===element.year?"":element.year);
+                  setActive((prev) =>
+                    prev === element.year ? "" : element.year
+                  );
                   // e.preventDefault();
                 }}
               >
                 <p>{element.year}</p>
-                <span className={`${styles.badge} ${styles.blue}`}>{element.count}</span>
+                <span
+                  className={`${styles.badge} ${
+                    element.year === "2021"
+                      ? styles.blue
+                      : element.year === "2022"
+                      ? styles.darkBlue
+                      : styles.green
+                  }`}
+                >
+                  {element.count}
+                </span>
               </div>
             ))}
             <p className={styles.plan}>*{t("plan")}</p>
