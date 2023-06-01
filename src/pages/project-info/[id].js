@@ -33,10 +33,10 @@ export default function Home() {
         !element.name.includes("en") &&
         !element.name.includes("oz")
       ) {
-        newArray.push(element);
+        newArray.unshift(element);
       }
       if (element.name.includes(lang)) {
-        newArray.push(element);
+        newArray.unshift(element);
       }
     });
 
