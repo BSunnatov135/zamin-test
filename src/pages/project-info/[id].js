@@ -55,7 +55,6 @@ export default function Home() {
   const sliderRawData = photosArray.concat(videosArray);
 
   const sliderData = useMemo(() => {
-    if (!sliderRawData?.length) return;
     let currentData = sliderRawData
       ? [
           {
@@ -67,11 +66,11 @@ export default function Home() {
             file_link: data?.[`${lang}_video`] && data?.[`${lang}_video`],
           },
         ]
-      : [{ file_link: data?.[`${lang}_photo`] }];
+      : [{ file_link: data?.[`${lang}_photo`] && data?.[`${lang}_photo`] }];
 
     return currentData;
   }, [sliderRawData, lang, data]);
-
+  console.log("sliderdata", sliderRawData);
   return (
     <>
       <SEO />
