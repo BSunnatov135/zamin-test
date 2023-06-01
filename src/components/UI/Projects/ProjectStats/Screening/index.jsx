@@ -897,7 +897,7 @@ export default function Screening() {
               </filter>
             </defs>
           </svg>
-        ) : lang === "uz" ? (
+        ) : lang === "oz" ? (
           <svg
             width="715"
             height="644"
