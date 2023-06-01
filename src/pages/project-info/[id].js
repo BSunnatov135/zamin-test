@@ -47,9 +47,9 @@ export default function Home() {
   let videosArray = [];
   for (let i = 0; i < withCurrentLangData?.length; i++) {
     if (
-      withCurrentLangData[i].type === "jpg" ||
-      withCurrentLangData[i].type === "png" ||
-      withCurrentLangData[i].type === "jpeg"
+      withCurrentLangData[i].type?.toLowerCase() === "jpg" ||
+      withCurrentLangData[i].type?.toLowerCase() === "png" ||
+      withCurrentLangData[i].type?.toLowerCase() === "jpeg"
     ) {
       photosArray.unshift(withCurrentLangData[i]);
     } else videosArray.unshift(withCurrentLangData[i]);
@@ -74,7 +74,7 @@ export default function Home() {
 
     return currentData;
   }, [sliderRawData, lang, data]);
-  console.log("sliderdata", videosArray);
+  console.log("sliderdata", data);
   return (
     <>
       <SEO />
