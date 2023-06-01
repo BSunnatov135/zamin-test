@@ -18,23 +18,25 @@ export default function Home() {
       website_projects_id: id,
     },
   });
-  const data = project?.data?.response;
+  console.log("projectSlider", projectSlider);
+  const data = useMemo(() => {
+    return project?.data?.response;
+  }, [project]);
 
   const withCurrentLangData = useMemo(() => {
-    if (!projectSlider?.data?.response) return;
-    let newArray = [];
+    if (!projectSlider?.data?.response?.length && !lang) return;
+    const newArray = [];
 
-    projectSlider.data.response.forEach((element) => {
-      let currentEl = element;
+    projectSlider?.data?.response?.forEach((element) => {
       if (
-        !currentEl.name.includes("ru") &&
-        !currentEl.name.includes("en") &&
-        !currentEl.name.includes("oz")
+        !element.name.includes("ru") &&
+        !element.name.includes("en") &&
+        !element.name.includes("oz")
       ) {
-        newArray.push(currentEl);
+        newArray.push(element);
       }
-      if (currentEl.name.includes(lang)) {
-        newArray.push(currentEl);
+      if (element.name.includes(lang)) {
+        newArray.push(element);
       }
     });
 
@@ -52,9 +54,11 @@ export default function Home() {
       photosArray.unshift(withCurrentLangData[i]);
     } else videosArray.unshift(withCurrentLangData[i]);
   }
+  console.log("data, =", data);
   const sliderRawData = photosArray.concat(videosArray);
 
   const sliderData = useMemo(() => {
+    if (!data?.guid) return;
     let currentData = sliderRawData
       ? [
           {
@@ -70,7 +74,7 @@ export default function Home() {
 
     return currentData;
   }, [sliderRawData, lang, data]);
-  console.log("sliderdata", sliderRawData);
+  console.log("sliderdata", videosArray);
   return (
     <>
       <SEO />

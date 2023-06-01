@@ -13,6 +13,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
     dots: true,
     speed: 500,
     height: "800px",
+    // infinite: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <RightArrow />,
@@ -62,6 +63,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
   //   data.filter((el) => el.file_link && newArr?.push(el));
   // }, [newArr, data]);
   // console.log("newArr", newArr);
+  console.log("datadata", data);
   return (
     <>
       <div className={styles.titleWrapper}>
@@ -88,10 +90,12 @@ export default function InfoSlider({ data, title, queryFrom }) {
               {data?.map(
                 (item) =>
                   item?.file_link &&
-                  (item?.file_link?.toLowerCase().includes("mp4") ||
-                  item?.file_link?.toLowerCase().includes("mov") ? (
-                    <video loop playsInline autoPlay muted controls>
-                      <source src={item?.file_link && item?.file_link} />
+                  (item?.file_link?.toLowerCase().includes("mp4") ? (
+                    <video loop autoPlay muted controls>
+                      <source
+                        src={item?.file_link && item?.file_link}
+                        type="video/mp4"
+                      />
                     </video>
                   ) : (
                     <img
@@ -122,8 +126,7 @@ export default function InfoSlider({ data, title, queryFrom }) {
             [styles.singleEventElement]: queryFrom == "events",
           })}
         >
-          {data?.type?.toLowerCase() === "mp4" ||
-          item?.file_link?.toLowerCase().includes("mov") ? (
+          {data?.type?.toLowerCase() === "mp4" ? (
             <video
               loop
               playsInline
