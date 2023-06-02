@@ -33,7 +33,7 @@ export default function About() {
     <>
       <h2 className={styles.title}>{t("about")}</h2>
       <div className={styles.banner}>
-        <img src="/images/aboutBanner.jpeg"></img>
+        <img src="/images/aboutBanner.jpg"></img>
       </div>
       <Container>
         <div className={styles.context}>
