@@ -22,10 +22,43 @@ export default function Home() {
   const data = useMemo(() => {
     return event?.data?.response ?? [];
   }, [event]);
-  console.log("eventsdata", data);
+
   const fileLink = {
     file_link: data?.[`${lang}_video_poster`],
   };
+  const withCurrentLangData = useMemo(() => {
+    if (!eventSlider?.data?.response?.length && !lang) return;
+    const newArray = [];
+
+    eventSlider?.data?.response?.forEach((element) => {
+      if (
+        !element.name.includes("ru") &&
+        !element.name.includes("en") &&
+        !element.name.includes("oz")
+      ) {
+        newArray.push(element);
+      }
+      if (element.name.includes(lang)) {
+        newArray.push(element);
+      }
+    });
+
+    return newArray;
+  }, [eventSlider, lang]);
+
+  let photosArray = [];
+  let videosArray = [];
+  for (let i = 0; i < withCurrentLangData?.length; i++) {
+    if (
+      withCurrentLangData[i].type?.toLowerCase() === "jpg" ||
+      withCurrentLangData[i].type?.toLowerCase() === "png" ||
+      withCurrentLangData[i].type?.toLowerCase() === "jpeg"
+    ) {
+      photosArray.push(withCurrentLangData[i]);
+    } else videosArray.push(withCurrentLangData[i]);
+  }
+
+  const sliderRawData = photosArray.concat(videosArray);
   const sliderData = useMemo(() => {
     let currentData;
 
@@ -35,7 +68,7 @@ export default function Home() {
           {
             file_link: data?.[`${lang}_poster`] && data?.[`${lang}_poster`],
           },
-          ...eventSlider?.data?.response,
+          ...sliderRawData,
         ]
       : [
           data?.[`${lang}_video_poster`] && fileLink,
@@ -43,8 +76,9 @@ export default function Home() {
         ];
 
     return currentData;
-  }, [eventSlider, lang, data]);
+  }, [sliderRawData, lang, data]);
   console.log("slidedatandex", sliderData);
+  console.log("eventSlider", eventSlider);
   return (
     <>
       <SEO />
