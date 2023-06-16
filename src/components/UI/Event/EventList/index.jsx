@@ -33,6 +33,7 @@ export default function EventPage() {
       date: params.$gte && params.$lt ? params : undefined,
       offset: (page - 1) * 6,
       limit: 6,
+      is_active: true,
     },
   });
 

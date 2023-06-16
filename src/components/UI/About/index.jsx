@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import useSpheres from "services/spheres";
 import Board from "./Board";
+import Image from "next/image";
 
 export default function About() {
   const { t } = useTranslation("about");
@@ -28,12 +29,12 @@ export default function About() {
       limit: 3,
     },
   });
-
+  const data = spheres?.data?.response;
   return (
     <>
       <h2 className={styles.title}>{t("about")}</h2>
       <div className={styles.banner}>
-        <img src="/images/aboutBanner.jpg"></img>
+        <Image layout="fill" fill={true} src="/images/aboutBanner.jpg"></Image>
       </div>
       <Container>
         <div className={styles.context}>
@@ -47,36 +48,18 @@ export default function About() {
         <div id="sphere">
           <h2 className={styles.sphereTitle}>{t("helppeople_title")}</h2>
           <div className={styles.spheresWrapper}>
-            <div className={styles.sphereItem}>
-              <img
-                src={spheres?.data?.response[0]?.photo}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null;
-                  currentTarget.src = "/images/default.svg";
-                }}
-              ></img>
-              <p>{spheres?.data?.response[0]?.[`${lang}_name`]}</p>
-            </div>
-            <div className={styles.sphereItem}>
-              <img
-                src={spheres?.data?.response[1]?.photo}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null;
-                  currentTarget.src = "/images/default.svg";
-                }}
-              ></img>
-              <p>{spheres?.data?.response[1]?.[`${lang}_name`]} </p>
-            </div>
-            <div className={styles.sphereItem}>
-              <img
-                src={spheres?.data?.response[2]?.photo}
-                onError={({ currentTarget }) => {
-                  currentTarget.onerror = null;
-                  currentTarget.src = "/images/default.svg";
-                }}
-              ></img>
-              <p>{spheres?.data?.response[2]?.[`${lang}_name`]} </p>
-            </div>
+            {data?.map((item) => (
+              <div className={styles.sphereItem}>
+                <img
+                  src={item.photo}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "/images/default.svg";
+                  }}
+                ></img>
+                <p>{item?.[`${lang}_name`]}</p>
+              </div>
+            ))}
           </div>
         </div>
         <div ref={scrollRef} id="board">

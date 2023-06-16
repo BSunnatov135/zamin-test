@@ -126,7 +126,8 @@ export default function InfoSlider({ data, title, queryFrom }) {
             [styles.singleEventElement]: queryFrom == "events",
           })}
         >
-          {data?.type?.toLowerCase() === "mp4" ? (
+          {data?.type?.toLowerCase() === "mp4" ||
+          data?.[0]?.file_link?.includes("mp4") ? (
             <video
               loop
               playsInline

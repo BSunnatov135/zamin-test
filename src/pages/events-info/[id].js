@@ -24,7 +24,9 @@ export default function Home() {
   }, [event]);
 
   const fileLink = {
-    file_link: data?.[`${lang}_video_poster`],
+    file_link: data?.[`${lang}_video_poster`]
+      ? data?.[`${lang}_video_poster`]
+      : data?.[`${lang}_poster`],
   };
   const withCurrentLangData = useMemo(() => {
     if (!eventSlider?.data?.response?.length && !lang) return;
@@ -64,19 +66,16 @@ export default function Home() {
 
     currentData = eventSlider?.data?.response
       ? [
-          data?.[`${lang}_video_poster`] && fileLink,
-          {
-            file_link: data?.[`${lang}_poster`] && data?.[`${lang}_poster`],
-          },
+          fileLink,
+          // {
+          //   file_link: data?.[`${lang}_poster`] && data?.[`${lang}_poster`],
+          // },
           ...sliderRawData,
         ]
-      : [
-          data?.[`${lang}_video_poster`] && fileLink,
-          { file_link: data?.[`${lang}_poster`] },
-        ];
+      : fileLink;
 
     return currentData;
-  }, [sliderRawData, lang, data]);
+  }, [sliderRawData, fileLink, lang, data]);
   console.log("slidedatandex", sliderData);
   console.log("eventSlider", eventSlider);
   return (

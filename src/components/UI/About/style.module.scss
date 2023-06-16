@@ -19,11 +19,11 @@
 }
 .banner {
   max-width: 1570px;
+  width: 100%;
+  // height: 500px;
+  aspect-ratio: 3/2;
   margin: auto;
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
+  position: relative;
 }
 .context {
   padding: 60px 0px 120px;
